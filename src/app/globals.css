@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .bottom-app-nav {
+    @apply flex border border-t-slate-200 bg-white pt-1 px-2 fixed bottom-0 left-0 w-full;
+  }
+
+  .bottom-app-button {
+    @apply flex flex-col items-center basis-1/5;
+  }
+
+  .bottom-app-span {
+    @apply text-[0.6rem] text-[#777777] text-center;
+  }
+}
