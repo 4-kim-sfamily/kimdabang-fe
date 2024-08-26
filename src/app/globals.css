@@ -2,16 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  .bottom-app-nav {
-    @apply flex border border-t-slate-200 bg-white pt-1 px-2 fixed bottom-0 left-0 w-full;
+@layer components {
+  .bottom-nav {
+    @apply flex border-t border-slate-200 bg-white pt-1 px-2 fixed bottom-0 left-0 w-full;
   }
 
-  .bottom-app-button {
-    @apply flex flex-col items-center basis-1/5;
+  .bottom-nav-list {
+    @apply flex w-full;
   }
 
-  .bottom-app-span {
+  .bottom-nav-item {
+    @apply flex flex-1;
+  }
+
+  .bottom-nav-button {
+    @apply flex flex-col items-center justify-center w-full;
+  }
+
+  .bottom-nav-span {
     @apply text-[0.6rem] text-[#777777] text-center;
   }
 }
