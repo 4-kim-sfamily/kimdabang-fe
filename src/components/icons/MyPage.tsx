@@ -1,15 +1,15 @@
+// AppBar Icon
 import React from "react";
 
-// AppBar Icon
-
-export const MyPage = () => {
+export default function MyPage() {
   return (
     <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg">
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M20.4 19.2H19.2C19.2 15.24 15.96 12 12 12C8.04004 12 4.80004 15.24 4.80004 19.2H3.60004C3.60004 14.52 7.32004 10.8 12 10.8C16.68 10.8 20.4 14.52 20.4 19.2Z"
         fill="black"
@@ -22,4 +22,4 @@ export const MyPage = () => {
       />
     </svg>
   );
-};
+}

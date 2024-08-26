@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Question = () => {
+export default function Question() {
   return (
     <svg
       width="16"
@@ -23,4 +23,4 @@ export const Question = () => {
       />
     </svg>
   );
-};
+}

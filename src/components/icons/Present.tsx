@@ -1,15 +1,15 @@
+// AppBar Icon
 import React from "react";
 
-// AppBar Icon
-
-export const Present = () => {
+export default function Present() {
   return (
     <svg
       width="17"
       height="18"
       viewBox="0 0 17 18"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg">
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
@@ -18,4 +18,4 @@ export const Present = () => {
       />
     </svg>
   );
-};
+}

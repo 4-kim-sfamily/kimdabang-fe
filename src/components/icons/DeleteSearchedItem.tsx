@@ -1,6 +1,6 @@
 import React from "react";
 
-export const DeleteSearchedItem = () => {
+export default function DeleteSearchedItem() {
   return (
     <svg
       width="12"
@@ -17,4 +17,4 @@ export const DeleteSearchedItem = () => {
       />
     </svg>
   );
-};
+}

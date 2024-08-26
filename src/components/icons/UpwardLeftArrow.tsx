@@ -1,6 +1,6 @@
 import React from "react";
 
-export const UpwardLeftArrow = () => {
+export default function UpwardLeftArrow() {
   return (
     <svg
       width="13"
@@ -15,4 +15,4 @@ export const UpwardLeftArrow = () => {
       />
     </svg>
   );
-};
+}

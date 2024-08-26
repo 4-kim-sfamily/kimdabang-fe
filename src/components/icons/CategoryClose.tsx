@@ -1,6 +1,6 @@
 import React from "react";
 
-export const CategoryClose = () => {
+export default function CategoryClose() {
   return (
     <svg
       width="24"
@@ -19,4 +19,4 @@ export const CategoryClose = () => {
       />
     </svg>
   );
-};
+}
