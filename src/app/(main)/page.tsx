@@ -1,5 +1,11 @@
-import ArrowWithTail from "@/components/icons/ArrowWithTail";
 import React from "react";
+
+import ArrowWithTail from "@/components/icons/ArrowWithTail";
+
+
+
+
+
 
 export default function page() {
   return (
