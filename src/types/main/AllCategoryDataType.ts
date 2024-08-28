@@ -4,6 +4,7 @@ interface Category {
   parentId: number;
 }
 
+// 메인페이지에서 보여줄 MainCategory & 사진
 export type OnlyMainCategory = Omit<Category, "parentId"> & {
   imgUrl: string;
 };
