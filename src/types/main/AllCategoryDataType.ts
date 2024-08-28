@@ -1,7 +1,7 @@
 interface Category {
   id: number;
   name: string;
-  parentId?: number;
+  parentId: number;
 }
 
 export type OnlyMainCategory = Omit<Category, "parentId"> & {
