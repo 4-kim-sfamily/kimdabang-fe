@@ -4,6 +4,12 @@ export interface ItemCardType {
   ProductName: string;
   price: number;
   imgUrl: string;
+  discount?: DiscountedItemCardType;
+}
+
+export interface DiscountedItemCardType {
+  discount: number;
+  discountedPrice: number;
 }
 
 export interface ItemCardListType {
