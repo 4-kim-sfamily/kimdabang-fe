@@ -1,4 +1,4 @@
-export default function StarbucksLogo() {
+export default function StarbucksIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720">
       <title>Logo - Current</title>
