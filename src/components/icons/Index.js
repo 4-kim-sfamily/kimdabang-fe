@@ -11,3 +11,5 @@ export { default as RecentGood } from "./RecentGood";
 export { default as Search } from "./Search";
 export { default as UpwardArrow } from "./UpwardArrow";
 export { default as UpwardLeftArrow } from "./UpwardLeftArrow";
+export { default as StarbucksLogo } from "./StarbucksLogo";
+export { default as Hearts } from "./Hearts";
