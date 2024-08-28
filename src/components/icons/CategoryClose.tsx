@@ -7,8 +7,7 @@ export default function CategoryClose() {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+      xmlns="http://www.w3.org/2000/svg">
       <path
         d="M4.36304 18.7881L18.7879 4.36328L19.6364 5.2118L5.21156 19.6366L4.36304 18.7881Z"
         fill="white"

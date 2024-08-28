@@ -2,7 +2,8 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:prettier/recommended"
   ],
   "plugins": ["import"],
   "rules": {
@@ -20,6 +21,13 @@
         ],
         "newlines-between": "always",
         "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "bracketSameLine": true,
+        "endOfLine": "auto"
       }
     ]
   },
