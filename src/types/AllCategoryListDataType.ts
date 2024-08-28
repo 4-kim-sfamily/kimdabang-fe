@@ -8,5 +8,5 @@ interface Category {
 export interface AllCategoryListDataType {
   mainCategories: Category[]; // 대분류
   subCategories: Category[]; // 중분류
-  subSubCategories: Category[]; // 소분류
+  detailCategories: Category[]; // 소분류
 }
