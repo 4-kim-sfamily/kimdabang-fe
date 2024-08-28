@@ -7,18 +7,24 @@ export const Header = () => {
       <nav className="flex w-full justify-between p-4 items-center">
         <ul className="flex gap-3 items-center">
           <li>
-            <Hamburger />
+              <Hamburger />
           </li>
           <li>
-            <StarbucksLogo />
+            <Link href="/">
+              <StarbucksLogo />
+            </Link>
           </li>
         </ul>
         <ul className="flex gap-3">
           <li>
-            <Search />
+            <Link href="/search">
+              <Search />
+            </Link>
           </li>
           <li>
-            <Hearts />
+            <Link href="/like">
+              <Hearts />
+            </Link>
           </li>
           <li>
             <Link href="/cart">
