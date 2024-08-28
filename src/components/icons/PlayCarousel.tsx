@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function PlayCarousel() {
   return (
     <svg
@@ -7,8 +5,7 @@ export default function PlayCarousel() {
       height="16"
       viewBox="0 0 14 16"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+      xmlns="http://www.w3.org/2000/svg">
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
