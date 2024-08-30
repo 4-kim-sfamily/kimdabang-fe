@@ -11,6 +11,7 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         kakao: "bg-[#FEE500] text-black font-bold",
+        disabled: "bg-gray-300 text-white font-bold",
         starbucks: "bg-[#01a862] font-bold text-white",
         inversion:
           "bg-white text-[#01a862] border-[#01a862] border-2 font-bold",
