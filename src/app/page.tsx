@@ -24,6 +24,9 @@ export default function page() {
         <Button variant="inversion" size="sm" className="text-lg">
           주소검색
         </Button>
+        <Button variant="starbucks" size="free" className="text-lg">
+          #더스트백
+        </Button>
       </div>
     </div>
   );
