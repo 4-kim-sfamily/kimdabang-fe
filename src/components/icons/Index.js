@@ -1,5 +1,6 @@
 export { default as Cart } from "./Cart";
 export { default as CategoryClose } from "./CategoryClose";
+export { default as CustomerServiceIcon } from "./CustomerServiceIcon";
 export { default as DeleteSearchedItem } from "./DeleteSearchedItem";
 export { default as DownwardArrow } from "./DownwardArrow";
 export { default as Hamburger } from "./Hamburger";
