@@ -5,7 +5,7 @@ import KakaoLogo from "@/components/icons/KakaoLogo";
 
 export default function LoginPage() {
   return (
-    <div className="font-NanumSquare  flex flex-col justify-between">
+    <div className="font-NanumSquare   justify-between">
       <header className="mt-5 ml-4 mb-20">
         {/* 여기에 에로우 방향 추가 후 넣어야할듯 */}
         <DownwardArrow></DownwardArrow>
@@ -59,17 +59,19 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <button className=" mb-2 mx-6 bg-[#01a862] text-white py-3 rounded-full font-bold">
-        로그인하기
-      </button>
-      <Link
-        href="https://kauth.kakao.com/oauth/authorize"
-        className="mb-2 mx-6 bg-[#FEE500] text-black py-3 rounded-full font-bold flex items-center">
-        <div className="ml-auto mr-5">
-          <KakaoLogo />
-        </div>
-        <span className="mr-auto">카카오로 로그인하기</span>
-      </Link>
+      <div className="LoginButtons flex flex-col">
+        <button className=" mb-2 mx-6 bg-[#01a862] text-white py-3 rounded-full font-bold">
+          로그인하기
+        </button>
+        <Link
+          href="https://kauth.kakao.com/oauth/authorize"
+          className="mb-2 mx-6 bg-[#FEE500] text-black py-3 rounded-full font-bold flex items-center">
+          <div className="ml-auto mr-5">
+            <KakaoLogo />
+          </div>
+          <span className="mr-auto">카카오로 로그인하기</span>
+        </Link>
+      </div>
     </div>
   );
 }
