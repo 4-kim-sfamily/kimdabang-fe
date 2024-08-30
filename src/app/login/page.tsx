@@ -2,17 +2,18 @@ import Link from "next/link";
 
 import { DownwardArrow, StarbucksIcon } from "@/components/icons/Index";
 import KakaoLogo from "@/components/icons/KakaoLogo";
+import { Button } from "@/components/ui/button";
 
 export default function LoginPage() {
   return (
     <div className="font-NanumSquare   justify-between">
       <header className="mt-5 ml-4 mb-20">
         {/* 여기에 에로우 방향 추가 후 넣어야할듯 */}
-        <DownwardArrow></DownwardArrow>
+        <DownwardArrow degree={90}></DownwardArrow>
       </header>
 
       <div className="flex flex-col mx-5">
-        <div className="mb-5 w-16">
+        <div className="mt-5 mb-5 w-16">
           <StarbucksIcon />
         </div>
 
@@ -44,7 +45,7 @@ export default function LoginPage() {
           </div>
         </form>
 
-        <div className="flex justify-center p-1 w-full text-sm text-gray-600 mb-48 space-x-2">
+        <div className="flex justify-center p-1 w-full text-sm text-gray-600 mb-12 space-x-2">
           <Link href="#" className="hover:underline">
             아이디 찾기
           </Link>
@@ -59,18 +60,12 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <div className="LoginButtons flex flex-col">
-        <button className=" mb-2 mx-6 bg-[#01a862] text-white py-3 rounded-full font-bold">
-          로그인하기
-        </button>
-        <Link
-          href="https://kauth.kakao.com/oauth/authorize"
-          className="mb-2 mx-6 bg-[#FEE500] text-black py-3 rounded-full font-bold flex items-center">
-          <div className="ml-auto mr-5">
-            <KakaoLogo />
-          </div>
-          <span className="mr-auto">카카오로 로그인하기</span>
-        </Link>
+      <div className="LoginButtons flex flex-col items-center">
+        <Button variant="starbucks">로그인하기</Button>
+        <Button variant="kakao">
+          <KakaoLogo></KakaoLogo>
+          <span>카카오로 로그인하기</span>
+        </Button>
       </div>
     </div>
   );

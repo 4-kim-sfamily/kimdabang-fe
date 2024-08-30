@@ -1,5 +1,3 @@
-import React from "react";
-
 type HamburgerProps = {
   color?: string; // color prop은 선택적이며, 문자열 타입으로 정의
 };

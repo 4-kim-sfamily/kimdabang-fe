@@ -5,25 +5,22 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "font-NanumSquare rounded-full items-center flex justify-center",
   {
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        kakao: "bg-[#FEE500] text-black ",
+        disabled: "bg-gray-300 text-white ",
+        starbucks: "bg-[#01a862]  text-white",
+        inversion: "bg-white text-[#01a862] border-[#01a862] border-2 ",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: "w-[88%] mb-2 py-3 font-bold",
+        sm: "w-[25%] py-1 mb-2 font-normal text-sm",
+        md: "w-[45%] mb-2 px-8 py-3 font-bold",
+        lg: "w-[88%] mb-2 py-3 font-bold",
+        free: "mb-2 py-2 px-5 mx-3 font-bold",
       },
     },
     defaultVariants: {
