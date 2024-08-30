@@ -4,24 +4,28 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-const buttonVariants = cva("font-NanumSquare rounded-full items-center ", {
-  variants: {
-    variant: {
-      default: "bg-primary text-primary-foreground hover:bg-primary/90",
-      starbucks: "bg-[#01a862] font-bold text-white",
-      inversion: "bg-white text-[#01a862] border-[#01a862] border-2 font-bold",
+const buttonVariants = cva(
+  "font-NanumSquare rounded-full items-center flex justify-center",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        starbucks: "bg-[#01a862] font-bold text-white",
+        inversion:
+          "bg-white text-[#01a862] border-[#01a862] border-2 font-bold",
+      },
+      size: {
+        default: "w-[88%] mb-2 py-3",
+        sm: "w-[45%] mb-2 px-8 py-3",
+        lg: "mb-2 mx-6 py-3",
+      },
     },
-    size: {
-      default: "w-[88%] mb-2 py-3",
-      sm: "mb-2 mx-1 px-8 py-3",
-      lg: "mb-2 mx-6 py-3",
+    defaultVariants: {
+      variant: "default",
+      size: "default",
     },
-  },
-  defaultVariants: {
-    variant: "default",
-    size: "default",
-  },
-});
+  }
+);
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
