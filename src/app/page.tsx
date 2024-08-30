@@ -6,6 +6,7 @@ export default function page() {
   return (
     <div className="w-full flex flex-col ">
       <Button variant="starbucks">로그인하기</Button>
+      <Button variant="kakao">카카오 하이</Button>
       <div className="justify-around">
         <Button variant="starbucks" size="sm">
           <div className="pr-2">
