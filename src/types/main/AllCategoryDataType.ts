@@ -15,6 +15,6 @@ export interface OnlyMainCategory extends Category {
 // 전체 카테고리 데이터를 담을 타입 정의
 export interface AllCategoryDataType {
   mainCategories: Category[]; // 대분류
-  subCategories: subCategory[]; // 중분류
-  detailCategories: subCategory[]; // 소분류
+  subCategories?: subCategory[]; // 중분류
+  detailCategories?: subCategory[]; // 소분류
 }

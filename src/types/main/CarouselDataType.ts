@@ -1,4 +1,5 @@
 export interface CarouselDataType {
-    id:number,
-    imgUrl :  string ,
+  id: number;
+  description: string; // Alt 용으로..
+  imgUrl: string;
 }
