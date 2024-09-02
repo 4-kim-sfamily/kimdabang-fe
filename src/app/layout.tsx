@@ -12,8 +12,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body>{children}</body>
-    </html>
+    <>
+      <html lang="ko">
+        <body className="p-[4.1vw]">{children}</body>
+      </html>
+    </>
   );
 }
