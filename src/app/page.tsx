@@ -1,3 +1,5 @@
+import { Header } from "@/components/layouts/Header";
+
 import ItemCard from "@/components/Items/ItemCard";
 import { ReviewMap, ReviewResponse } from "@/types/review/ReviewDataType";
 
@@ -13,18 +15,21 @@ export default function Page() {
   });
 
   return (
-    <div className="flex flex-wrap gap-3 sm:justify-between md:justify-start p-3">
-      {itemCard.itemCard.map((item) => {
-        const review = reviewMap[item.ProductCode];
-        return (
-          <ItemCard
-            key={item.id}
-            item={item}
-            rate={review?.rate}
-            reviewCnt={review?.reviewCnt}
-          />
-        );
-      })}
-    </div>
+    <>
+      <Header />
+      <div className="flex flex-wrap gap-3 sm:justify-between md:justify-start p-3">
+        {itemCard.itemCard.map((item) => {
+          const review = reviewMap[item.ProductCode];
+          return (
+            <ItemCard
+              key={item.id}
+              item={item}
+              rate={review?.rate}
+              reviewCnt={review?.reviewCnt}
+            />
+          );
+        })}
+      </div>
+    </>
   );
 }
