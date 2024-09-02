@@ -1,5 +1,4 @@
 import { signIn } from "next-auth/react";
-// eslint-disable-next-line import/order
 import Link from "next/link";
 
 import { DownwardArrow, StarbucksIcon } from "@/components/icons/Index";
