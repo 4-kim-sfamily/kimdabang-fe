@@ -5,6 +5,7 @@ import Cart from "../icons/Cart";
 import Hearts from "../icons/Hearts";
 
 import ReviewPreview from "./ReviewPreview";
+
 export default function ItemCard() {
   "use client";
 
@@ -35,7 +36,7 @@ export default function ItemCard() {
           </div>
           <p className="text-[13px]">{item.ProductName}</p>
           <div className="font-semibold">{item.price}원</div>
-          <ReviewPreview />
+          <ReviewPreview productCode={item.ProductCode} />
         </div>
       ))}
     </div>
