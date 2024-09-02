@@ -1,19 +1,19 @@
 import Image from "next/image";
 
-import dummyItemCardList from "../Items/dummydata";
-
+import ItemCardList from "../../lib/dummy/items/ItemCardList.json";
 import Cart from "../icons/Cart";
 import Hearts from "../icons/Hearts";
+
 import ReviewPreview from "./ReviewPreview";
 export default function ItemCard() {
   "use client";
 
-  const handleLikeButton = () => {
+  const handleCartBtn = () => {
     console.log("상품 좋아요");
   };
   return (
     <div className="flex flex-wrap gap-3 sm:justify-between md:justify-start p-3">
-      {dummyItemCardList.itemCard.map((item) => (
+      {ItemCardList.itemCard.map((item) => (
         <div key={item.id} className="w-[calc(50%-8px)] sm:w-[calc(25%-12px)]">
           <div className="relative w-full aspect-square">
             <Image
@@ -25,10 +25,12 @@ export default function ItemCard() {
             />
           </div>
           <div className="flex justify-between">
-            <div className="text-[#777777] text-[12px] pt-2">스타벅스</div>
+            <div className="text-[#777777] text-[12px] pt-2">
+              {item.largeCategory}
+            </div>
             <div className="flex gap-2">
-              <Hearts HandleLickButton={handleLikeButton} color="black" />
-              <Cart HandleLickButton={handleLikeButton} color="black" />
+              <Hearts HandleClickButton={handleCartBtn} color="black" />
+              <Cart HandleClickButton={handleCartBtn} color="black" />
             </div>
           </div>
           <p className="text-[13px]">{item.ProductName}</p>
