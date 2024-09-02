@@ -27,7 +27,8 @@
       "error",
       {
         "bracketSameLine": true,
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "trailingComma": "es5"
       }
     ]
   },
