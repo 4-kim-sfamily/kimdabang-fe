@@ -1,5 +1,3 @@
-"use client";
-
 export default function Cart({ color }: { color?: string }) {
   return (
     <svg

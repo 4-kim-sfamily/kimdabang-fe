@@ -1,4 +1,3 @@
-"use client";
 export default function Hearts({ color }: { color?: string }) {
   return (
     <svg
