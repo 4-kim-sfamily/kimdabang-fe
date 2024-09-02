@@ -8,7 +8,7 @@ export default function ReviewPreview({
   reviewCnt: number;
 }) {
   return (
-    <div className="flex items-center text-[#777777] text-[12px]">
+    <div className="flex items-center text-[#777777] text-[12px] px-1">
       <Star />
       {`${rate} | ${reviewCnt}건`}
     </div>

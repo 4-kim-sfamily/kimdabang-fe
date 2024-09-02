@@ -1,11 +1,4 @@
-export default function Hearts({
-  HandleClickButton,
-  color,
-}: {
-  HandleClickButton: () => void;
-  color?: string;
-}) {
-  HandleClickButton();
+export default function Hearts({ color }: { color?: string }) {
   return (
     <svg
       width="24"

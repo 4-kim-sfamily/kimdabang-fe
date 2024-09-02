@@ -1,11 +1,4 @@
-export default function Cart({
-  HandleClickButton,
-  color,
-}: {
-  HandleClickButton: () => void;
-  color?: string;
-}) {
-  HandleClickButton();
+export default function Cart({ color }: { color?: string }) {
   return (
     <svg
       width="24"
@@ -19,14 +12,14 @@ export default function Cart({
         fill={color ? color : "white"}
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M6 19.2001C6 20.5201 7.08 21.6 8.4 21.6C9.72 21.6 10.8 20.5201 10.8 19.2001C10.8 17.8801 9.72 16.8 8.4 16.8C7.08 16.8 6 17.8801 6 19.2001ZM7.20004 19.2001C7.20004 18.4801 7.68004 18 8.40004 18C9.12004 18 9.60004 18.4801 9.60004 19.2001C9.60004 19.9201 9.12004 20.4 8.40004 20.4C7.68004 20.4 7.20004 19.9201 7.20004 19.2001Z"
         fill={color ? color : "white"}
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M15.6001 19.2001C15.6001 20.5201 16.6801 21.6 18.0001 21.6C19.3201 21.6 20.4001 20.5201 20.4001 19.2001C20.4001 17.8801 19.3201 16.8 18.0001 16.8C16.6801 16.8 15.6001 17.8801 15.6001 19.2001ZM16.8002 19.2001C16.8002 18.4801 17.2802 18 18.0002 18C18.7202 18 19.2002 18.4801 19.2002 19.2001C19.2002 19.9201 18.7202 20.4 18.0002 20.4C17.2802 20.4 16.8002 19.9201 16.8002 19.2001Z"
         fill={color ? color : "white"}
       />
