@@ -1,11 +1,11 @@
 export default function Cart({
-  HandleLickButton,
+  HandleClickButton,
   color,
 }: {
-  HandleLickButton: () => void;
+  HandleClickButton: () => void;
   color?: string;
 }) {
-  HandleLickButton();
+  HandleClickButton();
   return (
     <svg
       width="24"
