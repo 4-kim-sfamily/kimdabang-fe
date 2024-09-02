@@ -29,3 +29,6 @@
   font-weight: 900;
   font-style: extrabold;
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
