@@ -1,16 +1,12 @@
+import { signIn } from "next-auth/react";
+// eslint-disable-next-line import/order
 import Link from "next/link";
-import { signIn, useSession } from "next-auth/react";
-import { useEffect } from "react";
 
 import { DownwardArrow, StarbucksIcon } from "@/components/icons/Index";
 import KakaoLogo from "@/components/icons/KakaoLogo";
 import { Button } from "@/components/ui/button";
 
 export default function LoginPage() {
-  const auth = useSession();
-  useEffect(() => {
-    console.log("Login form auth", auth);
-  }, [auth]);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(e.currentTarget);
