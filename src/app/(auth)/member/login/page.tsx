@@ -1,10 +1,30 @@
 import Link from "next/link";
+import { signIn, useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 import { DownwardArrow, StarbucksIcon } from "@/components/icons/Index";
 import KakaoLogo from "@/components/icons/KakaoLogo";
 import { Button } from "@/components/ui/button";
 
 export default function LoginPage() {
+  const auth = useSession();
+  useEffect(() => {
+    console.log("Login form auth", auth);
+  }, [auth]);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(e.currentTarget);
+    const formData = new FormData(e.currentTarget);
+    console.log(formData.get("id"));
+    console.log(formData.get("password"));
+    signIn("credentials", {
+      id: formData.get("id") as string,
+      password: formData.get("password") as string,
+      redirect: true,
+      callbackUrl: "/",
+    });
+  };
+
   return (
     <div className="font-NanumSquare   justify-between">
       <header className="mt-5 ml-4 mb-20">
@@ -26,7 +46,7 @@ export default function LoginPage() {
           회원 서비스 이용을 위해 로그인 해주세요.
         </span>
 
-        <form className="w-full">
+        <form onSubmit={handleSubmit} className="w-full">
           <div className="mb-2">
             <input
               type="text"
@@ -54,7 +74,7 @@ export default function LoginPage() {
             비밀번호 찾기
           </Link>
           <span>|</span>
-          <Link href="#" className="hover:underline">
+          <Link href="/sign-in" className="hover:underline">
             회원가입
           </Link>
         </div>
