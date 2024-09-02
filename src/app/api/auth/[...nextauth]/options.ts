@@ -16,16 +16,19 @@ export const options: NextAuthOptions = {
         }
         console.log("credentials", credentials);
         // 여기에 POST 요청을 보낼 URL 작성
-        const res = await fetch(`MYSIGNINAPIURI`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+        const res = await fetch(
+          `http://http://10.10.10.19:8080/api/v1/auth/login`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              id: credentials.id,
+              password: credentials.password,
+            }),
           },
-          body: JSON.stringify({
-            id: credentials.id,
-            password: credentials.password,
-          }),
-        });
+        );
 
         // 여기서 받아올 response 받을 json 생각
         if (res.ok) {
@@ -41,6 +44,7 @@ export const options: NextAuthOptions = {
       clientSecret: process.env.KAKAO_CLIENT_SECRET || "",
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       console.log("user", user);
