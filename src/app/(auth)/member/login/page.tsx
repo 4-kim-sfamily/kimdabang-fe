@@ -1,36 +1,30 @@
 "use client";
-import { signIn } from "next-auth/react";
 import Link from "next/link";
 
 import { DownwardArrow, StarbucksIcon } from "@/components/icons/Index";
 import KakaoLogo from "@/components/icons/KakaoLogo";
 import { Button } from "@/components/ui/button";
+import { signIn, useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 export default function LoginPage() {
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const auth = useSession();
+
+  useEffect(() => {
+    console.log("auth", auth);
+  }, [auth]);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    console.log(e.currentTarget);
     const formData = new FormData(e.currentTarget);
-    const id = formData.get("id") as string;
-    const password = formData.get("password") as string;
 
-    // signIn 함수를 사용하여 로그인 시도
-    const result = await signIn("credentials", {
+    signIn("credentials", {
+      email: formData.get("id") as string,
+      password: formData.get("password") as string,
       redirect: false,
-      id,
-      password,
       callbackUrl: "/",
     });
-
-    // 로그인 실패 시 처리
-    if (result?.error) {
-      console.error("로그인 실패:", result.error);
-    } else {
-      console.log("로그인 성공");
-      // 로그인 성공 후 원하는 동작 추가 가능 (예: 페이지 이동)
-    }
   };
-
   return (
     <div className="font-NanumSquare justify-between">
       <header className="mt-5 ml-4 mb-20">
