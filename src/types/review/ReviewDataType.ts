@@ -12,7 +12,7 @@ export interface ReviewPreviewImgType {
 
 //베스트 상품 리뷰(+리뷰 content)
 export interface RecentReviewPreviewType extends ReviewPreviewType {
-  recentReviewcontent: string;
+  recentReviewcontent?: string;
 }
 
 export interface ReviewResponse {
