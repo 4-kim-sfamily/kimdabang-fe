@@ -1,3 +1,4 @@
+import BottomNavBar from "@/components/layouts/BottomNavBar";
 import Footer from "@/components/layouts/Footer";
 import { Header } from "@/components/layouts/Header";
 import type { Metadata } from "next";
@@ -15,10 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>
+      <body className="font-NanumSquare">
         <Header />
         {children}
         <Footer />
+        <BottomNavBar></BottomNavBar>
       </body>
     </html>
   );
