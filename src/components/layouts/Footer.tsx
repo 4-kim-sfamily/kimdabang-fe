@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import CustomerServiceIcon from "../icons/CustomerServiceIcon";
 
 export default function Footer() {
@@ -22,25 +24,25 @@ export default function Footer() {
           </div>
         </div>
         <div className="bg-gray-300 text-gray-600 px-2 py-2 flex flex-row justify-around">
-          <a href="#" className="px-4  hover:underline">
+          <Link href="/" className="px-4  hover:underline">
             홈
-          </a>
+          </Link>
           <span>|</span>
-          <a href="#" className="px-4  hover:underline">
+          <Link href="/member/login" className="px-4  hover:underline">
             로그인
-          </a>
+          </Link>
           <span>|</span>
-          <a href="#" className="px-4  hover:underline">
+          <Link href="/member/join" className="px-4  hover:underline">
             회원가입
-          </a>
+          </Link>
           <span>|</span>
-          <a href="#" className="px-4 hover:underline">
+          <Link href="#" className="px-4 hover:underline">
             앱 다운로드
-          </a>
+          </Link>
           <span>|</span>
-          <a href="#" className="px-4  hover:underline">
+          <Link href="#" className="px-4  hover:underline">
             PC버전
-          </a>
+          </Link>
         </div>
         <div className="px-5">
           <div className="text-[10px] mt-2">
