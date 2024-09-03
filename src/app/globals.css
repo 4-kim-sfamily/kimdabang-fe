@@ -29,6 +29,36 @@
   font-weight: 900;
   font-style: extrabold;
 }
-.scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+
+@layer components {
+  .bottom-nav {
+    @apply flex border-t border-slate-200 bg-white pt-1 px-2 fixed -bottom-0.5 left-0 w-full;
+  }
+
+  .bottom-nav-list {
+    @apply flex w-full;
+  }
+
+  .bottom-nav-item {
+    @apply flex-1 justify-around;
+  }
+
+  .bottom-nav-button {
+    @apply flex flex-col items-center justify-center w-full;
+  }
+
+  .bottom-nav-span {
+    @apply text-[0.6rem] text-[#777777] text-center;
+  }
+
+  .title {
+    @apply text-xl text-[#222222] font-bold mt-10;
+  }
+
+  .description {
+    @apply text-xs text-[#666666] pb-1;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
