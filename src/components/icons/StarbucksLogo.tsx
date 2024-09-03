@@ -6,14 +6,16 @@ export default function StarbucksLogo() {
       viewBox="0 0 158 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink">
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+    >
       <rect width="158" height="36" fill="url(#pattern0_119_991)" />
       <defs>
         <pattern
           id="pattern0_119_991"
           patternContentUnits="objectBoundingBox"
           width="1"
-          height="1">
+          height="1"
+        >
           <use
             xlinkHref="#image0_119_991"
             transform="scale(0.00316456 0.0138889)"
