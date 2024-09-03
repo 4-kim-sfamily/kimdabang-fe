@@ -8,21 +8,15 @@ import { signIn, useSession } from "next-auth/react";
 import { useEffect } from "react";
 
 export default function LoginPage() {
-  const auth = useSession();
-
-  useEffect(() => {
-    console.log("auth", auth);
-  }, [auth]);
+  
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e.currentTarget);
     const formData = new FormData(e.currentTarget);
-
-    signIn("credentials", {
-      email: formData.get("id") as string,
-      password: formData.get("password") as string,
+    signIn('credentials', {
+      id: formData.get('id') as string,
+      password: formData.get('password') as string,
       redirect: false,
-      callbackUrl: "/",
+      callbackUrl: '/',
     });
   };
   return (

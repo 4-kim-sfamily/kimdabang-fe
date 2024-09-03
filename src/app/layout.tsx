@@ -1,13 +1,10 @@
-import AuthProvider from "@/providers/AuthProvider";
+"use client";
+import {SessionProvider} from "next-auth/react"
 import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "STARBUCKS",
-  description: "스타벅스 클론코딩",
-};
-
 export default function RootLayout({
+  
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -15,8 +12,13 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <AuthProvider>{children}</AuthProvider>
+        <SessionProvider>{children}</SessionProvider>
       </body>
     </html>
   );
 }
+
+// export const metadata: Metadata = {
+//   title: "STARBUCKS",
+//   description: "스타벅스 클론코딩",
+// };

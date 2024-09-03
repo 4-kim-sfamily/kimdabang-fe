@@ -4,7 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 export const options: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "Credentials",
+      name: "credentials",
       credentials: {
         loginId: { label: "id", type: "text" },
         password: { label: "password", type: "password" },
@@ -37,7 +37,6 @@ export const options: NextAuthOptions = {
     //   clientSecret: process.env.KAKAO_CLIENT_SECRET || "",
     // }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       console.log("signIn", user, account, profile);
