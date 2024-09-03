@@ -7,8 +7,8 @@ type PresentProps = {
 export default function Present({ color = "white" }: PresentProps) {
   return (
     <svg
-      width="17"
-      height="18"
+      width="24"
+      height="24"
       viewBox="0 0 17 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

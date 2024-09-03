@@ -1,4 +1,5 @@
 import ItemCard from "@/components/Items/ItemCard";
+import BottomNavBar from "@/components/layouts/BottomNavBar";
 import { Header } from "@/components/layouts/Header";
 import CategoryCard from "@/components/main/CategoryCard";
 import SeasonCard from "@/components/main/SeasonCard";
@@ -51,6 +52,7 @@ export default function Page() {
           );
         })}
       </div>
+      <BottomNavBar></BottomNavBar>
     </>
   );
 }

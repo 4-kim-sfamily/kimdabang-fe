@@ -13,11 +13,12 @@ export default async function BottomNavBar() {
       `https://picsum.photos/300/300`,
     );
     if (response.ok) {
-      const data = await response.json();
-      recentImage = data.image || null;
+      recentImage = response.url;
+      // const data = await response.json();
+      // recentImage = data.image || null;
     }
   } catch (error) {
-    console.error("Failed to fetch recend Image", error);
+    console.error("에러 발생", error);
   }
   return (
     <nav className="bottom-nav" aria-label="Bottom Navigation">
@@ -33,7 +34,7 @@ export default async function BottomNavBar() {
         <li className="bottom-nav-item">
           <Link href="/present">
             <button className="bottom-nav-button">
-              <Present />
+              <Present color="black" />
               <span className="bottom-nav-span">선물하기</span>
             </button>
           </Link>
@@ -61,7 +62,10 @@ export default async function BottomNavBar() {
                 <Image
                   src={recentImage}
                   alt="Recent Goods"
+                  width="24"
+                  height="24"
                   className="recent-goods-image"
+                  style={{ objectFit: "cover" }}
                 />
               ) : (
                 <RecentGood />

@@ -3,8 +3,8 @@
 export default function Home() {
   return (
     <svg
-      width="18"
-      height="19"
+      width="24"
+      height="24"
       viewBox="0 0 18 19"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
