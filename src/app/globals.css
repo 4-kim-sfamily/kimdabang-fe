@@ -50,4 +50,12 @@
   .bottom-nav-span {
     @apply text-[0.6rem] text-[#777777] text-center;
   }
+
+  .title {
+    @apply text-xl text-[#222222] font-bold mt-10;
+  }
+
+  .description {
+    @apply text-xs text-[#666666] pb-1;
+  }
 }

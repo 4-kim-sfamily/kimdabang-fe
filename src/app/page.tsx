@@ -38,7 +38,8 @@ export default function Page() {
           );
         })}
       </div>
-      <p className="text-xl text-[#222222]">REVIEW BEST</p>
+      <p className="title">REVIEW BEST</p>
+      <p className="description">베스트 리뷰 상품들을 만나보세요</p>
       <div className="flex overflow-x-auto whitespace-nowrap gap-4 py-3 mb-8]">
         {itemCard.itemCard.map((item) => {
           const review = reviewMap[item.ProductCode];
@@ -52,7 +53,9 @@ export default function Page() {
           );
         })}
       </div>
-      <div className="grid grid-cols-2 gap-4 justify-center w-[100%] md:grid-cols-4">
+      <p className="title">스타벅스 베스트</p>
+      <p className="description">스타벅스 인기 상품들을 만나보세요</p>
+      <div className="grid grid-cols-2 gap-4 justify-center w-[100%] py-3 md:grid-cols-4">
         {itemCard.itemCard.map((item) => {
           const review = reviewMap[item.ProductCode];
           return (
