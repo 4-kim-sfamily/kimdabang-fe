@@ -14,8 +14,6 @@ export default function LoginPage() {
     const id = formData.get("id") as string;
     const password = formData.get("password") as string;
 
-    console.log(id, password);
-
     // signIn 함수를 사용하여 로그인 시도
     const result = await signIn("credentials", {
       redirect: false,

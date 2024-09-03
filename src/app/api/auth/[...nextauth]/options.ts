@@ -16,20 +16,17 @@ export const options: NextAuthOptions = {
         }
         console.log("credentials", credentials);
         // 여기에 POST 요청을 보낼 URL 작성
-        const res = await fetch(
-          `http://http://10.10.10.19:8080/api/v1/auth/login`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              id: credentials.id,
-              password: credentials.password,
-            }),
+        const res = await fetch(`http://10.10.10.19:8080/api/v1/auth/login`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-        );
-
+          body: JSON.stringify({
+            id: credentials.id,
+            password: credentials.password,
+          }),
+        });
+        console.log(res);
         // 여기서 받아올 response 받을 json 생각
         if (res.ok) {
           const user = await res.json();
