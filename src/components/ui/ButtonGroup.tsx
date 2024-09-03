@@ -29,7 +29,7 @@ const ButtonGroup: React.FC = () => {
                 isSelected={selectedButton === index}
                 onClick={() => handleClick(index)}
                 // 각 버튼의 최소 너비 설정
-                className="border-[#E5E5E5]"
+                className="border-[#E5E5E5] m-0 p-o h-[36px] text-[13px] font-medium"
               >
                 {item}
               </SelectButton>
@@ -37,13 +37,15 @@ const ButtonGroup: React.FC = () => {
           ))}
         </ul>
       </div>
-
-      <Button
-        variant="optionArrow"
-        className="p-0 m-0 w-9 h-9 rounded-none drop-shadow-gradientLeft lg:hidden"
-      >
-        <DownwardArrow degree={0} />
-      </Button>
+      <div className="flex relative">
+        <div className="absolute w-2 h-[36px] right-9 gradient-background"></div>
+        <Button
+          variant="optionArrow"
+          className="p-0 m-0 w-9 h-9 rounded-none lg:hidden"
+        >
+          <DownwardArrow degree={0} />
+        </Button>
+      </div>
     </div>
   );
 };

@@ -61,4 +61,12 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  .gradient-background {
+    @apply bg-white;
+    background: linear-gradient(
+      270deg,
+      white 28.09%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
 }
