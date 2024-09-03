@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="font-NanumSquare">
+      <body className="font-NanumSquare font-normal">
         <Header />
         {children}
         <Footer />

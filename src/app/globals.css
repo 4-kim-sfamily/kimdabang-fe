@@ -50,14 +50,21 @@
   .bottom-nav-span {
     @apply text-[0.6rem] text-[#777777] text-center;
   }
+  .mypage-article {
+    @apply w-[30%] items-center mx-2 flex-col flex text-center border-2 border-slate-200 rounded-xl p-2   mb-2;
+  }
 }
 
 .embla {
-  max-width: 48rem;
+  max-width: 80%;
   margin: auto;
-  --slide-height: 19rem;
+  --slide-height: 14rem;
   --slide-spacing: 1rem;
   --slide-size: 100%;
+
+  /* 영역 표시 용도 */
+  margin-bottom: 2rem;
+  border: solid 1px black;
 }
 .embla__viewport {
   overflow: hidden;
