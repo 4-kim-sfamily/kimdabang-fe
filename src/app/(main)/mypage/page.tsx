@@ -1,16 +1,30 @@
 import { Button } from "@/components/ui/button";
 import EmblaCarousel from "@/components/ui/EmblaCarousel";
 import { EmblaOptionsType } from "embla-carousel";
-export default function page() {
+export default async function page() {
   const a = "김범규";
-  const mycoupon: number = 1;
-  const myStar: number = 2;
-  const myEchoStar: number = 2;
+  const mycoupon: number = 0;
+  let myRegularStar: number = 0;
+  let myEchoStar: number = 0;
   const OPTIONS: EmblaOptionsType = { loop: true };
 
   //   SLIDE개수 와 SLIDE 내부 컨탠츠 결정하기
   const SLIDE_COUNT = 3;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+
+  //   내스타 가져오기
+  try {
+    const response = await fetch(
+      `${process.env.BACKEND_URL}/api/v1/userstar/get-my-star`,
+    );
+    if (response.ok) {
+      const data = await response.json();
+      myRegularStar = data.result.myRegularStar || 0;
+      myEchoStar = data.result.myEchoStar || 0;
+    }
+  } catch (error) {
+    console.error("내 일반별 정보 불러오기 실패", error);
+  }
 
   return (
     <main className="px-[4.1vw]">
@@ -34,7 +48,7 @@ export default function page() {
         </article>
         <article className="mypage-article">
           <p className="font-extrabold">일반 별</p>
-          <p>{myStar}개</p>
+          <p>{myRegularStar}개</p>
           <Button variant="starbucks" size="s">
             내역보기
           </Button>
@@ -57,23 +71,27 @@ export default function page() {
             </Button>
           </p>
         </header>
-        <ul className="flex justify-between mx-2 whitespace-nowrap text-[1rem] text-gray-500">
+        <ul className="flex justify-between whitespace-nowrap text-[1rem] text-gray-500">
           <li className="flex-col">
             <div className=" p-8 bg-gray-200 rounded-3xl"></div>
             <p className="text-center">주문 접수</p>
           </li>
+          <li className="flex items-center mb-4"> ▶ </li>
           <li className="flex-col">
             <div className=" p-8 bg-gray-200 rounded-3xl"></div>
             <p className="text-center">결제 완료</p>
           </li>
+          <li className="flex items-center mb-4"> ▶ </li>
           <li className="flex-col ">
             <div className=" p-8 bg-gray-200 rounded-3xl"></div>
             <p className="text-center">상품준비중</p>
           </li>
+          <li className="flex items-center mb-4"> ▶ </li>
           <li className="flex-col">
             <div className=" p-8 bg-gray-200 rounded-3xl"></div>
             <p className="text-center">배송중</p>
           </li>
+          <li className="flex items-center mb-4"> ▶ </li>
           <li className="flex-col">
             <div className=" p-8 bg-gray-200 rounded-3xl"></div>
             <p className="text-center">배송완료</p>
@@ -104,7 +122,7 @@ export default function page() {
         주문/배송 조회 보러가기›
       </button>
       <section>
-        <h3 className="font-bold">자주 찾는 메뉴</h3>
+        <h3 className="bg-[#006241] text-lg text-white">자주 찾는 메뉴</h3>
         <div className="mt-2 grid grid-cols-5 gap-3">
           <div>
             <div className=" p-8 bg-gray-200 rounded-3xl"></div>
@@ -156,8 +174,10 @@ export default function page() {
           </div>
         </div>
       </section>
-      <section className=" flex flex-col text-[0.7rem] m-2">
-        <h2 className="text-lg font-bold mt-2 mb-4">나의 주문관리</h2>
+      <section className=" flex flex-col text-[0.7rem] ">
+        <header className=" bg-[#006241] text-lg text-white font-bold mt-2 mb-4">
+          나의 주문관리
+        </header>
         <div className="text-gray-400 flex flex-row gap-[50%]">
           <ul className="flex flex-col space-y-2">
             <li>주문/배송조회</li>
