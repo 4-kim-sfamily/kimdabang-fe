@@ -1,3 +1,5 @@
+import Footer from "@/components/layouts/Footer";
+import { Header } from "@/components/layouts/Header";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -12,10 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <html lang="ko">
-        <body className="p-[4.1vw]">{children}</body>
-      </html>
-    </>
+    <html lang="ko">
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }
