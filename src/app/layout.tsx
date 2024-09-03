@@ -1,7 +1,6 @@
-import type { Metadata } from "next";
-
 import Footer from "@/components/layouts/Footer";
 import { Header } from "@/components/layouts/Header";
+import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
