@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
+import DownwardArrow from "../icons/DownwardArrow";
 import { SelectButton } from "./SelectButton";
+import { Button } from "./button";
 
 const ButtonGroup: React.FC = () => {
   const [selectedButton, setSelectedButton] = useState<number | null>(null);
@@ -10,8 +12,8 @@ const ButtonGroup: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-row">
-      <div className="w-[80%] overflow-x-auto relative scrollbar-hide ">
+    <div className="w-full flex flex-row items-center gap-1">
+      <div className="w-[100%] overflow-x-auto relative scrollbar-hide">
         <ul className="flex space-x-2">
           {[
             "생일 축하해요",
@@ -27,6 +29,7 @@ const ButtonGroup: React.FC = () => {
                 isSelected={selectedButton === index}
                 onClick={() => handleClick(index)}
                 // 각 버튼의 최소 너비 설정
+                className="border-[#E5E5E5]"
               >
                 {item}
               </SelectButton>
@@ -34,7 +37,13 @@ const ButtonGroup: React.FC = () => {
           ))}
         </ul>
       </div>
-      <div></div>
+
+      <Button
+        variant="optionArrow"
+        className="p-0 m-0 w-9 h-9 rounded-none drop-shadow-gradientLeft lg:hidden"
+      >
+        <DownwardArrow degree={0} />
+      </Button>
     </div>
   );
 };

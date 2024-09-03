@@ -3,6 +3,7 @@ import ReviewItemCard from "@/components/Items/ReviewItemCard";
 import BottomNavBar from "@/components/layouts/BottomNavBar";
 import CategoryCard from "@/components/main/CategoryCard";
 import SeasonCard from "@/components/main/SeasonCard";
+import ButtonGroup from "@/components/ui/ButtonGroup";
 import { ReviewMap, ReviewResponse } from "@/types/review/ReviewDataType";
 import itemCard from "../lib/dummy/items/ItemCardList.json";
 import reviews from "../lib/dummy/items/ItemCardReview.json";
@@ -55,6 +56,7 @@ export default function Page() {
       </div>
       <p className="title">스타벅스 베스트</p>
       <p className="description">스타벅스 인기 상품들을 만나보세요</p>
+      <ButtonGroup />
       <div className="grid grid-cols-2 gap-4 justify-center w-[100%] py-3 md:grid-cols-4">
         {itemCard.itemCard.map((item) => {
           const review = reviewMap[item.ProductCode];
