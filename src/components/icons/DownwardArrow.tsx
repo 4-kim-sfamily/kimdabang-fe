@@ -1,12 +1,15 @@
-import React from "react";
+type DownwardArrowProps = {
+  degree?: number; // color prop은 선택적이며, 문자열 타입으로 정의
+};
 
-export default function DownwardArrow() {
+export default function DownwardArrow({ degree = 0 }: DownwardArrowProps) {
   return (
     <svg
       width="12"
       height="6"
       viewBox="0 0 12 6"
       fill="none"
+      style={{ transform: `rotate(${degree}deg)` }}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
