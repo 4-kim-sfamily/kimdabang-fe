@@ -3,6 +3,7 @@ import ReviewItemCard from "@/components/Items/ReviewItemCard";
 import BottomNavBar from "@/components/layouts/BottomNavBar";
 import CategoryCard from "@/components/main/CategoryCard";
 import SeasonCard from "@/components/main/SeasonCard";
+import ButtonGroup from "@/components/ui/ButtonGroup";
 import { ReviewMap, ReviewResponse } from "@/types/review/ReviewDataType";
 import itemCard from "../lib/dummy/items/ItemCardList.json";
 import reviews from "../lib/dummy/items/ItemCardReview.json";
@@ -25,7 +26,7 @@ export default function Page() {
           );
         })}
       </div>
-      <div className="flex place-items-baseline gap-2 w-[100%] overflow-x-auto whitespace-nowrap">
+      <div className="flex place-items-baseline gap-2 w-[100%] overflow-x-auto scroll-item whitespace-nowrap">
         {SeasonData.SeasonData.map((item) => {
           return (
             <SeasonCard
@@ -38,9 +39,24 @@ export default function Page() {
           );
         })}
       </div>
+      <p className="title py-3">스타벅스 기프트</p>
+      <ButtonGroup />
+      <div className="flex overflow-x-auto whitespace-nowrap scroll-item gap-4 py-3 mb-8]">
+        {itemCard.itemCard.map((item) => {
+          const review = reviewMap[item.ProductCode];
+          return (
+            <ItemCard
+              key={item.id}
+              item={item}
+              rate={review?.rate}
+              reviewCnt={review?.reviewCnt}
+            />
+          );
+        })}
+      </div>
       <p className="title">REVIEW BEST</p>
       <p className="description">베스트 리뷰 상품들을 만나보세요</p>
-      <div className="flex overflow-x-auto whitespace-nowrap gap-4 py-3 mb-8]">
+      <div className="flex overflow-x-auto whitespace-nowrap scroll-item gap-4 py-3 mb-8]">
         {itemCard.itemCard.map((item) => {
           const review = reviewMap[item.ProductCode];
           return (
@@ -55,6 +71,7 @@ export default function Page() {
       </div>
       <p className="title">스타벅스 베스트</p>
       <p className="description">스타벅스 인기 상품들을 만나보세요</p>
+      <ButtonGroup />
       <div className="grid grid-cols-2 gap-4 justify-center w-[100%] py-3 md:grid-cols-4">
         {itemCard.itemCard.map((item) => {
           const review = reviewMap[item.ProductCode];

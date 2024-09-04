@@ -1,10 +1,9 @@
-import Footer from "@/components/layouts/Footer";
-
+import ButtonGroup from "@/components/ui/ButtonGroup";
 export default function page() {
   "use Client";
   return (
-    <>
-      <Footer />
-    </>
+    <div className="w-full flex items-center">
+      <ButtonGroup></ButtonGroup>
+    </div>
   );
 }

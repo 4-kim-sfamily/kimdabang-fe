@@ -39,6 +39,21 @@
       "id": 8,
       "name": "음료/요거트",
       "imgUrl": "https://picsum.photos/300/300"
+    },
+    {
+      "id": 10,
+      "name": "음료/요거트",
+      "imgUrl": "https://picsum.photos/300/300"
+    },
+    {
+      "id": 28,
+      "name": "음료/요거트",
+      "imgUrl": "https://picsum.photos/300/300"
+    },
+    {
+      "id": 38,
+      "name": "음료/요거트",
+      "imgUrl": "https://picsum.photos/300/300"
     }
   ]
 }

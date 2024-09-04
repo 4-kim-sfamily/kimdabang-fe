@@ -18,6 +18,13 @@ const config = {
       },
     },
     extend: {
+      dropShadow: {
+        gradientLeft: [
+          "0px 0px 1px rgba(255, 255, 255, 0.0001)", // 가장 가까운 그림자
+          "10px 0px 10px rgba(255, 255, 255, 0.0001)", // 중간 그림자
+          "20px 0px 50px rgba(255, 255, 255, 0.001)", // 가장 흐린 그림자
+        ],
+      },
       fontFamily: {
         NanumSquare: ["NanumSquare", "sans-serif"],
       },
