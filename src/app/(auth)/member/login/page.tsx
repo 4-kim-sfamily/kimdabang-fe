@@ -6,9 +6,10 @@ import KakaoLogo from "@/components/icons/KakaoLogo";
 import { Button } from "@/components/ui/button";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
+import { useState } from "react";
 export default function LoginPage() {
   const router = useRouter();
+  const [loginError, setLoginError] = useState(false);
 
   const handleBack = () => {
     router.back();
@@ -17,12 +18,19 @@ export default function LoginPage() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
 
-    signIn("credentials", {
+    const result = await signIn("credentials", {
       loginId: formData.get("id") as string,
       password: formData.get("password") as string,
-      redirect: true,
+      redirect: false,
       callbackUrl: "/",
     });
+
+    if (result?.ok) {
+      router.push(result.url || "/");
+    } else if (result?.error) {
+      // 여기서 처리
+      setLoginError(true);
+    }
   };
   return (
     <div className="font-NanumSquare justify-between">
@@ -60,6 +68,11 @@ export default function LoginPage() {
             placeholder="비밀번호"
             className="w-full pt-2 pb-1 mb-2 px-3 border-b border-gray-300 placeholder-black"
           />
+          {loginError && (
+            <p className="text-red-500 text-sm ">
+              아이디 또는 비밀번호가 일치하지 않습니다.
+            </p>
+          )}
           <div className="flex justify-center p-1 w-full text-sm text-gray-600 mb-12 space-x-2">
             <Link href="#" className="hover:underline">
               아이디 찾기
@@ -78,12 +91,18 @@ export default function LoginPage() {
             <Button type="submit" variant="starbucks">
               로그인하기
             </Button>
-            <Button onClick={() => signIn("kakao")} variant="kakao">
-              <KakaoLogo />
-              <span>카카오로 로그인하기</span>
-            </Button>
           </div>
         </form>
+        <div className="LoginButtons flex flex-col items-center mt-2">
+          <Button
+            onClick={() => signIn("kakao")}
+            variant="kakao"
+            className="items-center"
+          >
+            <KakaoLogo />
+            <span>카카오로 로그인하기</span>
+          </Button>
+        </div>
       </div>
     </div>
   );

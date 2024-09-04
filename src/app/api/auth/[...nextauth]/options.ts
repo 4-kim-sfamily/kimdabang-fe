@@ -30,8 +30,8 @@ export const options: NextAuthOptions = {
           const user = await res.json();
           console.log("user", user);
           return user;
-        } else {
-          console.error(res);
+        } else if (res.status === 500) {
+          throw new Error("아이디 또는 비밀번호가 일치하지 않습니다.");
         }
         return null;
       },
@@ -48,6 +48,11 @@ export const options: NextAuthOptions = {
 
       if (account?.provider === "kakao") {
         // 만약에 로그인 경로가 kakao 일때는 추가 fetch 필요
+        console.log("kakao에서 로그인시도");
+        const result = await fetch(`${process.env.BACKEND_URL}/api/v1/`, {
+          method: "POST",
+        });
+        return "/";
       }
 
       // 여기에 data fetch 필요
