@@ -26,7 +26,6 @@ export default function LoginPage() {
       callbackUrl: "/",
     });
   };
-
   return (
     <div className="font-NanumSquare justify-between">
       <header

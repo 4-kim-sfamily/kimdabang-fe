@@ -1,74 +1,30 @@
+import CouponStarGroup from "@/components/pages/mypage/CouponStarGroup";
+import MyPageAdvertisement from "@/components/pages/mypage/MyPageAdvertisement";
+import MyPageCoupon from "@/components/pages/mypage/MyPageCoupon";
+import MyPageTitle from "@/components/pages/mypage/MyPageTitle";
+import MyStarAmount from "@/components/pages/mypage/MyStarAmount";
 import { Button } from "@/components/ui/button";
 import EmblaCarousel from "@/components/ui/EmblaCarousel";
 import { EmblaOptionsType } from "embla-carousel";
 
 export default async function page() {
-  const a = "김범규";
-  const mycoupon: number = 0;
-  let myRegularStar: number = 0;
-  let myEchoStar: number = 0;
   const OPTIONS: EmblaOptionsType = { loop: true };
 
   //   SLIDE개수 와 SLIDE 내부 컨탠츠 결정하기
   const SLIDE_COUNT = 3;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
-  //   내스타 가져오기
-  try {
-    const response = await fetch(
-      `${process.env.BACKEND_URL}/api/v1/userstar/get-my-star`,
-      {
-        method: "GET",
-        headers: {
-          Authorization:
-            "eyJhbGciOiJIUzUxMiJ9.eyJ1dWlkIjoiY2UzYzI0Y2ItOGI5OC00YmM2LWIyODUtNzA2Y2I3ZmZjMDc5IiwiaWF0IjoxNzI1NDMxNjQ2fQ.jzAwgqd7F4pqbRanCxxBpzB-313T4hv3PVxgO7LlbnMccXECSk66PQPQao3Uq-XZ94Mk8e0_BfLDBdowFP7KEA",
-        },
-      },
-    );
-    if (response.ok) {
-      const data = await response.json();
-      myRegularStar = data.result.myRegularStar || 0;
-      myEchoStar = data.result.myEchoStar || 0;
-    }
-  } catch (error) {
-    console.error("내 일반별 정보 불러오기 실패", error);
-  }
-
   return (
     <main className="px-[4.1vw] font-NanumSquare">
-      <header>
-        <h2 className="text-xl my-1">{a}님</h2>
-        <h3 className=" font-extrabold">스타벅스에서 즐거운 쇼핑 되세요 !</h3>
-      </header>
+      <MyPageTitle username="김범규" />
+      <MyPageAdvertisement />
 
-      {/* 캐러셀로 변경예정 */}
-      <div className="rounded-xl  py-1.5 bg-gray-100 m-2 text-sm">
-        최대 7% 어쩌구 나오는 쇼핑
-      </div>
+      <CouponStarGroup>
+        <MyPageCoupon />
+        <MyStarAmount starType="regular" />
+        <MyStarAmount starType="echo" />
+      </CouponStarGroup>
 
-      <section className="flex">
-        <article className="mypage-article">
-          <p className="font-extrabold">쿠폰</p>
-          <p>{mycoupon}장</p>
-          <Button variant="starbucks" size="s">
-            쿠폰함
-          </Button>
-        </article>
-        <article className="mypage-article">
-          <p className="font-extrabold">일반 별</p>
-          <p>{myRegularStar}개</p>
-          <Button variant="starbucks" size="s">
-            내역보기
-          </Button>
-        </article>
-        <article className="mypage-article">
-          <p className="font-extrabold">에코 별</p>
-          <p>{myEchoStar}개</p>
-          <Button variant="starbucks" size="s">
-            내역보기
-          </Button>
-        </article>
-      </section>
       <EmblaCarousel slides={SLIDES} options={OPTIONS}></EmblaCarousel>
       <section>
         <header className="flex justify-between font-bold my-2">
