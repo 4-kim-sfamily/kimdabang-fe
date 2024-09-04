@@ -4,24 +4,32 @@ import Link from "next/link";
 import { DownwardArrow, StarbucksIcon } from "@/components/icons/Index";
 import KakaoLogo from "@/components/icons/KakaoLogo";
 import { Button } from "@/components/ui/button";
-import { signIn, useSession } from "next-auth/react";
-import { useEffect } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const router = useRouter();
+
+  const handleBack = () => {
+    router.back();
+  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    signIn('credentials', {
-      id: formData.get('id') as string,
-      password: formData.get('password') as string,
-      redirect: false,
-      callbackUrl: '/',
+
+    signIn("credentials", {
+      loginId: formData.get("id") as string,
+      password: formData.get("password") as string,
+      redirect: true,
+      callbackUrl: "/",
     });
   };
   return (
     <div className="font-NanumSquare justify-between">
-      <header className="mt-5 ml-4 mb-20">
+      <header
+        onClick={handleBack}
+        className="mt-5 ml-4 mb-20 hover:cursor-pointer"
+      >
         <DownwardArrow degree={90}></DownwardArrow>
       </header>
 
@@ -40,23 +48,18 @@ export default function LoginPage() {
         </span>
 
         <form className="w-full" onSubmit={handleSubmit}>
-          <div className="mb-2">
-            <input
-              type="text"
-              name="id"
-              placeholder="아이디"
-              className="w-full pt-2 pb-1 px-3 border-b border-gray-300 placeholder-black"
-            />
-          </div>
-          <div className="mb-2">
-            <input
-              type="password"
-              name="password"
-              placeholder="비밀번호"
-              className="w-full pt-2 pb-1 px-3 border-b border-gray-300 placeholder-black"
-            />
-          </div>
-
+          <input
+            type="text"
+            name="id"
+            placeholder="아이디"
+            className="w-full pt-2 pb-1 px-3 border-b mb-2 border-gray-300 placeholder-black"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="비밀번호"
+            className="w-full pt-2 pb-1 mb-2 px-3 border-b border-gray-300 placeholder-black"
+          />
           <div className="flex justify-center p-1 w-full text-sm text-gray-600 mb-12 space-x-2">
             <Link href="#" className="hover:underline">
               아이디 찾기
@@ -75,7 +78,7 @@ export default function LoginPage() {
             <Button type="submit" variant="starbucks">
               로그인하기
             </Button>
-            <Button variant="kakao">
+            <Button onClick={() => signIn("kakao")} variant="kakao">
               <KakaoLogo />
               <span>카카오로 로그인하기</span>
             </Button>
