@@ -4,20 +4,24 @@ import BottomNavBar from "@/components/layouts/BottomNavBar";
 import CategoryCard from "@/components/main/CategoryCard";
 import SeasonCard from "@/components/main/SeasonCard";
 import { ReviewMap, ReviewResponse } from "@/types/review/ReviewDataType";
+import { getServerSession } from "next-auth";
 import itemCard from "../lib/dummy/items/ItemCardList.json";
 import reviews from "../lib/dummy/items/ItemCardReview.json";
 import largeCategories from "../lib/dummy/main/OnlyLargeCategory.json";
 import SeasonData from "../lib/dummy/main/RunningSeasonData.json";
-export default function Page() {
+import { options } from "./api/auth/[...nextauth]/options";
+
+export default async function Page() {
   const reviewData: ReviewResponse = reviews;
   const reviewMap: ReviewMap = {};
-
+  const session = await getServerSession(options);
+  console.log("이게 내 세션 입니다", session);
   reviewData.reviews.forEach(({ productCode, rate, reviewCnt }) => {
     reviewMap[productCode] = { rate, reviewCnt };
   });
 
   return (
-    <div className="px-[4.1vw]">
+    <div className="px-[4.1vw] pb-[2rem] font-NanumSquare">
       <div className="grid grid-cols-4 w-[100%] place-items-center gap-2 my-8 md:grid-cols-8">
         {largeCategories.largeCategories.map((item) => {
           return (
@@ -40,7 +44,7 @@ export default function Page() {
       </div>
       <p className="title">REVIEW BEST</p>
       <p className="description">베스트 리뷰 상품들을 만나보세요</p>
-      <div className="flex overflow-x-auto whitespace-nowrap gap-4 py-3 mb-8]">
+      <div className="scroll-item flex overflow-x-auto  whitespace-nowrap gap-4 py-3 mb-8]">
         {itemCard.itemCard.map((item) => {
           const review = reviewMap[item.ProductCode];
           return (

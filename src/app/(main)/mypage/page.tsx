@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import EmblaCarousel from "@/components/ui/EmblaCarousel";
 import { EmblaOptionsType } from "embla-carousel";
+
 export default async function page() {
   const a = "김범규";
   const mycoupon: number = 0;
@@ -16,6 +17,13 @@ export default async function page() {
   try {
     const response = await fetch(
       `${process.env.BACKEND_URL}/api/v1/userstar/get-my-star`,
+      {
+        method: "GET",
+        headers: {
+          Authorization:
+            "eyJhbGciOiJIUzUxMiJ9.eyJ1dWlkIjoiY2UzYzI0Y2ItOGI5OC00YmM2LWIyODUtNzA2Y2I3ZmZjMDc5IiwiaWF0IjoxNzI1NDMxNjQ2fQ.jzAwgqd7F4pqbRanCxxBpzB-313T4hv3PVxgO7LlbnMccXECSk66PQPQao3Uq-XZ94Mk8e0_BfLDBdowFP7KEA",
+        },
+      },
     );
     if (response.ok) {
       const data = await response.json();
@@ -27,7 +35,7 @@ export default async function page() {
   }
 
   return (
-    <main className="px-[4.1vw]">
+    <main className="px-[4.1vw] font-NanumSquare">
       <header>
         <h2 className="text-xl my-1">{a}님</h2>
         <h3 className=" font-extrabold">스타벅스에서 즐거운 쇼핑 되세요 !</h3>
@@ -63,38 +71,36 @@ export default async function page() {
       </section>
       <EmblaCarousel slides={SLIDES} options={OPTIONS}></EmblaCarousel>
       <section>
-        <header className=" my-2">
-          <p className="flex justify-between font-bold">
-            <h2>주문/배송 조회</h2>
-            <Button variant="inversion" size="free" className="p-2 text-xs">
-              배송지 관리
-            </Button>
-          </p>
+        <header className="flex justify-between font-bold my-2">
+          <h2>주문/배송 조회</h2>
+          <Button variant="inversion" size="free" className="p-2 text-xs">
+            배송지 관리
+          </Button>
         </header>
         <ul className="flex justify-between whitespace-nowrap text-[1rem] text-gray-500">
-          <li className="flex-col">
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
-            <p className="text-center">주문 접수</p>
+          <li className="delivery-state">
+            <div />
+            <p>주문 접수</p>
           </li>
           <li className="flex items-center mb-4"> ▶ </li>
-          <li className="flex-col">
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
-            <p className="text-center">결제 완료</p>
+          <li className="delivery-state">
+            <div />
+            <p>결제 완료</p>
           </li>
           <li className="flex items-center mb-4"> ▶ </li>
-          <li className="flex-col ">
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
-            <p className="text-center">상품준비중</p>
+          <li className="delivery-state ">
+            <div />
+            <p>상품준비중</p>
           </li>
           <li className="flex items-center mb-4"> ▶ </li>
-          <li className="flex-col">
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
-            <p className="text-center">배송중</p>
+          <li className="delivery-state">
+            <div />
+            <p>배송중</p>
           </li>
           <li className="flex items-center mb-4"> ▶ </li>
-          <li className="flex-col">
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
-            <p className="text-center">배송완료</p>
+          <li className="delivery-state">
+            <div />
+            <p>배송완료</p>
           </li>
         </ul>
       </section>
@@ -123,53 +129,53 @@ export default async function page() {
       </button>
       <section>
         <h3 className="bg-[#006241] text-lg text-white">자주 찾는 메뉴</h3>
-        <div className="mt-2 grid grid-cols-5 gap-3">
-          <div>
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
+        <div className="mt-2 grid grid-cols-5 gap-3 items-center justify-center">
+          <div className="flex flex-col items-center justify-center">
+            <div className="p-8 w-[50%] h-auto aspect-[10/10] bg-gray-200 rounded-3xl"></div>
             <p className="text-center">좋아요</p>
           </div>
-          <div>
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
+          <div className="flex flex-col items-center justify-center">
+            <div className=" p-8 w-[50%] h-auto aspect-[10/10] bg-gray-200 rounded-3xl"></div>
             <p className="text-center">좋아요</p>
           </div>
-          <div>
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
+          <div className="flex flex-col items-center justify-center">
+            <div className=" p-8 w-[50%] h-auto aspect-[10/10] bg-gray-200 rounded-3xl"></div>
             <p className="text-center">좋아요</p>
           </div>
-          <div>
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
+          <div className="flex flex-col items-center justify-center">
+            <div className=" p-8 w-[50%] h-auto aspect-[10/10] bg-gray-200 rounded-3xl"></div>
             <p className="text-center">좋아요</p>
           </div>
-          <div>
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
+          <div className="flex flex-col items-center justify-center">
+            <div className=" p-8 w-[50%] h-auto aspect-[10/10] bg-gray-200 rounded-3xl"></div>
             <p className="text-center">좋아요</p>
           </div>
-          <div>
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
+          <div className="flex flex-col items-center justify-center">
+            <div className=" p-8 w-[50%] h-auto aspect-[10/10] bg-gray-200 rounded-3xl"></div>
             <p className="text-center">좋아요</p>
           </div>
-          <div>
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
+          <div className="flex flex-col items-center justify-center">
+            <div className=" p-8 w-[50%] h-auto aspect-[10/10] bg-gray-200 rounded-3xl"></div>
             <p className="text-center">좋아요</p>
           </div>
-          <div>
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
+          <div className="flex flex-col items-center justify-center">
+            <div className=" p-8 w-[50%] h-auto aspect-[10/10] bg-gray-200 rounded-3xl"></div>
             <p className="text-center">좋아요</p>
           </div>
-          <div>
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
+          <div className="flex flex-col items-center justify-center">
+            <div className=" p-8 w-[50%] h-auto aspect-[10/10] bg-gray-200 rounded-3xl"></div>
             <p className="text-center">좋아요</p>
           </div>
-          <div>
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
+          <div className="flex flex-col items-center justify-center">
+            <div className=" p-8 w-[50%] h-auto aspect-[10/10] bg-gray-200 rounded-3xl"></div>
             <p className="text-center">좋아요</p>
           </div>
-          <div>
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
+          <div className="flex flex-col items-center justify-center">
+            <div className=" p-8 w-[50%] h-auto aspect-[10/10] bg-gray-200 rounded-3xl"></div>
             <p className="text-center">좋아요</p>
           </div>
-          <div>
-            <div className=" p-8 bg-gray-200 rounded-3xl"></div>
+          <div className="flex flex-col items-center justify-center">
+            <div className=" p-8 w-[50%] h-auto aspect-[10/10] bg-gray-200 rounded-3xl"></div>
             <p className="text-center">좋아요</p>
           </div>
         </div>

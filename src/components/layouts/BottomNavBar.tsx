@@ -1,9 +1,16 @@
+import { options } from "@/app/api/auth/[...nextauth]/options";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 import { Hamburger, Home, MyPage, Present, RecentGood } from "../icons/Index";
 
 export default async function BottomNavBar() {
   let recentImage = null;
+
+  const session = await getServerSession(options);
+  if (session) {
+    console.log("session 값:", session);
+  }
 
   try {
     const response = await fetch(
@@ -48,7 +55,7 @@ export default async function BottomNavBar() {
           </Link>
         </li>
         <li className="bottom-nav-item">
-          <Link href="/myPage">
+          <Link href="/mypage">
             <button className="bottom-nav-button">
               <MyPage />
               <span className="bottom-nav-span">MY</span>

@@ -99,3 +99,21 @@
     @apply text-xs text-[#666666] pb-1;
   }
 }
+.scroll-item::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge, Opera에서 스크롤바 숨김 */
+}
+
+.scroll-item {
+  -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨김 */
+  scrollbar-width: none; /* Firefox에서 스크롤바 숨김 */
+}
+
+.delivery-state {
+  @apply flex-col;
+}
+.delivery-state > div {
+  @apply p-8 bg-gray-200 rounded-3xl;
+}
+.delivery-state > p {
+  @apply text-center;
+}
