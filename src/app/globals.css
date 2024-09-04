@@ -52,7 +52,7 @@
   }
 
   .title {
-    @apply text-xl text-[#222222] font-bold mt-10;
+    @apply text-xl text-[#222222] font-extrabold mt-10;
   }
 
   .description {
@@ -69,4 +69,16 @@
       rgba(255, 255, 255, 0) 100%
     );
   }
+  .scroll-item::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge, Opera에서 스크롤바 숨김 */
+  }
+
+  .scroll-item {
+    -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨김 */
+    scrollbar-width: none; /* Firefox에서 스크롤바 숨김 */
+  }
+}
+html,
+body {
+  font-family: "NanumSquare", sans-serif;
 }

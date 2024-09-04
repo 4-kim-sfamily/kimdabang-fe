@@ -26,7 +26,7 @@ export default function Page() {
           );
         })}
       </div>
-      <div className="flex place-items-baseline gap-2 w-[100%] overflow-x-auto whitespace-nowrap">
+      <div className="flex place-items-baseline gap-2 w-[100%] overflow-x-auto scroll-item whitespace-nowrap">
         {SeasonData.SeasonData.map((item) => {
           return (
             <SeasonCard
@@ -39,9 +39,24 @@ export default function Page() {
           );
         })}
       </div>
+      <p className="title py-3">스타벅스 기프트</p>
+      <ButtonGroup />
+      <div className="flex overflow-x-auto whitespace-nowrap scroll-item gap-4 py-3 mb-8]">
+        {itemCard.itemCard.map((item) => {
+          const review = reviewMap[item.ProductCode];
+          return (
+            <ItemCard
+              key={item.id}
+              item={item}
+              rate={review?.rate}
+              reviewCnt={review?.reviewCnt}
+            />
+          );
+        })}
+      </div>
       <p className="title">REVIEW BEST</p>
       <p className="description">베스트 리뷰 상품들을 만나보세요</p>
-      <div className="flex overflow-x-auto whitespace-nowrap gap-4 py-3 mb-8]">
+      <div className="flex overflow-x-auto whitespace-nowrap scroll-item gap-4 py-3 mb-8]">
         {itemCard.itemCard.map((item) => {
           const review = reviewMap[item.ProductCode];
           return (
