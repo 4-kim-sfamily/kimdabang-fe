@@ -1,13 +1,13 @@
 import Image from "next/image";
 
-import { ItemCardProps } from "@/types/items/ItemCard";
+import { ItemCardType } from "@/types/items/ItemCard";
 
 import Cart from "../icons/Cart";
 import Hearts from "../icons/Hearts";
 
 import ReviewPreview from "./ReviewPreview";
 
-export default function ItemCard({ item }: ItemCardProps) {
+export default function ItemCard({ item }: { item: ItemCardType }) {
   return (
     <div className="w-[100%] border-slate-950 flex flex-col justify-start">
       <div className="relative w-full aspect-square">

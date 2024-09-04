@@ -1,15 +1,15 @@
 import Image from "next/image";
 
-import { ItemCardProps } from "@/types/items/ItemCard";
+import { ItemCardType } from "@/types/items/ItemCard";
 
 import Cart from "../icons/Cart";
 import Hearts from "../icons/Hearts";
 
 import ReviewPreview from "./ReviewPreview";
 
-export default function ReviewItemCard({ item }: ItemCardProps) {
+export default function ReviewItemCard({ item }: { item: ItemCardType }) {
   return (
-    <div className="w-[100%] border-slate-950 flex justify-start">
+    <li className="w-[100%] border-slate-950 flex justify-start">
       <div className="relative w-[112px] aspect-square">
         <Image
           src={item.imgUrl}
@@ -33,6 +33,6 @@ export default function ReviewItemCard({ item }: ItemCardProps) {
 
         <ReviewPreview productCode={item.ProductCode} visible={true} />
       </div>
-    </div>
+    </li>
   );
 }
