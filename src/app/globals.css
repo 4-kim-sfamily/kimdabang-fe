@@ -90,4 +90,12 @@
   justify-content: center;
   height: var(--slide-height);
   user-select: none;
+
+  .title {
+    @apply text-xl text-[#222222] font-bold mt-10;
+  }
+
+  .description {
+    @apply text-xs text-[#666666] pb-1;
+  }
 }

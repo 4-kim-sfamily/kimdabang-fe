@@ -1,29 +1,43 @@
-import { signIn } from "next-auth/react";
+"use client";
 import Link from "next/link";
 
 import { DownwardArrow, StarbucksIcon } from "@/components/icons/Index";
 import KakaoLogo from "@/components/icons/KakaoLogo";
 import { Button } from "@/components/ui/button";
-
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 export default function LoginPage() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const router = useRouter();
+  const [loginError, setLoginError] = useState(false);
+
+  const handleBack = () => {
+    router.back();
+  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e.currentTarget);
     const formData = new FormData(e.currentTarget);
-    console.log(formData.get("id"));
-    console.log(formData.get("password"));
-    signIn("credentials", {
-      id: formData.get("id") as string,
+
+    const result = await signIn("credentials", {
+      loginId: formData.get("id") as string,
       password: formData.get("password") as string,
-      redirect: true,
+      redirect: false,
       callbackUrl: "/",
     });
-  };
 
+    if (result?.ok) {
+      router.push(result.url || "/");
+    } else if (result?.error) {
+      // 여기서 처리
+      setLoginError(true);
+    }
+  };
   return (
-    <div className="font-NanumSquare   justify-between">
-      <header className="mt-5 ml-4 mb-20">
-        {/* 여기에 에로우 방향 추가 후 넣어야할듯 */}
+    <div className="font-NanumSquare justify-between">
+      <header
+        onClick={handleBack}
+        className="mt-5 ml-4 mb-20 hover:cursor-pointer"
+      >
         <DownwardArrow degree={90}></DownwardArrow>
       </header>
 
@@ -41,46 +55,54 @@ export default function LoginPage() {
           회원 서비스 이용을 위해 로그인 해주세요.
         </span>
 
-        <form onSubmit={handleSubmit} className="w-full">
-          <div className="mb-2">
-            <input
-              type="text"
-              id="loginId"
-              placeholder="아이디"
-              className="w-full pt-2 pb-1 px-3 border-b border-gray-300  placeholder-black "
-            />
+        <form className="w-full" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="id"
+            placeholder="아이디"
+            className="w-full pt-2 pb-1 px-3 border-b mb-2 border-gray-300 placeholder-black"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="비밀번호"
+            className="w-full pt-2 pb-1 mb-2 px-3 border-b border-gray-300 placeholder-black"
+          />
+          {loginError && (
+            <p className="text-red-500 text-sm ">
+              아이디 또는 비밀번호가 일치하지 않습니다.
+            </p>
+          )}
+          <div className="flex justify-center p-1 w-full text-sm text-gray-600 mb-12 space-x-2">
+            <Link href="#" className="hover:underline">
+              아이디 찾기
+            </Link>
+            <span>|</span>
+            <Link href="#" className="hover:underline">
+              비밀번호 찾기
+            </Link>
+            <span>|</span>
+            <Link href="/members/join" className="hover:underline">
+              회원가입
+            </Link>
           </div>
-          <div className="mb-2">
-            <input
-              type="password"
-              id="password"
-              placeholder="비밀번호"
-              className="w-full pt-2 pb-1 px-3 border-b border-gray-300  placeholder-black"
-            />
+
+          <div className="LoginButtons flex flex-col items-center">
+            <Button type="submit" variant="starbucks">
+              로그인하기
+            </Button>
           </div>
         </form>
-
-        <div className="flex justify-center p-1 w-full text-sm text-gray-600 mb-12 space-x-2">
-          <Link href="#" className="hover:underline">
-            아이디 찾기
-          </Link>
-          <span>|</span>
-          <Link href="#" className="hover:underline">
-            비밀번호 찾기
-          </Link>
-          <span>|</span>
-          <Link href="/sign-in" className="hover:underline">
-            회원가입
-          </Link>
+        <div className="LoginButtons flex flex-col items-center mt-2">
+          <Button
+            onClick={() => signIn("kakao")}
+            variant="kakao"
+            className="items-center"
+          >
+            <KakaoLogo />
+            <span>카카오로 로그인하기</span>
+          </Button>
         </div>
-      </div>
-
-      <div className="LoginButtons flex flex-col items-center">
-        <Button variant="starbucks">로그인하기</Button>
-        <Button variant="kakao">
-          <KakaoLogo></KakaoLogo>
-          <span>카카오로 로그인하기</span>
-        </Button>
       </div>
     </div>
   );
