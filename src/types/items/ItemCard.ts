@@ -17,3 +17,9 @@ export interface DiscountedItemCardType {
 export interface ItemCardListType {
   itemCard: ItemCardType[];
 }
+
+export interface ItemCardProps {
+  item: ItemCardType;
+  rate: number;
+  reviewCnt: number;
+}
