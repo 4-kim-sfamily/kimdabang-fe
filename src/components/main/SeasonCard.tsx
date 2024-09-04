@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { RunningSeason } from "../../types/main/RunningSeasonDataType";
-export default function SeasonCard(item: RunningSeason) {
+export default function SeasonCard({ item }: { item: RunningSeason }) {
   return (
     <div className="flex flex-col justify-start w-[200px] pr-[10px] py-4 pb-5">
       <div className="relative w-[200px] h-32 ">

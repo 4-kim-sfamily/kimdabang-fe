@@ -1,6 +1,6 @@
 "use client";
+import { largeCategories } from "@/lib/dummy/main/OnlyLargeCategory";
 import { useState } from "react";
-import OnlyLargeCategory from "../../lib/dummy/main/OnlyLargeCategory.json";
 import OptionDialog from "./OptionDialog";
 import { SelectButton } from "./SelectButton";
 const ButtonGroup: React.FC = () => {
@@ -12,12 +12,13 @@ const ButtonGroup: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex flex-row items-center gap-1">
-      <div className="w-[100%] overflow-x-auto relative scrollbar-hide">
+    <section className="w-full flex flex-row items-center gap-1">
+      <nav className="w-[100%] overflow-x-auto relative scrollbar-hide">
         <ul className="flex space-x-2">
-          {OnlyLargeCategory.largeCategories.map((category) => (
+          {largeCategories.map((category) => (
             <li key={category.id}>
               <SelectButton
+                type="button"
                 isSelected={selectedButton === category.id}
                 onClick={() => handleClick(category.id)}
                 className={`border-[#E5E5E5] m-0 p-1 h-[36px] text-[13px] font-medium ${
@@ -29,9 +30,9 @@ const ButtonGroup: React.FC = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </nav>
       <OptionDialog />
-    </div>
+    </section>
   );
 };
 

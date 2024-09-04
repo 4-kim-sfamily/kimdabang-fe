@@ -1,5 +1,5 @@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import largeCategories from "../../lib/dummy/main/OnlyLargeCategory.json";
+import { largeCategories } from "@/lib/dummy/main/OnlyLargeCategory";
 import DownwardArrow from "../icons/DownwardArrow";
 import { Button } from "./button";
 import {
@@ -36,7 +36,7 @@ export default function OptionDialog() {
             </DialogTitle>
             <DialogDescription className=" w-[100%] p-6 h-[65%] overflow-y-scroll scroll-item">
               <RadioGroup defaultValue="1">
-                {largeCategories.largeCategories.map((category) => (
+                {largeCategories.map((category) => (
                   <div
                     key={category.id}
                     className="flex items-center space-x-2"

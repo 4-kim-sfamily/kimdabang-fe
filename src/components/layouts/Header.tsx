@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Cart, Hamburger, Hearts, Search, StarbucksLogo } from "../icons/Index";
 
-export const Header = () => {
+export default function Header() {
   return (
     <header className="flex bg-[#006241] w-full h-[56px] items-center">
       <nav className="flex w-full justify-between p-4 items-center">
@@ -35,4 +35,4 @@ export const Header = () => {
       </nav>
     </header>
   );
-};
+}

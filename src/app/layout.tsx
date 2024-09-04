@@ -1,5 +1,7 @@
 "use client";
+import Footer from "@/components/layouts/Footer";
 import { SessionProvider } from "next-auth/react";
+import Header from "../components/layouts/Header";
 import "./globals.css";
 
 export default function RootLayout({
@@ -10,13 +12,12 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <SessionProvider>{children}</SessionProvider>
+        <SessionProvider>
+          <Header />
+          {children}
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );
 }
-
-// export const metadata: Metadata = {
-//   title: "STARBUCKS",
-//   description: "스타벅스 클론코딩",
-// };
