@@ -1,3 +1,5 @@
+"use client"; // 클라이언트 컴포넌트
+
 import { DownwardArrow } from "@/components/icons/Index";
 import { useRouter } from "next/navigation";
 
