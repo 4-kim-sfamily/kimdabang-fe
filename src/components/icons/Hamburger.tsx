@@ -5,15 +5,15 @@ type HamburgerProps = {
 export default function Hamburger({ color = "white" }: HamburgerProps) {
   return (
     <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill={color}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M20.4001 6H3.6001V7.2H20.4001V6Z" fill={color} />
-      <path d="M20.4001 10.8H3.6001V12H20.4001V10.8Z" fill={color} />
-      <path d="M20.4001 15.6001H3.6001V16.8001H20.4001V15.6001Z" fill={color} />
+      <path d="M24.4 10H7.60004V11.2H24.4V10Z" fill={color} />
+      <path d="M24.4 14.8H7.60004V16H24.4V14.8Z" fill={color} />
+      <path d="M24.4 19.6H7.60004V20.8H24.4V19.6Z" fill={color} />
     </svg>
   );
 }

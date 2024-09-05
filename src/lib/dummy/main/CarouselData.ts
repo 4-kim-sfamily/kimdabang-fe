@@ -1,4 +1,5 @@
-export const CarouselDataType = [
+import { CarouselDataType } from "../../../types/main/CarouselDataType";
+export const CarouselData: CarouselDataType[] = [
   {
     id: 1,
     description: "가을의 감성을 담은 스타벅스 MD",

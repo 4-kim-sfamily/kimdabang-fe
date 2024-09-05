@@ -70,12 +70,13 @@
     );
   }
   .scroll-item::-webkit-scrollbar {
+    -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨김 */
+    scrollbar-width: none;
     display: none; /* Chrome, Safari, Edge, Opera에서 스크롤바 숨김 */
   }
 
-  .scroll-item {
-    -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨김 */
-    scrollbar-width: none; /* Firefox에서 스크롤바 숨김 */
+  .nav-link {
+    @apply text-white whitespace-nowrap px-3;
   }
 }
 html,
