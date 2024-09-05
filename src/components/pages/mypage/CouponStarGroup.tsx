@@ -11,15 +11,13 @@ interface CouponResponse {
 }
 
 export default async function CouponStarGroup() {
-  const couponRes = await fetch(
-    `${process.env.BACKEND_URL}/api/getcouponAmount`,
-    {
-      cache: "no-store",
-    },
-  );
+  const couponRes = await fetch(`${process.env.JSONSERVER_URL}/couponAmount`, {
+    cache: "no-store",
+  });
+  console.log(couponRes.json);
   const couponData: CouponResponse = await couponRes.json();
 
-  const starRes = await fetch(`${process.env.BACKEND_URL}/api/getstarAmount`, {
+  const starRes = await fetch(`${process.env.JSONSERVER_URL}/starAmount`, {
     cache: "no-store",
   });
   const starData: StarResponse = await starRes.json();

@@ -135,9 +135,6 @@ body {
 .delivery-state {
   @apply flex-col;
 }
-.delivery-state > div {
-  @apply p-8 bg-gray-200 rounded-3xl;
-}
 .delivery-state > p {
   @apply text-center;
 }

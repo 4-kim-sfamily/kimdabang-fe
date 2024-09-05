@@ -1,58 +1,86 @@
 {
-    "itemCard": [
-      {
-        "id": 1,
-        "ProductCode": "SB001",
-        "ProductName": "SS 사이렌 워커 텀블러 473ml",
-        "price": 37000,
-        "largeCategory": "텀블러/보온병",
-        "inStock": true,
-        "imgUrl": "https://picsum.photos/300/300"
-      },
-      {
-        "id": 2,
-        "ProductCode": "SB002",
-        "ProductName": "사이렌 글라스볼 우드스푼세트",
-        "price": 19000,
-        "largeCategory": "라이프 스타일",
-        "inStock": true,
-        "imgUrl": "https://picsum.photos/300/300",
-        "discount": {
-          "discount": 10,
-          "discountedPrice": 17100
-        }
-      },
-      {
-        "id": 3,
-        "ProductCode": "SSG003",
-        "ProductName": "사이렌 레버 드리퍼",
-        "price": 35000,
-        "largeCategory": "커피/티용품",
-        "inStock": true,
-        "imgUrl": "https://picsum.photos/300/300"
-      },
-      {
-        "id": 4,
-        "ProductCode": "SSG004",
-        "ProductName": "사이렌 글라스 컨테이너",
-        "price": 41000,
-        "largeCategory": "커피/티용품",
-        "inStock": true,
-        "imgUrl": "https://picsum.photos/300/300"
-      },
-      {
-        "id": 5,
-        "ProductCode": "SSG005",
-        "ProductName": "크림 컴프레소",
-        "price": 68000,
-        "largeCategory": "커피/티용품",
-        "inStock": true,
-        "imgUrl": "https://picsum.photos/300/300",
-        "discount": {
-          "discount": 15,
-          "discountedPrice": 57800
-        }
-      }
-    ]
-  }
-  
+  "couponAmount": {
+    "couponAmount": 5
+  },
+  "starAmount": {
+    "starAmount": 5,
+    "greenStarAmount": 7
+  },
+  "productstatelist": [
+    {
+      "state": "취소",
+      "amount": 3
+    },
+    {
+      "state": "교환",
+      "amount": 5
+    },
+    {
+      "state": "반품",
+      "amount": 2
+    },
+    {
+      "state": "구매확정",
+      "amount": 10
+    }
+  ],
+  "deliveryStates": [
+    {
+      "id": 1,
+      "state": "주문 접수",
+      "count": 3
+    },
+    {
+      "id": 2,
+      "state": "결제 완료",
+      "count": 5
+    },
+    {
+      "id": 3,
+      "state": "상품 준비중",
+      "count": 2
+    },
+    {
+      "id": 4,
+      "state": "배송중",
+      "count": 1
+    },
+    {
+      "id": 5,
+      "state": "배송 완료",
+      "count": 4
+    }
+  ],
+  "favoriteMenus": [
+    {
+      "id": 1,
+      "iconName": "좋아요",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_like@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 2,
+      "iconName": "자주구매",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_freq@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 3,
+      "iconName": "이벤트현황",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_event@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 4,
+      "iconName": "상품 Q&A",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_qna@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 5,
+      "iconName": "입고알림",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_alert@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 6,
+      "iconName": "선물함",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_gift@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    }
+  ]
+}

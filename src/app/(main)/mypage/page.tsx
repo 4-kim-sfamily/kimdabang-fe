@@ -4,6 +4,7 @@ import {
   DeliveryStateList,
   FavoiriteMenu,
   ManageOrder,
+  MyDeliveryButton,
   MyPageAdvertisement,
   MyPageTitle,
   ProductStateList,
@@ -25,19 +26,11 @@ export default async function page() {
     <main className="px-[4.1vw] font-NanumSquare">
       <MyPageTitle username={username} />
       <MyPageAdvertisement />
-
       <CouponStarGroup />
       <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-
       <DeliveryStateList />
       <ProductStateList />
-
-      <button
-        type="button"
-        className="py-3 w-full text-[0.7rem] text-center border-gray-300 border- rounded-full"
-      >
-        주문/배송 조회 보러가기›
-      </button>
+      <MyDeliveryButton />
       <FavoiriteMenu />
       <ManageOrder />
     </main>

@@ -9,7 +9,7 @@ const predefinedStates = ["취소", "교환", "반품", "구매확정"];
 
 export default async function ProductStateList() {
   // 서버 컴포넌트에서 데이터 fetch
-  const res = await fetch("https://api.example.com/product-states", {
+  const res = await fetch(`${process.env.JSONSERVER_URL}/productstatelist`, {
     cache: "no-store",
   });
   const data: ProductStateResponse[] = await res.json();
