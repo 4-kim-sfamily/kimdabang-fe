@@ -1,9 +1,13 @@
 import ItemCard from "@/components/Items/ItemCard";
 import ButtonGroup from "@/components/ui/ButtonGroup";
 import MainTitle from "@/components/ui/mainTitle";
-import { itemCardList } from "@/lib/dummy/items/itemCardList";
+import { ItemCardType } from "@/types/items/ItemCard";
 
-export default function MainBestItem() {
+export default async function MainBestItem() {
+  const res = await fetch("http://localhost:4000/BestTumblr", {
+    cache: "no-store",
+  });
+  const BestTumblr: ItemCardType[] = await res.json();
   return (
     <section>
       <MainTitle
@@ -12,7 +16,7 @@ export default function MainBestItem() {
       />
       <ButtonGroup />
       <div className="grid grid-cols-2 gap-4 justify-center w-[100%] py-3 md:grid-cols-4">
-        {itemCardList.map((item) => (
+        {BestTumblr.map((item) => (
           <ItemCard key={item.id} item={item} />
         ))}
       </div>

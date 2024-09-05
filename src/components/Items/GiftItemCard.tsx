@@ -7,10 +7,10 @@ import Hearts from "../icons/Hearts";
 
 import ReviewPreview from "./ReviewPreview";
 
-export default function ItemCard({ item }: { item: ItemCardType }) {
+export default function GiftItemCard({ item }: { item: ItemCardType }) {
   return (
-    <div className="w-[100%] border-slate-950 flex flex-col justify-start">
-      <div className="relative w-full aspect-square">
+    <div className="w-[100%] border-slate-950 flex flex-col justify-start w-[224px]">
+      <div className="relative w-[100%] aspect-square h-[224px]">
         <Image
           src={item.productImageUrl}
           alt={item.productName}
