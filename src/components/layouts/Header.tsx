@@ -3,7 +3,7 @@ import { Cart, Hamburger, Hearts, Search, StarbucksLogo } from "../icons/Index";
 
 export default function Header() {
   return (
-    <header className="flex bg-[#006241] w-full h-[56px] items-center">
+    <header className="fixed top-0 left-0 bg-[#006241] w-full z-10 h-[56px] flex items-center">
       <nav className="flex w-full justify-between p-4 items-center">
         <ul className="flex gap-3 items-center">
           <li>

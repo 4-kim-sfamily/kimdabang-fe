@@ -1,4 +1,6 @@
-export const SeasonData = [
+import { RunningSeason } from "@/types/main/RunningSeasonDataType";
+
+export const SeasonData: RunningSeason[] = [
   {
     id: 1,
     name: "MEET THE STARBUCKS MOMENT",
