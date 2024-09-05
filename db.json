@@ -457,5 +457,37 @@
       "iconName": "선물함",
       "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_gift@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
     }
+  ],
+  "carouselData": [
+    {
+      "id": 0,
+      "description": "오텀 펭귄 북스",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202408/2024082716492709780525320152_955.jpg&w=750&h=0"
+    },
+    {
+      "id": 1,
+      "description": "BUDDY BLACK GOLF CLUB",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202408/2024083014175053184567290556_417.jpg&w=750&h=0"
+    },
+    {
+      "id": 2,
+      "description": "24주년",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202408/2024082716450008893493951449_912.jpg&w=750&h=0"
+    },
+    {
+      "id": 3,
+      "description": "뉴에라",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202408/2024082210304903261305969130_246.jpg&w=750&h=0"
+    },
+    {
+      "id": 4,
+      "description": "설레는 시작의 순간, BACK TO SCHOOL",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202408/2024081314575234095027480602_360.jpg&w=750&h=0"
+    },
+    {
+      "id": 5,
+      "description": "MEET THE STARBUCKS MOMENT",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202407/2024072613135181368572876957_610.jpg&w=750&h=0"
+    }
   ]
 }
