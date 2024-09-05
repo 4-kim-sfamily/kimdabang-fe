@@ -7,7 +7,9 @@ export default function page({ params }: { params: { categoryName: string } }) {
     <>
       <div className="h-14 w-full/>" />
       <CategoryAccordion categoryName={params.categoryName} />
-      <ButtonGroup />
+      <div className="px-2">
+        <ButtonGroup />
+      </div>
       <CategorySection />
     </>
   );
