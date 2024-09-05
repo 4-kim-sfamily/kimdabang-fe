@@ -1,4 +1,4 @@
-import ItemCard from "@/components/Items/ItemCard";
+import GiftItemCard from "@/components/Items/GiftItemCard";
 import ButtonGroup from "@/components/ui/ButtonGroup";
 import MainTitle from "@/components/ui/mainTitle";
 import { ItemCardType } from "@/types/items/ItemCard";
@@ -12,9 +12,9 @@ export default async function MainGiftProduct() {
     <section>
       <MainTitle title="스타벅스 기프트" />
       <ButtonGroup />
-      <div className="flex overflow-x-auto whitespace-nowrap scroll-item gap-4 py-3 mb-8]">
+      <div className="flex overflow-x-auto h-[333.5px] whitespace-nowrap scroll-item gap-4 py-3 mb-8]">
         {BestTumblr.map((item: ItemCardType) => (
-          <ItemCard key={item.id} item={item} />
+          <GiftItemCard key={item.id} item={item} />
         ))}
       </div>
     </section>
