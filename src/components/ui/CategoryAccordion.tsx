@@ -13,18 +13,25 @@ export default function CategoryAccordion({
 }) {
   return (
     <div>
-      <Accordion type="single" collapsible className="px-2">
-        <AccordionItem value="item-1">
-          <AccordionTrigger className="font-extrabold">
+      <Accordion type="single" collapsible className="">
+        <AccordionItem value="item-1" className="px-3">
+          <AccordionTrigger className="font-extrabold hover:no-underline py-2 text-xl">
             {categoryName}
           </AccordionTrigger>
-          <AccordionContent>
-            <ul className="w-[100%] text-sm">
+          <AccordionContent className="pb-0">
+            <ul className="w-[100%] text-xs ">
               {navData.map((item) => (
-                <li key={item.id}>
+                <li
+                  key={item.id}
+                  className={`h-10 py-2 ${
+                    categoryName === item.name
+                      ? "font-extrabold bg-[#F5F5F5]"
+                      : ""
+                  }`}
+                >
                   <Link
                     href={`/category${item.link}`}
-                    className="nav-link text-black px-2"
+                    className="nav-link text-black px-0 text-base"
                   >
                     {item.name}
                   </Link>

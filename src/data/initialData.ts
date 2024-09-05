@@ -2,6 +2,11 @@ import { navType } from "@/components/ui/NavBar";
 
 export const navData: navType[] = [
   {
+    id: 0,
+    link: "/TEST",
+    name: "TEST",
+  },
+  {
     id: 1,
     link: "/season",
     name: "SEASON MD",
