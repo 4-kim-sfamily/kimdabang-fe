@@ -12,8 +12,8 @@ const ButtonGroup: React.FC = () => {
   };
 
   return (
-    <section className="w-full flex flex-row items-center gap-1 pt-3 pㅌ-0">
-      <nav className="w-[100%] overflow-x-auto relative scrollbar-hide">
+    <section className="w-full flex flex-row items-center gap-1 pt-3 p-0">
+      <nav className="w-[100%] overflow-x-auto relative scroll-item">
         <ul className="flex space-x-2">
           {subCategories.map((category) => (
             <li key={category.id}>

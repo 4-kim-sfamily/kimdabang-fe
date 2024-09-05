@@ -2,8 +2,8 @@ export interface ItemCardType {
   id: number;
   ProductCode: string;
   ProductName: string;
-  price: number;
-  imgUrl: string;
+  productPrice: number;
+  productImageUrl: string;
   largeCategory: string;
   inStock: boolean;
   discount?: DiscountedItemCardType;

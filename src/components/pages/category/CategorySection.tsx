@@ -1,7 +1,11 @@
 import ItemCard from "@/components/Items/ItemCard";
-import { itemCardList } from "@/lib/dummy/items/itemCardList";
+import { ItemCardType } from "@/types/items/ItemCard";
 import Image from "next/image";
-export default function CategorySection() {
+export default async function CategorySection() {
+  const res = await fetch("http://localhost:4000/BestTumblr", {
+    cache: "no-store",
+  });
+  const BestTumblr: ItemCardType[] = await res.json();
   return (
     <section>
       <div className="relative w-[100%] aspect-[16/9] my-3">
@@ -13,7 +17,7 @@ export default function CategorySection() {
         />
       </div>
       <div className="grid grid-cols-2 gap-4 justify-center w-[100%] py-3 md:grid-cols-4 p-[4.1vw]">
-        {itemCardList.map((item) => (
+        {BestTumblr.map((item) => (
           <ItemCard key={item.id} item={item} />
         ))}
       </div>

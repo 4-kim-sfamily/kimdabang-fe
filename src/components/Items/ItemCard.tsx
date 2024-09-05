@@ -12,7 +12,7 @@ export default function ItemCard({ item }: { item: ItemCardType }) {
     <div className="w-[100%] border-slate-950 flex flex-col justify-start">
       <div className="relative w-full aspect-square">
         <Image
-          src={item.imgUrl}
+          src={item.productImageUrl}
           alt={item.ProductName}
           fill
           style={{ objectFit: "cover" }}
@@ -26,7 +26,7 @@ export default function ItemCard({ item }: { item: ItemCardType }) {
         </div>
       </div>
       <p className="text-[13px] ">{item.ProductName}</p>
-      <p className="font-semibold ">{item.price}원</p>
+      <p className="font-semibold ">{item.productPrice}</p>
       <ReviewPreview productCode={item.ProductCode} visible={false} />
     </div>
   );
