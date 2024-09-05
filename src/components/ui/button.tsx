@@ -16,13 +16,17 @@ const buttonVariants = cva(
         inversion: "bg-white text-[#01a862] border-[#01a862] border-2 ",
         optionArrow:
           "border border-[#E5E5E5] shadow-[-20px_0px_5px_rgba(255,255,255,0.9)]",
+        mypageButton:
+          "py-3 w-full text-[0.7rem] mx-auto text-center border-gray-300 border- rounded-full",
       },
       size: {
         default: "w-[88%] mb-2 py-3 font-bold",
+        s: "w-[88%] mb-2 py-1 my-2 font-bold",
         sm: "w-[25%] py-1 mb-2 font-normal text-sm",
         md: "w-[45%] mb-2 px-8 py-3 font-bold",
         lg: "w-[88%] mb-2 py-3 font-bold",
         free: "mb-2 py-2 px-5 mx-3 font-bold",
+        custom: "",
       },
     },
     defaultVariants: {
