@@ -8,7 +8,7 @@ export const itemCardList: ItemCardType[] = [
     price: 37000,
     largeCategory: "텀블러/보온병",
     inStock: true,
-    imgUrl: "https://picsum.photos/300/300",
+    imgUrl: "https://sitem.ssgcdn.com/39/61/40/item/1000614406139_i1_750.jpg",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const itemCardList: ItemCardType[] = [
     price: 19000,
     largeCategory: "라이프 스타일",
     inStock: true,
-    imgUrl: "https://picsum.photos/300/300",
+    imgUrl: "https://sitem.ssgcdn.com/39/61/40/item/1000614406139_i1_750.jpg",
     discount: {
       discount: 10,
       discountedPrice: 17100,
@@ -30,7 +30,7 @@ export const itemCardList: ItemCardType[] = [
     price: 35000,
     largeCategory: "커피/티용품",
     inStock: true,
-    imgUrl: "https://picsum.photos/300/300",
+    imgUrl: "https://sitem.ssgcdn.com/39/61/40/item/1000614406139_i1_750.jpg",
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ export const itemCardList: ItemCardType[] = [
     price: 41000,
     largeCategory: "커피/티용품",
     inStock: true,
-    imgUrl: "https://picsum.photos/300/300",
+    imgUrl: "https://sitem.ssgcdn.com/39/61/40/item/1000614406139_i1_750.jpg",
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ export const itemCardList: ItemCardType[] = [
     price: 68000,
     largeCategory: "커피/티용품",
     inStock: true,
-    imgUrl: "https://picsum.photos/300/300",
+    imgUrl: "https://sitem.ssgcdn.com/39/61/40/item/1000614406139_i1_750.jpg",
     discount: {
       discount: 15,
       discountedPrice: 57800,
