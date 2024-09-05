@@ -1,4 +1,6 @@
-export const reviews = [
+import { ReviewPreviewType } from "@/types/review/ReviewDataType";
+
+export const reviews: ReviewPreviewType[] = [
   {
     productCode: "SB001",
     rate: 0,
