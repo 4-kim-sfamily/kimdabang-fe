@@ -92,12 +92,36 @@
   user-select: none;
 
   .title {
-    @apply text-xl text-[#222222] font-bold mt-10;
+    @apply text-xl text-[#222222] font-extrabold mt-10;
   }
 
   .description {
     @apply text-xs text-[#666666] pb-1;
   }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .gradient-background {
+    @apply bg-white;
+    background: linear-gradient(
+      270deg,
+      white 28.09%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  .scroll-item::-webkit-scrollbar {
+    -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨김 */
+    scrollbar-width: none;
+    display: none; /* Chrome, Safari, Edge, Opera에서 스크롤바 숨김 */
+  }
+
+  .nav-link {
+    @apply text-white whitespace-nowrap px-3;
+  }
+}
+html,
+body {
+  font-family: "NanumSquare", sans-serif;
 }
 .scroll-item::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Edge, Opera에서 스크롤바 숨김 */

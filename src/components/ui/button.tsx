@@ -14,6 +14,8 @@ const buttonVariants = cva(
         disabled: "bg-gray-300 text-white ",
         starbucks: "bg-[#01a862]  text-white",
         inversion: "bg-white text-[#01a862] border-[#01a862] border-2 ",
+        optionArrow:
+          "border border-[#E5E5E5] shadow-[-20px_0px_5px_rgba(255,255,255,0.9)]",
       },
       size: {
         default: "w-[88%] mb-2 py-3 font-bold",

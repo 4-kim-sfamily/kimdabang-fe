@@ -14,10 +14,6 @@ export interface DiscountedItemCardType {
   discountedPrice: number;
 }
 
-export interface ItemCardListType {
-  itemCard: ItemCardType[];
-}
-
 export interface ItemCardProps {
   item: ItemCardType;
   rate: number;
