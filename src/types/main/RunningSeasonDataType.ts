@@ -4,7 +4,3 @@ export interface RunningSeason {
   description?: string;
   thumbsImgUrl: string;
 }
-
-export interface RunningSeasonDataType {
-  SeasonData: RunningSeason[];
-}

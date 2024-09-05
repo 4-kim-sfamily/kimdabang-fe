@@ -1,4 +1,6 @@
-export const largeCategories = [
+import { OnlyLargeCategory } from "@/types/main/AllCategoryDataType";
+
+export const largeCategories: OnlyLargeCategory[] = [
   {
     id: 1,
     name: "SEASON MD",
