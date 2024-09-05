@@ -4,7 +4,6 @@ export default function CustomerServiceSection() {
   return (
     <section>
       <div className="flex flex-col md:flex-row justify-between items-center py-4 px-6 bg-gray-400">
-        {/* 아이콘과 텍스트를 정렬 */}
         <div className="flex items-center text-white">
           <CustomerServiceIcon />
           <div className="ml-2">
@@ -15,7 +14,6 @@ export default function CustomerServiceSection() {
           </div>
         </div>
 
-        {/* 버튼을 텍스트 오른쪽에 정렬 */}
         <div className="flex items-center text-white mt-4 md:mt-0 gap-2">
           <button className="bg-gray-600 px-4 py-2 md:px-6 md:py-3 text-[12px] md:text-[14px] rounded min-h-[44px]">
             전화 걸기
