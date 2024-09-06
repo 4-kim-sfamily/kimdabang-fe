@@ -6,12 +6,14 @@ import BackwardArrow from "@/components/ui/BackwardArrow";
 
 export default function Page() {
   return (
-    <div className="font-NanumSquare justify-between">
+    <>
       <BackwardArrow />
-      <WelcomeMessage />
-      <LoginForm />
-      <SocialLoginButtons />
-      <LoginOptions />
-    </div>
+      <div className="font-NanumSquare justify-between px-5">
+        <WelcomeMessage />
+        <LoginForm />
+        <SocialLoginButtons />
+        <LoginOptions />
+      </div>
+    </>
   );
 }

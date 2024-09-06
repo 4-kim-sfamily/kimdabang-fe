@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        sm490: "490px", // 490px 기준으로 브레이크포인트 추가
+      },
       dropShadow: {
         gradientLeft: [
           "0px 0px 1px rgba(255, 255, 255, 0.0001)", // 가장 가까운 그림자

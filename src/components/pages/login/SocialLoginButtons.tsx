@@ -5,7 +5,7 @@ import { signIn } from "next-auth/react";
 
 export default function SocialLoginButtons() {
   return (
-    <Button onClick={() => signIn("kakao")} variant="kakao" className="mx-auto">
+    <Button onClick={() => signIn("kakao")} variant="kakao" className="w-full">
       <KakaoLogo />
       <span>카카오로 로그인하기</span>
     </Button>
