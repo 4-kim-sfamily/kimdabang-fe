@@ -1,4 +1,3 @@
-import BottomNavBar from "@/components/layouts/BottomNavBar";
 import MainBestItem from "@/components/pages/main/MainBestItem";
 import MainBestReviewProduct from "@/components/pages/main/MainBestReviewProduct";
 import MainCategory from "@/components/pages/main/MainCategory";
@@ -21,7 +20,6 @@ export default async function Home() {
         <MainGiftProduct />
         <MainBestReviewProduct />
         <MainBestItem />
-        <BottomNavBar />
       </div>
     </main>
   );

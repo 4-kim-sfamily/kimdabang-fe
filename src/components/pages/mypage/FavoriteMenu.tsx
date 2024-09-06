@@ -22,14 +22,14 @@ export default async function FavoiriteMenu() {
         {favoriteMenus.map((menu: FavoriteMenu) => (
           <div
             key={menu.id}
-            className="flex flex-col items-center justify-center"
+            className="flex  flex-col items-center justify-center"
           >
             <img
               src={menu.imageUrl}
               alt={menu.iconName}
               className="w-full h-full object-contain"
             />
-            <p className="text-center">{menu.iconName}</p>
+            <p className="text-center whitespace-nowrap">{menu.iconName}</p>
           </div>
         ))}
       </div>

@@ -1,6 +1,6 @@
 export default function GuaranteeInfoSection() {
   return (
-    <div className="mt-6 text-[10px]">
+    <div className="mt-6 px-5 text-[10px]">
       <p>
         OO은행 채무지급보증 안내
         <a href="#" className="ml-1 text-black underline hover:font-bold">

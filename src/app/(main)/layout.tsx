@@ -1,3 +1,4 @@
+import BottomNavBar from "@/components/layouts/BottomNavBar";
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
 import NavBar from "@/components/ui/NavBar";
@@ -11,6 +12,7 @@ function layout({ children }: { children: React.ReactNode }) {
       {children}
 
       <Footer />
+      <BottomNavBar />
     </>
   );
 }
