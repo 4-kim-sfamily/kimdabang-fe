@@ -11,6 +11,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { PlayCarousel } from "../icons/Index";
 import Pause from "../icons/Pause";
+import CarouselButton from "./CarouselButton";
 export default function MainCarousel({
   carouselData,
 }: {
@@ -69,7 +70,7 @@ export default function MainCarousel({
         </CarouselContent>
         <div className="flex gap-[1px] absolute bottom-0 right-0 h-8 w-36 text-[13px]">
           <div
-            className="flex items-center jutify-center bg-[rgba(0,0,0,0.45)] p-2 gap-[2px] flex-grow
+            className="flex items-center jutify-center bg-[rgba(0,0,0,0.45)] p-1 gap-[2px] flex-grow
         "
           >
             <button className="mx-1" onClick={toggleAutoplay}>
@@ -80,9 +81,8 @@ export default function MainCarousel({
             <span className="text-rgba(255,255,255,0.5)">/</span>
             <span className="text-rgba(255,255,255,0.5)">{count}</span>
           </div>
-          <button className="bg-[rgba(0,0,0,0.45)] p-1 text-white flex-grow">
-            전체보기
-          </button>
+
+          <CarouselButton current={current} />
         </div>
       </Carousel>
     </div>
