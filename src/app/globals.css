@@ -53,6 +53,18 @@
   .mypage-article {
     @apply w-[30%] items-center mx-2 flex-col flex text-center border-2 border-slate-200 rounded-xl p-2   mb-2;
   }
+
+  .nav-link {
+    @apply text-white whitespace-nowrap px-3;
+  }
+
+  .title {
+    @apply text-xl text-[#222222] font-extrabold mt-10;
+  }
+
+  .description {
+    @apply text-xs text-[#666666] pb-1;
+  }
 }
 
 .embla {
@@ -91,6 +103,26 @@
   height: var(--slide-height);
   user-select: none;
 }
+.title {
+  @apply text-xl text-[#222222] font-extrabold mt-10;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.gradient-background {
+  @apply bg-white;
+  background: linear-gradient(
+    270deg,
+    white 28.09%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.scroll-item::-webkit-scrollbar {
+  -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨김 */
+  scrollbar-width: none;
+  display: none; /* Chrome, Safari, Edge, Opera에서 스크롤바 숨김 */
+}
+
 .title {
   @apply text-xl text-[#222222] font-extrabold mt-10;
 }
