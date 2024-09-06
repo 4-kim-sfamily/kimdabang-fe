@@ -5,7 +5,6 @@ export default function page({ params }: { params: { productId: string } }) {
   return (
     <main>
       <ProductContainer productId={parseInt(params.productId)} />
-      <ProductDetailImage />
     </main>
   );
 }

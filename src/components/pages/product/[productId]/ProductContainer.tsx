@@ -1,4 +1,5 @@
 import { ItemCardProps } from "@/types/items/ItemCard";
+import ProductDetailImage from "./ProductDetailImage";
 import ProductHeader from "./ProductHeader";
 
 // export interface ItemCardType {
@@ -29,5 +30,10 @@ export default async function ProductContainer({
 
   const products: ItemCardProps[] = await res.json();
   console.log("Thisis product", products);
-  return <ProductHeader product={products[2]} />;
+  return (
+    <>
+      <ProductHeader product={products[2]} />
+      <ProductDetailImage />
+    </>
+  );
 }
