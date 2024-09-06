@@ -1,4 +1,4 @@
-import { ItemCardProps } from "@/types/items/ItemCard";
+import { ItemCardType } from "@/types/items/ItemCard";
 import ProductCustomerReview from "./ProductCustomerReview";
 import ProductDetailImage from "./ProductDetailImage";
 import ProductHeader from "./ProductHeader";
@@ -29,7 +29,7 @@ export default async function ProductContainer({
   );
   // 응답 데이터를 JSON으로 변환
 
-  const products: ItemCardProps[] = await res.json();
+  const products: ItemCardType[] = await res.json();
   console.log("Thisis product", products);
   return (
     <>

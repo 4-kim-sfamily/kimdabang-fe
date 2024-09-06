@@ -35,9 +35,7 @@ export default function ProductInfo({
       </h2>
 
       {/* 상품 가격 */}
-      <p className="text-left mx-2 text-3xl font-semibold mt-4">
-        {price.toLocaleString()}원
-      </p>
+      <p className="text-left mx-2 text-3xl font-semibold mt-4">{price}</p>
     </>
   );
 }
