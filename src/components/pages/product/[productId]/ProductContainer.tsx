@@ -1,4 +1,5 @@
 import { ItemCardProps } from "@/types/items/ItemCard";
+import ProductCustomerReview from "./ProductCustomerReview";
 import ProductDetailImage from "./ProductDetailImage";
 import ProductHeader from "./ProductHeader";
 
@@ -34,6 +35,7 @@ export default async function ProductContainer({
     <>
       <ProductHeader product={products[2]} />
       <ProductDetailImage />
+      <ProductCustomerReview />
     </>
   );
 }
