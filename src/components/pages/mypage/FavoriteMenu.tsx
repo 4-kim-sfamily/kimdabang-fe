@@ -16,7 +16,7 @@ export default async function FavoiriteMenu() {
 
   return (
     <section>
-      <h3 className="bg-[#006241] text-lg text-white">자주 찾는 메뉴</h3>
+      <h3 className="bg-[#006241] text-lg text-white px-3">자주 찾는 메뉴</h3>
       <div className="mt-2 grid grid-cols-5 gap-3 items-center justify-center">
         {/* 데이터를 map 함수로 렌더링 */}
         {favoriteMenus.map((menu: FavoriteMenu) => (
