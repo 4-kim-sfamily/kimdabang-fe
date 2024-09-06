@@ -1,6 +1,6 @@
 export default function CopyRightSection() {
   return (
-    <div className="mt-3 text-[9px] text-left md:text-center">
+    <div className="mt-3 px-5 text-[9px] text-left md:text-center">
       <p>
         ㈜스파로스닷컴 SPHAROS.COM 실시간 항공권 서비스의 통신판매중개자로서
         거래 당사자가 아니며, 입점 판매사가 등록한 상품 정보 및 거래에 대해
