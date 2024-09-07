@@ -4,13 +4,19 @@ import Header from "@/components/layouts/Header";
 import NavBar from "@/components/ui/NavBar";
 import React from "react";
 
-function layout({ children }: { children: React.ReactNode }) {
+function layout({
+  children,
+  modal,
+}: {
+  children: React.ReactNode;
+  modal: React.ReactNode;
+}) {
   return (
     <>
       <Header />
       <NavBar />
       {children}
-
+      {modal}
       <Footer />
       <BottomNavBar />
     </>

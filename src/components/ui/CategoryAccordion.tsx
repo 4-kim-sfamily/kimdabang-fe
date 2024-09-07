@@ -25,13 +25,13 @@ export default function CategoryAccordion({
                   key={item.id}
                   className={`h-10 py-2 ${
                     categoryName === item.name
-                      ? "font-extrabold bg-[#F5F5F5]"
+                      ? "font-extrabold bg-[#F5F5F5] text-black"
                       : ""
                   }`}
                 >
                   <Link
                     href={`/category${item.link}`}
-                    className="nav-link text-black px-0 text-base"
+                    className="text-black px-0 text-base"
                   >
                     {item.name}
                   </Link>

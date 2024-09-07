@@ -5,7 +5,7 @@ import BackwardButton from "../icons/BackwardButton";
 export default function CarouselButton({ current }: { current: number }) {
   const router = useRouter();
   const navigateToImagesView = (currentIndex: number) => {
-    router.push(`/images/view/${currentIndex}`);
+    router.push(`/event/${currentIndex}`);
   };
 
   return (
