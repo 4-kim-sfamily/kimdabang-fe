@@ -61,8 +61,8 @@ export default async function EntireReview({
           </li>
         ))}
       </ul>
-      <Button variant="inversion" className="mx-auto">
-        <Link href={`product/${productCode}/allreviews`}>더보기</Link>
+      <Button variant="inversion" className="mx-auto   border-[0.1rem]">
+        <Link href={`product/${productCode}/allreviews`}>전체리뷰 보기</Link>
       </Button>
     </section>
   );

@@ -2,7 +2,6 @@ import { ItemCardType } from "@/types/items/ItemCard";
 import ProductCustomerReview from "./ProductCustomerReview";
 import ProductDetailImage from "./ProductDetailImage";
 import ProductHeader from "./ProductHeader";
-import QnA from "./QnA";
 
 export default async function ProductContainer({
   productCode,
@@ -26,7 +25,8 @@ export default async function ProductContainer({
       {/* <ProductAds /> */}
       <ProductDetailImage />
       <ProductCustomerReview productCode={productCode} />
-      <QnA />
+      {/* <QnA /> */}
+      {/* 추가 상품 리스트 필요 */}
     </>
   );
 }

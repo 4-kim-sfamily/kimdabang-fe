@@ -11,7 +11,7 @@ export default function ProductAds() {
         height={300}
         alt={"광고"}
       />
-      <div className="text-left border-2 gap-2 items-center flex m-3 border-gray-600 rounded-[5px] text-xs">
+      <div className="text-left border-2 gap-2 items-center px-2 flex m-3 border-gray-300 rounded-[5px] text-xs">
         <MegaPhone /> 100명이 리뷰한 아이템이에요.
       </div>
     </div>
