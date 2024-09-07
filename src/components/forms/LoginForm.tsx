@@ -40,7 +40,7 @@ export default function LoginForm() {
       />
       {loginError && <p className="text-red-500 text-sm">{loginError}</p>}
 
-      <Button type="submit" variant="starbucks" className="mx-auto mt-6">
+      <Button type="submit" variant="starbucks" className="w-full mt-6">
         로그인하기
       </Button>
     </form>

@@ -2,7 +2,7 @@ import StarbucksIcon from "@/components/icons/StarbucksIcon";
 
 export default function WelcomeMessage() {
   return (
-    <div className="flex flex-col mx-5">
+    <div className="flex flex-col ">
       <div className="mt-5 mb-5 w-16">
         <StarbucksIcon />
       </div>

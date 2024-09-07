@@ -24,7 +24,7 @@ export default async function page() {
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
   return (
-    <main className=" font-NanumSquare">
+    <main className=" font-NanumSquare p-4">
       <MyPageTitle username={username} />
       <MyPageAdvertisement />
       <CouponStarGroup />
