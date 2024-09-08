@@ -1,4 +1,5 @@
 import { options } from "@/app/api/auth/[...nextauth]/options";
+import BottomNavBar from "@/components/layouts/BottomNavBar";
 import {
   CouponStarGroup,
   DeliveryStateList,
@@ -33,6 +34,7 @@ export default async function page() {
       <MyDeliveryButton />
       <FavoiriteMenu />
       <ManageOrder />
+      <BottomNavBar />
     </main>
   );
 }

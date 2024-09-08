@@ -21,7 +21,7 @@ export default async function DeliveryStateList() {
   return (
     <section>
       <DeliveryHeader />
-      <ul className="flex justify-around whitespace-nowrap text-[1rem] text-gray-500">
+      <ul className="flex w-full justify-around whitespace-nowrap text-[1rem] text-gray-500">
         {deliveryData.map((item: DeliveryStateData) => (
           <Fragment key={item.id}>
             <DeliveryState state={item.state} count={item.count} />

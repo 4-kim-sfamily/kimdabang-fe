@@ -6,12 +6,11 @@ export default function DeliveryState({
   count: number;
 }) {
   return (
-    <li className="delivery-state">
-      {/* div에 고정된 크기와 중앙 정렬 적용 */}
-      <div className="flex items-center justify-center w-16 h-16 bg-gray-200 rounded-3xl">
+    <li className="delivery-state flex flex-col items-center">
+      <div className="flex items-center justify-center aspect-square w-[14vw] max-w-[180px] bg-gray-200 rounded-2xl">
         {count}
       </div>
-      <p>{state}</p>
+      <p className="text-sm min-w-14">{state}</p>
     </li>
   );
 }
