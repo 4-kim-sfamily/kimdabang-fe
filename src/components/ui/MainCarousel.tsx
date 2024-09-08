@@ -57,7 +57,10 @@ export default function MainCarousel({
       >
         <CarouselContent className="w-full">
           {carouselData.map((item: CarouselDataType) => (
-            <CarouselItem className="relative w-[100vw] aspect-[13/10]">
+            <CarouselItem
+              className="relative w-[100vw] aspect-[13/10]"
+              key={item.id}
+            >
               <Image
                 src={item.imgUrl}
                 alt={item.description}

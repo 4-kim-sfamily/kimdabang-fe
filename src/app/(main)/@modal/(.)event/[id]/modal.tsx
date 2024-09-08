@@ -1,22 +1,20 @@
 "use client";
-import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 
 function modal({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
-  console.log("인터셉트");
+  // const router = useRouter();
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
   return (
     <dialog
       open
-      className="fixed top-0 left-0 w-full h-full overflow-hidden flex flex-col items-center"
+      className="fixed top-0 left-0 w-full h-full flex flex-col items-center overflow-auto z-10"
     >
-      <button
-        className=" rounded-full absolute top-5 right-5 z-50"
-        onClick={() => router.back()}
-      >
-        {"X"}
-      </button>
       {children}
     </dialog>
   );
