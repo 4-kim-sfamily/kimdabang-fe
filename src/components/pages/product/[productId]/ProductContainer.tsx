@@ -2,6 +2,7 @@ import { ItemCardType } from "@/types/items/ItemCard";
 import ProductCustomerReview from "./ProductCustomerReview";
 import ProductDetailImage from "./ProductDetailImage";
 import ProductHeader from "./ProductHeader";
+import SameCategoryProduct from "./SameCategoryProduct";
 
 export default async function ProductContainer({
   productCode,
@@ -27,6 +28,7 @@ export default async function ProductContainer({
       <ProductCustomerReview productCode={productCode} />
       {/* <QnA /> */}
       {/* 추가 상품 리스트 필요 */}
+      <SameCategoryProduct />
     </>
   );
 }
