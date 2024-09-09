@@ -9,7 +9,7 @@ export default function Page() {
     <>
       <BackwardArrow />
       <div className="font-NanumSquare justify-between px-5">
-        <WelcomeMessage />
+        <WelcomeMessage MessageType="login" />
         <LoginForm />
         <SocialLoginButtons />
         <LoginOptions />
