@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Cart, Hamburger, Hearts, Search, StarbucksLogo } from "../icons/Index";
+import { Cart, Hearts, Search, StarbucksLogo } from "../icons/Index";
+import HeaderHamburger from "../pages/category/HeaderHamburger";
 
 export default function Header() {
   return (
@@ -7,7 +8,7 @@ export default function Header() {
       <nav className="flex w-full justify-between p-4 items-center">
         <ul className="flex gap-3 items-center">
           <li>
-            <Hamburger />
+            <HeaderHamburger />
           </li>
           <li>
             <Link href="/">
