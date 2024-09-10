@@ -11,7 +11,7 @@ export default function LoginOptions() {
         비밀번호 찾기
       </Link>
       <span>|</span>
-      <Link href="/members/join" className="hover:underline">
+      <Link href="/member/join" className="hover:underline">
         회원가입
       </Link>
     </div>
