@@ -1,5 +1,7 @@
 "use client";
+import { useEffect, useState } from "react";
 import DownwardArrow from "../icons/DownwardArrow";
+import { useButtonGroup } from "../pages/main/OptionContext";
 import { Button } from "./button";
 import CategoryRadioGroup from "./CategoryRadioGroup";
 import {
@@ -11,9 +13,18 @@ import {
   DialogTrigger,
 } from "./dialog";
 export default function OptionDialog() {
+  const { selectedButton } = useButtonGroup();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (selectedButton) {
+      setOpen(false);
+    }
+  }, [selectedButton]);
+
   return (
     <div className="">
-      <Dialog>
+      <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <div className="flex relative">
             <div className="absolute w-2 h-[36px] right-9 gradient-background" />
