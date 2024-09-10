@@ -9,7 +9,7 @@ export default async function page({
   params: { categoryName: string };
 }) {
   const starRes = await fetch(`${process.env.JSONSERVER_URL}/largeCategories`, {
-    cache: "no-store",
+    cache: "force-cache",
   });
   const largeCategories: Category[] = await starRes.json();
   return (

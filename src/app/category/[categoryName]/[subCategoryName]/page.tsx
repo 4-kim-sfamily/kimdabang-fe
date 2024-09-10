@@ -8,7 +8,7 @@ export default async function page({
   params: { categoryName: string; subCategoryName: string };
 }) {
   const starRes = await fetch(`${process.env.JSONSERVER_URL}/subCategories`, {
-    cache: "no-store",
+    cache: "force-cache",
   });
   const subCategories: Category[] = await starRes.json();
   return (
