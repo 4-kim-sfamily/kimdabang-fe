@@ -1,5 +1,7 @@
 "use client";
+import { useAgreement } from "@/app/context/AgreementContext";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import AgreementCheckbox from "./AgreementCheckbox";
 
@@ -12,6 +14,9 @@ export default function AgreementBox() {
   const [emailChecked, setEmailChecked] = useState(false);
   const [smsChecked, setSmsChecked] = useState(false);
 
+  const { setAgreementData } = useAgreement();
+  const router = useRouter();
+
   // 전체 동의 체크박스 클릭 시 모든 체크박스 상태 변경
   const handleAllAgreeChange = (checked: boolean) => {
     setAllChecked(checked);
@@ -23,6 +28,18 @@ export default function AgreementBox() {
     setSmsChecked(checked);
   };
 
+  const handleSubmit = () => {
+    setAgreementData((prev) => ({
+      ...prev,
+      termsChecked: termsChecked,
+      privacyChecked: privacyChecked,
+      cardChecked: cardChecked,
+      emailChecked: emailChecked,
+      smsChecked: smsChecked,
+    }));
+    router.push("/member/join/verification");
+  };
+
   // 광고성 정보 수신 동의 클릭 시 E-mail과 SMS 동의 상태 변경
   const handleAdAgreeChange = (checked: boolean) => {
     setAdChecked(checked);
@@ -30,19 +47,18 @@ export default function AgreementBox() {
     setSmsChecked(checked);
   };
 
-  // E-mail 수신 동의가 변경되었을 때 광고성 정보 수신 동의가 체크되도록
+  // E-mail 체크박스 클릭했을때 위에 광고성 정보도 자동으로 체크
   const handleEmailChange = (checked: boolean) => {
     setEmailChecked(checked);
     if (checked) {
-      setAdChecked(true); // 광고성 정보 수신 동의 자동 체크
+      setAdChecked(true);
     }
   };
-
-  // SMS 수신 동의가 변경되었을 때 광고성 정보 수신 동의가 체크되도록
+  // SMS 체크박스 클릭했을때 위에 광고성 정보도 자동으로 체크
   const handleSmsChange = (checked: boolean) => {
     setSmsChecked(checked);
     if (checked) {
-      setAdChecked(true); // 광고성 정보 수신 동의 자동 체크
+      setAdChecked(true);
     }
   };
 
@@ -116,6 +132,7 @@ export default function AgreementBox() {
         variant={allRequiredChecked ? "starbucks" : "disabled"}
         disabled={!allRequiredChecked}
         className="flex mx-auto mt-12"
+        onClick={handleSubmit}
       >
         다음
       </Button>
