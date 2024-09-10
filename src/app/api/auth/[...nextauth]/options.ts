@@ -24,7 +24,7 @@ export const options: NextAuthOptions = {
             headers: { "Content-Type": "application/json" },
           },
         );
-        console.log(res);
+        console.log("이건 res값", res);
         // 여기서 받아올 response 받을 json 생각
         if (res.ok) {
           const user = await res.json();

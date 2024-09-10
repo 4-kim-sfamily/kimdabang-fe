@@ -13,7 +13,7 @@ export default function BackwardArrow() {
   return (
     <header
       onClick={handleBack}
-      className="mt-5 ml-4 mb-20 hover:cursor-pointer"
+      className="mt-5 ml-4 mb-16 hover:cursor-pointer"
     >
       <DownwardArrow degree={90} />
     </header>
