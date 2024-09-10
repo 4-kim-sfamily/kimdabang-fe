@@ -1,7 +1,7 @@
 import ReviewPreview from "@/components/Items/ReviewPreview";
 import { ItemCardType } from "@/types/items/ItemCard";
 import ProductAds from "../ProductAds";
-import ProductImage from "./ProductImage"; // 새로운 ProductImage 컴포넌트 임포트
+import ProductImage from "./ProductImage";
 import ProductInfo from "./ProductInfo";
 
 export default function ProductHeader({ product }: { product: ItemCardType }) {
