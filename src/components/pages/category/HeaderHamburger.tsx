@@ -9,23 +9,35 @@ import {
 } from "@/components/ui/accordion";
 import { navData } from "@/data/initialData";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function HeaderHamburger() {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    }
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, []);
+  }, [isOpen]);
   return (
     <div className="w-full ">
       <Accordion type="single" collapsible className="border-none">
         <AccordionItem value="item-1" className="px-0 border-none">
-          <CustomTrigger className="font-extrabold hover:no-underline py-2 text-xl [&[data-state=open]]:hidden w-8 aspect-square">
+          <CustomTrigger
+            onClick={handleToggle}
+            className="font-extrabold hover:no-underline py-2 text-xl [&[data-state=open]]:hidden w-8 aspect-square"
+          >
             <Hamburger color="white" />
           </CustomTrigger>
-          <CustomTrigger className="font-extrabold hover:no-underline py-2 text-xl [&[data-state=closed]]:hidden w-8 aspect-square">
+          <CustomTrigger
+            onClick={handleToggle}
+            className="font-extrabold hover:no-underline py-2 text-xl [&[data-state=closed]]:hidden w-8 aspect-square"
+          >
             <CategoryClose />
           </CustomTrigger>
           <AccordionContent className="pb-0 bg-[#00000073] w-[100vw] absolute right-0  h-[100vh] mt-2">
