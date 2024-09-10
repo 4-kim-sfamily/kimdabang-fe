@@ -1,25 +1,24 @@
 import CategoryAccordion from "@/components/pages/category/CategoryAccordion";
 import CategorySection from "@/components/pages/category/CategorySection";
-import SubCategorySelector from "@/components/pages/category/SubCategorySelector";
 import { Category } from "@/types/main/AllCategoryDataType";
 
 export default async function page({
   params,
 }: {
-  params: { categoryName: string };
+  params: { categoryName: string; subCategoryName: string };
 }) {
-  const starRes = await fetch(`${process.env.JSONSERVER_URL}/largeCategories`, {
+  const starRes = await fetch(`${process.env.JSONSERVER_URL}/subCategories`, {
     cache: "no-store",
   });
-  const largeCategories: Category[] = await starRes.json();
+  const subCategories: Category[] = await starRes.json();
   return (
     <>
       <div className="h-14 w-full/>" />
       <CategoryAccordion
+        item={subCategories}
         categoryName={params.categoryName}
-        item={largeCategories}
+        subCategory={params.subCategoryName}
       />
-      <SubCategorySelector largeCategory={params.categoryName} />
       <CategorySection />
     </>
   );

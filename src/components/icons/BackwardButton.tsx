@@ -9,7 +9,7 @@ export default function BackwardButton() {
     >
       <path
         fillRule="evenodd"
-        clip-rule="evenodd"
+        clipRule="evenodd"
         d="M10.6343 8.00006L5.71716 3.08289L6.28285 2.51721L11.7657 8.00006L6.28285 13.4829L5.71716 12.9172L10.6343 8.00006Z"
         fill="white"
       />

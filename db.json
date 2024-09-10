@@ -580,6 +580,20 @@
       "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202211/2022110318320301762623758262_485.png&w=182&h=0"
     }
   ],
+  "subCategories": [
+    {
+      "id": 1,
+      "name": "패브릭"
+    },
+    {
+      "id": 2,
+      "name": "홈데코"
+    },
+    {
+      "id": 3,
+      "name": "문구/팬시"
+    }
+  ],
   "SeasonData": [
     {
       "id": 1,
