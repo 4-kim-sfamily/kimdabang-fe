@@ -37,9 +37,10 @@ export default async function EntireReview({
                   <p> {review.rating}</p>
                   <p>{review.userId}</p>
                 </div>
+                {/* 여기를 수정 - review=${review.id} 형식으로 변경 */}
                 <Link
                   className="text-sm text-gray-400"
-                  href={`/product/${productCode}/${review.id}/detail`}
+                  href={`/product/${productCode}/detail/?reviewId=${review.id}`}
                 >
                   {">"}
                 </Link>
