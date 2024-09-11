@@ -1,3 +1,4 @@
+import AddressSection from "@/components/pages/cart/AddressSection";
 import CartItemSection from "@/components/pages/cart/CartItemSection";
 import { CartItemType } from "@/types/items/Cart";
 
@@ -6,5 +7,10 @@ export default async function page() {
     cache: "no-store",
   });
   const cartItemList: CartItemType[] = await res.json();
-  return <CartItemSection items={cartItemList} />;
+  return (
+    <main>
+      <AddressSection />
+      <CartItemSection items={cartItemList} />
+    </main>
+  );
 }
