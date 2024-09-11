@@ -10,9 +10,9 @@ export default function MinusCircle({ color = "black" }: { color: string }) {
       <path
         d="M8.625 12H15.375M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
         stroke={color ? color : "black"}
-        stroke-width="0.8"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

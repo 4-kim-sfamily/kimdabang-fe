@@ -6,7 +6,6 @@ import DeleteCartItem from "../pages/cart/DeleteCartItem";
 export default function CartItem({ item }: { item: CartItemType }) {
   return (
     <figure className="flex w-full gap-4">
-      {/* <Checkbox /> */}
       <div className="relative w-[32%] max-w-24 aspect-square">
         <Image
           src={item.imgUrl}
