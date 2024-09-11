@@ -98,7 +98,20 @@ export function JoinForm() {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                agreementData,
+                loginId: agreementData.userData.id,
+                password: agreementData.userData.password,
+                name: agreementData.userData.name,
+                nickname: agreementData.userData.nickname,
+                gender: agreementData.userData.gender,
+                birth: agreementData.userData.birth,
+                solar: agreementData.userData.solar,
+                email: agreementData.userData.email,
+                phone: agreementData.userData.phone,
+                termsChecked: agreementData.termsChecked,
+                privacyChecked: agreementData.privacyChecked,
+                emailChecked: agreementData.emailChecked,
+                smsChecked: agreementData.smsChecked,
+                cardChecked: agreementData.cardChecked,
               }),
             },
           );
@@ -106,7 +119,6 @@ export function JoinForm() {
           if (res.ok) {
             router.push("/member/join/complete");
           } else {
-            console.log(agreementData);
             console.log("error");
           }
         } catch (error) {
