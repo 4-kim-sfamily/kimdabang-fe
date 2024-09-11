@@ -1,5 +1,5 @@
 import { options } from "@/app/api/auth/[...nextauth]/options";
-import { getServerSession } from "next-auth";
+import { getServerSession } from "next-auth/next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -12,10 +12,10 @@ import {
 
 export default async function BottomNavBar() {
   let recentImage = null;
-
+  let islogin = false;
   const session = await getServerSession(options);
   if (session) {
-    console.log("session 값:", session);
+    islogin = true;
   }
 
   try {
@@ -61,12 +61,21 @@ export default async function BottomNavBar() {
           </Link>
         </li>
         <li className="bottom-nav-item">
-          <Link href="/mypage">
-            <button className="bottom-nav-button">
-              <MyPage />
-              <span className="bottom-nav-span">MY</span>
-            </button>
-          </Link>
+          {islogin ? (
+            <Link href="/mypage">
+              <button className="bottom-nav-button">
+                <MyPage />
+                <span className="bottom-nav-span">MY</span>
+              </button>
+            </Link>
+          ) : (
+            <Link href="/member/login">
+              <button className="bottom-nav-button">
+                <MyPage />
+                <span className="bottom-nav-span">로그인</span>
+              </button>
+            </Link>
+          )}
         </li>
         <li className="bottom-nav-item">
           <Link href="/recentGoods">

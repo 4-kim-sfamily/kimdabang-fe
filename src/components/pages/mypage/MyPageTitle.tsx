@@ -1,5 +1,6 @@
 import { options } from "@/app/api/auth/[...nextauth]/options";
-import { getServerSession } from "next-auth";
+import { getServerSession } from "next-auth/next";
+import LogoutButton from "./LogoutButton";
 
 export default async function MyPageTitle() {
   const session = await getServerSession(options);
@@ -22,7 +23,10 @@ export default async function MyPageTitle() {
   }
   return (
     <header>
-      <h3 className="text-xl my-1">{userData.data.nickname}님</h3>
+      <div className="flex justify-between">
+        <h3 className="text-xl my-1">{userData.data.nickname}님</h3>
+        <LogoutButton />
+      </div>
       <h4 className="font-extrabold">스타벅스에서 즐거운 쇼핑 되세요!</h4>
     </header>
   );
