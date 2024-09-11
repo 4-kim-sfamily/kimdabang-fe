@@ -21,7 +21,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns";
 import { useRouter } from "next/navigation";
-import { BaseSyntheticEvent } from "react";
+import { BaseSyntheticEvent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -50,65 +50,76 @@ export function JoinForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      calendarType: "solar", // 기본값 설정
+      calendarType: "solar",
     },
   });
 
-  const { setAgreementData, agreementData } = useAgreement(); // useAgreement 훅 사용
+  const { setAgreementData, agreementData } = useAgreement();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function onSubmit(
     data: z.infer<typeof FormSchema>,
     event?: BaseSyntheticEvent,
   ) {
     if (event) {
-      event.preventDefault(); // 기본 동작 차단
+      event.preventDefault();
     }
 
-    try {
-      // AgreementContext에 userData 저장
-      setAgreementData((prev) => ({
-        ...prev,
-        userData: {
-          id: data.id,
-          password: data.password, // 해싱된 비밀번호 저장
-          name: data.name,
-          gender: data.gender,
-          nickname: data.nickname,
-          birth: data.dob,
-          solar: data.calendarType === "solar",
-          email: data.email,
-          phone: data.phone,
-        },
-      }));
-      const res = await fetch(
-        "http://qkr99102.asuscomm.com:18193/api/v1/auth/join",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            loginId: data.id,
-            password: data.password,
-            name: data.name,
-            email: data.email,
-            phone: data.phone,
-            gender: data.gender,
-            solar: true,
-            birth: data.dob,
-            nickname: data.nickname,
-          }),
-        },
-      );
-      if (res.ok) {
-        router.push("/member/join/complete");
-      } else {
-        console.log("error");
-      }
-    } catch (error) {
-      console.error("비밀번호 해싱 오류:", error);
-    }
+    // 1. 상태 업데이트
+    setAgreementData((prev) => ({
+      ...prev,
+      userData: {
+        id: data.id,
+        password: data.password,
+        name: data.name,
+        gender: data.gender,
+        nickname: data.nickname,
+        birth: data.dob,
+        solar: data.calendarType === "solar",
+        email: data.email,
+        phone: data.phone,
+      },
+    }));
+
+    // 2. fetch 요청을 보낼 준비 완료 표시
+    setIsSubmitting(true);
   }
+
+  // 3. agreementData가 변경되었을 때 fetch를 보내는 useEffect 추가
+  useEffect(() => {
+    if (isSubmitting) {
+      const submitData = async () => {
+        try {
+          const res = await fetch(
+            "http://qkr99102.asuscomm.com:18193/api/v1/auth/join",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                agreementData,
+              }),
+            },
+          );
+
+          if (res.ok) {
+            router.push("/member/join/complete");
+          } else {
+            console.log(agreementData);
+            console.log("error");
+          }
+        } catch (error) {
+          console.error("비밀번호 해싱 오류:", error);
+        } finally {
+          // 4. 요청이 끝나면 상태를 초기화
+          setIsSubmitting(false);
+        }
+      };
+
+      submitData();
+    }
+  }, [isSubmitting, agreementData, router]);
 
   return (
     <div>
