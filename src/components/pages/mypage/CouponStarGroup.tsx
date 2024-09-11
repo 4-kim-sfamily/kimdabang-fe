@@ -35,6 +35,7 @@ export default async function CouponStarGroup() {
       {
         method: "GET",
         headers: {
+          // Authorization: `Bearer ${session.user.accessToken}`,
           Authorization: `${session.user.accessToken}`, // accessToken을 헤더에 추가
           "Content-Type": "application/json",
         },

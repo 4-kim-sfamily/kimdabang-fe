@@ -7,6 +7,7 @@ export default async function MyPageTitle() {
   let userData = { nickname: "GUEST" }; // 기본 값을 설정해줍니다.
 
   if (session?.user?.accessToken) {
+    console.log(session.user.accessToken);
     const res = await fetch(`${process.env.BACKEND_URL}/api/v1/user/get-user`, {
       method: "GET",
       headers: {
@@ -17,14 +18,18 @@ export default async function MyPageTitle() {
     });
     if (res.ok) {
       userData = await res.json(); // userData를 업데이트
+      console.log(userData);
     } else {
+      console.log(await res.json());
       console.error("사용자 정보 fetch 실패");
     }
   }
   return (
     <header>
       <div className="flex justify-between">
-        <h3 className="text-xl my-1">{userData.data.nickname}님</h3>
+        <h3 className="text-xl my-1">
+          {userData.data.nickname ? userData.data.nickname : "GUEST"}님
+        </h3>
         <LogoutButton />
       </div>
       <h4 className="font-extrabold">스타벅스에서 즐거운 쇼핑 되세요!</h4>
