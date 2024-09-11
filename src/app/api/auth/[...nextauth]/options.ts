@@ -72,6 +72,5 @@ export const options: NextAuthOptions = {
   },
   pages: {
     signIn: "/member/login",
-    // 여기에 추가페이지 필요
   },
 };
