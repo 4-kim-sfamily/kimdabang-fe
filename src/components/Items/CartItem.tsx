@@ -1,3 +1,4 @@
+import { XCircle } from "@/components/icons/Index";
 import { CartItemType } from "@/types/items/Cart";
 import Image from "next/image";
 import CartItemAmount from "../pages/cart/CartItemAmount";
@@ -17,7 +18,9 @@ export default function CartItem({ item }: { item: CartItemType }) {
       <ul className="w-full">
         <li className="flex w-full justify-between mb-2">
           <p className="font-extrabold">{item.productName}</p>
-          <DeleteCartItem />
+          <DeleteCartItem selectedProductCodes={item.productCode}>
+            <XCircle />
+          </DeleteCartItem>
         </li>
         <li>
           <CartItemAmount
