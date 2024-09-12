@@ -1,17 +1,41 @@
-export default function AddressSection() {
-  return (
-    <section className="mt-[56px] w-full p-3 text-sm">
-      <ul className="flex justify-between">
-        <li className="flex gap-1 items-center">
-          <p className="font-extrabold">김예진</p>
-          <div className="text-[8px] h-[13px] text-[#12BD84] bg-[#B8ECDA] rounded-sm px-[3px] leading-[13px]">
-            기본
-          </div>
-        </li>
+"use client";
+import { useState } from "react";
+import AddressUpdate from "./AddressUpdate";
 
-        <button className="text-[#a88855]">배송지 변경</button>
+export interface AddressData {
+  id: number;
+  address: string;
+  isDefault: boolean;
+  addressName: string;
+}
+
+export default function AddressSection({
+  addressDataList,
+}: {
+  addressDataList: AddressData[];
+}) {
+  const [selectedAddress, setSelectedAddress] = useState(0);
+  const handleAddress = (address: number) => {
+    setSelectedAddress(address);
+  };
+  return (
+    <section className="mt-[56px] w-full p-3 text-sm bg-[#eeeeebcc] py-6">
+      <ul className="flex justify-between mb-1">
+        <li className="flex gap-1 items-center">
+          <p className="font-extrabold">{`${addressDataList[0]?.addressName}`}</p>
+          {addressDataList[selectedAddress]?.isDefault && (
+            <div className="text-[8px] h-[13px] text-[#12BD84] bg-[#B8ECDA] rounded-sm px-[3px] leading-[13px]">
+              기본
+            </div>
+          )}
+        </li>
+        <AddressUpdate
+          selectedNumber={selectedAddress}
+          addressDataList={addressDataList}
+          handleAddress={handleAddress}
+        />
       </ul>
-      <p>{`(48060) 부산광역시 해운대구 apec로 17 (우동) 4층`}</p>
+      <p>{`${addressDataList[selectedAddress]?.address}`}</p>
     </section>
   );
 }
