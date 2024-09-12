@@ -39,7 +39,7 @@ export default async function EntireReview({
                 </div>
                 <Link
                   className="text-sm text-gray-400"
-                  href={`/product/${productCode}/${review.id}/detail`}
+                  href={`/product/${productCode}/detail/?reviewId=${review.id}`}
                 >
                   {">"}
                 </Link>
