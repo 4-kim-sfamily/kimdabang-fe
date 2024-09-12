@@ -742,5 +742,21 @@
       "discountedPrice": 73000,
       "isChecked": true
     }
+  ],
+  "productOptionList": [
+    {
+      "productCode": "1000555910531",
+      "optionId": ["1", "2"]
+    }
+  ],
+  "option": [
+    {
+      "optionId": "1",
+      "optionDetail": "색상"
+    },
+    {
+      "optionId": "2",
+      "optionDetail": "사이즈"
+    }
   ]
 }
