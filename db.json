@@ -752,11 +752,13 @@
   "option": [
     {
       "optionId": "1",
-      "optionDetail": "색상"
+      "optionDetail": "색상",
+      "optionValue": ["빨간색", "파란색", "하얀색"]
     },
     {
       "optionId": "2",
-      "optionDetail": "사이즈"
+      "optionDetail": "사이즈",
+      "optionValue": ["XS", "S", "M", "L"]
     }
   ]
 }
