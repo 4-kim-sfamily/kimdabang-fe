@@ -17,9 +17,10 @@ export default function ReviewModal({
 
   const router = useRouter();
   return (
-    <dialog className="fixed top-0 left-0 w-[50%] h-[50%] overflow-hidden flex flex-col items-center z-50">
+    <dialog className="fixed top-0 left-0 w-full h-full  overflow-hidden flex flex-col items-center z-50">
+      <p className="mt-4 text-xl ">리뷰 상세</p>
       <Button
-        className=" rounded-full absolute top-5 right-5 z-50"
+        className="rounded-xl w-3 h-2  border-black  absolute top-4 right-4 z-50"
         onClick={() => router.back()}
       >
         {"X"}
