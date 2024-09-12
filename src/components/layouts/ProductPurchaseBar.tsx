@@ -19,22 +19,19 @@ export default function ProductPurchaseBar() {
   // 옵션 데이터를 가져오기 위한 비동기 함수
   const fetchOptions = async () => {
     try {
-      console.log("Fetching options for product code:", productCode);
-
+      // 현재 JSONSERVER에서 받는데 이후, 변경 필요
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_JSONSERVER_URL}/productOptionList?productCode=${productCode}`,
       );
 
       if (!response.ok) {
-        throw new Error(`Error fetching productOptionList: ${response.status}`);
+        throw new Error(`제품 옵션리스트 Fetching 실패: ${response.status}`);
       }
-
       const productOptionList = await response.json();
-      console.log("Product Option List:", productOptionList);
 
       if (productOptionList.length > 0) {
+        // 옵션 ID
         const optionIds = productOptionList[0].optionId;
-        console.log("Option IDs:", optionIds);
 
         // 각 optionId에 대해 fetch 요청 보내기 (Promise.all 사용)
         const fetchedOptions = await Promise.all(
@@ -45,24 +42,22 @@ export default function ProductPurchaseBar() {
 
             if (!optionResponse.ok) {
               throw new Error(
-                `Error fetching option ${id}: ${optionResponse.status}`,
+                `옵션 FEtch 실패 ${id}: ${optionResponse.status}`,
               );
             }
 
             const optionData = await optionResponse.json();
-            console.log(`Fetched Option ${id}:`, optionData);
             return optionData;
           }),
         );
 
         // 평탄화(flat) 처리하여 options 배열 설정
         setOptions(fetchedOptions.flat());
-        console.log("Flattened Options:", fetchedOptions.flat());
       } else {
-        console.log("No options found for the product.");
+        console.log("옵션이 없는 제품");
       }
     } catch (error) {
-      console.error("Error fetching options:", error);
+      console.error("옵션 Fetch 실패", error);
       setOptions([]); // 오류 발생 시 빈 배열로 설정
     }
   };
@@ -158,7 +153,6 @@ export default function ProductPurchaseBar() {
           </div>
         )}
 
-        {/* 옵션 닫기 버튼 */}
         <BottomNavButtonGroup
           handleGiftClick={function (): void {}}
           handlePurchaseClick={function (): void {}}
