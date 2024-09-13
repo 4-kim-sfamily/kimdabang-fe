@@ -1,6 +1,7 @@
+import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import KakaoProvider from "next-auth/providers/kakao";
-export const options = {
+export const options: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
@@ -29,8 +30,6 @@ export const options = {
           const user = await res.json();
           console.log("userData", user.data);
           return user.data;
-        } else if (res.status === 500) {
-          throw new Error("아이디 또는 비밀번호가 일치하지 않습니다.");
         }
         return null;
       },

@@ -32,3 +32,10 @@ export interface userStarAmountType {
   starAmount: "number";
   greenStarAmount: "number";
 }
+
+export interface RunningSeasonType {
+  id: number;
+  name: string;
+  description?: string;
+  thumbsImgUrl: string;
+}

@@ -1,4 +1,3 @@
-import ReviewPreview from "@/components/Items/ReviewPreview";
 import { ItemCardType } from "@/types/items/ItemCard";
 import ProductAds from "../ProductAds";
 import ProductImage from "./ProductImage";
@@ -20,7 +19,7 @@ export default function ProductHeader({ product }: { product: ItemCardType }) {
         price={product.productPrice}
       />
       <ProductAds />
-      <ReviewPreview productCode={product.ProductCode} visible={false} />
+      {/* <ReviewPreview productCode={product.ProductCode} visible={false} /> */}
 
       <hr />
     </div>
