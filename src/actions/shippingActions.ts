@@ -8,7 +8,7 @@ export const getShippingAddress = async (): Promise<shippingAddressType[]> => {
   const session: Session | null = await getServerSession(options);
   const token: string = session ? session.user.accessToken : "";
   const res = await fetch(
-    `${process.env.BACKEND_URL}/api/v1/useraddress/get-useraddress`,
+    `${process.env.BACKEND_URL}/api/v1/useraddress/get-useraddresslist`,
     {
       method: "GET",
       headers: {
