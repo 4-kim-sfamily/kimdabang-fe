@@ -8,7 +8,7 @@ export default async function page() {
   });
   const cartItemList: CartItemType[] = await res.json();
   return (
-    <main>
+    <main className="px-4">
       <AddressSection />
       <CartItemSection items={cartItemList} />
     </main>

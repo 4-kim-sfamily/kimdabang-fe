@@ -7,16 +7,19 @@ export default function CartCheckBox({
   onClickCheckButton,
 }: {
   productCode: string;
-  isChecked: boolean;
-  onClickCheckButton: (productCode: string) => void;
+  isChecked?: boolean;
+  onClickCheckButton?: (productCode: string) => void;
 }) {
-  //productCode로 fetch
+  //코드를 보내서 isChecked 여부 받아오기
+  //서버액션 ~~
 
+  const handleItemCheck = () => {
+    // 체크된 상태로 onClickCheckButton 호출
+    if (onClickCheckButton) {
+      console.log(productCode);
+    }
+  };
   return (
-    <Checkbox
-      checked={isChecked}
-      onClick={() => onClickCheckButton(productCode)} // 함수 자체를 전달
-      className="peer"
-    />
+    <Checkbox checked={isChecked} className="peer" onClick={handleItemCheck} />
   );
 }

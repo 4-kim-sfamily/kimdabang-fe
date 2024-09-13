@@ -1,5 +1,6 @@
 import AddressSection from "@/components/pages/cart/AddressSection";
 import CartItemSection from "@/components/pages/cart/CartItemSection";
+import PayInfo from "@/components/pages/cart/PayInfo";
 import { CartItemType } from "@/types/items/Cart";
 
 export default async function page() {
@@ -10,7 +11,10 @@ export default async function page() {
   return (
     <main>
       <AddressSection />
-      <CartItemSection items={cartItemList} />
+      <div className="px-4">
+        <CartItemSection items={cartItemList} />
+        <PayInfo />
+      </div>
     </main>
   );
 }

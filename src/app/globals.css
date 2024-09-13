@@ -158,3 +158,6 @@ body {
 .delivery-state > p {
   @apply text-center;
 }
+.payInfo {
+  @apply flex justify-between;
+}
