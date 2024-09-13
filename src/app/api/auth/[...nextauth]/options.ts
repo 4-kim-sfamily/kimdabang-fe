@@ -30,8 +30,6 @@ export const options: NextAuthOptions = {
           const user = await res.json();
           console.log("userData", user.data);
           return user.data;
-        } else if (res.status === 500) {
-          throw new Error("아이디 또는 비밀번호가 일치하지 않습니다.");
         }
         return null;
       },

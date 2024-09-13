@@ -39,13 +39,11 @@ export default function ProductPurchaseBar() {
             const optionResponse = await fetch(
               `${process.env.NEXT_PUBLIC_JSONSERVER_URL}/option?optionId=${id}`,
             );
-
             if (!optionResponse.ok) {
               throw new Error(
                 `옵션 FEtch 실패 ${id}: ${optionResponse.status}`,
               );
             }
-
             const optionData = await optionResponse.json();
             return optionData;
           }),

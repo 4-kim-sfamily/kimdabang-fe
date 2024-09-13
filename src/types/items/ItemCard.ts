@@ -1,6 +1,6 @@
 export interface ItemCardType {
   id: number;
-  ProductCode: string;
+  productCode: string;
   productName: string;
   productPrice: number;
   productImageUrl: string;

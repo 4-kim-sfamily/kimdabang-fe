@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 export default function MyPageCoupon({
   couponAmount,
 }: {
-  couponAmount: number; // 숫자 타입으로 수정
+  couponAmount: string; // 숫자 타입으로 수정
 }) {
   return (
     <article className="mypage-article">
