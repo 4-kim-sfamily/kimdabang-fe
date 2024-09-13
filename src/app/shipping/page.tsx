@@ -1,10 +1,10 @@
-import { getShippingAddress } from "@/actions/shippingActions";
+import { getShippingAddressList } from "@/actions/shippingActions";
 import ShippingSelectSection from "@/components/pages/shipping/ShippintSelectSection";
 import Link from "next/link";
 
 export default async function page() {
   //배송지 리스트 fetch
-  const data = await getShippingAddress();
+  const data = await getShippingAddressList();
   console.log("배송지 리스트", data);
   return (
     <main className="">

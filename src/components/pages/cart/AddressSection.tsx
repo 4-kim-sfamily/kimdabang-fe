@@ -1,18 +1,14 @@
-"use client";
+import { getShippingAddressDefault } from "@/actions/shippingActions";
+import { shippingAddressType } from "@/types/ResponseType";
 import Link from "next/link";
 
-export interface AddressData {
-  id: number;
-  address: string;
-  isDefault: boolean;
-  addressName: string;
-}
-
-export default function AddressSection({
+export default async function AddressSection({
   addressDataList,
 }: {
-  addressDataList?: AddressData;
+  addressDataList?: shippingAddressType;
 }) {
+  const data = await getShippingAddressDefault();
+  console.log(data);
   return (
     <section className="mt-[56px] w-full p-3 text-sm bg-[#eeeeebcc] py-5">
       <ul className="flex justify-between mb-1">
@@ -28,7 +24,9 @@ export default function AddressSection({
           배송지 변경
         </Link>
       </ul>
-      <p>{`부산시 해운대구 반여동 `}</p>
+      <p>{`${data.addressName}`}</p>
+      <p>{`${data.address}`}</p>
+      <p>{`${data.phone}`}</p>
     </section>
   );
 }

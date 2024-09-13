@@ -1,7 +1,6 @@
 "use client";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { shippingAddressType } from "@/types/ResponseType";
-import { AddressData } from "../pages/cart/AddressSection";
 import { Label } from "./label";
 export default function AddressRadioGroup({
   selectedId,
@@ -15,7 +14,8 @@ export default function AddressRadioGroup({
   return (
     <div className="mt-[4px] p-4">
       <RadioGroup>
-        {addressDataList.map((address: AddressData) => (
+        {/* Todo : default 설정 */}
+        {addressDataList.map((address: shippingAddressType) => (
           <div
             key={address.id}
             className="flex items-center space-x-3 py-2"

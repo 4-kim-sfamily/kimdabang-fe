@@ -9,7 +9,7 @@ export default function AddressChangeButton({ id }: { id: number }) {
   };
 
   return (
-    <div>
+    <div className="w-full flex justify-center fixed bottom-0 pt-3 top-shadow">
       <Button variant="starbucks" size="lg" onClick={handleChangeButton}>
         변경하기
       </Button>

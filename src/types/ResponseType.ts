@@ -9,6 +9,7 @@ export interface shippingAddressType {
   address: string;
   isDefault: boolean;
   addressName: string;
+  phone: string;
 }
 
 export interface userDataType {
