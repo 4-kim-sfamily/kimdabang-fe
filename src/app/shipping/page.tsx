@@ -1,5 +1,5 @@
 import { getShippingAddress } from "@/actions/shippingActions";
-import ShippingSelectSection from "@/components/pages/ShippintSelectSection";
+import ShippingSelectSection from "@/components/pages/shipping/ShippintSelectSection";
 import Link from "next/link";
 
 export default async function page() {
