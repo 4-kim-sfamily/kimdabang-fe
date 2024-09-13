@@ -1,7 +1,6 @@
-import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import KakaoProvider from "next-auth/providers/kakao";
-export const options: NextAuthOptions = {
+export const options = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
