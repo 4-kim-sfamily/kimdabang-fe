@@ -9,7 +9,6 @@ import Link from "next/link";
 import ReviewPreview from "./ReviewPreview";
 
 export default function ItemCard({ item }: { item: ItemCardType }) {
-  console.log(item);
   return (
     <div className="w-[100%] border-slate-950 flex flex-col justify-start">
       <Link href={`/product/${item.productCode}`}>

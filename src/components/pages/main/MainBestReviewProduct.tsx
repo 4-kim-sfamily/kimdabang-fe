@@ -15,7 +15,7 @@ export default async function MainBestReviewProduct() {
       />
       <ul className="flex overflow-x-auto whitespace-nowrap scroll-item gap-4 py-3 mb-8]">
         {ReviewBest.map((item) => (
-          <ReviewItemCard key={item.ProductCode} item={item} />
+          <ReviewItemCard key={item.productCode} item={item} />
         ))}
       </ul>
     </section>

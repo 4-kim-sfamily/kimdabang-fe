@@ -1,12 +1,14 @@
-// next-auth.d.ts
 import "next-auth";
 
+// `User` 인터페이스에 `accessToken` 추가
 declare module "next-auth" {
+  interface User {
+    accessToken: string; // 추가할 accessToken
+  }
+
   interface Session {
     user: {
-      name: string | null;
-      accessToken: string; // accessToken 추가
-    };
-    // & DefaultSession["user"];
+      accessToken: string; // session.user에 accessToken 포함
+    } & DefaultSession["user"];
   }
 }

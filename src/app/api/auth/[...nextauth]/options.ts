@@ -42,7 +42,7 @@ export const options: NextAuthOptions = {
   callbacks: {
     async signIn({ user, account }) {
       console.log("signIn 콜백 데이타의 user부분", user);
-      console.log("현재 로그인 경로", account?.provider);
+      console.log("Account 데이터", account);
 
       // if(profile)로 처리
       if (account?.provider === "kakao") {
@@ -59,7 +59,7 @@ export const options: NextAuthOptions = {
     },
     async jwt({ token, user, account }) {
       if (account && user) {
-        token.accessToken = account.access_token as string; // accessToken을 string으로 캐스팅
+        token.accessToken = user.accessToken; // accessToken을 string으로 캐스팅
         token.name = user.name as string; // 이름도 string으로 캐스팅
       }
       return token;
