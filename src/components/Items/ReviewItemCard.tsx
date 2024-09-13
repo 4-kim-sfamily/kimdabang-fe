@@ -31,7 +31,7 @@ export default function ReviewItemCard({ item }: { item: ItemCardType }) {
         <p className="text-[13px] ">{item.productName}</p>
         <p className="font-semibold ">{item.productPrice}</p>
 
-        <ReviewPreview productCode={item.ProductCode} visible={true} />
+        <ReviewPreview productCode={item.productCode} visible={true} />
       </div>
     </li>
   );

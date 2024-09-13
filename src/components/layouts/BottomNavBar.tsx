@@ -15,6 +15,7 @@ export default async function BottomNavBar() {
   let islogin = false;
   const session = await getServerSession(options);
   if (session) {
+    console.log("BottomNavBar 에서 찍는 세션값:", session);
     islogin = true;
   }
 
