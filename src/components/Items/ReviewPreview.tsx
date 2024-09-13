@@ -9,7 +9,6 @@ export default function ReviewPreview({
   productCode: string;
   visible: boolean;
 }) {
-  console.log(productCode, "fetch요청");
   return (
     <div className="w-[172px]">
       <div className="flex items-center text-[#777777] gap-2 text-[12px]">
