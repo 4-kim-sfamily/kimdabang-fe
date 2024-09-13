@@ -1,30 +1,35 @@
 "use client";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { shippingAddressType } from "@/types/ResponseType";
 import { AddressData } from "../pages/cart/AddressSection";
 import { Label } from "./label";
 export default function AddressRadioGroup({
-  handleAddress,
-  selectedNumber,
+  selectedId,
   addressDataList,
+  onClickRadioButton,
 }: {
-  handleAddress: (id: number) => void;
-  selectedNumber: number;
-  addressDataList: AddressData[];
+  onClickRadioButton: (id: number) => void;
+  selectedId?: number;
+  addressDataList: shippingAddressType[];
 }) {
   return (
     <div className="mt-[4px] p-4">
-      <RadioGroup defaultValue={selectedNumber.toString()}>
-        {addressDataList.map((address: AddressData, index) => (
-          <div key={index} className="flex items-center space-x-3 py-2">
-            <RadioGroupItem value={index.toString()} id={index.toString()} />
-            <Label
-              onClick={() => handleAddress(index)}
-              htmlFor={index.toString()}
-            >
+      <RadioGroup>
+        {addressDataList.map((address: AddressData) => (
+          <div
+            key={address.id}
+            className="flex items-center space-x-3 py-2"
+            onClick={() => onClickRadioButton(address.id)}
+          >
+            <RadioGroupItem
+              value={address.id.toString()}
+              id={address.id.toString()}
+            />
+            <Label htmlFor={address.id.toString()}>
               <ul className="flex flex-col gap-[2.5px]">
                 <li className="flex gap-1 items-center">
                   <p
-                    className={`text-sm ${selectedNumber === index ? "font-extrabold" : "font-normal"}`}
+                    className={`text-sm ${selectedId === address.id ? "font-extrabold" : "font-normal"}`}
                   >
                     {address.addressName}
                   </p>

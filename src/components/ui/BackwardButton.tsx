@@ -3,7 +3,11 @@
 import { DownwardArrow } from "@/components/icons/Index";
 import { useRouter } from "next/navigation";
 
-export default function BackwardButton() {
+export default function BackwardButton({
+  children,
+}: {
+  children?: React.ReactNode;
+}) {
   const router = useRouter();
 
   const handleBack = () => {
@@ -12,7 +16,7 @@ export default function BackwardButton() {
 
   return (
     <button onClick={handleBack}>
-      <DownwardArrow degree={90} color="#444444" />
+      {children ? children : <DownwardArrow degree={90} color="#444444" />}
     </button>
   );
 }

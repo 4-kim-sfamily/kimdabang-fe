@@ -1,6 +1,5 @@
 "use client";
-import { useState } from "react";
-import AddressUpdate from "./AddressUpdate";
+import Link from "next/link";
 
 export interface AddressData {
   id: number;
@@ -12,30 +11,24 @@ export interface AddressData {
 export default function AddressSection({
   addressDataList,
 }: {
-  addressDataList: AddressData[];
+  addressDataList?: AddressData;
 }) {
-  const [selectedAddress, setSelectedAddress] = useState(0);
-  const handleAddress = (address: number) => {
-    setSelectedAddress(address);
-  };
   return (
-    <section className="mt-[56px] w-full p-3 text-sm bg-[#eeeeebcc] py-6">
+    <section className="mt-[56px] w-full p-3 text-sm bg-[#eeeeebcc] py-5">
       <ul className="flex justify-between mb-1">
         <li className="flex gap-1 items-center">
-          <p className="font-extrabold">{`${addressDataList[0]?.addressName}`}</p>
-          {addressDataList[selectedAddress]?.isDefault && (
+          <p className="font-extrabold">{`배송지이름`}</p>
+          {addressDataList && (
             <div className="text-[8px] h-[13px] text-[#12BD84] bg-[#B8ECDA] rounded-sm px-[3px] leading-[13px]">
               기본
             </div>
           )}
         </li>
-        <AddressUpdate
-          selectedNumber={selectedAddress}
-          addressDataList={addressDataList}
-          handleAddress={handleAddress}
-        />
+        <Link href={"/shipping"} className="text-[#a88855]">
+          배송지 변경
+        </Link>
       </ul>
-      <p>{`${addressDataList[selectedAddress]?.address}`}</p>
+      <p>{`부산시 해운대구 반여동 `}</p>
     </section>
   );
 }
