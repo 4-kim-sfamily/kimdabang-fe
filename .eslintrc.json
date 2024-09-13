@@ -10,11 +10,10 @@
     "import/no-unresolved": "error",
     "import/order": "off",
     "prettier/prettier": [
-      "error",
+      "auto",
       {
         "bracketSameLine": true,
-        "endOfLine": "auto",
-        "trailingComma": "es5"
+        "endOfLine": "auto"
       }
     ]
   },
