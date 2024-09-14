@@ -18,7 +18,10 @@ export default function CartItem({ item }: { item: CartItemType }) {
       <ul className="w-full">
         <li className="flex w-full justify-between mb-2">
           <p className="font-extrabold">{item.productName}</p>
-          <DeleteCartItem selectedProductCodes={item.productCode}>
+          <DeleteCartItem
+            apiUri="productCode 삭제"
+            selectedProductCodes={item.productCode}
+          >
             <XCircle />
           </DeleteCartItem>
         </li>

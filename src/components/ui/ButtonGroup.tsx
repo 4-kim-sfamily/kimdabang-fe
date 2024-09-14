@@ -1,7 +1,7 @@
 "use client";
 import { subCategories } from "@/lib/dummy/main/AllCategoryData";
 import { useEffect, useRef } from "react";
-import { useButtonGroup } from "../pages/main/OptionContext";
+import { useButtonGroup } from "../../app/context/OptionContext";
 import OptionDialog from "./OptionDialog";
 import { SelectButton } from "./SelectButton";
 export default function ButtonGroup() {

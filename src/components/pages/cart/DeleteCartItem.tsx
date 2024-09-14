@@ -1,23 +1,20 @@
 "use client";
 
 export default function DeleteCartItem({
-  selectedProductCodes,
   children,
+  apiUri,
+  selectedProductCodes,
 }: {
-  selectedProductCodes: string[] | string;
+  apiUri: string;
   children: React.ReactNode;
+  selectedProductCodes?: string;
 }) {
   const handleDeleteButton = () => {
-    const productCodesArray = Array.isArray(selectedProductCodes)
-      ? selectedProductCodes
-      : [selectedProductCodes];
-    location.reload();
-    //아이템 삭제
-    console.log(productCodesArray, "삭제");
+    console.log(apiUri, "삭제");
   };
   return (
     <button
-      onClick={handleDeleteButton}
+      onClick={() => handleDeleteButton}
       className="flex flex-col justify-start"
     >
       {children}
