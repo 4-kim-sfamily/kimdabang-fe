@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function PayInfo() {
   return (
-    <div>
+    <div className="mb-36">
       <div className="flex flex-col items-center">
         <h5 className="text-sm">
           상품 1건 16,000 + 배송비 3,000원 = 총 19,000
