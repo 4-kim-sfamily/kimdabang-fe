@@ -93,7 +93,7 @@ export default function ProductPurchaseBar() {
 
       {/* 옵션 선택 창 */}
       <div
-        className={`fixed flex flex-col gap-2 bottom-0 left-0 w-full rounded-t-xl border-[0.1rem] border-t-[#01a862] border-x-[#01a862] bg-white p-4 transition-transform duration-500 ${
+        className={`fixed flex flex-col gap-2 bottom-0 left-0 w-full rounded-t-xl border-[0.1rem] border-t-starbucks border-x-starbucks bg-white p-4 transition-transform duration-500 ${
           isOptionVisible ? "translate-y-0" : "translate-y-full"
         }`}
       >

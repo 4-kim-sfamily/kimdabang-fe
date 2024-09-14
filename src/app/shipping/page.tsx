@@ -12,7 +12,7 @@ export default async function page() {
       <div className="relative">
         <Link
           href={"/shipping/addShippingAddress"}
-          className="absolute right-4 text-[#01a862] mb-2"
+          className="absolute right-4 text-starbucks mb-2"
         >
           + 새 배송지 추가
         </Link>

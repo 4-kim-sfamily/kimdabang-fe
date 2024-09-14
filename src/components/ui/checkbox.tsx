@@ -13,7 +13,7 @@ const Checkbox = React.forwardRef<
   <CheckboxPrimitive.Root
     ref={ref}
     className={cn(
-      "peer h-4 w-4 shrink-0 rounded-[0.2rem] border border-[#01a862] ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-[#01a862] data-[state=checked]:border-[#01a862]", // 체크 시 배경색과 테두리 색을 초록색으로 변경
+      "peer h-4 w-4 shrink-0 rounded-[0.2rem] border border-starbucks ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-starbucks data-[state=checked]:border-starbucks", // 체크 시 배경색과 테두리 색을 초록색으로 변경
       className,
     )}
     {...props}

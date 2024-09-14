@@ -34,7 +34,7 @@ export default function AddressRadioGroup({
                     {address.addressName}
                   </p>
                   {address.isDefault && (
-                    <div className="text-[8px] h-[13px] text-[#01a862] bg-[#a4dbc5] rounded-sm px-[3px] leading-[13px]">
+                    <div className="text-[8px] h-[13px] text-starbucks bg-[#a4dbc5] rounded-sm px-[3px] leading-[13px]">
                       기본
                     </div>
                   )}
