@@ -26,10 +26,16 @@ export const getShippingAddressDefault =
 export async function AddAddress(
   requestData: AddAddressRequestData,
 ): Promise<any> {
-  console.log(requestData.isDefault);
   return fetchData<any>(
     "/api/v1/useraddress/add-useraddress",
     "POST",
     requestData,
   );
+}
+export async function getAddressById(id: number): Promise<any> {
+  const data = await fetchData<commonResType<shippingAddressType>>(
+    `/api/v1/useraddress/get-useraddress?id=${id}`,
+    "GET",
+  );
+  return data.data;
 }
