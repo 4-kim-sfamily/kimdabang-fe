@@ -21,8 +21,8 @@ export default function StarHistoryList({ data }: { data: StarHistoryType[] }) {
               <p className="text-xl text-bold whitespace-nowrap">
                 {`적립 - ${item.description}`}
               </p>
-              <p className="text-sm text-gray-300">{`일자 ${formatDate(item.createdAt)}`}</p>
-              <p className="text-sm text-gray-300">{`유효기간 ${formatDate(item.expirationDate)}`}</p>
+              <p className="text-sm text-gray-300">{`일자 ${formatDate(item.createdAt.toString())}`}</p>
+              <p className="text-sm text-gray-300">{`유효기간 ${formatDate(item.expirationDate.toString())}`}</p>
             </section>
           </div>
           {index < data.length - 1 && <hr />} {/* 마지막 요소 전까지 hr 추가 */}
