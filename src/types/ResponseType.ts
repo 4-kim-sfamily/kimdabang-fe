@@ -40,3 +40,7 @@ export interface RunningSeasonType {
   description?: string;
   thumbsImgUrl: string;
 }
+
+export type IsFavoriteType = {
+  favorite: boolean;
+};
