@@ -1,9 +1,18 @@
-import StarHistoryContainer from "@/components/pages/mypage/starhistory/[history]/StarHistoryContainer";
+import StarHistoryContainer from "@/components/pages/mypage/starhistory/history/StarHistoryContainer";
 
-export default function page() {
+type SearchParams = {
+  start: string;
+  end: string;
+};
+
+export default function page({ searchParams }: { searchParams: SearchParams }) {
+  console.log(searchParams);
   return (
     <div>
-      <StarHistoryContainer></StarHistoryContainer>
+      <StarHistoryContainer
+        startDate={searchParams.start}
+        endDate={searchParams.end}
+      />
     </div>
   );
 }

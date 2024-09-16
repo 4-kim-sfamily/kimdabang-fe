@@ -3,15 +3,17 @@ import StarHistoryList from "./StarHistoryList";
 import StarHistoryListHeader from "./StarHistoryListHeader";
 
 // app/mypage/starhistory/page.tsx
-export default async function StarHistoryContainer() {
+export default async function StarHistoryContainer({ startDate, endDate }) {
   // 오늘 날짜와 1년 전 날짜 계산
   const today = new Date();
   const oneYearAgo = new Date();
   oneYearAgo.setFullYear(today.getFullYear() - 1);
 
-  const startDate = oneYearAgo.toISOString().split("T")[0];
-  const endDate = today.toISOString().split("T")[0];
-  const data = await getStarHistory(startDate, endDate);
+  let DefaultstartDate = startDate
+    ? startDate
+    : oneYearAgo.toISOString().split("T")[0];
+  let DefaultendDate = endDate ? endDate : today.toISOString().split("T")[0];
+  const data = await getStarHistory(DefaultstartDate, DefaultendDate);
   return (
     <div>
       <header>
@@ -33,7 +35,10 @@ export default async function StarHistoryContainer() {
         </section>
       </header>
       <hr />
-      <StarHistoryListHeader />
+      <StarHistoryListHeader
+        startDate={DefaultstartDate}
+        endDate={DefaultendDate}
+      />
       <hr />
       <StarHistoryList data={data} />
     </div>
