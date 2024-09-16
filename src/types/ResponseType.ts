@@ -13,25 +13,25 @@ export interface shippingAddressType {
 }
 
 export interface userDataType {
-  loginId: "string";
-  name: "string";
-  email: "string";
-  phone: "string";
-  gender: "남성";
+  loginId: string;
+  name: string;
+  email: string;
+  phone: string;
+  gender: string;
   solar: true;
-  birth: "2024-09-13T01:15:38.791Z";
-  nickname: "string";
-  grade: "Welcome";
-  profileImg: "string";
+  birth: Date;
+  nickname: string;
+  grade: string;
+  profileImg: string;
 }
 
 export interface couponAmountType {
-  couponAmount: "number";
+  couponAmount: number;
 }
 
 export interface userStarAmountType {
-  starAmount: "number";
-  greenStarAmount: "number";
+  starAmount: number;
+  greenStarAmount: number;
 }
 
 export interface RunningSeasonType {
@@ -44,3 +44,11 @@ export interface RunningSeasonType {
 export type IsFavoriteType = {
   favorite: boolean;
 };
+
+export interface StarHistoryType {
+  expirationDate: Date;
+  createdAt: Date;
+  isEcho: boolean;
+  starAmount: number;
+  description: string;
+}
