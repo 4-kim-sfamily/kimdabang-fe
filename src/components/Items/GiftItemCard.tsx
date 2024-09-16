@@ -1,13 +1,12 @@
-import Image from "next/image";
-
+"use server";
+import { getIsFavorite } from "@/actions/mypage/getIsFavorite";
+import { putFavorite } from "@/actions/mypage/putFavorite";
 import { ItemCardType } from "@/types/items/ItemCard";
-
+import Image from "next/image";
 import Cart from "../icons/Cart";
-import Hearts from "../icons/Hearts";
-
+import ItemHearts from "../icons/ItemHearts";
 import ReviewPreview from "./ReviewPreview";
-
-export default function GiftItemCard({ item }: { item: ItemCardType }) {
+export default async function GiftItemCard({ item }: { item: ItemCardType }) {
   return (
     <div className="w-[100%] border-slate-950 flex flex-col justify-start w-[224px]">
       <div className="relative w-[100%] aspect-square h-[224px]">
@@ -21,7 +20,11 @@ export default function GiftItemCard({ item }: { item: ItemCardType }) {
       <div className="flex justify-between pt-1">
         <p className="text-[#777777] text-[12px] pt-1 ">{item.largeCategory}</p>
         <div className="flex gap-2">
-          <Hearts color="black" />
+          <ItemHearts
+            productCode={item.productCode}
+            putFavorite={putFavorite}
+            getIsFavorite={getIsFavorite}
+          />
           <Cart color="black" />
         </div>
       </div>

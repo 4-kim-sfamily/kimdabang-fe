@@ -41,6 +41,10 @@ export interface RunningSeasonType {
   thumbsImgUrl: string;
 }
 
+export type IsFavoriteType = {
+  favorite: boolean;
+};
+
 export interface StarHistoryType {
   expirationDate: Date;
   createdAt: Date;
