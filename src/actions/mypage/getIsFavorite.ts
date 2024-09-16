@@ -10,6 +10,5 @@ export const getIsFavorite = async (
     `/api/v1/favorite/${productCode}`,
     "productFavorite",
   );
-  console.log("함수에서 찍음", data);
   return data.data;
 };

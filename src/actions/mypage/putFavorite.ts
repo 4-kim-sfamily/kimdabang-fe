@@ -22,7 +22,6 @@ export const putFavorite = async (productCode: string) => {
     fetchOptions,
   );
   if (!res.ok) {
-    console.log("상품코드값:", productCode);
     throw new Error("좋아요 요청에 실패하였습니다..");
   } else {
     // 캐시를 갱신
