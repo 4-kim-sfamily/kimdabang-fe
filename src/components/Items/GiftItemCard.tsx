@@ -27,7 +27,7 @@ export default function GiftItemCard({ item }: { item: ItemCardType }) {
       </div>
       <p className="text-[13px] ">{item.productName}</p>
       <p className="font-semibold ">{item.productPrice}</p>
-      <ReviewPreview productCode={item.ProductCode} visible={false} />
+      <ReviewPreview productCode={item.productCode} visible={false} />
     </div>
   );
 }

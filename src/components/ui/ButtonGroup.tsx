@@ -1,21 +1,23 @@
 "use client";
 import { subCategories } from "@/lib/dummy/main/AllCategoryData";
-import { useEffect, useRef } from "react";
-import { useButtonGroup } from "../pages/main/OptionContext";
+import { useEffect, useRef, useState } from "react";
+import { useButtonGroup } from "../../app/context/OptionContext";
 import OptionDialog from "./OptionDialog";
 import { SelectButton } from "./SelectButton";
 export default function ButtonGroup() {
   const { selectedButton, handleClick } = useButtonGroup();
   const selectedButtonRef = useRef<HTMLButtonElement | null>(null);
+  const [isInitialRender, setIsInitialRender] = useState(true);
 
-  // 선택된 버튼을 화면에 중앙에 오도록 스크롤
   useEffect(() => {
-    if (selectedButtonRef.current) {
+    if (!isInitialRender && selectedButtonRef.current) {
       selectedButtonRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "nearest",
         inline: "center",
+        block: "nearest",
       });
+    } else {
+      setIsInitialRender(false);
     }
   }, [selectedButton]);
 

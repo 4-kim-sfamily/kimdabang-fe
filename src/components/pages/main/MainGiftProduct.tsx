@@ -2,7 +2,7 @@ import GiftItemCard from "@/components/Items/GiftItemCard";
 import ButtonGroup from "@/components/ui/ButtonGroup";
 import MainTitle from "@/components/ui/mainTitle";
 import { ItemCardType } from "@/types/items/ItemCard";
-import { OptionContextprovider } from "./OptionContext";
+import { OptionContextprovider } from "../../../app/context/OptionContext";
 
 export default async function MainGiftProduct() {
   const res = await fetch("http://localhost:4000/BestTumblr", {

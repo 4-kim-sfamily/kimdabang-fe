@@ -4,7 +4,7 @@ export default function MyStarAmount({
   starAmount,
   starType,
 }: {
-  starAmount: number;
+  starAmount: string;
   starType: string;
 }) {
   return (

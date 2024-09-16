@@ -18,6 +18,14 @@ const buttonVariants = cva(
           "border border-[#E5E5E5] shadow-[-20px_0px_5px_rgba(255,255,255,0.9)]",
         mypageButton:
           "py-3 w-full text-[0.7rem] mx-auto text-center border-gray-300 border- rounded-full",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "w-[88%] mb-2 py-3 font-bold",
@@ -27,6 +35,7 @@ const buttonVariants = cva(
         lg: "w-[88%] mb-2 py-3 font-bold",
         free: "mb-2 py-2 px-5 mx-3 font-bold",
         custom: "",
+        icon: "w-[88%] mb-2 py-3 font-bold",
       },
     },
     defaultVariants: {

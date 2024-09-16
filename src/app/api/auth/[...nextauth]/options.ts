@@ -30,8 +30,6 @@ export const options: NextAuthOptions = {
           const user = await res.json();
           console.log("userData", user.data);
           return user.data;
-        } else if (res.status === 500) {
-          throw new Error("아이디 또는 비밀번호가 일치하지 않습니다.");
         }
         return null;
       },
@@ -42,9 +40,9 @@ export const options: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
+    async signIn({ user, account }) {
       console.log("signIn 콜백 데이타의 user부분", user);
-      console.log("현재 로그인 경로", account?.provider);
+      console.log("Account 데이터", account);
 
       // if(profile)로 처리
       if (account?.provider === "kakao") {
@@ -59,14 +57,20 @@ export const options: NextAuthOptions = {
       // 여기에 data fetch 필요
       return true;
     },
-
-    async jwt({ token, user }) {
-      return { ...token, ...user };
+    async jwt({ token, user, account }) {
+      if (account && user) {
+        token.accessToken = user.accessToken; // accessToken을 string으로 캐스팅
+        token.name = user.name as string; // 이름도 string으로 캐스팅
+      }
+      return token;
     },
 
     async session({ session, token }) {
-      session.user = token;
-      // console.log("This is a session", session);
+      session.user = {
+        ...session.user,
+        name: token.name as string, // token에서 name을 string으로 캐스팅
+        accessToken: token.accessToken as string, // token에서 accessToken을 string으로 캐스팅
+      };
       return session;
     },
   },
