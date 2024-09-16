@@ -1,4 +1,4 @@
-import { getShippingAddressDefault } from "@/actions/shippingActions";
+import { getShippingAddressDefault } from "@/actions/shipping/shippingActions";
 import { shippingAddressType } from "@/types/ResponseType";
 import Link from "next/link";
 

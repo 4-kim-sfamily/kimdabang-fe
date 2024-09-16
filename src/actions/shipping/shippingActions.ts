@@ -1,6 +1,8 @@
+"use server";
+import { AddAddressRequestData } from "@/types/RequestType";
 import { commonResType, shippingAddressType } from "@/types/ResponseType";
-
-import { getData } from "./mypage/CommonGet";
+import { fetchData } from "../common/common";
+import { getData } from "../mypage/CommonGet";
 
 export const getShippingAddressList = async (): Promise<
   shippingAddressType[]
@@ -11,6 +13,7 @@ export const getShippingAddressList = async (): Promise<
   );
   return data.data;
 };
+
 export const getShippingAddressDefault =
   async (): Promise<shippingAddressType> => {
     const data = await getData<commonResType<shippingAddressType>>(
@@ -19,3 +22,14 @@ export const getShippingAddressDefault =
     );
     return data.data;
   };
+
+export async function AddAddress(
+  requestData: AddAddressRequestData,
+): Promise<any> {
+  console.log(requestData.isDefault);
+  return fetchData<any>(
+    "/api/v1/useraddress/add-useraddress",
+    "POST",
+    requestData,
+  );
+}

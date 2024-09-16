@@ -1,4 +1,4 @@
-import { getShippingAddressList } from "@/actions/shippingActions";
+import { getShippingAddressList } from "@/actions/shipping/shippingActions";
 import ShippingSelectSection from "@/components/pages/shipping/ShippintSelectSection";
 import Link from "next/link";
 
