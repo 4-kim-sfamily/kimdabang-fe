@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function MyStarAmount({
   starAmount,
   starType,
 }: {
-  starAmount: string;
+  starAmount: number;
   starType: string;
 }) {
   return (
@@ -14,7 +15,7 @@ export default function MyStarAmount({
       </p>
       <p>{starAmount}개</p>
       <Button variant="starbucks" size="s">
-        내역보기
+        <Link href="/mypage/starhistory">내역보기</Link>
       </Button>
     </article>
   );
