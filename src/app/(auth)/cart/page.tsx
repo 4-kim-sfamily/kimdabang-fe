@@ -6,7 +6,7 @@ import { CartItemType } from "@/types/items/Cart";
 
 export default async function page() {
   const res = await fetch("http://localhost:4000/cartItemList", {
-    cache: "force-cache",
+    cache: "no-cache",
   });
   const cartItemList: CartItemType[] = await res.json();
   return (
