@@ -164,3 +164,20 @@ body {
 .top-shadow {
   box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
 }
+
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.completed {
+  background-color: #4caf50; /* 완료된 단계를 녹색으로 표시 */
+  color: white;
+}

@@ -1,10 +1,8 @@
 import { JoinForm } from "@/components/forms/JoinForm";
-import BackwardArrow from "@/components/ui/BackwardArrow";
 
-export default function page() {
+export default function UserDataForm() {
   return (
     <div className="px-2">
-      <BackwardArrow />
       <p className="text-2xl font-extrabold mb-8">
         회원가입 정보를
         <br />

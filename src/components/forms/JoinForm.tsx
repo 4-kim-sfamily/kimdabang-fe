@@ -1,49 +1,38 @@
 "use client";
 
-import { useAgreement } from "@/app/context/AgreementContext";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
+import { BaseSyntheticEvent } from "react";
 import {
+  Button,
+  Calendar,
+  CalendarIcon,
   Form,
+  format,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { CalendarIcon } from "@radix-ui/react-icons";
-import { format } from "date-fns";
-import { useRouter } from "next/navigation";
-import { BaseSyntheticEvent } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+  useAgreement,
+  useForm,
+  useRouter,
+  z,
+  zodResolver,
+} from "./joinFromIndex"; // 경로를 적절히 맞춰주세요
 
-const FormSchema = z
-  .object({
-    name: z.string().min(1, "이름을 입력해주세요."),
-    gender: z.enum(["남성", "여성", "기타"]),
-    id: z.string().min(4, "ID는 4글자 이상으로 입력해주세요."),
-    email: z.string().email("유효한 이메일 주소를 입력해주세요."),
-    password: z.string().min(8, "비밀번호는 최소 8자 이상이어야 합니다."),
-    confirmPassword: z.string().min(8, "비밀번호 확인을 입력해주세요."),
-    phone: z.string().min(9, "전화번호를 올바르게 입력해주세요."),
-    dob: z.date({
-      required_error: "생년월일을 선택해주세요.",
-    }),
-    nickname: z.string().min(3, "닉네임을 3글자 이상으로 입력해주세요"),
-    calendarType: z.enum(["solar", "lunar"]).default("solar"), // 기본값 설정
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    path: ["confirmPassword"],
-    message: "비밀번호가 일치하지 않습니다.",
-  });
+// 폼 스키마 정의
+const FormSchema = z.object({
+  name: z.string().min(1, "이름을 입력해주세요."),
+  gender: z.enum(["남성", "여성", "기타"]),
+  email: z.string().email("유효한 이메일 주소를 입력해주세요."),
+  phone: z.string().min(9, "전화번호를 올바르게 입력해주세요."),
+  dob: z.date({
+    required_error: "생년월일을 선택해주세요.",
+  }),
+  calendarType: z.enum(["solar", "lunar"]).default("solar"),
+});
 
 export function JoinForm() {
   const router = useRouter();
@@ -54,7 +43,7 @@ export function JoinForm() {
     },
   });
 
-  const { setAgreementData, agreementData } = useAgreement(); // useAgreement 훅 사용
+  const { setAgreementData } = useAgreement();
 
   async function onSubmit(
     data: z.infer<typeof FormSchema>,
@@ -69,44 +58,18 @@ export function JoinForm() {
       setAgreementData((prev) => ({
         ...prev,
         userData: {
-          id: data.id,
-          password: data.password, // 해싱된 비밀번호 저장
           name: data.name,
           gender: data.gender,
-          nickname: data.nickname,
           birth: data.dob,
           solar: data.calendarType === "solar",
           email: data.email,
           phone: data.phone,
         },
       }));
-      const res = await fetch(
-        "http://qkr99102.asuscomm.com:18193/api/v1/auth/join",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            loginId: data.id,
-            password: data.password,
-            name: data.name,
-            email: data.email,
-            phone: data.phone,
-            gender: data.gender,
-            solar: true,
-            birth: data.dob,
-            nickname: data.nickname,
-          }),
-        },
-      );
-      if (res.ok) {
-        router.push("/member/join/complete");
-      } else {
-        console.log("error");
-      }
+
+      router.push("/member/join/nextStep"); // 다음 단계로 이동
     } catch (error) {
-      console.error("비밀번호 해싱 오류:", error);
+      console.error("오류 발생:", error);
     }
   }
 
@@ -197,10 +160,7 @@ export function JoinForm() {
                       <FormControl>
                         <Button
                           id="dob"
-                          className={cn(
-                            "w-[240px] pl-3 text-left px-2 font-normal rounded-xl relative z-10 border-[0.1rem] border-gray-300",
-                            !field.value && "text-muted-foreground",
-                          )}
+                          className="w-[240px] pl-3 text-left px-2 font-normal rounded-xl relative z-10 border-[0.1rem] border-gray-300"
                         >
                           {field.value ? (
                             format(field.value, "PPP")
@@ -269,69 +229,6 @@ export function JoinForm() {
             />
           </section>
 
-          {/* ID Field */}
-          <FormField
-            control={form.control}
-            name="id"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel htmlFor="id">ID</FormLabel>
-                <FormControl>
-                  <input
-                    {...field}
-                    id="id"
-                    type="text"
-                    placeholder="ID를 입력하세요"
-                    className="input border border-gray-300 p-2 rounded-xl"
-                  />
-                </FormControl>
-                <FormMessage className="text-red-500" />
-              </FormItem>
-            )}
-          />
-
-          {/* Password Field */}
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel htmlFor="password">비밀번호</FormLabel>
-                <FormControl>
-                  <input
-                    {...field}
-                    id="password"
-                    type="password"
-                    placeholder="비밀번호를 입력하세요"
-                    className="input border border-gray-300 p-2 rounded-xl"
-                  />
-                </FormControl>
-                <FormMessage className="text-red-500" />
-              </FormItem>
-            )}
-          />
-
-          {/* Confirm Password Field */}
-          <FormField
-            control={form.control}
-            name="confirmPassword"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel htmlFor="confirmPassword">비밀번호 확인</FormLabel>
-                <FormControl>
-                  <input
-                    {...field}
-                    id="confirmPassword"
-                    type="password"
-                    placeholder="비밀번호를 다시 입력하세요"
-                    className="input border border-gray-300 p-2 rounded-xl"
-                  />
-                </FormControl>
-                <FormMessage className="text-red-500" />
-              </FormItem>
-            )}
-          />
-
           {/* Email Field */}
           <FormField
             control={form.control}
@@ -352,27 +249,8 @@ export function JoinForm() {
               </FormItem>
             )}
           />
-          {/* Nickname Field */}
-          <FormField
-            control={form.control}
-            name="nickname"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel htmlFor="nickname">닉네임</FormLabel>
-                <FormControl>
-                  <input
-                    {...field}
-                    id="nickname"
-                    type="text"
-                    placeholder="사용할 닉네임을 입력해주세요."
-                    className="input border border-gray-300 p-2 rounded-xl"
-                  />
-                </FormControl>
-                <FormMessage className="text-red-500" />
-              </FormItem>
-            )}
-          />
-          {/* Nickname Field */}
+
+          {/* Phone Field */}
           <FormField
             control={form.control}
             name="phone"
@@ -384,7 +262,7 @@ export function JoinForm() {
                     {...field}
                     id="phone"
                     type="text"
-                    placeholder="전화번호를 입력해주세요"
+                    placeholder="전화번호를 입력하세요"
                     className="input border border-gray-300 p-2 rounded-xl"
                   />
                 </FormControl>
@@ -394,7 +272,7 @@ export function JoinForm() {
           />
 
           <Button variant="starbucks" type="submit" className="mx-auto">
-            Submit
+            다음
           </Button>
         </form>
       </Form>

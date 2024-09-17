@@ -18,9 +18,9 @@ interface AgreementData {
   termsChecked: boolean;
   privacyChecked: boolean;
   cardChecked: boolean;
+  adChecked: boolean;
   emailChecked: boolean;
   smsChecked: boolean;
-  userData: userData;
 }
 
 // Context 타입 정의
@@ -41,8 +41,8 @@ const initialUserData: userData = {
   nickname: "",
   gender: "",
   phone: "",
-  birth: new Date(), // 초기값으로 현재 시간을 설정, 필요 시 수정 가능
-  solar: true, // 기본값으로 양력 설정
+  birth: new Date(),
+  solar: true,
   email: "",
 };
 
@@ -52,9 +52,9 @@ export function AgreementProvider({ children }: { children: ReactNode }) {
     termsChecked: false,
     privacyChecked: false,
     cardChecked: false,
+    adChecked: false,
     emailChecked: false,
     smsChecked: false,
-    userData: initialUserData, // userData 초기값 설정
   });
 
   return (
@@ -68,7 +68,7 @@ export function AgreementProvider({ children }: { children: ReactNode }) {
 export function useAgreement() {
   const context = useContext(AgreementContext);
   if (!context) {
-    throw new Error("AgreementProvider에러");
+    throw new Error("AgreementProvider 에러");
   }
   return context;
 }
