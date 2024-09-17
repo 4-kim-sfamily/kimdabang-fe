@@ -5,7 +5,6 @@ import Link from "next/link";
 export default async function page() {
   //배송지 리스트 fetch
   const data = await getShippingAddressList();
-  console.log("배송지 리스트", data);
   return (
     <main className="">
       <p className="text-2xl font-extrabold pt-4 pl-4">배송지 선택</p>
