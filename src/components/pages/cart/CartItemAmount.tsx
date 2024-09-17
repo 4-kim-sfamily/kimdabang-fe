@@ -21,8 +21,8 @@ export default function CartItemAmount({
   };
 
   return (
-    <div className="flex justify-between w-full">
-      <div className="flex gap-2">
+    <div className="flex justify-between w-full items-end">
+      <div className="flex gap-2 items-center">
         <button onClick={handleMinusbutton}>
           <MinusCircle color={count == 1 ? "#C6C6C6" : "black"} />
         </button>
@@ -32,7 +32,12 @@ export default function CartItemAmount({
         </button>
       </div>
       {discountedPrice ? (
-        <p className="font-extrabold">{count * discountedPrice}원</p>
+        <div>
+          <p className="text-[12px] line-through text-[#787d79] text-end">
+            {count * price}원
+          </p>
+          <p className="font-extrabold">{count * discountedPrice}원</p>
+        </div>
       ) : (
         <p className="font-extrabold">{count * price}원</p>
       )}
