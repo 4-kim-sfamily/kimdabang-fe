@@ -52,3 +52,26 @@ export interface StarHistoryType {
   starAmount: number;
   description: string;
 }
+
+export interface FavoriteType {
+  productCode: string;
+}
+
+export interface ProductType {
+  id: number;
+  productCode: string;
+  productName: string;
+  description: string;
+  releaseDate: Date;
+  content: string;
+  categoryId: number;
+  price: number;
+}
+
+export interface ProductMediaType {
+  id: number;
+  productId: number;
+  mediaName: string;
+  mediaType: string;
+  mediaURL: string;
+}
