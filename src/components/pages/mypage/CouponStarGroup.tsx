@@ -9,7 +9,7 @@ export default async function CouponStarGroup() {
   const StarData = await getUserStarAmount();
 
   return (
-    <section className="flex">
+    <section className="flex justify-around">
       {/* <MyPageCoupon couponAmount={couponData.couponAmount} /> */}
 
       {/* 아직 CouponAmount API가 없음 */}

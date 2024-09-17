@@ -1,6 +1,6 @@
 "use server";
 import { commonResType, IsFavoriteType } from "@/types/ResponseType";
-import { getData } from "./CommonGet";
+import { getData } from "./mypage/CommonGet";
 
 export const getIsFavorite = async (
   productCode: string,
