@@ -2,13 +2,14 @@ import { commonResType, ProductMediaType } from "@/types/ResponseType";
 import { fetchData } from "./common/common";
 
 export const getProductMedia = async (
-  productCode: number,
+  productCode: string,
 ): Promise<ProductMediaType> => {
   const data = await fetchData<commonResType<ProductMediaType>>(
-    `/api/v1/product-media/1/all`,
+    `/api/v1/product-media/${productCode}/all`,
     "GET",
     "",
     "no-store",
   );
+  console.log(data);
   return data.data;
 };
