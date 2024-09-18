@@ -4,8 +4,8 @@ import { ItemCardType } from "@/types/items/ItemCard";
 
 import Cart from "../icons/Cart";
 
-import { getIsFavorite } from "@/actions/getIsFavorite";
-import { putFavorite } from "@/actions/putFavorite";
+import { getIsFavorite } from "@/actions/favorite/getIsFavorite";
+import { putFavorite } from "@/actions/favorite/putFavorite";
 import ItemHearts from "../icons/ItemHearts";
 import ReviewPreview from "./ReviewPreview";
 

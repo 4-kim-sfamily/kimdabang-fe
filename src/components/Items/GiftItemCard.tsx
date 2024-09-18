@@ -1,5 +1,5 @@
-import { getIsFavorite } from "@/actions/getIsFavorite";
-import { putFavorite } from "@/actions/putFavorite";
+import { getIsFavorite } from "@/actions/favorite/getIsFavorite";
+import { putFavorite } from "@/actions/favorite/putFavorite";
 import { ItemCardType } from "@/types/items/ItemCard";
 import Image from "next/image";
 import Cart from "../icons/Cart";

@@ -35,7 +35,7 @@ export const fetchData = async <T>(
       `데이터를 가져오지 못했습니다. 서버 응답: ${res.status} ${res.statusText}`,
     );
   }
-
   const data = (await res.json()) as T;
+
   return data;
 };

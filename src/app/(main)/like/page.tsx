@@ -1,4 +1,4 @@
-import { getFavoriteList } from "@/actions/getFavoriteList";
+import { getFavoriteList } from "@/actions/favorite/getFavoriteList";
 import { getItemCardInfo } from "@/actions/getItemCardInfo";
 import ItemCard from "@/components/Items/ItemCard";
 
