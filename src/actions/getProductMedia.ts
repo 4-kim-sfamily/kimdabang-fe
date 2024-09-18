@@ -10,6 +10,5 @@ export const getProductMedia = async (
     "",
     "no-store",
   );
-  console.log(data);
   return data.data;
 };

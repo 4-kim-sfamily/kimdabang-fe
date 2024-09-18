@@ -1,10 +1,11 @@
 "use server";
+import { options } from "@/app/api/auth/[...nextauth]/options";
 import { commonResType, IsFavoriteType } from "@/types/ResponseType";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
 import { fetchData } from "../common/common";
 
 export const getIsFavorite = async (productCode: string): Promise<boolean> => {
-  const session = await getSession();
+  const session = await getServerSession(options);
   if (session) {
     const data = await fetchData<commonResType<IsFavoriteType>>(
       `/api/v1/favorite/${productCode}`,
@@ -13,7 +14,6 @@ export const getIsFavorite = async (productCode: string): Promise<boolean> => {
       "default",
       "productFavorite",
     );
-
     return data.data.favorite;
   }
   return false;
