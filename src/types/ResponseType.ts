@@ -65,7 +65,7 @@ export interface ProductType {
   releaseDate: Date;
   content: string;
   categoryId: number;
-  price: number;
+  productPrice: number;
 }
 
 export interface ProductMediaType {

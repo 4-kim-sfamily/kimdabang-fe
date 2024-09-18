@@ -1,21 +1,21 @@
+import { getCartItemList } from "@/actions/cart/getCartItemData";
 import CartItem from "@/components/Items/CartItem";
-import { CartItemType } from "@/types/items/Cart";
+import { cartList } from "@/types/items/Cart";
 import CartCheckBox from "./CartCheckBox";
-import CartItemOption from "./CartItemOption";
-import CheckBoxControl from "./CheckBoxControl";
 
-export default function CartItemSection({ items }: { items: CartItemType[] }) {
+export default async function CartItemSection({}: {}) {
+  const data: cartList[] = await getCartItemList();
   return (
     <section className=" mb-4 ">
-      <CheckBoxControl cartItemList={items} />
-      {items.map((item) => (
+      {/* <CheckBoxControl /> */}
+      {data.map((item) => (
         <div key={item.productCode} className="flex justify-start py-3 gap-2">
           <CartCheckBox productCode={item.productCode} />
           <div className="w-full">
-            <CartItem item={item} />
-            {item.isOptionRequired && (
-              <CartItemOption amount={item.amount} id={item.id} />
-            )}
+            <CartItem productCode={item.productCode} />
+            {/* {item && (
+              <CartItemOption amount={item.amount} id={item.productCode} />
+            )} */}
           </div>
         </div>
       ))}

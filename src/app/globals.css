@@ -180,3 +180,6 @@ body {
 .AddressOption {
   @apply font-extrabold;
 }
+.skeleton {
+  @apply w-full h-full bg-[#e5e7eb];
+}
