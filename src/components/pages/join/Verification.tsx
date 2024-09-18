@@ -1,21 +1,12 @@
 "use client"; // 클라이언트 컴포넌트임을 명시
 
-import { useAgreement } from "@/app/context/AgreementContext";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation"; // App Router용 useRouter
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Verification({ onNext }) {
-  const { agreementData } = useAgreement();
-  const router = useRouter();
   const [isVerifying, setIsVerifying] = useState(false); // 인증 진행 중 상태 관리
 
   // 동의 여부 확인하여 리다이렉트 처리
-  useEffect(() => {
-    if (!agreementData.termsChecked || !agreementData.privacyChecked) {
-      router.push("/member/join"); // 동의하지 않았을 경우 join 페이지로 리다이렉트
-    }
-  }, [agreementData, router]);
 
   // 본인 인증 요청 처리
   const handleVerification = async () => {

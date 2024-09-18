@@ -5,6 +5,8 @@ export const getUserData = async (): Promise<userDataType> => {
   const data = await fetchData<commonResType<userDataType>>(
     "/api/v1/user/get-user",
     "GET",
+    "",
+    "default",
     "userData",
   );
   return data.data;

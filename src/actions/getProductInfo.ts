@@ -7,6 +7,7 @@ export const getProductInfo = async (
   const data = await fetchData<commonResType<ProductType>>(
     `/api/v1/product/${productCode}`,
     "GET",
+    "",
   );
   return data.data;
 };

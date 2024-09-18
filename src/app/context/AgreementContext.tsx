@@ -27,6 +27,8 @@ interface AgreementData {
 interface AgreementContextType {
   agreementData: AgreementData;
   setAgreementData: React.Dispatch<React.SetStateAction<AgreementData>>;
+  userData: userData;
+  setUserData: React.Dispatch<React.SetStateAction<userData>>;
 }
 
 const AgreementContext = createContext<AgreementContextType | undefined>(
@@ -57,8 +59,13 @@ export function AgreementProvider({ children }: { children: ReactNode }) {
     smsChecked: false,
   });
 
+  // userData 상태 정의
+  const [userData, setUserData] = useState<userData>(initialUserData);
+
   return (
-    <AgreementContext.Provider value={{ agreementData, setAgreementData }}>
+    <AgreementContext.Provider
+      value={{ agreementData, setAgreementData, userData, setUserData }}
+    >
       {children}
     </AgreementContext.Provider>
   );
