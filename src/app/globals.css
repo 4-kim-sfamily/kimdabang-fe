@@ -181,3 +181,18 @@ body {
   background-color: #01a862; /* 완료된 단계를 녹색으로 표시 */
   color: white;
 }
+.input-wrapper {
+  @apply h-[62px] gap-3 w-full flex border-b-[1px] items-end focus-within:border-[#01a862] focus-within:flex-col focus-within:items-start focus-within:gap-0;
+}
+.input-wrapper input {
+  @apply font-extrabold;
+}
+.input-wrapper:focus-within label {
+  @apply text-[13px];
+}
+.input-wrapper:focus-within input {
+  @apply p-2 focus:outline-none w-[80%] font-extrabold;
+}
+.AddressOption {
+  @apply font-extrabold;
+}

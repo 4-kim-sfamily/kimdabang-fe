@@ -707,33 +707,46 @@
   },
   "cartItemList": [
     {
+      "id": 1,
       "productCode": "1000561178811",
       "productName": "SS 우디 하우스 텀블러 591ml",
       "imgUrl": "https://sitem.ssgcdn.com/11/88/17/item/1000561178811_i1_290.jpg",
       "price": 40000,
       "amount": 1,
-      "discountedPrice": 40000,
       "isChecked": true
     },
     {
+      "id": 2,
       "productCode": "1000614587371",
       "productName": "[스타벅스] SS 펭귄북스 틸튼 텀블러 355ml",
       "imgUrl": "https://sitem.ssgcdn.com/71/73/58/item/1000614587371_i1_290.jpg",
       "price": 38000,
       "amount": 1,
-      "discountedPrice": 38000,
       "isChecked": false
     },
     {
+      "id": 3,
       "productCode": "1000555910531",
-      "productName": "APP전용 e카드 5만원 교환권",
+      "productName": "APP전용 e카드 교환권",
+      "imgUrl": "https://sitem.ssgcdn.com/38/09/91/item/1000555910938_i1_750.jpg",
+      "price": 30000,
+      "amount": 1,
+      "isChecked": true,
+      "option": "3만원",
+      "isOptionRequired": true
+    },
+    {
+      "id": 4,
+      "productCode": "1000555910531",
+      "productName": "APP전용 e카드 교환권",
       "imgUrl": "https://sitem.ssgcdn.com/38/09/91/item/1000555910938_i1_750.jpg",
       "price": 50000,
       "amount": 1,
-      "discountedPrice": 50000,
-      "isChecked": true
+      "isChecked": true,
+      "isOptionRequired": true
     },
     {
+      "id": 5,
       "productCode": "1000600960431",
       "productName": "코지 브런치 세트",
       "imgUrl": "https://sitem.ssgcdn.com/31/04/96/item/1000600960431_i1_290.jpg",
@@ -759,6 +772,17 @@
       "optionId": "2",
       "optionDetail": "사이즈",
       "optionValue": ["XS", "S", "M", "L"]
+    }
+  ],
+  "cartItemOption": [
+    {
+      "id": 3,
+      "optionValue": "3만원",
+      "restock": 5
+    },
+    {
+      "id": 4,
+      "optionValue": "5만원"
     }
   ]
 }
