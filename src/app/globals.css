@@ -167,17 +167,17 @@ body {
 
 .progress-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 20px;
 }
 
 .step {
-  padding: 10px 20px;
+  padding: 8px 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .completed {
-  background-color: #4caf50; /* 완료된 단계를 녹색으로 표시 */
+  background-color: #01a862; /* 완료된 단계를 녹색으로 표시 */
   color: white;
 }

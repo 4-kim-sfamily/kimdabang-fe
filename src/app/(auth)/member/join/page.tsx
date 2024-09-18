@@ -29,7 +29,7 @@ export default function Page() {
 
   return (
     <div>
-      <div className="progress-bar">
+      <div className="progress-bar text-xs whitespace-nowrap">
         {steps.map((step, index) => (
           <div
             key={step}

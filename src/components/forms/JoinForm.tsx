@@ -229,26 +229,36 @@ export function JoinForm() {
             />
           </section>
 
-          {/* Email Field */}
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel htmlFor="email">이메일</FormLabel>
-                <FormControl>
-                  <input
-                    {...field}
-                    id="email"
-                    type="email"
-                    placeholder="이메일을 입력하세요"
-                    className="input border border-gray-300 p-2 rounded-xl"
-                  />
-                </FormControl>
-                <FormMessage className="text-red-500" />
-              </FormItem>
-            )}
-          />
+          <div className="flex items-center space-x-2">
+            {/* Email Field */}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem className="flex flex-col w-2/3">
+                  <FormLabel htmlFor="email">이메일</FormLabel>
+                  <FormControl>
+                    <input
+                      {...field}
+                      id="email"
+                      type="email"
+                      placeholder="이메일을 입력하세요"
+                      className="input border border-gray-300 p-2 rounded-xl "
+                    />
+                  </FormControl>
+                  <FormMessage className="text-red-500" />
+                </FormItem>
+              )}
+            />
+            {/* Button aligned with input */}
+            <Button
+              size="free"
+              variant="starbucks"
+              className="h-full px-4 mt-7" // 높이를 Input 박스와 동일하게 조정
+            >
+              중복확인
+            </Button>
+          </div>
 
           {/* Phone Field */}
           <FormField
