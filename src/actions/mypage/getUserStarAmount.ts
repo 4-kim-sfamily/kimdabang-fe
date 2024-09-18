@@ -1,9 +1,10 @@
 import { commonResType, userStarAmountType } from "@/types/ResponseType";
-import { getData } from "./CommonGet";
+import { fetchData } from "../common/common";
 
 export const getUserStarAmount = async (): Promise<userStarAmountType> => {
-  const data = await getData<commonResType<userStarAmountType>>(
+  const data = await fetchData<commonResType<userStarAmountType>>(
     "/api/v1/userstar/get-userstaramount",
+    "GET",
     "userstaramount",
   );
   return data.data;
