@@ -1,10 +1,9 @@
-import React from "react";
 function layout({
-  children,
   modal,
+  children,
 }: {
-  children: React.ReactNode;
   modal: React.ReactNode;
+  children: React.ReactNode;
 }) {
   return (
     <>

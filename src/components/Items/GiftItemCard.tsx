@@ -1,12 +1,15 @@
-"use server";
-import { getIsFavorite } from "@/actions/mypage/getIsFavorite";
-import { putFavorite } from "@/actions/mypage/putFavorite";
+import { getIsFavorite } from "@/actions/getIsFavorite";
+import { putFavorite } from "@/actions/putFavorite";
 import { ItemCardType } from "@/types/items/ItemCard";
 import Image from "next/image";
 import Cart from "../icons/Cart";
 import ItemHearts from "../icons/ItemHearts";
 import ReviewPreview from "./ReviewPreview";
+
 export default async function GiftItemCard({ item }: { item: ItemCardType }) {
+  // 서버에서 미리 좋아요 여부를 가져옴
+  const isLiked: boolean = (await getIsFavorite(item.productCode)).favorite;
+
   return (
     <div className="w-[100%] border-slate-950 flex flex-col justify-start w-[224px]">
       <div className="relative w-[100%] aspect-square h-[224px]">
@@ -22,8 +25,8 @@ export default async function GiftItemCard({ item }: { item: ItemCardType }) {
         <div className="flex gap-2">
           <ItemHearts
             productCode={item.productCode}
+            isLiked={isLiked} // 서버에서 받아온 데이터 전달
             putFavorite={putFavorite}
-            getIsFavorite={getIsFavorite}
           />
           <Cart color="black" />
         </div>

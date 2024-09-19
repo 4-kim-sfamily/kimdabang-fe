@@ -1,6 +1,7 @@
 import { XCircle } from "@/components/icons/Index";
 import { CartItemType } from "@/types/items/Cart";
 import Image from "next/image";
+import Link from "next/link";
 import CartItemAmount from "../pages/cart/CartItemAmount";
 import DeleteCartItem from "../pages/cart/DeleteCartItem";
 
@@ -15,9 +16,11 @@ export default function CartItem({ item }: { item: CartItemType }) {
           style={{ objectFit: "cover" }}
         />
       </div>
-      <ul className="w-full">
+      <ul className="w-full flex flex-col justify-between">
         <li className="flex w-full justify-between mb-2">
-          <p className="font-extrabold">{item.productName}</p>
+          <Link href={"/상품상세페이지로"} className="font-extrabold">
+            {item.productName}
+          </Link>
           <DeleteCartItem
             apiUri="productCode 삭제"
             selectedProductCodes={item.productCode}

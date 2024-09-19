@@ -5,7 +5,7 @@ type SearchParams = {
   end: string;
 };
 
-export default function page({ searchParams }: { searchParams: SearchParams }) {
+export default function Page({ searchParams }: { searchParams: SearchParams }) {
   console.log(searchParams);
   return (
     <div>

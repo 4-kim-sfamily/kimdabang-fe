@@ -44,10 +44,34 @@ export interface RunningSeasonType {
 export type IsFavoriteType = {
   favorite: boolean;
 };
+
 export interface StarHistoryType {
   expirationDate: Date;
   createdAt: Date;
   isEcho: boolean;
   starAmount: number;
   description: string;
+}
+
+export interface FavoriteType {
+  productCode: string;
+}
+
+export interface ProductType {
+  id: number;
+  productCode: string;
+  productName: string;
+  description: string;
+  releaseDate: Date;
+  content: string;
+  categoryId: number;
+  price: number;
+}
+
+export interface ProductMediaType {
+  id: number;
+  productId: number;
+  mediaName: string;
+  mediaType: string;
+  mediaURL: string;
 }
