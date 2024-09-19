@@ -1,5 +1,5 @@
-import { getIsFavorite } from "@/actions/getIsFavorite";
-import { putFavorite } from "@/actions/putFavorite";
+import { getIsFavorite } from "@/actions/favorite/getIsFavorite";
+import { putFavorite } from "@/actions/favorite/putFavorite";
 import { ItemCardType } from "@/types/items/ItemCard";
 import Image from "next/image";
 import Cart from "../icons/Cart";
@@ -8,8 +8,8 @@ import ReviewPreview from "./ReviewPreview";
 
 export default async function GiftItemCard({ item }: { item: ItemCardType }) {
   // 서버에서 미리 좋아요 여부를 가져옴
-  const isLiked: boolean = (await getIsFavorite(item.productCode)).favorite;
 
+  const isLiked: boolean = await getIsFavorite(item.productCode);
   return (
     <div className="w-[100%] border-slate-950 flex flex-col justify-start w-[224px]">
       <div className="relative w-[100%] aspect-square h-[224px]">

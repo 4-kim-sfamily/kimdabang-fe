@@ -1,51 +1,40 @@
 "use client";
-
-import { useAgreement } from "@/app/context/AgreementContext";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
+import { verifyEmail } from "@/actions/join/verifyEmail";
+import { useState } from "react";
 import {
+  Button,
+  Calendar,
+  CalendarIcon,
   Form,
+  format,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { CalendarIcon } from "@radix-ui/react-icons";
-import { format } from "date-fns";
-import { useRouter } from "next/navigation";
-import { BaseSyntheticEvent } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+  useAgreement,
+  useForm,
+  useRouter,
+  z,
+  zodResolver,
+} from "./joinFromIndex"; // 경로를 적절히 맞춰주세요
 
-const FormSchema = z
-  .object({
-    name: z.string().min(1, "이름을 입력해주세요."),
-    gender: z.enum(["남성", "여성", "기타"]),
-    id: z.string().min(4, "ID는 4글자 이상으로 입력해주세요."),
-    email: z.string().email("유효한 이메일 주소를 입력해주세요."),
-    password: z.string().min(8, "비밀번호는 최소 8자 이상이어야 합니다."),
-    confirmPassword: z.string().min(8, "비밀번호 확인을 입력해주세요."),
-    phone: z.string().min(9, "전화번호를 올바르게 입력해주세요."),
-    dob: z.date({
-      required_error: "생년월일을 선택해주세요.",
-    }),
-    nickname: z.string().min(3, "닉네임을 3글자 이상으로 입력해주세요"),
-    calendarType: z.enum(["solar", "lunar"]).default("solar"), // 기본값 설정
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    path: ["confirmPassword"],
-    message: "비밀번호가 일치하지 않습니다.",
-  });
+// 폼 스키마 정의
+const FormSchema = z.object({
+  name: z.string().min(1, "이름을 입력해주세요."),
+  gender: z.enum(["남성", "여성", "기타"]),
+  email: z.string().email("유효한 이메일 주소를 입력해주세요."),
+  phone: z.string().min(9, "전화번호를 올바르게 입력해주세요."),
+  dob: z.date({
+    required_error: "생년월일을 선택해주세요.",
+  }),
+  calendarType: z.enum(["solar", "lunar"]).default("solar"),
+});
 
-export function JoinForm() {
+export function JoinForm({ onNext }) {
   const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -54,87 +43,75 @@ export function JoinForm() {
     },
   });
 
-  const { setAgreementData, agreementData } = useAgreement(); // useAgreement 훅 사용
+  const { setUserData } = useAgreement();
+  const [isEmailVerified, setIsEmailVerified] = useState(false); // 이메일 검증 상태
+  const [emailError, setEmailError] = useState<string | null>(null); // 이메일 에러 메시지
 
-  async function onSubmit(
-    data: z.infer<typeof FormSchema>,
-    event?: BaseSyntheticEvent,
-  ) {
-    if (event) {
-      event.preventDefault(); // 기본 동작 차단
+  // 이메일 검증 함수
+  const handleVerifyEmail = () => {
+    const email = form.getValues("email"); // 폼의 이메일 값만 가져옴
+    if (!email) {
+      setEmailError("이메일을 입력해주세요.");
+      return;
+    }
+
+    verifyEmail(email)
+      .then((result) => {
+        if (result) {
+          setIsEmailVerified(true); // 이메일 검증 성공
+          setEmailError(null); // 에러 메시지 초기화
+        } else {
+          setIsEmailVerified(false);
+          setEmailError("이미 가입된 이메일입니다."); // 에러 메시지 설정
+        }
+      })
+      .catch((error) => {
+        console.error("이메일 검증 중 오류 발생:", error);
+        setEmailError("이메일 검증 중 오류가 발생했습니다.");
+      });
+  };
+
+  // 폼 제출 시 전체 검증 처리
+  const onSubmit = (data: z.infer<typeof FormSchema>) => {
+    // 이메일 검증이 완료되지 않았을 경우 제출 차단
+    if (!isEmailVerified) {
+      setEmailError("이메일 인증이 필요합니다."); // 에러 메시지 설정
+      return;
     }
 
     try {
       // AgreementContext에 userData 저장
-      setAgreementData((prev) => ({
+      setUserData((prev) => ({
         ...prev,
-        userData: {
-          id: data.id,
-          password: data.password, // 해싱된 비밀번호 저장
-          name: data.name,
-          gender: data.gender,
-          nickname: data.nickname,
-          birth: data.dob,
-          solar: data.calendarType === "solar",
-          email: data.email,
-          phone: data.phone,
-        },
+        name: data.name,
+        gender: data.gender,
+        birth: data.dob,
+        solar: data.calendarType === "solar",
+        email: data.email,
+        phone: data.phone,
       }));
-      const res = await fetch(
-        "http://qkr99102.asuscomm.com:18193/api/v1/auth/join",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            loginId: data.id,
-            password: data.password,
-            name: data.name,
-            email: data.email,
-            phone: data.phone,
-            gender: data.gender,
-            solar: true,
-            birth: data.dob,
-            nickname: data.nickname,
-          }),
-        },
-      );
-      if (res.ok) {
-        router.push("/member/join/complete");
-      } else {
-        console.log("error");
-      }
+
+      console.log("Context에 저장된 데이터:", {
+        name: data.name,
+        gender: data.gender,
+        birth: data.dob,
+        solar: data.calendarType === "solar",
+        email: data.email,
+        phone: data.phone,
+      });
+
+      // 저장 후 다음 단계로 이동
+      onNext();
     } catch (error) {
-      console.error("비밀번호 해싱 오류:", error);
+      console.error("오류 발생:", error);
     }
-  }
+  };
 
   return (
     <div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <section className="flex gap-2">
-            {/* Name Field */}
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem className="flex flex-col">
-                  <FormLabel htmlFor="name">이름</FormLabel>
-                  <FormControl>
-                    <input
-                      {...field}
-                      id="name"
-                      type="text"
-                      placeholder="이름을 입력하세요"
-                      className="input border  border-gray-300 p-2 rounded-xl"
-                    />
-                  </FormControl>
-                  <FormMessage className="text-red-500" />
-                </FormItem>
-              )}
-            />
             <FormField
               control={form.control}
               name="gender"
@@ -183,7 +160,7 @@ export function JoinForm() {
               )}
             />
           </section>
-
+          <hr />
           <section className="birth-section flex gap-5">
             {/* Date of Birth Field */}
             <FormField
@@ -197,10 +174,7 @@ export function JoinForm() {
                       <FormControl>
                         <Button
                           id="dob"
-                          className={cn(
-                            "w-[240px] pl-3 text-left px-2 font-normal rounded-xl relative z-10 border-[0.1rem] border-gray-300",
-                            !field.value && "text-muted-foreground",
-                          )}
+                          className="w-[240px] pl-3 text-left px-2 font-normal rounded-xl relative z-10 border-[0.1rem] border-gray-300"
                         >
                           {field.value ? (
                             format(field.value, "PPP")
@@ -229,6 +203,7 @@ export function JoinForm() {
                 </FormItem>
               )}
             />
+            <hr />
 
             {/* 양력/음력 Radio Buttons */}
             <FormField
@@ -268,123 +243,86 @@ export function JoinForm() {
               )}
             />
           </section>
+          <hr />
 
-          {/* ID Field */}
-          <FormField
-            control={form.control}
-            name="id"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel htmlFor="id">ID</FormLabel>
-                <FormControl>
-                  <input
-                    {...field}
-                    id="id"
-                    type="text"
-                    placeholder="ID를 입력하세요"
-                    className="input border border-gray-300 p-2 rounded-xl"
-                  />
-                </FormControl>
-                <FormMessage className="text-red-500" />
-              </FormItem>
-            )}
-          />
+          {/* Name Field */}
+          <section>
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem className="flex flex-col w-2/3">
+                  <FormLabel htmlFor="name">이름</FormLabel>
+                  <FormControl>
+                    <input
+                      {...field}
+                      id="name"
+                      type="text"
+                      placeholder="이름을 입력하세요"
+                      className="input border  border-gray-300 p-2 rounded-xl"
+                    />
+                  </FormControl>
+                  <FormMessage className="text-red-500" />
+                </FormItem>
+              )}
+            />
+          </section>
+          <hr />
 
-          {/* Password Field */}
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel htmlFor="password">비밀번호</FormLabel>
-                <FormControl>
-                  <input
-                    {...field}
-                    id="password"
-                    type="password"
-                    placeholder="비밀번호를 입력하세요"
-                    className="input border border-gray-300 p-2 rounded-xl"
-                  />
-                </FormControl>
-                <FormMessage className="text-red-500" />
-              </FormItem>
-            )}
-          />
+          <div className="flex items-center justify-between ">
+            {/* Email Field */}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem className="flex flex-col w-2/3">
+                  <FormLabel htmlFor="email">이메일</FormLabel>
+                  <FormControl>
+                    <input
+                      {...field}
+                      id="email"
+                      type="email"
+                      placeholder="이메일을 입력하세요"
+                      className="input border border-gray-300 p-2 rounded-xl w-full disabled:bg-gray-200 disabled:cursor-not-allowed"
+                      disabled={isEmailVerified} // 이메일 검증되면 disable
+                    />
+                  </FormControl>
+                  <FormMessage className="text-red-500" />
+                  {emailError && (
+                    <p className="text-red-500 mt-1">{emailError}</p>
+                  )}
+                  {isEmailVerified && (
+                    <p className="text-black mt-1">이메일이 인증되었습니다.</p>
+                  )}
+                </FormItem>
+              )}
+            />
+            {/* 중복확인 버튼 */}
+            <Button
+              type="button" // form submission과는 별도로 작동하게 설정
+              onClick={handleVerifyEmail} // Promise로 검증 함수 호출
+              size="sm"
+              variant="starbucks"
+              className="h-full whitespace-nowrap mt-6 py-3 px-4"
+            >
+              중복확인
+            </Button>
+          </div>
+          <hr />
 
-          {/* Confirm Password Field */}
-          <FormField
-            control={form.control}
-            name="confirmPassword"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel htmlFor="confirmPassword">비밀번호 확인</FormLabel>
-                <FormControl>
-                  <input
-                    {...field}
-                    id="confirmPassword"
-                    type="password"
-                    placeholder="비밀번호를 다시 입력하세요"
-                    className="input border border-gray-300 p-2 rounded-xl"
-                  />
-                </FormControl>
-                <FormMessage className="text-red-500" />
-              </FormItem>
-            )}
-          />
-
-          {/* Email Field */}
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel htmlFor="email">이메일</FormLabel>
-                <FormControl>
-                  <input
-                    {...field}
-                    id="email"
-                    type="email"
-                    placeholder="이메일을 입력하세요"
-                    className="input border border-gray-300 p-2 rounded-xl"
-                  />
-                </FormControl>
-                <FormMessage className="text-red-500" />
-              </FormItem>
-            )}
-          />
-          {/* Nickname Field */}
-          <FormField
-            control={form.control}
-            name="nickname"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel htmlFor="nickname">닉네임</FormLabel>
-                <FormControl>
-                  <input
-                    {...field}
-                    id="nickname"
-                    type="text"
-                    placeholder="사용할 닉네임을 입력해주세요."
-                    className="input border border-gray-300 p-2 rounded-xl"
-                  />
-                </FormControl>
-                <FormMessage className="text-red-500" />
-              </FormItem>
-            )}
-          />
-          {/* Nickname Field */}
+          {/* Phone Field */}
           <FormField
             control={form.control}
             name="phone"
             render={({ field }) => (
-              <FormItem className="flex flex-col">
+              <FormItem className="flex flex-col w-2/3">
                 <FormLabel htmlFor="phone">전화번호</FormLabel>
                 <FormControl>
                   <input
                     {...field}
                     id="phone"
                     type="text"
-                    placeholder="전화번호를 입력해주세요"
+                    placeholder="전화번호를 입력하세요"
                     className="input border border-gray-300 p-2 rounded-xl"
                   />
                 </FormControl>
@@ -394,7 +332,7 @@ export function JoinForm() {
           />
 
           <Button variant="starbucks" type="submit" className="mx-auto">
-            Submit
+            다음
           </Button>
         </form>
       </Form>

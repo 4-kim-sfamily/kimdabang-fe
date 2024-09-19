@@ -7,9 +7,8 @@ export const getItemCardInfo = async (productCode: string) => {
   const productData = await getProductInfo(productCode);
   // 2. 제품 이미지 가져오고
   // 아직 API가 완성되지 않아 임시로 1번 제품의 이미지를 가져옴
-  //   const productMedia = await getProductMedia(productCode);
-  const productMedia = await getProductMedia(1);
-
+  const productMedia = await getProductMedia(productCode);
+  // const productMedia = await getProductMedia(1);
   // 3. 제품 정보의 카테고리 바탕으로 카테고리 이름 가져오고
   //   이건 API 미완성이라 생략
 
@@ -19,7 +18,7 @@ export const getItemCardInfo = async (productCode: string) => {
     id: productData.id,
     productCode: productData.productCode,
     productName: productData.productName,
-    productPrice: productData.price,
+    productPrice: productData.productPrice,
     productImageUrl: productMedia[0].mediaURL,
     largeCategory: productData.categoryId.toString(),
     inStock: true,
