@@ -3,9 +3,9 @@ import CheckoutContainer from "@/components/pages/checkoout/CheckoutContainer";
 export default function page({
   searchParams,
 }: {
-  searchParams: URLSearchParams;
+  searchParams: { type: string; itemNo?: string };
 }) {
-  console.log("searchParams", searchParams);
-
-  return <CheckoutContainer type={searchParams.type as "cart" | "buyNow"} />;
+  return (
+    <CheckoutContainer type={searchParams.type} itemNo={searchParams.itemNo} />
+  );
 }

@@ -3,10 +3,16 @@ import AddressSection from "../cart/AddressSection";
 import CouponSection from "./CouponSection";
 import MyOrderItemList from "./MyOrderItemList";
 
-export default function CheckoutContainer(type: string, itemNo?: string) {
-  console.log("type", type);
-  if (type === "buyNow") {
-    console.log("productOptionId", itemNo);
+export default function CheckoutContainer({
+  type,
+  itemNo,
+}: {
+  type: string;
+  itemNo?: string;
+}) {
+  console.log(type, itemNo);
+  if (type === "buyNow" && !itemNo) {
+    return <div className="mt-20">상품을 선택해주세요</div>;
   }
   return (
     <div className="mt-20 px-4 flex flex-col gap-4">
@@ -17,7 +23,7 @@ export default function CheckoutContainer(type: string, itemNo?: string) {
       </section>
       <section>
         주문 정보
-        <MyOrderItemList />
+        <MyOrderItemList type={type} itemNo={itemNo} />
         {/* 주문 정보 들어갈 곳 */}
       </section>
       <hr />
