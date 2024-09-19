@@ -9,7 +9,6 @@ export const getSeasonMedia = async (): Promise<SeasonMediaType[]> => {
     "",
     "force-cache",
   );
-  console.log("api 요청값 return", data.data);
   return data.data;
 };
 
