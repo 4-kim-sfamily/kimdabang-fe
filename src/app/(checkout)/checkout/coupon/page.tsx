@@ -1,3 +1,3 @@
 export default function page() {
-  return <div>여기는 바로들어오면 나오는곳</div>;
+  return <div className="mt-20">여기는 그냥 쿠폰리스트 들어가는곳.</div>;
 }

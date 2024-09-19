@@ -17,12 +17,11 @@ export default function CheckoutContainer({
   return (
     <div className="mt-20 px-4 flex flex-col gap-4">
       <section>
-        배송지
+        <p className="font-bold text-2xl -mb-10">배송지</p>
         <AddressSection />
-        {/* 배송지 들어갈 곳 */}
       </section>
       <section>
-        주문 정보
+        <p className="font-bold text-2xl">주문 내역</p>
         <MyOrderItemList type={type} itemNo={itemNo} />
         {/* 주문 정보 들어갈 곳 */}
       </section>

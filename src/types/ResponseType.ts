@@ -75,3 +75,11 @@ export interface ProductMediaType {
   mediaType: string;
   mediaURL: string;
 }
+export interface ProductOptionType {
+  productCode: string;
+  PriorOptionId: string;
+}
+export interface CouponType {
+  couponId: string;
+  expirtedAt: string;
+}

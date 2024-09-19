@@ -10,7 +10,8 @@ export const join = async (userData: any, agreementData: any) => {
     smsChecked: agreementData.smsChecked,
     loginId: userData.id, // 아이디를 loginId로 변경
     password: userData.password, // 비밀번호
-    kakaoId: "", // Kakao ID는 없으므로 빈 문자열로 설정 (필요시 설정)
+    provider: "",
+    providerId: "", // Kakao ID는 없으므로 빈 문자열로 설정 (필요시 설정)
     name: userData.name, // 이름
     email: userData.email, // 이메일
     phone: userData.phone, // 전화번호
