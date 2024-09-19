@@ -1,12 +1,10 @@
+import { getSeasonMedia } from "@/actions/main/season";
 import ModalHeader from "@/components/layouts/ModalHeader";
 import CarouselModal from "@/components/pages/modal/CarouselModal";
+import { SeasonMediaType } from "@/types/main/CarouselDataType";
 import EventModal from "./modal";
 export default async function Page({ params }: { params: { id: string } }) {
-  const res = await fetch("http://localhost:4000/carouselData", {
-    cache: "no-store",
-  });
-  const carouselData = await res.json();
-
+  const carouselData: SeasonMediaType[] = await getSeasonMedia();
   return (
     <EventModal>
       <main className="w-full">
