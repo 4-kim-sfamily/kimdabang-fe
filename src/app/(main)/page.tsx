@@ -15,7 +15,7 @@ export default async function Home() {
       <MainCarousel carouselData={data} />
       <div className="px-[4.1vw]">
         <MainCategory />
-        <MainSeason />
+        <MainSeason SeasonData={data} />
         <MainGiftProduct />
         <MainBestReviewProduct />
         <MainBestItem />

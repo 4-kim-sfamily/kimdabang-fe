@@ -1,14 +1,16 @@
 import SeasonCard from "@/components/main/SeasonCard";
-import { RunningSeason } from "@/types/main/RunningSeasonDataType";
+import { SeasonMediaType } from "@/types/main/CarouselDataType";
 
-export default async function MainSeason() {
-  const res = await fetch("http://localhost:4000/SeasonData", {
-    cache: "no-store",
-  });
-  const SeasonData: RunningSeason[] = await res.json();
+export default async function MainSeason({
+  SeasonData,
+}: {
+  SeasonData: SeasonMediaType[];
+}) {
   return (
     <section className="flex place-items-baseline gap-2 w-[100%] overflow-x-auto scroll-item whitespace-nowrap">
-      {SeasonData.map((item) => (
+      {SeasonData.filter(
+        (item) => item.mediaType === "running-season-thumbsImg",
+      ).map((item) => (
         <SeasonCard key={item.id} item={item} />
       ))}
     </section>
