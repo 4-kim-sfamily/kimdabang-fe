@@ -12,7 +12,6 @@ import ReviewPreview from "./ReviewPreview";
 
 export default async function ItemCard({ item }: { item: ItemCardType }) {
   const isLiked: boolean = await getIsFavorite(item.productCode);
-  console.log(isLiked);
   return (
     <div className="w-[100%] border-slate-950 flex flex-col justify-start">
       <Link href={`/product/${item.productCode}`}>
