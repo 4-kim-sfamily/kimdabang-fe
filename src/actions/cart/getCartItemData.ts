@@ -6,6 +6,9 @@ export async function getCartItemOption({ id }: { id: number }): Promise<any> {
   const data = await fetchData<commonResType<cartItemOption>>(
     `/api/v1/cartItemOptions/${id}`,
     "GET",
+    "",
+    "default",
+    "changeOption",
   );
   return data.data;
 }
@@ -15,7 +18,7 @@ export async function getCartItemList(): Promise<any> {
     `/api/v1/cart/list`,
     "GET",
     "",
-    "no-store",
+    "reload",
   );
   return data.data;
 }
@@ -29,7 +32,7 @@ export async function getCartItem({
     `/api/v1/cart/${productCode}`,
     "GET",
     "",
-    "no-store",
+    "reload",
   );
   console.log(data.data);
   return data.data;

@@ -40,7 +40,7 @@ export default function AddressForm() {
     };
 
     const resData = await AddAddress(requestData);
-    if (resData.status === "OK") {
+    if (resData === "OK") {
       router.back();
     }
   };
