@@ -11,8 +11,7 @@ import ItemHearts from "../icons/ItemHearts";
 import ReviewPreview from "./ReviewPreview";
 
 export default async function ItemCard({ item }: { item: ItemCardType }) {
-  const isLiked: boolean = (await getIsFavorite(item.productCode)).favorite;
-
+  const isLiked: boolean = await getIsFavorite(item.productCode);
   return (
     <div className="w-[100%] border-slate-950 flex flex-col justify-start">
       <Link href={`/product/${item.productCode}`}>
@@ -37,7 +36,10 @@ export default async function ItemCard({ item }: { item: ItemCardType }) {
         </div>
       </div>
       <p className="text-[13px] ">{item.productName}</p>
-      <p className="font-semibold ">{item.productPrice}</p>
+      <p className="font-semibold ">
+        {item.productPrice}
+        {" 원"}
+      </p>
       <ReviewPreview productCode={item.productCode} visible={false} />
     </div>
   );

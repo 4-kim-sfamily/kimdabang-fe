@@ -24,5 +24,4 @@ export const join = async (userData: any, agreementData: any) => {
     "POST",
     requestBody,
   );
-  console.log("가입 결과:", data);
 };
