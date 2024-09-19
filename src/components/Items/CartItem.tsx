@@ -20,13 +20,13 @@ export default async function CartItem({
     getProductMedia(productCode) as Promise<ProductMediaType>,
     getProductInfo(productCode) as Promise<ProductType>,
   ]);
-  console.log(img);
+  console.log(img[0]);
   return (
     <figure className="flex w-full gap-4">
       <div className="relative w-[32%] max-w-24 aspect-square">
-        {img.mediaURL ? (
+        {img[0].mediaURL ? (
           <Image
-            src={img.mediaURL}
+            src={img[0].mediaURL}
             alt="digh"
             fill
             style={{ objectFit: "cover" }}
