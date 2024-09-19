@@ -1,5 +1,5 @@
 "use client";
-import { CarouselDataType } from "@/types/main/CarouselDataType";
+import { SeasonMediaType } from "@/types/main/CarouselDataType";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
@@ -7,7 +7,7 @@ export default function CarouselModal({
   carouselData,
   id,
 }: {
-  carouselData: CarouselDataType[];
+  carouselData: SeasonMediaType[];
   id: string;
 }) {
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -28,18 +28,18 @@ export default function CarouselModal({
   }, [carouselData, id]);
   return (
     <section>
-      {carouselData?.map((item: CarouselDataType) => (
+      {carouselData?.map((item: SeasonMediaType, index) => (
         <div
           key={item.id}
           className="relative w-full aspect-[13/10] "
           ref={(el) => {
             if (el) {
-              imageRefs.current[item.id - 1] = el;
+              imageRefs.current[index - 1] = el;
             }
           }}
         >
           <Image
-            src={item.imgUrl}
+            src={item.mediaURL}
             alt="item"
             fill
             style={{ objectFit: "cover" }}
