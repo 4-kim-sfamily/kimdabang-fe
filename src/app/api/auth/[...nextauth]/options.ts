@@ -46,6 +46,8 @@ export const options: NextAuthOptions = {
 
       // if(profile)로 처리
       if (account?.provider === "kakao") {
+        console.log("user값:", user);
+        console.log("account값:", account);
         // 만약에 로그인 경로가 kakao 일때는 추가 fetch 필요
         console.log("kakao에서 로그인시도");
         // const result = await fetch(`${process.env.BACKEND_URL}/api/v1/`, {
