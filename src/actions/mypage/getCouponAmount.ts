@@ -1,9 +1,12 @@
 import { commonResType, couponAmountType } from "@/types/ResponseType";
-import { getData } from "./CommonGet";
+import { fetchData } from "../common/common";
 
 export const getCouponAmount = async (): Promise<couponAmountType> => {
-  const data = await getData<commonResType<couponAmountType>>(
+  const data = await fetchData<commonResType<couponAmountType>>(
     "/api/v1/couponAmount",
+    "GET",
+    "",
+    "default",
     "couponAmount",
   );
   return data.data;

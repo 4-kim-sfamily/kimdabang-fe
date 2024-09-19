@@ -165,6 +165,22 @@ body {
   box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
+.progress-bar {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.step {
+  padding: 8px 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.completed {
+  background-color: #01a862; /* 완료된 단계를 녹색으로 표시 */
+  color: white;
+}
 .input-wrapper {
   @apply h-[62px] gap-3 w-full flex border-b-[1px] items-end focus-within:border-[#01a862] focus-within:flex-col focus-within:items-start focus-within:gap-0;
 }

@@ -1,4 +1,4 @@
-import { getFavoriteList } from "@/actions/getFavoriteList";
+import { getFavoriteList } from "@/actions/favorite/getFavoriteList";
 import { getItemCardInfo } from "@/actions/getItemCardInfo";
 import ItemCard from "@/components/Items/ItemCard";
 
@@ -13,7 +13,6 @@ export default async function page() {
       if (res.productPrice === undefined) {
         res.productPrice = 50000; // 가격이 없으면 기본값으로 50000 설정
       }
-      console.log("productImage값:", res.productImageUrl);
       return res; // 각 상품 정보 반환
     }),
   );
