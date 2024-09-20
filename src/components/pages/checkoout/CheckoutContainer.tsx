@@ -1,9 +1,11 @@
+import { getShippingAddressDefault } from "@/actions/shipping/shippingActions";
 import { Button } from "@/components/ui/button";
+import { redirect } from "next/navigation";
 import AddressSection from "../cart/AddressSection";
 import CouponSection from "./CouponSection";
 import MyOrderItemList from "./MyOrderItemList";
 
-export default function CheckoutContainer({
+export default async function CheckoutContainer({
   type,
   itemNo,
 }: {
@@ -13,6 +15,10 @@ export default function CheckoutContainer({
   console.log(type, itemNo);
   if (type === "buyNow" && !itemNo) {
     return <div className="mt-20">상품을 선택해주세요</div>;
+  }
+  const isAddress = await getShippingAddressDefault();
+  if (!isAddress) {
+    redirect("/shipping/addShippingAddress");
   }
   return (
     <div className="mt-20 px-4 flex flex-col gap-4">

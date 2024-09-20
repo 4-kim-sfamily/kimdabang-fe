@@ -16,11 +16,16 @@ export const getShippingAddressList = async (): Promise<
 
 export const getShippingAddressDefault =
   async (): Promise<shippingAddressType> => {
-    const data = await getData<commonResType<shippingAddressType>>(
-      "/api/v1/useraddress/get-useraddressdefault",
-      "",
-    );
-    return data.data;
+    try {
+      const data = await getData<commonResType<shippingAddressType>>(
+        "/api/v1/useraddress/get-useraddressdefault",
+        "",
+      );
+      return data.data;
+    } catch (error) {
+      console.error("Error fetching default shipping address:", error);
+      return null;
+    }
   };
 
 export async function AddAddress(
