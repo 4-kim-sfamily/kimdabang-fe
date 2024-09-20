@@ -31,7 +31,8 @@ export const fetchData = async <T>(
   }
   const res = await fetch(`${process.env.BACKEND_URL}${apiUrl}`, fetchOptions);
   if (!res.ok) {
-    console.log(apiUrl);
+    const errorData = await res.json();
+    console.log("에러데이터", errorData);
     throw new Error(
       `데이터를 가져오지 못했습니다. 서버 응답: ${res.status} ${res.statusText}`,
     );

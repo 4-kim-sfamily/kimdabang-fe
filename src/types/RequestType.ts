@@ -4,3 +4,9 @@ export type AddAddressRequestData = {
   addressName: string;
   phone: string;
 };
+
+export type AddUserEnrollCouponRequestData = {
+  couponId: number;
+  createdAt: string;
+  expiredDate: string;
+};
