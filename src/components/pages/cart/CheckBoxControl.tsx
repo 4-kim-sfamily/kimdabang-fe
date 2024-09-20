@@ -5,7 +5,7 @@ import DeleteCartItem from "./DeleteCartItem";
 export default function CheckBoxControl({
   cartItemList,
 }: {
-  cartItemList: CartItemType[];
+  cartItemList?: CartItemType[];
 }) {
   //
   return (

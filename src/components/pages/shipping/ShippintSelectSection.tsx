@@ -14,7 +14,7 @@ export default function ShippingSelectSection({
     setSelectedId(id);
   };
   return (
-    <div>
+    <div className="mb-14">
       <Suspense fallback={<div>Loading...</div>}>
         <AddressRadioGroup
           addressDataList={data}
