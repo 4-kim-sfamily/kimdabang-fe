@@ -82,3 +82,11 @@ export interface CouponType {
   expiredDate: string;
   value: number;
 }
+
+export interface noiticationType {
+  id: number;
+  title: string;
+  activeData: string;
+  expireDate: string;
+  mediaUrl: string;
+}

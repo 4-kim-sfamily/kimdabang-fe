@@ -33,8 +33,7 @@ export default function JoinAdditionalForm({ onNext }) {
   const [error, setError] = useState<string | null>(null);
   const [isIdVerified, setIsIdVerified] = useState(false); // 아이디 검증 여부
   const [idError, setIdError] = useState<string | null>(null); // 아이디 에러 메시지
-  const { userData, setUserData } = useAgreement(); // AgreementContext의 setUserData 가져오기
-  const { agreementData } = useAgreement(); // AgreementContext의 agreementData 가져오기
+  const { userData, setUserData, agreementData, providerInfo } = useAgreement(); // AgreementContext의 데이터를 가져오기
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
@@ -62,8 +61,7 @@ export default function JoinAdditionalForm({ onNext }) {
       });
   };
 
-  const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    // 폼 제출 시 처리 로직
+  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     try {
       // Context에 userData 업데이트
       setUserData((prev) => ({
@@ -72,17 +70,27 @@ export default function JoinAdditionalForm({ onNext }) {
         password: data.password,
         nickname: data.nickname,
       }));
-      // 이후 서버 전송 로직 추가
+
+      // context 업데이트 후 join 호출
+      await new Promise((resolve) => setTimeout(resolve, 0)); // 업데이트가 반영되도록 약간의 지연
+
+      // 업데이트된 userData 사용
+      join(
+        {
+          ...userData,
+          id: data.id,
+          password: data.password,
+          nickname: data.nickname,
+        },
+        agreementData,
+        providerInfo,
+      );
+
+      onNext(); // 다음 단계로 진행
     } catch (error) {
       setError("제출 중 오류가 발생했습니다.");
-    }
-    // 디버깅용 로그
-    try {
-      join(userData, agreementData);
-    } catch (error) {
       console.error("가입 중 오류 발생:", error);
     }
-    onNext();
   };
 
   return (
@@ -95,7 +103,7 @@ export default function JoinAdditionalForm({ onNext }) {
               control={form.control}
               name="id"
               render={({ field }) => (
-                <FormItem className="flex flex-col w-2/3 ">
+                <FormItem className="flex flex-col w-2/3">
                   <FormLabel htmlFor="id">아이디</FormLabel>
                   <FormControl>
                     <input

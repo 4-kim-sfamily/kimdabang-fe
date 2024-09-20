@@ -10,7 +10,7 @@ import ItemHearts from "../icons/ItemHearts";
 import ReviewPreview from "./ReviewPreview";
 
 export default async function ReviewItemCard({ item }: { item: ItemCardType }) {
-  const isLiked: boolean = (await getIsFavorite(item.productCode)).favorite;
+  const isLiked: boolean = await getIsFavorite(item.productCode);
 
   return (
     <li className="w-[100%] border-slate-950 flex justify-start">

@@ -1,9 +1,9 @@
 import "next-auth";
 
-// `User` 인터페이스에 `accessToken` 추가
+// `User`와 `Session` 인터페이스에 accessToken과 Kakao 관련 정보 추가
 declare module "next-auth" {
   interface User {
-    accessToken: string; // 추가할 accessToken
+    accessToken: string; // accessToken 추가
   }
 
   interface Session {
