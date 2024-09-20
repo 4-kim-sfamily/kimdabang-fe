@@ -75,6 +75,34 @@ export interface ProductMediaType {
   mediaType: string;
   mediaURL: string;
 }
+export interface CouponType {
+  id: number;
+  name: string;
+  couponType: string;
+  expiredDate: string;
+  value: number;
+  validityYear: string;
+  validityMonth: string;
+  validityDay: string;
+}
+
+export interface myCouponType {
+  id: number;
+  name: string;
+  couponType: string;
+  isUsed: boolean;
+  usedAt: string;
+  expiredDate: string;
+}
+
+export interface noiticationType {
+  id: number;
+  title: string;
+  activeData: string;
+  expireDate: string;
+  mediaUrl: string;
+}
+
 export interface optionType {
   optionsId: number;
   optionValue: number;

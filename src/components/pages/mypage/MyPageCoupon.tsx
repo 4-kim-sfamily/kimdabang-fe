@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function MyPageCoupon({
   couponAmount,
@@ -10,7 +11,7 @@ export default function MyPageCoupon({
       <p className="font-extrabold">쿠폰</p>
       <p>{couponAmount}장</p>
       <Button variant="starbucks" size="s">
-        쿠폰함
+        <Link href="/mypage/coupon/allCoupon">쿠폰함</Link>
       </Button>
     </article>
   );
