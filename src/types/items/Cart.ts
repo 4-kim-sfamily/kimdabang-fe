@@ -16,3 +16,13 @@ export interface cartItemOption {
   optionValue: string;
   restock?: number;
 }
+
+export interface cartList {
+  productCode: string;
+  amount: number;
+  productOptionId: string;
+}
+export interface cartItem {
+  amount: number;
+  checked: number;
+}
