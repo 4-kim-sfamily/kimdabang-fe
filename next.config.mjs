@@ -10,6 +10,7 @@ const nextConfig = {
       "fastly.picsum.photos",
       "simg.ssgcdn.com",
       "sitem.ssgcdn.com",
+      "sui.ssgcdn.com",
     ],
   },
 };
