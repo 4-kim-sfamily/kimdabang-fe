@@ -1,17 +1,6 @@
-import { cartItem, cartItemOption, cartList } from "@/types/items/Cart";
+import { cartItem, cartList } from "@/types/items/Cart";
 import { commonResType } from "@/types/ResponseType";
 import { fetchData } from "../common/common";
-
-export async function getCartItemOption({ id }: { id: number }): Promise<any> {
-  const data = await fetchData<commonResType<cartItemOption>>(
-    `/api/v1/cartItemOptions/${id}`,
-    "GET",
-    "",
-    "default",
-    "changeOption",
-  );
-  return data.data;
-}
 
 export async function getCartItemList(): Promise<any> {
   const data = await fetchData<commonResType<cartList>>(
