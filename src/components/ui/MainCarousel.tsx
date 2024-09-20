@@ -5,7 +5,7 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { CarouselDataType } from "@/types/main/CarouselDataType";
+import { SeasonMediaType } from "@/types/main/CarouselDataType";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -15,7 +15,7 @@ import CarouselButton from "./CarouselButton";
 export default function MainCarousel({
   carouselData,
 }: {
-  carouselData: CarouselDataType[];
+  carouselData: SeasonMediaType[];
 }) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -56,14 +56,14 @@ export default function MainCarousel({
         className="w-[100vw] p-0 relative"
       >
         <CarouselContent className="w-full">
-          {carouselData.map((item: CarouselDataType) => (
+          {carouselData.map((item: SeasonMediaType) => (
             <CarouselItem
               className="relative w-[100vw] aspect-[13/10]"
               key={item.id}
             >
               <Image
-                src={item.imgUrl}
-                alt={item.description}
+                src={item.mediaURL}
+                alt={item.imageName}
                 fill
                 style={{ objectFit: "cover" }}
                 className="p-0 w-full"

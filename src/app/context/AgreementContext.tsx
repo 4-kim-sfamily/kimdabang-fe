@@ -1,7 +1,7 @@
 import React, { createContext, ReactNode, useContext, useState } from "react";
 
 // userData 타입 정의
-interface userData {
+interface UserData {
   id: string;
   password: string;
   name: string;
@@ -23,12 +23,19 @@ interface AgreementData {
   smsChecked: boolean;
 }
 
+interface ProviderInfo {
+  provider: string;
+  providerAccountId: string;
+}
+
 // Context 타입 정의
 interface AgreementContextType {
   agreementData: AgreementData;
   setAgreementData: React.Dispatch<React.SetStateAction<AgreementData>>;
-  userData: userData;
-  setUserData: React.Dispatch<React.SetStateAction<userData>>;
+  userData: UserData;
+  setUserData: React.Dispatch<React.SetStateAction<UserData>>;
+  providerInfo: ProviderInfo;
+  setProviderInfo: React.Dispatch<React.SetStateAction<ProviderInfo>>;
 }
 
 const AgreementContext = createContext<AgreementContextType | undefined>(
@@ -36,7 +43,7 @@ const AgreementContext = createContext<AgreementContextType | undefined>(
 );
 
 // userData 초기값 정의
-const initialUserData: userData = {
+const initialUserData: UserData = {
   id: "",
   password: "",
   name: "",
@@ -46,6 +53,12 @@ const initialUserData: userData = {
   birth: new Date(),
   solar: true,
   email: "",
+};
+
+// providerInfo 초기값 정의
+const initialProviderInfo: ProviderInfo = {
+  provider: "",
+  providerAccountId: "",
 };
 
 export function AgreementProvider({ children }: { children: ReactNode }) {
@@ -59,12 +72,23 @@ export function AgreementProvider({ children }: { children: ReactNode }) {
     smsChecked: false,
   });
 
+  // providerInfo 상태 정의
+  const [providerInfo, setProviderInfo] =
+    useState<ProviderInfo>(initialProviderInfo);
+
   // userData 상태 정의
-  const [userData, setUserData] = useState<userData>(initialUserData);
+  const [userData, setUserData] = useState<UserData>(initialUserData);
 
   return (
     <AgreementContext.Provider
-      value={{ agreementData, setAgreementData, userData, setUserData }}
+      value={{
+        agreementData,
+        setAgreementData,
+        userData,
+        setUserData,
+        providerInfo,
+        setProviderInfo,
+      }}
     >
       {children}
     </AgreementContext.Provider>
