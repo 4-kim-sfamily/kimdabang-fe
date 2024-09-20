@@ -75,11 +75,7 @@ export interface ProductMediaType {
   mediaType: string;
   mediaURL: string;
 }
-
-export interface noiticationType {
-  id: number;
-  title: string;
-  activeData: string;
-  expireDate: string;
-  mediaUrl: string;
+export interface optionType {
+  optionsId: number;
+  optionValue: number;
 }

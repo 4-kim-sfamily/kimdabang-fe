@@ -2,7 +2,7 @@ import CategoryCard from "@/components/main/CategoryCard";
 import { OnlyLargeCategory } from "@/types/main/AllCategoryDataType";
 export default async function MainCategory() {
   const res = await fetch("http://localhost:4000/largeCategories", {
-    cache: "no-store",
+    cache: "force-cache",
   });
   const largeCategories: OnlyLargeCategory[] = await res.json();
   return (
