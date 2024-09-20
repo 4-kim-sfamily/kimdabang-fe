@@ -1,15 +1,16 @@
 "use client";
-import { getSession, signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function FooterNavigation() {
   const [islogin, setIsLogin] = useState(false);
+  const { status } = useSession();
 
   useEffect(() => {
+    console.log("FOOTERNAVIGATION에서 보는데 status", status);
     const checkSession = async () => {
-      const session = await getSession();
-      if (session) {
+      if (status === "authenticated") {
         console.log("FOOTERNAVIGATION에서 보는데 로그인중임");
         setIsLogin(true);
       } else {
@@ -18,7 +19,7 @@ export default function FooterNavigation() {
     };
 
     checkSession();
-  }, []);
+  }, [status]);
 
   return (
     <div className="bg-gray-300 text-gray-600 px-1 py-1 flex flex-wrap justify-around text-center">

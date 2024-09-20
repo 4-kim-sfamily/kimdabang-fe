@@ -16,6 +16,7 @@ export default async function BottomNavBar() {
   const session = await getServerSession(options);
   if (session) {
     islogin = true;
+    console.log("session server giftproduct", session);
   }
 
   try {

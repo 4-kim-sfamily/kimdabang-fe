@@ -11,7 +11,7 @@ export const options: NextAuthOptions = {
         loginId: { label: "id", type: "text" },
         password: { label: "password", type: "password" },
       },
-      async authorize(credentials) {
+      async authorize(credentials, req) {
         if (!credentials?.loginId || !credentials?.password) {
           return null;
         }
@@ -21,7 +21,10 @@ export const options: NextAuthOptions = {
           `${process.env.BACKEND_URL}/api/v1/auth/login`,
           {
             method: "POST",
-            body: JSON.stringify(credentials),
+            body: JSON.stringify({
+              loginId: credentials.loginId,
+              password: credentials.password,
+            }),
             headers: { "Content-Type": "application/json" },
           },
         );

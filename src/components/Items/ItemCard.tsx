@@ -11,7 +11,7 @@ import ItemHearts from "../icons/ItemHearts";
 import ReviewPreview from "./ReviewPreview";
 
 export default async function ItemCard({ item }: { item: ItemCardType }) {
-  const isLiked: boolean = await getIsFavorite(item.productCode);
+  // const isLiked: boolean = await getIsFavorite(item.productCode);
   return (
     <div className="w-[100%] border-slate-950 flex flex-col justify-start">
       <Link href={`/product/${item.productCode}`}>
@@ -29,8 +29,9 @@ export default async function ItemCard({ item }: { item: ItemCardType }) {
         <div className="flex gap-2">
           <ItemHearts
             productCode={item.productCode}
-            isLiked={isLiked} // 서버에서 받아온 데이터 전달
-            putFavorite={putFavorite}
+            authStatus={false}
+            // isLiked={isLiked} // 서버에서 받아온 데이터 전달
+            // putFavorite={putFavorite}
           />
           <Cart color="black" />
         </div>

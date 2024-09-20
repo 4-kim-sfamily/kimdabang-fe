@@ -8,18 +8,17 @@ export default function CategoryCard({
   name: string;
 }) {
   return (
-    <div>
-      <div>
+    <ul>
+      <li className="w-full h-full object-cover overflow-hidden">
         <Image
           src={imgUrl}
           alt={name}
           width={300}
           height={300}
-          style={{ width: "100%", height: "100%" }}
-          objectFit="contain"
+          priority
         />
-      </div>
-      <p className="text-xs text-[#666666] text-center w-[100%]">{name}</p>
-    </div>
+        <p className="text-xs text-[#666666] text-center w-[100%]">{name}</p>
+      </li>
+    </ul>
   );
 }
