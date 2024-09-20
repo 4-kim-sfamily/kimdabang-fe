@@ -58,14 +58,13 @@ export const options: NextAuthOptions = {
             headers: { "Content-Type": "application/json" },
           },
         );
-
-        // 401 에러 시, 회원가입 페이지로 리다이렉트
-        if (result.status === 500) {
-          console.log("401에러 발생, 존재하지 않는 회원입니다.");
+        if (result.status === 400) {
+          console.log("400에러 발생, 존재하지 않는 회원입니다.");
           // 여기서 Kakao 정보를 `user`에 추가하여 `jwt`에서 처리할 수 있도록 넘김
-          user.provider = account.provider;
-          user.providerAccountId = account.providerAccountId;
-          return "/member/join"; // 회원가입 페이지로 리다이렉트
+          const provider = account.provider;
+          const providerAccountId = account.providerAccountId;
+          console.log("dfdfd", provider, providerAccountId);
+          return `/member/join?provider=${provider}&providerAccountId=${providerAccountId}`; // 회원가입 페이지로 리다이렉트
         } else {
           console.log(result);
         }
@@ -74,12 +73,6 @@ export const options: NextAuthOptions = {
     },
 
     async jwt({ token, user }) {
-      // 로그인 시도 후 user에 Kakao 정보가 있으면 token에 저장
-      if (user && user.provider && user.providerAccountId) {
-        token.provider = user.provider;
-        token.providerAccountId = user.providerAccountId;
-      }
-
       if (user) {
         token.accessToken = user.accessToken;
         token.name = user.name as string;
@@ -94,11 +87,6 @@ export const options: NextAuthOptions = {
         name: token.name as string,
         accessToken: token.accessToken as string,
       };
-
-      if (token.provider && token.providerAccountId) {
-        session.user.provider = token.provider;
-        session.user.providerAccountId = token.providerAccountId;
-      }
 
       return session;
     },
