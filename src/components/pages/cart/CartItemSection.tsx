@@ -10,7 +10,7 @@ export default async function CartItemSection({}: {}) {
       {/* <CheckBoxControl /> */}
       {data.map((item) => (
         <div key={item.productCode} className="flex justify-start py-3 gap-2">
-          <CartCheckBox productCode={item.productCode} />
+          <CartCheckBox productCode={item.productOptionId} />
           <div className="w-full">
             <CartItem productCode={item.productCode} />
             {/* {item && (

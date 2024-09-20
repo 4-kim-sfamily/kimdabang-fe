@@ -1,9 +1,14 @@
 import { getCartItem } from "@/actions/cart/getCartItemData";
 import { getProductInfo } from "@/actions/getProductInfo";
 import { getProductMedia } from "@/actions/getProductMedia";
+import { getProductOption } from "@/actions/getProductOption";
 import { XCircle } from "@/components/icons/Index";
 import { cartItem } from "@/types/items/Cart";
-import { ProductMediaType, ProductType } from "@/types/ResponseType";
+import {
+  optionType,
+  ProductMediaType,
+  ProductType,
+} from "@/types/ResponseType";
 import Image from "next/image";
 import Link from "next/link";
 import CartItemAmount from "../pages/cart/CartItemAmount";
@@ -15,12 +20,12 @@ export default async function CartItem({
 }: {
   productCode: string;
 }) {
-  const [item, img, info] = await Promise.all([
+  const [item, img, info, option] = await Promise.all([
     getCartItem({ productCode }) as Promise<cartItem>,
     getProductMedia(productCode) as Promise<ProductMediaType>,
     getProductInfo(productCode) as Promise<ProductType>,
+    getProductOption(productCode) as Promise<optionType[]>,
   ]);
-  console.log(img[0]);
   return (
     <figure className="flex w-full gap-4">
       <div className="relative w-[32%] max-w-24 aspect-square">

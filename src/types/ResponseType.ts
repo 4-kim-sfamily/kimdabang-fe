@@ -75,3 +75,7 @@ export interface ProductMediaType {
   mediaType: string;
   mediaURL: string;
 }
+export interface optionType {
+  optionsId: number;
+  optionValue: number;
+}
