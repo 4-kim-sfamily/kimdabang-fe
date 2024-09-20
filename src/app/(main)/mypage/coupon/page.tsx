@@ -1,18 +1,28 @@
+import { getAllCoupon } from "@/actions/mypage/coupon/coupon";
 import CouponImg from "@/components/icons/couponImg";
 import CouponDownloadButton from "@/components/pages/mypage/coupon/CouponDownloadButton";
 
-export default function page() {
+export default async function page() {
+  const data = await getAllCoupon();
+  console.log(data);
   return (
     <main>
-      <section className="flex relative items-center gap-3 py-3 pl-3">
-        <CouponImg />
-        <span>
-          <h4 className="text-[13px]">starbucks</h4>
-          <h3 className="font-extrabold">무료음료쿠폰</h3>
-          <h5 className="text-[11px]">2024.09.11 까지</h5>
-        </span>
-        <CouponDownloadButton />
-      </section>
+      {data.map((item) => (
+        <section
+          key={item.id}
+          className="flex relative items-center gap-3 py-3 pl-3"
+        >
+          <CouponImg />
+          <span>
+            <h4 className="text-[12px]">{item.couponType}</h4>
+            <h3 className="font-extrabold">{item.name}</h3>
+            <h5 className="text-[11px]">
+              {item.expiredDate.split("T")[0]} 까지
+            </h5>
+          </span>
+          <CouponDownloadButton couponId={item.id} />
+        </section>
+      ))}
     </main>
   );
 }

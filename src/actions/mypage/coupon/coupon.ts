@@ -1,11 +1,14 @@
 import { fetchData } from "@/actions/common/common";
 import { options } from "@/app/api/auth/[...nextauth]/options";
-import { commonResType } from "@/types/ResponseType";
+import { commonResType, CouponType } from "@/types/ResponseType";
 import { getServerSession } from "next-auth/next";
 
 //모든 쿠폰 조회
-export async function getAllCoupon(): Promise<any> {
-  const data = await fetchData<commonResType<any>>(`/api/v1/coupon`, "GET");
+export async function getAllCoupon(): Promise<CouponType[]> {
+  const data = await fetchData<commonResType<CouponType[]>>(
+    `/api/v1/coupon`,
+    "GET",
+  );
   return data.data;
 }
 

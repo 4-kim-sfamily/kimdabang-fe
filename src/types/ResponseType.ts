@@ -75,3 +75,10 @@ export interface ProductMediaType {
   mediaType: string;
   mediaURL: string;
 }
+export interface CouponType {
+  id: number;
+  name: string;
+  couponType: string;
+  expiredDate: string;
+  value: number;
+}

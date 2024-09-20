@@ -1,5 +1,9 @@
 "use client";
-export default function CouponDownloadButton() {
+export default function CouponDownloadButton({
+  couponId,
+}: {
+  couponId: number;
+}) {
   const handleEnrollButton = () => {
     //등록하기 버튼
     //로그인 안돼있으면 로그인 페이지로
