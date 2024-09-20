@@ -6,7 +6,6 @@ import { fetchData } from "../common/common";
 
 export const getIsFavorite = async (productCode: string): Promise<boolean> => {
   const session = await getServerSession(options);
-  console.log("session", session);
   if (session) {
     const data = await fetchData<commonResType<IsFavoriteType>>(
       `/api/v1/favorite/${productCode}`,

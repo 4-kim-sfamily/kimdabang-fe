@@ -15,7 +15,6 @@ export const options: NextAuthOptions = {
         if (!credentials?.loginId || !credentials?.password) {
           return null;
         }
-        console.log("credentials", credentials);
         // 로그인 요청을 보낼 URL
         const res = await fetch(
           `${process.env.BACKEND_URL}/api/v1/auth/login`,
@@ -25,10 +24,8 @@ export const options: NextAuthOptions = {
             headers: { "Content-Type": "application/json" },
           },
         );
-        console.log("이건 res값", res);
         if (res.ok) {
           const user = await res.json();
-          console.log("userData", user.data);
           return user.data;
         }
         return null;
@@ -41,9 +38,6 @@ export const options: NextAuthOptions = {
   ],
   callbacks: {
     async signIn({ user, account }) {
-      console.log("signIn 콜백 데이터의 user부분", user);
-      console.log("Account 데이터", account);
-
       // Kakao 로그인 처리
       if (account?.provider === "kakao") {
         console.log("kakao에서 로그인 시도");

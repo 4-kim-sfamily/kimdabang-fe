@@ -95,3 +95,18 @@ export interface optionType {
   optionsId: number;
   optionValue: number;
 }
+
+export interface MyOrderItemType {
+  productData: ProductType;
+  //Option Data는 아직 Response값을 몰라서 일단 String으로 설정해놓았습니다.
+  optionData: OptionData;
+}
+
+// OptionData는 getOptionDetail에서 사용중이며
+// Option_detail 테이블 조회시 사용
+export interface OptionData {
+  min_stock: number;
+  quantity: number;
+  state: string;
+  variable_price: number;
+}

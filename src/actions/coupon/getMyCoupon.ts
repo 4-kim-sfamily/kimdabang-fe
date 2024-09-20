@@ -22,7 +22,7 @@ export interface CouponData {
   validateDay: string;
 }
 
-export const getCouponDataById = async (id: number): Promise<CouponData> => {
+export const getCouponDataById = async (id: string): Promise<CouponData> => {
   const data = await fetchData<commonResType<CouponData>>(
     `/api/v1/coupon/${id}`,
     "GET",
