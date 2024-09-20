@@ -22,13 +22,21 @@ export default function Page() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const stepLevel = parseInt(searchParams.get("step") || "0", 10);
-  const { agreementData } = useAgreement();
+  const { agreementData, setProviderInfo } = useAgreement();
 
   useEffect(() => {
+    const provider = searchParams.get("provider");
+    const providerAccountId = searchParams.get("providerAccountId");
+
+    if (provider && providerAccountId) {
+      console.log("provider들어왔음", provider);
+      setProviderInfo({ provider, providerAccountId });
+    }
+
     if (!agreementData.termsChecked || !agreementData.privacyChecked) {
       router.push("/member/join"); // 동의하지 않았을 경우 join 페이지로 리다이렉트
     }
-  }, [agreementData, router]);
+  }, [agreementData, router, searchParams]);
 
   const onNext = () => {
     router.push(`/member/join?step=${stepLevel + 1}`);
