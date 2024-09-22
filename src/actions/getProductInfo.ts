@@ -8,6 +8,7 @@ export const getProductInfo = async (
     `/api/v1/product/${productCode}`,
     "GET",
     "",
+    "no-cache",
   );
   return data.data;
 };

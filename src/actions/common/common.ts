@@ -38,6 +38,5 @@ export const fetchData = async <T>(
     );
   }
   const data = (await res.json()) as T;
-
   return data;
 };

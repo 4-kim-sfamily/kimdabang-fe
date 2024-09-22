@@ -1,5 +1,5 @@
-import { useAgreement } from "@/app/context/AgreementContext";
 import { Button } from "@/components/ui/button";
+import { useAgreement } from "@/context/AgreementContext";
 import AgreementAllCheck from "./AgreementAllCheck";
 import AgreementSection from "./AgreementSection";
 import { optionalAgreements, requiredAgreements } from "./agreements";

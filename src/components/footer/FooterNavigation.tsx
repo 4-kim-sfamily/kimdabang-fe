@@ -1,24 +1,21 @@
 "use client";
-import { getSession, signOut } from "next-auth/react";
+import { useSession } from "@/context/SessionContext";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function FooterNavigation() {
-  const [islogin, setIsLogin] = useState(false);
+  // useSession은 최상위에서 호출
+  const session = useSession();
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
-    const checkSession = async () => {
-      const session = await getSession();
-      if (session) {
-        console.log("FOOTERNAVIGATION에서 보는데 로그인중임");
-        setIsLogin(true);
-      } else {
-        setIsLogin(false);
-      }
-    };
-
-    checkSession();
-  }, []);
+    if (session) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+  }, [session]); // session 값이 변경될 때마다 실행
 
   return (
     <div className="bg-gray-300 text-gray-600 px-1 py-1 flex flex-wrap justify-around text-center">
@@ -26,7 +23,7 @@ export default function FooterNavigation() {
         홈
       </Link>
       <span className="hidden md:inline">|</span>
-      {islogin ? (
+      {isLogin ? (
         <button onClick={() => signOut()} className="px-2 py-1 hover:underline">
           로그아웃
         </button>
