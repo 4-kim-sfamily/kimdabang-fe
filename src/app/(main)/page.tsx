@@ -9,7 +9,6 @@ import { SeasonMediaType } from "@/types/main/CarouselDataType";
 
 export default async function Home() {
   const data: SeasonMediaType[] = await getSeasonMedia();
-
   return (
     <main className="w-[100%]">
       <MainCarousel carouselData={data} />
