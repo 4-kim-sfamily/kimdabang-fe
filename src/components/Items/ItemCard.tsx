@@ -4,14 +4,17 @@ import { ItemCardType } from "@/types/items/ItemCard";
 
 import Cart from "../icons/Cart";
 
-import { getIsFavorite } from "@/actions/favorite/getIsFavorite";
-import { putFavorite } from "@/actions/favorite/putFavorite";
 import Link from "next/link";
 import ItemHearts from "../icons/ItemHearts";
 import ReviewPreview from "./ReviewPreview";
 
-export default async function ItemCard({ item }: { item: ItemCardType }) {
-  const isLiked: boolean = await getIsFavorite(item.productCode);
+export default async function ItemCard({
+  item,
+  authStatus,
+}: {
+  item: ItemCardType;
+  authStatus: boolean;
+}) {
   return (
     <div className="w-[100%] border-slate-950 flex flex-col justify-start">
       <Link href={`/product/${item.productCode}`}>
@@ -25,13 +28,9 @@ export default async function ItemCard({ item }: { item: ItemCardType }) {
         </div>
       </Link>
       <div className="flex justify-between pt-1">
-        <p className="text-[#777777] text-[12px] pt-1 ">{item.largeCategory}</p>
+        <p className="text-[#777777] text-[12px] pt-1 ">{item.categoryId}</p>
         <div className="flex gap-2">
-          <ItemHearts
-            productCode={item.productCode}
-            isLiked={isLiked} // 서버에서 받아온 데이터 전달
-            putFavorite={putFavorite}
-          />
+          <ItemHearts productCode={item.productCode} authStatus={authStatus} />
           <Cart color="black" />
         </div>
       </div>

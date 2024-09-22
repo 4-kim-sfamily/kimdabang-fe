@@ -2,7 +2,7 @@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { subCategories } from "@/lib/dummy/main/AllCategoryData";
 import { Category } from "@/types/main/AllCategoryDataType";
-import { useButtonGroup } from "../../app/context/OptionContext";
+import { useButtonGroup } from "../../context/OptionContext";
 import { Label } from "./label";
 export default function CategoryRadioGroup() {
   const { selectedButton, handleClick } = useButtonGroup();

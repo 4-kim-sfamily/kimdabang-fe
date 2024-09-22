@@ -1,20 +1,34 @@
 "use client";
-import { useState } from "react";
+import { getIsFavorite } from "@/actions/favorite/getIsFavorite";
+import { putFavorite } from "@/actions/favorite/putFavorite";
+import { useEffect, useState } from "react";
 
 export default function ItemHearts({
   productCode,
-  isLiked: initialIsLiked, // 초기 서버에서 받아온 좋아요 상태
-  putFavorite,
+  authStatus = false,
 }: {
   productCode: string;
-  isLiked: boolean;
-  putFavorite: (productCode: string) => Promise<void>; // 비동기 처리
+  authStatus: boolean;
 }) {
-  const [isLiked, setIsLiked] = useState(initialIsLiked); // 로컬 상태로 관리
-
+  const [isLogin, setIsLogin] = useState(false);
+  const [isLiked, setIsLiked] = useState(false); // 로컬 상태로 관리
+  useEffect(() => {
+    if (authStatus === true) {
+      // 서버에서 좋아요 여부를 가져옴
+      setIsLogin(true);
+      const getData = async () => {
+        const data = await getIsFavorite(productCode);
+        setIsLiked(data);
+      };
+      getData();
+    }
+  }, [authStatus]);
   const handleClick = async () => {
     // Optimistic UI - 서버 요청 전에 상태를 변경
-    setIsLiked(!isLiked);
+    if (!isLogin) {
+      alert("로그인이 필요한 서비스입니다.");
+      return;
+    }
     try {
       // 서버에 요청을 보냄
       putFavorite(productCode);

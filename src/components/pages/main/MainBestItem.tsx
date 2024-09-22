@@ -2,9 +2,13 @@ import ItemCard from "@/components/Items/ItemCard";
 import ButtonGroup from "@/components/ui/ButtonGroup";
 import MainTitle from "@/components/ui/mainTitle";
 import { ItemCardType } from "@/types/items/ItemCard";
-import { OptionContextprovider } from "../../../app/context/OptionContext";
+import { OptionContextprovider } from "../../../context/OptionContext";
 
-export default async function MainBestItem() {
+export default async function MainBestItem({
+  authStatus,
+}: {
+  authStatus: boolean;
+}) {
   const res = await fetch("http://localhost:4000/BestTumblr", {
     cache: "no-store",
   });
@@ -20,7 +24,11 @@ export default async function MainBestItem() {
       </OptionContextprovider>
       <div className="grid grid-cols-2 gap-4 justify-center w-[100%] py-3 md:grid-cols-4">
         {BestTumblr.map((item) => (
-          <ItemCard key={item.id} item={item} />
+          <ItemCard
+            key={item.productCode}
+            item={item}
+            authStatus={authStatus}
+          />
         ))}
       </div>
     </section>

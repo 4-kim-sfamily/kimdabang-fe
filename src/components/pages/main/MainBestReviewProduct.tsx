@@ -2,7 +2,11 @@ import { ItemCardType } from "@/types/items/ItemCard";
 import ReviewItemCard from "../../Items/ReviewItemCard";
 import MainTitle from "../../ui/mainTitle";
 
-export default async function MainBestReviewProduct() {
+export default async function MainBestReviewProduct({
+  authStatus,
+}: {
+  authStatus: boolean;
+}) {
   const res = await fetch("http://localhost:4000/ReviewBest", {
     cache: "no-store",
   });
@@ -15,7 +19,11 @@ export default async function MainBestReviewProduct() {
       />
       <ul className="flex overflow-x-auto whitespace-nowrap scroll-item gap-4 py-3 mb-8]">
         {ReviewBest.map((item) => (
-          <ReviewItemCard key={item.productCode} item={item} />
+          <ReviewItemCard
+            key={item.productCode}
+            item={item}
+            authStatus={authStatus}
+          />
         ))}
       </ul>
     </section>

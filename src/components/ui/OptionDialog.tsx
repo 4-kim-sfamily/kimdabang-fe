@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useButtonGroup } from "../../app/context/OptionContext";
+import { useButtonGroup } from "../../context/OptionContext";
 import DownwardArrow from "../icons/DownwardArrow";
 import { Button } from "./button";
 import CategoryRadioGroup from "./CategoryRadioGroup";
