@@ -6,8 +6,10 @@ import SameCategoryProduct from "./SameCategoryProduct";
 
 export default async function ProductContainer({
   productCode,
+  authStatus,
 }: {
   productCode: string;
+  authStatus: boolean;
 }) {
   // 제품 정보 가져오기 (예시 API 호출)
   //   예시 1000555910531
@@ -28,7 +30,7 @@ export default async function ProductContainer({
       <ProductCustomerReview productCode={productCode} />
       {/* <QnA /> */}
       {/* 추가 상품 리스트 필요 */}
-      <SameCategoryProduct />
+      <SameCategoryProduct authStatus={authStatus} />
     </>
   );
 }

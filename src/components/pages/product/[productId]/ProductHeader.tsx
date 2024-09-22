@@ -14,7 +14,7 @@ export default function ProductHeader({ product }: { product: ItemCardType }) {
 
       {/* ProductInfo 컴포넌트에 필요한 정보 전달 */}
       <ProductInfo
-        largeCategory={product.largeCategory}
+        largeCategory={product.categoryId}
         productName={product.productName}
         price={product.productPrice}
       />

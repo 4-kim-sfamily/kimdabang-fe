@@ -1,7 +1,7 @@
 "use client";
 import { join } from "@/actions/join/join";
 import { verifyId } from "@/actions/join/verifyId";
-import { useAgreement } from "@/app/context/AgreementContext"; // useAgreement 훅을 사용하여 context에 접근
+import { useAgreement } from "@/context/AgreementContext"; // useAgreement 훅을 사용하여 context에 접근
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";

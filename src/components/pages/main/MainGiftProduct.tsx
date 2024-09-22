@@ -4,10 +4,15 @@ import ButtonGroup from "@/components/ui/ButtonGroup";
 import MainTitle from "@/components/ui/mainTitle";
 import { ItemCardType } from "@/types/items/ItemCard";
 import { CategoryType } from "@/types/main/AllCategoryDataType";
-import { OptionContextprovider } from "../../../app/context/OptionContext";
-export default async function MainGiftProduct() {
+import { OptionContextprovider } from "../../../context/OptionContext";
+
+export default async function MainGiftProduct({
+  authStatus,
+}: {
+  authStatus: boolean;
+}) {
   const res = await fetch("http://localhost:4000/BestTumblr", {
-    cache: "no-store",
+    cache: "force-cache",
   });
   const BestTumblr: ItemCardType[] = await res.json();
   const CategoryData: CategoryType[] = await getCategoryList();
@@ -19,7 +24,11 @@ export default async function MainGiftProduct() {
       </OptionContextprovider>
       <div className="flex overflow-x-auto h-[333.5px] whitespace-nowrap scroll-item gap-4 py-3 mb-8]">
         {BestTumblr.map((item: ItemCardType) => (
-          <GiftItemCard key={item.id} item={item} />
+          <GiftItemCard
+            key={item.productCode}
+            item={item}
+            authStatus={authStatus}
+          />
         ))}
       </div>
     </section>

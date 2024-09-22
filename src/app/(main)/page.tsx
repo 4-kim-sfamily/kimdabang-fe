@@ -6,18 +6,22 @@ import MainGiftProduct from "@/components/pages/main/MainGiftProduct";
 import MainSeason from "@/components/pages/main/MainSeason";
 import MainCarousel from "@/components/ui/MainCarousel";
 import { SeasonMediaType } from "@/types/main/CarouselDataType";
+import { getServerSession } from "next-auth/next";
 
 export default async function Home() {
   const data: SeasonMediaType[] = await getSeasonMedia();
+  const session = await getServerSession();
+  console.log(session);
+  const authStatus = session?.user ? true : false;
   return (
     <main className="w-[100%]">
       <MainCarousel carouselData={data} />
       <div className="px-[4.1vw]">
         <MainCategory />
         <MainSeason SeasonData={data} />
-        <MainGiftProduct />
-        <MainBestReviewProduct />
-        <MainBestItem />
+        <MainGiftProduct authStatus={authStatus} />
+        <MainBestReviewProduct authStatus={authStatus} />
+        <MainBestItem authStatus={authStatus} />
       </div>
     </main>
   );

@@ -1,7 +1,7 @@
 // index.ts
 
-export { useAgreement } from "@/app/context/AgreementContext";
 export { Button } from "@/components/ui/button";
+export { useAgreement } from "@/context/AgreementContext";
 export { zodResolver } from "@hookform/resolvers/zod";
 export { format } from "date-fns";
 export { CalendarIcon } from "lucide-react";

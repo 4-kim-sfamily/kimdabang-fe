@@ -10,7 +10,7 @@ export const putFavorite = async (productCode: string) => {
     "",
     "no-store",
   );
-  // 캐시를 갱신
+
   revalidateTag("productFavorite");
   return;
 };
