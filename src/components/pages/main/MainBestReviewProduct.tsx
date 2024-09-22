@@ -8,7 +8,7 @@ export default async function MainBestReviewProduct({
   authStatus: boolean;
 }) {
   const res = await fetch("http://localhost:4000/ReviewBest", {
-    cache: "no-store",
+    cache: "force-cache",
   });
   const ReviewBest: ItemCardType[] = await res.json();
   return (
