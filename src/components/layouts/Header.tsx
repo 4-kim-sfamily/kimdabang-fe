@@ -1,14 +1,16 @@
+import { getCategoryList } from "@/actions/main/category";
 import Link from "next/link";
 import { Cart, Hearts, Search, StarbucksLogo } from "../icons/Index";
 import HeaderHamburger from "../pages/category/HeaderHamburger";
 
-export default function Header() {
+export default async function Header() {
+  const data = await getCategoryList();
   return (
     <header className="fixed top-0 left-0 bg-[#006241] w-full z-10 h-[56px] flex items-center">
       <nav className="flex w-full justify-between p-4 items-center">
         <ul className="flex gap-3 items-center">
           <li>
-            <HeaderHamburger />
+            <HeaderHamburger data={data} />
           </li>
           <li>
             <Link href="/">

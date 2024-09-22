@@ -1,23 +1,20 @@
+import { getSubCategory } from "@/actions/main/category";
 import CategoryAccordion from "@/components/pages/category/CategoryAccordion";
 import CategorySection from "@/components/pages/category/CategorySection";
-import { Category } from "@/types/main/AllCategoryDataType";
+import { CategoryType } from "@/types/main/AllCategoryDataType";
 
 export default async function page({
   params,
 }: {
-  params: { categoryName: string; subCategoryName: string };
+  params: { categoryName: number; subCategoryName: number };
 }) {
-  const starRes = await fetch(`${process.env.JSONSERVER_URL}/subCategories`, {
-    cache: "force-cache",
-  });
-  const subCategories: Category[] = await starRes.json();
+  const data: CategoryType = await getSubCategory(params.subCategoryName);
   return (
     <>
       <div className="h-14 w-full/>" />
       <CategoryAccordion
-        item={subCategories}
-        categoryName={params.categoryName}
-        subCategory={params.subCategoryName}
+        categoryId={params.categoryName}
+        subCategory={data.name}
       />
       <CategorySection />
     </>
