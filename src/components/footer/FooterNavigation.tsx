@@ -1,24 +1,10 @@
 "use client";
-import { getSession, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function FooterNavigation() {
   const [islogin, setIsLogin] = useState(false);
-
-  useEffect(() => {
-    const checkSession = async () => {
-      const session = await getSession();
-      if (session) {
-        console.log("FOOTERNAVIGATION에서 보는데 로그인중임");
-        setIsLogin(true);
-      } else {
-        setIsLogin(false);
-      }
-    };
-
-    checkSession();
-  }, []);
 
   return (
     <div className="bg-gray-300 text-gray-600 px-1 py-1 flex flex-wrap justify-around text-center">
