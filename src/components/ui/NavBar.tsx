@@ -1,19 +1,20 @@
-import { navData } from "@/data/initialData";
+import { getCategoryList } from "@/actions/main/category";
 import Link from "next/link";
 
 export interface navType {
   id: number;
-  link: string;
+  link: number;
   name: string;
 }
 
-export default function NavBar() {
+export default async function NavBar() {
+  const data = await getCategoryList();
   return (
     <nav className="overflow-x-scroll w-full bg-[#006241] mt-[56px]">
       <ul className="flex overflow-auto w-[100%] items-center scroll-item h-[45px] text-sm">
-        {navData.map((item) => (
+        {data.map((item) => (
           <li key={item.id}>
-            <Link href={`/category${item.link}`} className="nav-link">
+            <Link href={`/category/${item.id}`} className="nav-link">
               {item.name}
             </Link>
           </li>

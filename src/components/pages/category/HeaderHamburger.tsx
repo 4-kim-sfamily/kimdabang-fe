@@ -7,11 +7,11 @@ import {
   AccordionItem,
   CustomTrigger,
 } from "@/components/ui/accordion";
-import { navData } from "@/data/initialData";
+import { CategoryType } from "@/types/main/AllCategoryDataType";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function HeaderHamburger() {
+export default function HeaderHamburger({ data }: { data: CategoryType[] }) {
   const [isOpen, setIsOpen] = useState(false);
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -42,7 +42,7 @@ export default function HeaderHamburger() {
           </CustomTrigger>
           <AccordionContent className="pb-0 bg-[#00000073] w-[100vw] absolute right-0  h-[100vh] mt-2">
             <ul className="w-[100%] px-7 py-3 bg-white">
-              {navData.map((item) => (
+              {data.map((item) => (
                 <li key={item.id} className={`h-10 py-2 text-[14px]`}>
                   <Link
                     href={`/category/${encodeURIComponent(item.name)}`}
