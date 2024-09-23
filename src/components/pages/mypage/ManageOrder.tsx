@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ManageOrder() {
   return (
     <section className=" flex flex-col text-[0.7rem]  ">
@@ -12,7 +14,9 @@ export default function ManageOrder() {
           <li>정기배송 설정 관리</li>
         </ul>
         <ul className="flex flex-col space-y-2">
-          <li>구매내역</li>
+          <li>
+            <Link href={`mypage/purchase-history`}>구매내역</Link>
+          </li>
           <li>호텔 예약조회</li>
           <li>자주구매 상품</li>
         </ul>
