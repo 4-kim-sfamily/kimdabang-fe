@@ -85,7 +85,7 @@ export interface CouponType {
 }
 
 export interface myCouponType {
-  id: number;
+  couponId: number;
   name: string;
   couponType: string;
   isUsed: boolean;

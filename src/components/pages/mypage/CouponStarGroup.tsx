@@ -4,9 +4,6 @@ import MyPageCoupon from "./MyPageCoupon";
 import MyStarAmount from "./MyStarAmount";
 
 export default async function CouponStarGroup() {
-  // 아직 CouponAmount API 미구현
-  // const couponData = await getCouponAmount();
-
   const StarData = await getUserStarAmount();
   const couponData = await getMyCouponAmount();
   return (

@@ -37,7 +37,7 @@ export default function CouponDownloadButton({ id, validity }: CouponType) {
   return (
     <div>
       <button
-        className="absolute right-4 top-[50%] translate-y-[-50%] text-starbucks"
+        className="absolute right-9 top-[50%] translate-y-[-50%] text-starbucks"
         onClick={handleEnrollButton}
       >
         등록

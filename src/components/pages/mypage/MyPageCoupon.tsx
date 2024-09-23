@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function MyPageCoupon({
   couponAmount,
 }: {
-  couponAmount: number; // 숫자 타입으로 수정
+  couponAmount: number;
 }) {
   return (
     <article className="mypage-article">
