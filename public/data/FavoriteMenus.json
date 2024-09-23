@@ -1,0 +1,34 @@
+{
+  "favoriteMenus": [
+    {
+      "id": 1,
+      "iconName": "좋아요",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_like@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 2,
+      "iconName": "자주구매",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_freq@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 3,
+      "iconName": "이벤트현황",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_event@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 4,
+      "iconName": "상품 Q&A",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_qna@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 5,
+      "iconName": "입고알림",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_alert@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 6,
+      "iconName": "선물함",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_gift@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    }
+  ]
+}

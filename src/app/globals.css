@@ -200,3 +200,7 @@ body {
 .skeleton {
   @apply w-full h-full bg-[#e5e7eb];
 }
+
+.custom-product-content button {
+  @apply hidden;
+}

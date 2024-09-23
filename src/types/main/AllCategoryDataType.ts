@@ -4,6 +4,10 @@ export interface OnlyLargeCategory {
   name: string;
   imgUrl: string;
 }
+export interface Category {
+  id: number;
+  name: string;
+}
 
 export interface CategoryType {
   id: number;
