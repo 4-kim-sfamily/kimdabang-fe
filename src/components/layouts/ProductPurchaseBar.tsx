@@ -1,5 +1,5 @@
 "use client";
-import { optionType } from "@/types/ResponseType"; // optionType을 사용
+import { optionType } from "@/types/ResponseType";
 import { useEffect, useState } from "react";
 import { DownwardArrow } from "../icons/Index";
 import CartItemAmount from "../pages/cart/CartItemAmount";
@@ -9,7 +9,6 @@ interface ProductPurchaseBarProps {
   optionsData: optionType[]; // 부모 컴포넌트로부터 넘겨받는 옵션 데이터
   productPrice: number; // 상품 가격
 }
-
 export default function ProductPurchaseBar({
   optionsData,
   productPrice,
@@ -18,47 +17,32 @@ export default function ProductPurchaseBar({
   const [selectedOptions, setSelectedOptions] = useState<{
     [key: string]: string;
   }>({}); // 선택한 옵션 값 저장
-  const [currentOptions, setCurrentOptions] = useState<optionType[]>([]);
-  const [subOptions, setSubOptions] = useState<optionType[]>([]); // 하위 옵션 관리
+
+  // 옵션이 보일 때마다 데이터를 fetch 대신 props로 받은 optionsData 설정
+  const [options, setOptions] = useState<optionType[]>([]);
 
   useEffect(() => {
     if (optionsData.length > 0) {
-      setCurrentOptions(optionsData); // 첫 번째 depth의 옵션 설정
+      setOptions(optionsData); // props로 전달된 데이터로 옵션 설정
     }
   }, [optionsData]);
 
-  // 옵션 선택 시 하위 옵션으로 이동
-  const handleOptionChange = (
-    optionId: number,
-    value: string,
-    children: optionType[] | undefined,
-    depth: number,
-  ) => {
-    setSelectedOptions((prev) => ({ ...prev, [optionId]: value }));
-
-    if (children && children.length > 0) {
-      setSubOptions(children); // 하위 옵션 설정
-    } else {
-      setSubOptions([]); // 하위 옵션이 없으면 초기화
-    }
-  };
-
-  // 하위 옵션 선택 시 상태 업데이트
-  const handleSubOptionChange = (optionId: number, value: string) => {
+  // 옵션이 변경될 때 상태 업데이트
+  const handleOptionChange = (optionId: number, value: string) => {
     setSelectedOptions((prev) => ({ ...prev, [optionId]: value }));
   };
 
   // 선택된 옵션 값 표시
   const selectedOptionText = Object.values(selectedOptions).join(", ");
 
-  // 모든 옵션이 선택되었는지 확인 (하위 옵션이 없는 상태)
+  // 모든 옵션이 선택되었는지 확인
   const allOptionsSelected =
-    subOptions.length === 0 && Object.keys(selectedOptions).length > 0;
+    options.length > 0 &&
+    options.every((option) => selectedOptions[option.optionsId]);
 
   const handlePurchaseClick = () => {
     setIsOptionVisible(true);
   };
-
   return (
     <nav className="bg-white w-full fixed bottom-0">
       <BottomNavButtonGroup
@@ -85,81 +69,36 @@ export default function ProductPurchaseBar({
         <hr />
 
         {/* 옵션 내용 */}
-        {currentOptions.length > 0 ? (
-          currentOptions.map((option) => (
+        {options.length > 0 ? (
+          options.map((option) => (
             <div key={option.optionsId} className="mb-4">
-              {/* depth가 홀수인 경우: 옵션 이름 표시 */}
-              {option.depth % 2 !== 0 ? (
-                <label className="block mb-2 text-lg font-bold">
-                  {option.optionValue} {/* 옵션 이름 */}
-                </label>
-              ) : (
-                // depth가 짝수인 경우: 드롭다운에서 선택
-                <select
-                  className="w-full p-2 border rounded"
-                  defaultValue=""
-                  onChange={(e) =>
-                    handleOptionChange(
-                      option.optionsId,
-                      e.target.value,
-                      option.children,
-                      option.depth,
-                    )
-                  }
-                >
-                  <option value="" disabled>
-                    {option.optionValue}을(를) 선택해주세요
+              <label className="block mb-2 text-lg font-bold">
+                {option.optionValue}
+              </label>
+              <select
+                className="w-full p-2 border rounded"
+                defaultValue=""
+                onChange={(e) =>
+                  handleOptionChange(option.optionsId, e.target.value)
+                }
+              >
+                <option value="" disabled>
+                  옵션을 선택해주세요
+                </option>
+                {option.children.map((childOption) => (
+                  <option
+                    key={childOption.optionsId}
+                    value={childOption.optionValue}
+                  >
+                    {childOption.optionValue}
                   </option>
-                  {option.children?.map((childOption) => (
-                    <option
-                      key={childOption.optionsId}
-                      value={childOption.optionValue}
-                    >
-                      {childOption.optionValue} {/* 옵션 값 */}
-                    </option>
-                  ))}
-                </select>
-              )}
+                ))}
+              </select>
             </div>
           ))
         ) : (
           <p>옵션이 없습니다.</p>
         )}
-
-        {/* 하위 옵션 내용 */}
-        {subOptions.length > 0 &&
-          subOptions.map((subOption) => (
-            <div key={subOption.optionsId} className="mb-4">
-              {/* depth가 홀수인 경우: 하위 옵션 이름 표시 */}
-              {subOption.depth % 2 !== 0 ? (
-                <label className="block mb-2 text-lg font-bold">
-                  {subOption.optionValue} {/* 하위 옵션 이름 */}
-                </label>
-              ) : (
-                // depth가 짝수인 경우: 드롭다운에서 선택
-                <select
-                  className="w-full p-2 border rounded"
-                  defaultValue=""
-                  onChange={(e) =>
-                    handleSubOptionChange(subOption.optionsId, e.target.value)
-                  }
-                >
-                  <option value="" disabled>
-                    {subOption.optionValue}을(를) 선택해주세요
-                  </option>
-                  {subOption.children?.map((childSubOption) => (
-                    <option
-                      key={childSubOption.optionsId}
-                      value={childSubOption.optionValue}
-                    >
-                      {childSubOption.optionValue} {/* 하위 옵션 값 */}
-                    </option>
-                  ))}
-                </select>
-              )}
-            </div>
-          ))}
-
         <hr />
 
         {/* 모든 옵션이 선택되면 CartItemAmount와 TextBox 표시 */}
