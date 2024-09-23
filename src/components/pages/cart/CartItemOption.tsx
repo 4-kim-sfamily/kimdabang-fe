@@ -1,5 +1,3 @@
-import { cartItemOption } from "@/types/items/Cart";
-
 export default async function CartItemOption({
   id,
   amount,
@@ -7,9 +5,12 @@ export default async function CartItemOption({
   id: number;
   amount: number;
 }) {
-  const res = await fetch(`http://localhost:4000/cartItemOption?id=${id}`, {
-    cache: "no-cache",
-  });
+  const res = await fetch(
+    `${process.env.JSONSERVER_URL}/cartItemOption?id=${id}`,
+    {
+      cache: "no-cache",
+    },
+  );
   const option: cartItemOption = await res.json();
   return (
     <div className="w-full my-1">
