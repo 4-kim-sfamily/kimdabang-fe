@@ -1,3 +1,5 @@
+import { cartItemOption } from "@/types/items/Cart";
+
 export default async function CartItemOption({
   id,
   amount,
