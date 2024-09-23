@@ -33,9 +33,7 @@ export const fetchData = async <T>(
   if (!res.ok) {
     const errorData = await res.json();
     console.log("에러데이터", errorData);
-    throw new Error(
-      `데이터를 가져오지 못했습니다. 서버 응답: ${res.status} ${res.statusText}`,
-    );
+    throw new Error(`${res.status}`);
   }
   const data = (await res.json()) as T;
   return data;

@@ -81,13 +81,11 @@ export interface CouponType {
   couponType: string;
   expiredDate: string;
   value: number;
-  validityYear: string;
-  validityMonth: string;
-  validityDay: string;
+  validity: number;
 }
 
 export interface myCouponType {
-  id: number;
+  couponId: number;
   name: string;
   couponType: string;
   isUsed: boolean;
