@@ -10,13 +10,34 @@ interface DeliveryStateData {
 }
 
 export default async function DeliveryStateList() {
-  // json-server에서 데이터 fetch
-  const res = await fetch("http://localhost:4000/deliveryStates", {
-    cache: "no-store",
-  });
-
   // API로부터 받아온 데이터를 타입으로 명시
-  const deliveryData: DeliveryStateData[] = await res.json();
+  const deliveryData: DeliveryStateData[] = [
+    {
+      id: 1,
+      state: "주문 접수",
+      count: 3,
+    },
+    {
+      id: 2,
+      state: "결제 완료",
+      count: 5,
+    },
+    {
+      id: 3,
+      state: "상품 준비중",
+      count: 2,
+    },
+    {
+      id: 4,
+      state: "배송중",
+      count: 1,
+    },
+    {
+      id: 5,
+      state: "배송 완료",
+      count: 4,
+    },
+  ];
 
   return (
     <section>

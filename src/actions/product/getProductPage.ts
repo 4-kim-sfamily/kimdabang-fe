@@ -21,7 +21,7 @@ export const getProductContent = async (
   productCode: string,
 ): Promise<ProductContent> => {
   const data = await fetchData<commonResType<ProductContent>>(
-    `/api/v1/product/content/${productCode}`,
+    `/api/v1/product/detail/${productCode}`,
     "GET",
     "",
     "default",
