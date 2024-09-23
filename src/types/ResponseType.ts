@@ -105,7 +105,8 @@ export interface noiticationType {
 
 export interface optionType {
   optionsId: number;
-  optionValue: number;
+  optionValue: string;
+  children: optionType[];
 }
 
 export interface ProductPageType {

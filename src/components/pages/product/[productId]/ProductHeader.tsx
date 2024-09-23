@@ -1,5 +1,5 @@
-import { ProductPageType } from "@/actions/product/getProductPage";
 import { CategoryType } from "@/types/main/AllCategoryDataType";
+import { ProductPageType } from "@/types/ResponseType";
 import ProductAds from "../ProductAds";
 import ProductImage from "./ProductImage";
 import ProductInfo from "./ProductInfo";

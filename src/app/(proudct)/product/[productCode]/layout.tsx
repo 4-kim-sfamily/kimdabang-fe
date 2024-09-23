@@ -1,6 +1,5 @@
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
-import ProductPurchaseBar from "@/components/layouts/ProductPurchaseBar";
 import NavBar from "@/components/ui/NavBar";
 
 function layout({
@@ -17,7 +16,6 @@ function layout({
       {modal}
       {children}
       <Footer />
-      <ProductPurchaseBar />
     </>
   );
 }
