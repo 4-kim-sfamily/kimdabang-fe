@@ -1,6 +1,7 @@
-import { ItemCardType } from "@/types/items/ItemCard";
+import { getSubCategory } from "@/actions/main/category";
+import { getProudctPage } from "@/actions/product/getProductPage";
+import dynamic from "next/dynamic";
 import ProductCustomerReview from "./ProductCustomerReview";
-import ProductDetailImage from "./ProductDetailImage";
 import ProductHeader from "./ProductHeader";
 import SameCategoryProduct from "./SameCategoryProduct";
 
@@ -11,22 +12,20 @@ export default async function ProductContainer({
   productCode: string;
   authStatus: boolean;
 }) {
-  // 제품 정보 가져오기 (예시 API 호출)
-  //   예시 1000555910531
-  console.log("This is Product Code", productCode);
-  const res = await fetch(
-    `${process.env.JSONSERVER_URL}/BestTumblr?productId=${productCode}&_limit=3`,
-    {
-      cache: "no-store",
-    },
-  );
-  // 응답 데이터를 JSON으로 변환
-  const product: ItemCardType[] = await res.json();
+  const product = await getProudctPage(productCode);
+  const productCategoryInfo = await getSubCategory(product.categoryId);
+  // const productContent = await getProductContent(productCode);
+  const ProductDetailImage = dynamic(() => import("./ProductDetailImage"), {
+    ssr: false,
+  });
   return (
     <>
-      <ProductHeader product={product[0]} />
+      <ProductHeader
+        product={product}
+        productCategoryInfo={productCategoryInfo}
+      />
       {/* <ProductAds /> */}
-      <ProductDetailImage />
+      {/* <ProductDetailImage productContent={productContent.content} /> */}
       <ProductCustomerReview productCode={productCode} />
       {/* <QnA /> */}
       {/* 추가 상품 리스트 필요 */}
