@@ -7,7 +7,7 @@ export default async function page({
 }: {
   params: { productCode: string };
 }) {
-  console.log("this is productCode", params.productCode);
+  // console.log("this is productCode", params.productCode);
   const session = await getServerSession(options);
   const authStatus = Boolean(session?.user);
   return (

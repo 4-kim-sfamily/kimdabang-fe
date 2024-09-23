@@ -9,10 +9,25 @@ const predefinedStates = ["취소", "교환", "반품", "구매확정"];
 
 export default async function ProductStateList() {
   // 서버 컴포넌트에서 데이터 fetch
-  const res = await fetch(`${process.env.JSONSERVER_URL}/productstatelist`, {
-    cache: "no-store",
-  });
-  const data: ProductStateResponse[] = await res.json();
+
+  const data: ProductStateResponse[] = [
+    {
+      state: "취소",
+      amount: 3,
+    },
+    {
+      state: "교환",
+      amount: 5,
+    },
+    {
+      state: "반품",
+      amount: 2,
+    },
+    {
+      state: "구매확정",
+      amount: 10,
+    },
+  ];
 
   // 각 상태에 맞는 amount를 찾아서 매핑
   const stateAmountMap: { [key: string]: number } = predefinedStates.reduce(

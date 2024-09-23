@@ -1,0 +1,29 @@
+{
+  "deliveryStates": [
+    {
+      "id": 1,
+      "state": "주문 접수",
+      "count": 3
+    },
+    {
+      "id": 2,
+      "state": "결제 완료",
+      "count": 5
+    },
+    {
+      "id": 3,
+      "state": "상품 준비중",
+      "count": 2
+    },
+    {
+      "id": 4,
+      "state": "배송중",
+      "count": 1
+    },
+    {
+      "id": 5,
+      "state": "배송 완료",
+      "count": 4
+    }
+  ]
+}

@@ -105,5 +105,20 @@ export interface noiticationType {
 
 export interface optionType {
   optionsId: number;
-  optionValue: number;
+  optionValue: string;
+  children: optionType[];
+}
+
+export interface ProductPageType {
+  productCode: string;
+  productName: string;
+  productPrice: number;
+  description: string;
+  productReleaseDate: string;
+  content: string;
+  categoryId: number;
+}
+export interface ProductContent {
+  productCode: string;
+  content: string;
 }
