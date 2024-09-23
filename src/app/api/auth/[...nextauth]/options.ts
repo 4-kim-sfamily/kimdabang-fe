@@ -37,7 +37,7 @@ export const options: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account }) {
+    async signIn({ profile, user, account }) {
       // Kakao 로그인 처리
       if (account?.provider === "kakao") {
         console.log("kakao에서 로그인 시도");
@@ -87,12 +87,9 @@ export const options: NextAuthOptions = {
       };
       return session;
     },
-    async redirect({ url, baseUrl }) {
-      // 로그인 성공 후 홈("/")으로 리다이렉트
-      return "/"; // baseUrl은 기본적으로 홈("/") 경로를 가리킵니다
-    },
   },
   pages: {
     signIn: "/member/login",
+    error: "/error",
   },
 };

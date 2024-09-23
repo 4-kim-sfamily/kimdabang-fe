@@ -1,12 +1,12 @@
 // app/signup/page.tsx
 "use client";
 
-import { useAgreement } from "@/app/context/AgreementContext";
 import AccountDataForm from "@/components/pages/join/AccountDataForm";
 import Agreement from "@/components/pages/join/Agreement";
 import JoinSuccess from "@/components/pages/join/JoinSuccess";
 import UserDataForm from "@/components/pages/join/UserDataForm";
 import Verification from "@/components/pages/join/Verification";
+import { useAgreement } from "@/context/AgreementContext";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 

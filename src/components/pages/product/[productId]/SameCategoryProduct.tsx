@@ -2,7 +2,9 @@ import ItemCard from "@/components/Items/ItemCard";
 import MainTitle from "@/components/ui/mainTitle";
 import { ItemCardType } from "@/types/items/ItemCard";
 
-export default async function SameCategoryProduct() {
+export default async function SameCategoryProduct(authStatus: {
+  authStatus: boolean;
+}) {
   const res = await fetch("http://localhost:4000/BestTumblr", {
     cache: "no-store",
   });
@@ -15,7 +17,11 @@ export default async function SameCategoryProduct() {
       />
       <div className="grid grid-cols-2 gap-4 justify-center w-[100%] py-3 md:grid-cols-4">
         {BestTumblr.map((item) => (
-          <ItemCard key={item.id} item={item} />
+          <ItemCard
+            key={item.productCode}
+            item={item}
+            authStatus={authStatus.authStatus}
+          />
         ))}
       </div>
     </section>

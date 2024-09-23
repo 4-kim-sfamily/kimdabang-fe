@@ -1,45 +1,41 @@
+import { getCategoryList } from "@/actions/main/category";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Category } from "@/types/main/AllCategoryDataType";
 import Link from "next/link";
 import Breadcruumb from "./Breadcruumb";
-export default function CategoryAccordion({
-  categoryName,
+export default async function CategoryAccordion({
+  categoryId,
   subCategory,
-  item,
 }: {
-  categoryName: string;
+  categoryId: number;
   subCategory?: string;
-  item: Category[];
 }) {
+  const data = await getCategoryList();
   return (
-    <div>
-      <Accordion type="single" collapsible className="">
-        <AccordionItem value="item-1" className="px-3">
-          <AccordionTrigger className="font-extrabold hover:no-underline py-2 text-xl">
-            <Breadcruumb
-              large={decodeURIComponent(categoryName)}
-              sub={subCategory}
-            />
+    <>
+      <Accordion type="single" collapsible>
+        <AccordionItem value="item-1" className="px-0">
+          <AccordionTrigger className="font-extrabold hover:no-underline p-2 text-xl">
+            <Breadcruumb large={categoryId} sub={subCategory} />
           </AccordionTrigger>
           <AccordionContent className="pb-0">
             <ul className="w-[100%] text-xs ">
-              {item.map((item) => (
+              {data.map((item) => (
                 <li
                   key={item.id}
-                  className={`h-10 py-2 ${
-                    decodeURIComponent(categoryName) === item.name
-                      ? "font-extrabold bg-[#F5F5F5] text-black"
+                  className={`h-10 p-2 ${
+                    categoryId == item.id
+                      ? "font-extrabold bg-[#F5F5F5] text-red"
                       : ""
                   }`}
                 >
                   <Link
-                    href={`/category/${encodeURIComponent(item.name)}`}
-                    className="text-black px-0 text-base"
+                    href={`/category/${item.id}`}
+                    className={` text-black px-0 text-base`}
                   >
                     {item.name}
                   </Link>
@@ -49,6 +45,6 @@ export default function CategoryAccordion({
           </AccordionContent>
         </AccordionItem>
       </Accordion>
-    </div>
+    </>
   );
 }

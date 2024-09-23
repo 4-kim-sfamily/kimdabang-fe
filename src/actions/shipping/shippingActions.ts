@@ -39,11 +39,10 @@ export async function AddAddress(
     requestData,
   );
   revalidateTag("addShippingAddress");
-  console.log(data.status);
   return data.status;
 }
 
-export async function getAddressById(id: number): Promise<any> {
+export async function getAddressById(id: number): Promise<shippingAddressType> {
   const data = await fetchData<commonResType<shippingAddressType>>(
     `/api/v1/useraddress/get-useraddress?id=${id}`,
     "GET",

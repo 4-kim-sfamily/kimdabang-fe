@@ -1,30 +1,24 @@
+import { getSubCategory } from "@/actions/main/category";
 import Link from "next/link";
-import { Category } from "../../../types/main/AllCategoryDataType";
+import { CategoryType } from "../../../types/main/AllCategoryDataType";
 
 export default async function SubCategorySelector({
-  largeCategory,
+  largeCategoryId,
 }: {
-  largeCategory: string;
+  largeCategoryId: number;
 }) {
-  const subCategoryRes = await fetch(
-    `${process.env.JSONSERVER_URL}/subCategories`,
-    {
-      cache: "no-store",
-    },
-  );
-  const subCategory: Category[] = await subCategoryRes.json();
+  const data: CategoryType = await getSubCategory(largeCategoryId);
   return (
     <ul className="grid grid-flow-row grid-cols-3 ">
-      {subCategory.map((item: Category, index: number) => (
+      {data.children.map((item: CategoryType, index: number) => (
         <li
+          key={item.id}
           className={`pl-3 py-2 border-b-[0.5px] ${
-            index === Math.floor(subCategory.length / 2)
-              ? "border-[0.5px] border-t-0"
-              : ""
+            index % 3 === 1 ? "border-[0.5px] border-t-0" : ""
           }`}
         >
           <Link
-            href={`/category/${largeCategory}/${encodeURIComponent(item.name)}`}
+            href={`/category/${largeCategoryId}/${item.id}`}
             className="text-sm"
           >
             {item.name}

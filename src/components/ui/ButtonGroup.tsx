@@ -1,10 +1,14 @@
 "use client";
-import { subCategories } from "@/lib/dummy/main/AllCategoryData";
+import { CategoryType } from "@/types/main/AllCategoryDataType";
 import { useEffect, useRef, useState } from "react";
-import { useButtonGroup } from "../../app/context/OptionContext";
+import { useButtonGroup } from "../../context/OptionContext";
 import OptionDialog from "./OptionDialog";
 import { SelectButton } from "./SelectButton";
-export default function ButtonGroup() {
+export default function ButtonGroup({
+  CategoryData,
+}: {
+  CategoryData: CategoryType[];
+}) {
   const { selectedButton, handleClick } = useButtonGroup();
   const selectedButtonRef = useRef<HTMLButtonElement | null>(null);
   const [isInitialRender, setIsInitialRender] = useState(true);
@@ -25,7 +29,7 @@ export default function ButtonGroup() {
     <section className="w-full flex flex-row items-center gap-1 pt-3 p-0">
       <nav className="w-[100%] overflow-x-auto relative scroll-item">
         <ul className="flex space-x-2">
-          {subCategories.map((category) => (
+          {CategoryData.slice(0, 5).map((category) => (
             <li key={category.id}>
               <SelectButton
                 ref={selectedButton === category.id ? selectedButtonRef : null}
