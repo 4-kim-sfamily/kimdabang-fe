@@ -23,31 +23,25 @@ export async function EnrollUserCoupon(
   requestData: AddUserEnrollCouponRequestData,
 ): Promise<any> {
   const session = await getServerSession(options);
-  if (session) {
-    try {
-      // API 요청
-      const data = await fetchData<any>(
-        "/api/v1/user-enroll-coupon",
-        "POST",
-        requestData,
-      );
-      return data.data; // 성공 시 데이터 반환
-    } catch (error) {
-      // 에러 처리
-      if (error.message.includes("이미 발행받은 쿠폰입니다.")) {
-        console.log("이미 발행받은 쿠폰입니다!!");
-        return 402;
-      } else {
-        // 다른 에러 처리
-        console.error("쿠폰 등록 중 오류 발생: durl", error);
-        return {
-          status: error?.status || 500,
-          message: error.message || "알 수 없는 오류가 발생했습니다.",
-        };
-      }
-    }
-  } else {
+  if (!session) {
     return { status: 401, message: "인증되지 않은 사용자입니다." };
+  }
+
+  try {
+    const { data } = await fetchData<any>(
+      "/api/v1/user-enroll-coupon",
+      "POST",
+      requestData,
+    );
+    return data; // 성공 시 데이터 반환
+  } catch (error: any) {
+    const status = error?.status || 500;
+    const message =
+      status === 402 && error.message.includes("이미 발행받은 쿠폰")
+        ? "이미 발행받은 쿠폰입니다."
+        : error.message || "알 수 없는 오류가 발생했습니다.";
+
+    return { status, message };
   }
 }
 
