@@ -53,3 +53,12 @@ export const getMyCoupon = async (): Promise<myCouponType[]> => {
   );
   return data.data;
 };
+
+export const getMyCouponAmount = async (): Promise<number> => {
+  const data = await fetchData<commonResType<number>>(
+    `/api/v1/user-enroll-coupon/count`,
+    "GET",
+    "",
+  );
+  return data.data;
+};
