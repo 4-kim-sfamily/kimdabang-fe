@@ -6,7 +6,7 @@ export default function MypageHeader({ title }: { title: string }) {
     <header className=" bg-[white] w-full z-10 h-[56px] flex items-center shadow-md">
       <p className=" ml-[50%] translate-x-[-50%] font-extrabold">{title}</p>
       <div className="absolute right-3 top-[2%]">
-        <BackwardButton>
+        <BackwardButton url="mypage">
           <CategoryClose color="#444444" />
         </BackwardButton>
       </div>
