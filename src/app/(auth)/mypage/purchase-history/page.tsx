@@ -1,3 +1,8 @@
+import PurchaseList from "@/components/pages/purchase/PurchaseList";
 export default function page() {
-  return <main>page</main>;
+  return (
+    <main>
+      <PurchaseList />
+    </main>
+  );
 }
