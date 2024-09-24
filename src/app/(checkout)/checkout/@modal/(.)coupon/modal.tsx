@@ -14,7 +14,6 @@ export default function CouponModal({
       document.body.style.overflow = ""; // 모달 닫힐 때 원래 상태로 복구
     };
   }, []);
-
   const router = useRouter();
   return (
     <dialog className="fixed top-0 left-0 w-full h-full  overflow-hidden flex flex-col items-center z-50">

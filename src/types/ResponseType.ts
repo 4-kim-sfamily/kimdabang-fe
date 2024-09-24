@@ -80,10 +80,6 @@ export interface ProductOptionType {
   PriorOptionId: string;
 }
 export interface CouponType {
-  couponId: string;
-  expirtedAt: string;
-}
-export interface CouponType {
   id: number;
   name: string;
   couponType: string;

@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import AddressSection from "../cart/AddressSection";
 import CouponSection from "./CouponSection";
 import MyOrderItemList from "./MyOrderItemList";
+import PaymentMethodSection from "./PaymentMethodSection";
 
 export default async function CheckoutContainer({
   type,
@@ -17,6 +18,7 @@ export default async function CheckoutContainer({
   optionId?: string;
 }) {
   console.log(type, productCode);
+  // console.log("여기서 찍은것", couponId);
   if (type === "buyNow" && productCode && optionId) {
     const productData = await getProductInfo(productCode);
     const productMedia = await getProductMedia(productCode);
@@ -46,12 +48,12 @@ export default async function CheckoutContainer({
       <CouponSection />
       <hr />
       <section>
-        결제수단
-        {/* 결제수단 들어갈 곳 */}
+        <p className="font-bold text-2xl"> 결제수단 </p>
+        <PaymentMethodSection />
       </section>
       <hr />
       <section>
-        주문 금액
+        <p className="font-bold text-2xl"> 주문금액 </p>
         {/* 주문금액 들어갈 곳 */}
       </section>
       <hr />
