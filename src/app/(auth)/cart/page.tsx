@@ -8,6 +8,7 @@ import { cartList } from "@/types/items/Cart";
 import { ProductType } from "@/types/ResponseType";
 
 export default async function page() {
+  //체크된 아이템 리스트
   const list: cartList[] = await getCheckBoxList();
   const productList: ProductType[] = await Promise.all(
     list.map((item) => getProductInfo(item.productCode)),
@@ -24,7 +25,7 @@ export default async function page() {
     <main>
       <AddressSection />
       <div className="px-4">
-        <CartItemSection />
+        <CartItemSection chekedList={list} />
         <PayInfo
           totalEstimatedPrice={totalEstimatedPrice}
           shippingfee={shippingfee}
