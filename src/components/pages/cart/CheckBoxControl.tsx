@@ -1,17 +1,18 @@
 import { Checkbox } from "@/components/ui/checkbox";
-import { CartItemType } from "@/types/items/Cart";
+import { cartList } from "@/types/items/Cart";
 import DeleteCartItem from "./DeleteCartItem";
 
 export default function CheckBoxControl({
   cartItemList,
+  isAllChecked,
 }: {
-  cartItemList?: CartItemType[];
+  cartItemList?: cartList[];
+  isAllChecked?: boolean;
 }) {
-  //
   return (
     <ul className="flex items-center justify-between pt-4">
       <li className="flex items-center gap-2">
-        <Checkbox checked={true} />
+        <Checkbox checked={isAllChecked} />
         <p>전체 선택</p>
       </li>
       <li className="flex gap-1">

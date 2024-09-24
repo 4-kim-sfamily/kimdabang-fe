@@ -11,7 +11,6 @@ import {
 } from "@/types/ResponseType";
 import Image from "next/image";
 import Link from "next/link";
-import CartItemAmount from "../pages/cart/CartItemAmount";
 import DeleteCartItem from "../pages/cart/DeleteCartItem";
 import { Skeleton } from "../ui/skeleton";
 
@@ -55,11 +54,11 @@ export default async function CartItem({
           </DeleteCartItem>
         </li>
         <li>
-          <CartItemAmount
+          {/* <CartItemAmount
             price={info.productPrice}
             discountedPrice={info.productPrice}
             amount={item.amount}
-          />
+          /> */}
         </li>
       </ul>
     </figure>
