@@ -1,4 +1,5 @@
 "use server";
+import { cartList } from "@/types/items/Cart";
 import { CheckBoxType, commonResType } from "@/types/ResponseType";
 import { revalidateTag } from "next/cache";
 import { fetchData } from "../common/common";
@@ -34,4 +35,14 @@ export async function getCheckBox({
     "checkBoxChange",
   );
   return data.data.checkBox;
+}
+export async function getCheckBoxList(): Promise<cartList[]> {
+  const data = await fetchData<commonResType<cartList[]>>(
+    `/api/v1/cart/checkedList`,
+    "GET",
+    "",
+    "force-cache",
+    "checkBoxChange",
+  );
+  return data.data;
 }
