@@ -16,9 +16,14 @@ export default async function CartItemSection({}: {}) {
     ),
   );
   const allChecked = checkBoxStatuses.every((status) => status === true);
+
   return (
     <section className=" mb-4 ">
-      <CheckBoxControl isAllChecked={allChecked} />
+      <CheckBoxControl
+        allCheckBox={allChecked}
+        cartItemList={data}
+        checkBoxStatuses={checkBoxStatuses}
+      />
       {data.map((item, index) => (
         <div key={item.productCode} className="flex justify-start py-3 gap-2">
           <CartCheckBox
