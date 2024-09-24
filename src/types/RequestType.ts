@@ -10,3 +10,8 @@ export type AddUserEnrollCouponRequestData = {
   createdAt: string;
   expiredDate: string;
 };
+
+export type AddCartItmeRequestData = {
+  optionId: number;
+  amount: number;
+};
