@@ -6,7 +6,7 @@ export default async function CategorySection({
 }: {
   authStatus: boolean;
 }) {
-  const res = await fetch("http://localhost:4000/BestTumblr", {
+  const res = await fetch(`${process.env.JSONSERVER_URL}/BestTumblr`, {
     cache: "no-store",
   });
   const BestTumblr: ItemCardType[] = await res.json();

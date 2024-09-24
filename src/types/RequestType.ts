@@ -15,3 +15,7 @@ export interface CheckRequestData {
   amount: number;
   productOptionId: number;
 }
+export type AddCartItmeRequestData = {
+  optionId: number;
+  amount: number;
+};

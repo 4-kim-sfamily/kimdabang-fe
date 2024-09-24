@@ -7,12 +7,46 @@ interface FavoriteMenu {
 
 export default async function FavoiriteMenu() {
   // json-server에서 데이터를 fetch
-  const res = await fetch(`${process.env.JSONSERVER_URL}/favoriteMenus`, {
-    cache: "no-store", // 실시간 데이터 반영을 위해 cache 설정
-  });
 
   // 데이터에 대한 타입을 FavoriteMenu[]로 명시
-  const favoriteMenus: FavoriteMenu[] = await res.json();
+  const favoriteMenus: FavoriteMenu[] = [
+    {
+      id: 1,
+      iconName: "좋아요",
+      imageUrl:
+        "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_like@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979",
+    },
+    {
+      id: 2,
+      iconName: "자주구매",
+      imageUrl:
+        "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_freq@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979",
+    },
+    {
+      id: 3,
+      iconName: "이벤트현황",
+      imageUrl:
+        "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_event@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979",
+    },
+    {
+      id: 4,
+      iconName: "상품 Q&A",
+      imageUrl:
+        "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_qna@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979",
+    },
+    {
+      id: 5,
+      iconName: "입고알림",
+      imageUrl:
+        "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_alert@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979",
+    },
+    {
+      id: 6,
+      iconName: "선물함",
+      imageUrl:
+        "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_gift@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979",
+    },
+  ];
 
   return (
     <section>

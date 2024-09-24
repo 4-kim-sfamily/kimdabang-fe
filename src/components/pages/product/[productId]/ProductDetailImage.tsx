@@ -1,9 +1,13 @@
-export default function ProductDetailImage() {
+export default function ProductDetailImage({
+  productContent,
+}: {
+  productContent: string;
+}) {
   return (
     <div className="flex flex-col">
-      <img
-        src="https://sstatic.ssgcdn.com/cmpt/edit/202312/20/112023122011035363911453114145_328.jpg"
-        alt=""
+      <div
+        className="mx-auto custom-product-content"
+        dangerouslySetInnerHTML={{ __html: productContent }}
       />
     </div>
   );

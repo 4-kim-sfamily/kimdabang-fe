@@ -4,7 +4,7 @@ import React from "react";
 
 function layout({ children }: { children: React.ReactNode }) {
   return (
-    <main className="p-4">
+    <main className="">
       <MypageHeader title="쿠폰함" />
       <CouponNav />
       {children}

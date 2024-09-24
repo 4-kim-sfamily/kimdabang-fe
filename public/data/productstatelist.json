@@ -1,0 +1,20 @@
+{
+  "productstatelist": [
+    {
+      "state": "취소",
+      "amount": 3
+    },
+    {
+      "state": "교환",
+      "amount": 5
+    },
+    {
+      "state": "반품",
+      "amount": 2
+    },
+    {
+      "state": "구매확정",
+      "amount": 10
+    }
+  ]
+}
