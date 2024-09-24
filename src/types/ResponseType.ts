@@ -121,3 +121,6 @@ export interface ProductContent {
   productCode: string;
   content: string;
 }
+export interface CheckBoxType {
+  checkBox: boolean;
+}

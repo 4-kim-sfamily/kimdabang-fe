@@ -1,18 +1,24 @@
 import PaymentButtons from "./PaymentButtons";
 
-export default function BottomBar() {
+export default function BottomBar({
+  count,
+  totalPrice,
+}: {
+  count: number;
+  totalPrice: number;
+}) {
   return (
     <div className="fixed bottom-0 bg-white w-full px-5 py-3 top-shadow">
       <span className="flex justify-between py-3">
         <div className="flex gap-1">
           <p>총</p>
-          <p className="text-starbucks">1</p>
+          <p className="text-starbucks">{count}</p>
           <p>건</p>
         </div>
-        <p className="text-xl font-extrabold">45,000원</p>
+        <p className="text-xl font-extrabold">{totalPrice}원</p>
       </span>
       <div>
-        <PaymentButtons />
+        <PaymentButtons count={count} />
       </div>
     </div>
   );

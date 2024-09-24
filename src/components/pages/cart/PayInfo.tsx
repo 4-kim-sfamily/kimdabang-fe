@@ -1,21 +1,49 @@
 import Link from "next/link";
 
-export default function PayInfo() {
+export default async function PayInfo({
+  totalEstimatedPrice,
+  shippingfee,
+  count,
+}: {
+  totalEstimatedPrice: number;
+  shippingfee: number;
+  count: number;
+}) {
+  // const list = await getCheckBoxList();
+  // const productList: ProductType[] = await Promise.all(
+  //   list.map((item) => getProductInfo(item.productCode))
+  // );
+
+  // const totalEstimatedPrice = productList.reduce(
+  //   (total, product) => total + product.productPrice,
+  //   0
+  // );
+  // const shippingfee =
+  //   totalEstimatedPrice >= 30000 ? 0 : totalEstimatedPrice === 0 ? 0 : 3000;
+  const remainingForFreeShipping = 30000 - totalEstimatedPrice;
+  const isFreeShipping = totalEstimatedPrice >= 30000;
   return (
     <div className="mb-36">
-      <div className="flex flex-col items-center">
-        <h5 className="text-sm">
-          상품 1건 16,000 + 배송비 3,000원 = 총 19,000
-        </h5>
-        <h5 className="text-sm font-extrabold">14,000원 더 담으면 무료배송</h5>
-        <Link href={"/"} className="text-[#a88855]">
-          더 담으러 가기
-        </Link>
-      </div>
+      {totalEstimatedPrice > 0 && (
+        <div className="flex flex-col items-center">
+          <h5 className="text-sm">
+            상품 {count}건 {totalEstimatedPrice}원 + 배송비 {shippingfee}원 = 총{" "}
+            {totalEstimatedPrice + shippingfee}원
+          </h5>
+          <h5 className="text-sm font-extrabold">
+            {!isFreeShipping
+              ? `${remainingForFreeShipping}원 더 담으면 무료배송`
+              : "무료배송"}
+          </h5>
+          <Link href={"/"} className="text-[#a88855]">
+            더 담으러 가기
+          </Link>
+        </div>
+      )}
       <div>
         <div className="payInfo">
           <h4>상품금액</h4>
-          <h4 className="font-extrabold">16,000</h4>
+          <h4 className="font-extrabold">{totalEstimatedPrice}</h4>
         </div>
         <div className="payInfo">
           <h4>할인금액</h4>
@@ -23,11 +51,11 @@ export default function PayInfo() {
         </div>
         <div className="payInfo">
           <h4>배송비</h4>
-          <h4 className="font-extrabold">3,000</h4>
+          <h4 className="font-extrabold">{shippingfee}</h4>
         </div>
         <div className="payInfo">
           <h2 className="text-lg">총 결제예정금액</h2>
-          <h2 className="text-xl font-extrabold">19,000</h2>
+          <h2 className="text-xl font-extrabold">{totalEstimatedPrice}</h2>
         </div>
       </div>
       <div className="my-4 bg-[#eeeeebcc] p-2 text-sm text-[#5C5C5C]">
