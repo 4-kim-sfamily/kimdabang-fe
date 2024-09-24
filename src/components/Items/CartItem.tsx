@@ -44,7 +44,7 @@ export default async function CartItem({
       </div>
       <ul className="w-full flex flex-col justify-between">
         <li className="flex w-full justify-between mb-2">
-          <Link href={"/상품상세페이지로"} className="font-extrabold">
+          <Link href={`/product/${productCode}`} className="font-extrabold">
             {info.productName}
           </Link>
           <DeleteCartItem

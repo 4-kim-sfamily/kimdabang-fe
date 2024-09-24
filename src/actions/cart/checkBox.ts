@@ -31,7 +31,7 @@ export async function getCheckBox({
     `/api/v1/cart/checkBox/${productCode}?productOptionId=${productOptionId ? productOptionId : 0}`,
     "GET",
     "",
-    "force-cache",
+    "no-store",
     "checkBoxChange",
   );
   return data.data.checkBox;
@@ -41,7 +41,7 @@ export async function getCheckBoxList(): Promise<cartList[]> {
     `/api/v1/cart/checkedList`,
     "GET",
     "",
-    "force-cache",
+    "no-store",
     "checkBoxChange",
   );
   return data.data;

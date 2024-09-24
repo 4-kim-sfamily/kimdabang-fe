@@ -2,6 +2,7 @@
 import { cartItem, cartList } from "@/types/items/Cart";
 import { AddCartItmeRequestData } from "@/types/RequestType";
 import { commonResType } from "@/types/ResponseType";
+import { revalidateTag } from "next/cache";
 import { fetchData } from "../common/common";
 
 export async function getCartItemList(): Promise<cartList[]> {
@@ -9,7 +10,8 @@ export async function getCartItemList(): Promise<cartList[]> {
     `/api/v1/cart/list`,
     "GET",
     "",
-    "reload",
+    "force-cache",
+    "changeCartState",
   );
   return data.data;
 }
@@ -23,7 +25,8 @@ export async function getCartItem({
     `/api/v1/cart/${productCode}`,
     "GET",
     "",
-    "no-cache",
+    "force-cache",
+    "changeCartState",
   );
   console.log(data.data);
   return data.data;
@@ -41,5 +44,6 @@ export async function putCartItem({
     "PUT",
     request,
   );
+  revalidateTag("changeCartState");
   return data.data;
 }

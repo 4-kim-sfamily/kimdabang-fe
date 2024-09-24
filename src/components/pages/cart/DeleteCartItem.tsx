@@ -12,7 +12,6 @@ export default function DeleteCartItem({
   productCode: string;
 }) {
   const handleDeleteButton = async () => {
-    console.log("클릭");
     const request = {
       amount: 0,
       productOptionId: productOptionId,
