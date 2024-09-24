@@ -6,24 +6,32 @@ export default function CartItemAmount({
   price,
   discountedPrice,
   amount,
+  onAmountChange,
 }: {
   price: number;
   discountedPrice?: number;
   amount: number;
+  onAmountChange?: (newAmount: number) => void;
 }) {
   const [count, setAmount] = useState(amount);
+
   const handlePlusButton = () => {
-    setAmount(count + 1);
+    const newAmount = count + 1;
+    setAmount(newAmount);
+    onAmountChange(newAmount); // 부모에게 새로운 값 전달
   };
-  const handleMinusbutton = () => {
+
+  const handleMinusButton = () => {
     if (count == 1) return;
-    setAmount(count - 1);
+    const newAmount = count - 1;
+    setAmount(newAmount);
+    onAmountChange(newAmount); // 부모에게 새로운 값 전달
   };
 
   return (
     <div className="flex justify-between w-full items-end">
       <div className="flex gap-2 items-center">
-        <button onClick={handleMinusbutton}>
+        <button onClick={handleMinusButton}>
           <MinusCircle color={count == 1 ? "#C6C6C6" : "black"} />
         </button>
         {count}

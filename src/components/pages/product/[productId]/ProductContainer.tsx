@@ -41,6 +41,7 @@ export default async function ProductContainer({
       <SameCategoryProduct authStatus={authStatus} />
 
       <ProductPurchaseBar
+        productCode={productCode}
         optionsData={ProductOptionData}
         productPrice={product.productPrice}
       />

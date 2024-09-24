@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "스타벅스 클론코딩 김다방",
+    default: "스타벅스 김다방",
     template: "%s | STARBUCKS CLONE APP",
   },
   description: "1차프로젝트 SPHAROS 5TH",
