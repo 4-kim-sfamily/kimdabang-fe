@@ -3,7 +3,6 @@ import { putCheckBox } from "@/actions/cart/checkBox"; // API 함수
 import { Checkbox } from "@/components/ui/checkbox";
 import { cartList } from "@/types/items/Cart";
 import { useEffect, useState } from "react";
-import DeleteCartItem from "./DeleteCartItem";
 
 export default function CheckBoxControl({
   cartItemList,
@@ -48,9 +47,9 @@ export default function CheckBoxControl({
         <p>전체 선택</p>
       </li>
       <li className="flex gap-1">
-        <DeleteCartItem apiUri="/선택삭제">선택삭제</DeleteCartItem>
+        {/* <DeleteCartItem apiUri="/선택삭제">선택삭제</DeleteCartItem>
         <p>|</p>
-        <DeleteCartItem apiUri="/전체삭제">전체삭제</DeleteCartItem>
+        <DeleteCartItem apiUri="/전체삭제">전체삭제</DeleteCartItem> */}
       </li>
     </ul>
   );

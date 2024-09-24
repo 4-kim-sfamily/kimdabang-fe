@@ -11,6 +11,7 @@ import {
 } from "@/types/ResponseType";
 import Image from "next/image";
 import Link from "next/link";
+import CartItemAmountFetch from "../pages/cart/CartItemAmountFetch";
 import DeleteCartItem from "../pages/cart/DeleteCartItem";
 import { Skeleton } from "../ui/skeleton";
 
@@ -47,18 +48,20 @@ export default async function CartItem({
             {info.productName}
           </Link>
           <DeleteCartItem
-            apiUri="productCode 삭제"
-            selectedProductCodes={productCode}
+            productOptionId={productOptionId}
+            productCode={productCode}
           >
             <XCircle />
           </DeleteCartItem>
         </li>
         <li>
-          {/* <CartItemAmount
+          <CartItemAmountFetch
             price={info.productPrice}
             discountedPrice={info.productPrice}
             amount={item.amount}
-          /> */}
+            productCode={productCode}
+            productOptionId={productOptionId}
+          />
         </li>
       </ul>
     </figure>

@@ -1,5 +1,6 @@
 "use server";
 import { cartItem, cartList } from "@/types/items/Cart";
+import { AddCartItmeRequestData } from "@/types/RequestType";
 import { commonResType } from "@/types/ResponseType";
 import { fetchData } from "../common/common";
 
@@ -22,7 +23,7 @@ export async function getCartItem({
     `/api/v1/cart/${productCode}`,
     "GET",
     "",
-    "reload",
+    "no-cache",
   );
   console.log(data.data);
   return data.data;
@@ -30,12 +31,15 @@ export async function getCartItem({
 
 export async function putCartItem({
   productCode,
+  request,
 }: {
   productCode: string;
-}): Promise<cartList> {
-  const data = await fetchData<commonResType<cartList>>(
+  request: AddCartItmeRequestData;
+}): Promise<any> {
+  const data = await fetchData<commonResType<any>>(
     `/api/v1/cart/${productCode}`,
     "PUT",
+    request,
   );
   return data.data;
 }

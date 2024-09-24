@@ -16,6 +16,7 @@ export interface CheckRequestData {
   productOptionId: number;
 }
 export type AddCartItmeRequestData = {
-  optionId: number;
+  productOptionId: number;
   amount: number;
+  carving?: string;
 };
