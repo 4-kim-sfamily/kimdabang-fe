@@ -17,8 +17,10 @@ import { Skeleton } from "../ui/skeleton";
 
 export default async function CartItem({
   productCode,
+  productOptionId,
 }: {
   productCode: string;
+  productOptionId: number;
 }) {
   const [item, img, info, option] = await Promise.all([
     getCartItem({ productCode }) as Promise<cartItem>,

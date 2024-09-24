@@ -11,7 +11,7 @@ export default function CheckBoxControl({
   return (
     <ul className="flex items-center justify-between pt-4">
       <li className="flex items-center gap-2">
-        <Checkbox checked={cartItemList.every((item) => item.isChecked)} />
+        <Checkbox checked={true} />
         <p>전체 선택</p>
       </li>
       <li className="flex gap-1">

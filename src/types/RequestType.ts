@@ -10,3 +10,8 @@ export type AddUserEnrollCouponRequestData = {
   createdAt: string;
   expiredDate: string;
 };
+
+export interface CheckRequestData {
+  amount: number;
+  productOptionId: number;
+}

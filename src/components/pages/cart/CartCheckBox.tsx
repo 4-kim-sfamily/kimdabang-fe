@@ -1,25 +1,33 @@
 "use client";
+import { getCheckBox, putCheckBox } from "@/actions/cart/checkBox";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useEffect, useState } from "react";
 
 export default function CartCheckBox({
   productCode,
-  isChecked,
-  onClickCheckButton,
+  productOptionId,
 }: {
   productCode: string;
-  isChecked?: boolean;
-  onClickCheckButton?: (productCode: string) => void;
+  productOptionId?: number;
 }) {
-  //코드를 보내서 isChecked 여부 받아오기
-  //서버액션 ~~
+  const [checkBox, setCheckBox] = useState(false);
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getCheckBox({ productCode, productOptionId });
+      setCheckBox(data);
+    };
+    fetchData();
+  }, [checkBox]);
 
-  const handleItemCheck = () => {
-    // 체크된 상태로 onClickCheckButton 호출
-    if (onClickCheckButton) {
-      console.log(productCode);
-    }
+  const handleItemCheck = async () => {
+    await putCheckBox({
+      productCode,
+      productOptionId,
+    });
+    setCheckBox((prev) => !prev);
   };
+
   return (
-    <Checkbox checked={isChecked} className="peer" onClick={handleItemCheck} />
+    <Checkbox checked={checkBox} className="peer" onClick={handleItemCheck} />
   );
 }

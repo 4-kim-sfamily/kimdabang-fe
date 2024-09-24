@@ -1,9 +1,10 @@
+"use server";
 import { cartItem, cartList } from "@/types/items/Cart";
 import { commonResType } from "@/types/ResponseType";
 import { fetchData } from "../common/common";
 
-export async function getCartItemList(): Promise<any> {
-  const data = await fetchData<commonResType<cartList>>(
+export async function getCartItemList(): Promise<cartList[]> {
+  const data = await fetchData<commonResType<cartList[]>>(
     `/api/v1/cart/list`,
     "GET",
     "",
@@ -16,7 +17,7 @@ export async function getCartItem({
   productCode,
 }: {
   productCode: string;
-}): Promise<any> {
+}): Promise<cartItem> {
   const data = await fetchData<commonResType<cartItem>>(
     `/api/v1/cart/${productCode}`,
     "GET",
@@ -31,7 +32,7 @@ export async function putCartItem({
   productCode,
 }: {
   productCode: string;
-}): Promise<any> {
+}): Promise<cartList> {
   const data = await fetchData<commonResType<cartList>>(
     `/api/v1/cart/${productCode}`,
     "PUT",

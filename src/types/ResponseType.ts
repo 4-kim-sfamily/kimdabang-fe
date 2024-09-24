@@ -107,3 +107,6 @@ export interface optionType {
   optionsId: number;
   optionValue: number;
 }
+export interface CheckBoxType {
+  checkBox: boolean;
+}
