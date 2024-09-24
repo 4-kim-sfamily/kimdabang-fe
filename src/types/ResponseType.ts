@@ -104,6 +104,7 @@ export interface noiticationType {
 export interface optionType {
   optionsId: number;
   optionValue: string;
+  depth: number;
   children: optionType[];
 }
 
