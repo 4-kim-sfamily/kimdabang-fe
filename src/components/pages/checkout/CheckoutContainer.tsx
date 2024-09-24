@@ -1,11 +1,11 @@
 import { getProductInfo } from "@/actions/getProductInfo";
-import { getProductMedia } from "@/actions/getProductMedia";
 import { getShippingAddressDefault } from "@/actions/shipping/shippingActions";
 import { Button } from "@/components/ui/button";
 import { redirect } from "next/navigation";
 import AddressSection from "../cart/AddressSection";
 import CouponSection from "./CouponSection";
 import MyOrderItemList from "./MyOrderItemList";
+import OrderPrice from "./OrderPrice";
 import PaymentMethodSection from "./PaymentMethodSection";
 
 export default async function CheckoutContainer({
@@ -19,13 +19,13 @@ export default async function CheckoutContainer({
 }) {
   console.log(type, productCode);
   // console.log("여기서 찍은것", couponId);
+  let productData;
+  let price;
   if (type === "buyNow" && productCode && optionId) {
-    const productData = await getProductInfo(productCode);
-    const productMedia = await getProductMedia(productCode);
-    const thumbnail = productMedia[0].mediaURL;
+    productData = await getProductInfo(productCode);
     // 여기서 받아야하는 거
     // 제품이름 / 가격 / 썸네일 / 옵션
-
+    price = productData.productPrice;
     // const optionData = await getOptionDataByOptionId(optionId);
   }
   const isAddress = await getShippingAddressDefault();
@@ -41,7 +41,7 @@ export default async function CheckoutContainer({
       </section>
       <section>
         <p className="font-bold text-2xl">주문 내역</p>
-        <MyOrderItemList />
+        <MyOrderItemList productData={productData} optionId={optionId} />
         {/* 주문 정보 들어갈 곳 */}
       </section>
       <hr />
@@ -54,8 +54,9 @@ export default async function CheckoutContainer({
       <hr />
       <section>
         <p className="font-bold text-2xl"> 주문금액 </p>
-        {/* 주문금액 들어갈 곳 */}
+        <OrderPrice price={price} />
       </section>
+
       <hr />
       {/* 여기서 가격총합 변수로 관리 */}
       <Button variant="starbucks" className="mx-auto">

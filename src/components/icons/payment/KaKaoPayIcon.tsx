@@ -7,20 +7,18 @@ export default function KaKaoPayIcon() {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       x="0px"
       y="0px"
+      width={50}
+      height={50}
       viewBox="0 0 192.9 80.4"
       enableBackground="new 0 0 192.9 80.4"
       xmlSpace="preserve"
     >
-      <style type="text/css">
-        {`
-            .st0 { fill-rule:evenodd; clip-rule:evenodd; fill:#FFEB00; }
-            .st1 { fill-rule:evenodd; clip-rule:evenodd; }
-          `}
-      </style>
       <g>
         <g>
           <path
-            className="st0"
+            fillRule="evenodd"
+            clipRule={"evenodd"}
+            fill="#FFEB00"
             d="M152.7,80.4H40.2C18,80.4,0,62.4,0,40.2S18,0,40.2,0h112.6c22.2,0,40.2,18,40.2,40.2S174.9,80.4,152.7,80.4"
           />
         </g>
@@ -28,7 +26,8 @@ export default function KaKaoPayIcon() {
           <g>
             <g>
               <path
-                className="st1"
+                fillRule="evenodd"
+                clipRule={"evenodd"}
                 d="M45.1,19.3C33,19.3,23.2,27,23.2,36.6c0,6.1,4.1,11.5,10.2,14.6L31.3,59c-0.1,0.2,0,0.5,0.2,0.7
                         c0.1,0.1,0.3,0.2,0.4,0.2c0.1,0,0.3-0.1,0.4-0.1l8.9-6c1.3,0.2,2.6,0.3,4,0.3c12.1,0,21.9-7.8,21.9-17.3
                         C67.1,27,57.3,19.3,45.1,19.3z"

@@ -8,13 +8,15 @@ type SelectedCouponInfo = {
   couponInfo: CouponType;
 } | null;
 
-type CouponContextType = {
+type PaymentContextType = {
   selectedCoupon: SelectedCouponInfo;
   setSelectedCoupon: (coupon: SelectedCouponInfo) => void;
+  selectedPaymentMethod: string;
+  setSelectedPaymentMethod: (method: string) => void;
 };
 
 // 쿠폰 컨텍스트 생성
-const CouponContext = createContext<CouponContextType | undefined>(undefined);
+const CouponContext = createContext<PaymentContextType | undefined>(undefined);
 
 // 컨텍스트를 사용할 수 있게 하는 커스텀 훅
 export const useCoupon = () => {
@@ -30,8 +32,18 @@ export const CouponProvider = ({ children }: { children: ReactNode }) => {
   const [selectedCoupon, setSelectedCoupon] =
     useState<SelectedCouponInfo>(null);
 
+  const [selectedPaymentMethod, setSelectedPaymentMethod] =
+    useState<string>("");
+
   return (
-    <CouponContext.Provider value={{ selectedCoupon, setSelectedCoupon }}>
+    <CouponContext.Provider
+      value={{
+        selectedCoupon,
+        setSelectedCoupon,
+        selectedPaymentMethod,
+        setSelectedPaymentMethod,
+      }}
+    >
       {children}
     </CouponContext.Provider>
   );

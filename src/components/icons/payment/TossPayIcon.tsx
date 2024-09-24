@@ -7,6 +7,8 @@ export default function TossPayIcon() {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       x="0px"
       y="0px"
+      width={50}
+      height={50}
       viewBox="0 0 1038.2 200"
       enableBackground="new 0 0 1038.2 200"
       xmlSpace="preserve"

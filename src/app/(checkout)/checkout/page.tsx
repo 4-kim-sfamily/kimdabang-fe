@@ -1,4 +1,4 @@
-import CheckoutContainer from "@/components/pages/checkoout/CheckoutContainer";
+import CheckoutContainer from "@/components/pages/checkout/CheckoutContainer";
 
 export default function page({
   searchParams,

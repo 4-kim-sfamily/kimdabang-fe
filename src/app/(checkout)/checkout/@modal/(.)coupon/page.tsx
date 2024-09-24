@@ -1,5 +1,5 @@
 import { getCouponById, getMyCoupon } from "@/actions/mypage/coupon/coupon";
-import CouponSelector from "@/components/pages/checkoout/CouponSelector";
+import CouponSelector from "@/components/pages/checkout/CouponSelector";
 import CouponModal from "./modal";
 
 export default async function Page() {
