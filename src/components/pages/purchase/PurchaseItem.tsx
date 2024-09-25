@@ -22,7 +22,7 @@ export default async function PurchaseItem({
   ]);
   console.log(item.productCode);
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div className="flex flex-col gap-3 w-full mb-3">
       <span className="flex flex-col gap-3 w-full">
         <div className="border-[1.5px] rounded-xl items-center w-full p-2 flex flex-col">
           <div className="flex w-full mb-1">
@@ -43,7 +43,6 @@ export default async function PurchaseItem({
               </li>
               <li className="text-[0.7em]">{`${item.quantity}개`}</li>
               <li className="font-extrabold">{`${item.price}원`}</li>
-              <li className="font-extrabold">{`${option}`}</li>
             </ul>
           </div>
           <Link

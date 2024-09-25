@@ -27,7 +27,7 @@ export default async function page({
   });
 
   return (
-    <main>
+    <main className="mt-5">
       <PurchaseHeader start={searchParams.start} end={searchParams.end} />
       <PurchaseList purchaseList={data} />
     </main>

@@ -139,3 +139,19 @@ export interface Purchase {
   status: string;
   itemList: PurchaseItemType[];
 }
+export interface PurchaseDetailType {
+  purchaseCode: number;
+  paymentCode: number;
+  purchaseDate: string;
+  address: string;
+  name: string;
+  phone: string;
+  couponId: number;
+  method: string;
+  totalPrice: number;
+  discountPrice: number;
+  shippingPrice: number;
+  amount: number;
+  status: string;
+  itemList: PurchaseItemType[];
+}

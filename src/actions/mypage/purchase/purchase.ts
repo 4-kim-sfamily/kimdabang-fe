@@ -27,9 +27,13 @@ export const getMyPurchaseList = async ({
   }
 };
 
-export const getMyPurchase = async ({ purchaseCode }): Promise<Purchase> => {
-  const data = await fetchData<commonResType<Purchase>>(
-    `/api/v1/purchase/get-purchaselist?purchaseCode =${purchaseCode}`,
+export const getMyPurchase = async ({
+  purchaseCode,
+}: {
+  purchaseCode: number;
+}): Promise<any> => {
+  const data = await fetchData<commonResType<any>>(
+    `/api/v1/purchase/get-purchase?purchaseCode=${purchaseCode}`,
     "GET",
     "",
     "no-cache",

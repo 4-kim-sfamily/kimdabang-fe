@@ -18,7 +18,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <MypageHeader title={getTitle()} />
-      <main className="p-4">{children}</main>
+      <main className="">{children}</main>
     </>
   );
 }
