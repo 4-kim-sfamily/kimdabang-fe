@@ -125,7 +125,7 @@ export interface CheckBoxType {
   checkBox: boolean;
 }
 
-export interface PurchaseItem {
+export interface PurchaseItemType {
   productCode: string;
   optionsId: number;
   options: string;
@@ -137,5 +137,5 @@ export interface Purchase {
   purchaseCode: number;
   purchaseDate: string;
   status: string;
-  itemList: PurchaseItem[];
+  itemList: PurchaseItemType[];
 }

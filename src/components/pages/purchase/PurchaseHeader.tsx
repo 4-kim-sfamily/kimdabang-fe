@@ -30,14 +30,16 @@ export default function PurchaseHeader({
     <div className="flex justify-between items-center mt-2 px-2">
       <p>{`${DefaultstartDate} ~ ${DefaultendDate}`}</p>
       <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
-        <PopoverTrigger className="flex">
-          <Button
-            variant="starbucks"
-            size="md"
-            className="w-full h-9 items-center m-0"
-          >
-            기간 설정
-          </Button>
+        <PopoverTrigger asChild>
+          <div className="flex">
+            <Button
+              variant="starbucks"
+              size="md"
+              className="w-full h-9 items-center m-0"
+            >
+              기간 설정
+            </Button>
+          </div>
         </PopoverTrigger>
         <PopoverContent className="border-spacing-0 bg-transparent">
           <DateRangePicker closePopover={closePopover} />

@@ -10,15 +10,19 @@ export default function PurchaseList({
   console.log(purchaseList);
   return (
     <>
-      {purchaseList?.map((item, index) => (
+      {purchaseList?.map((Order, index) => (
         <section key={index} className="mb-8 w-full">
           <div className="flex justify-between my-3">
-            <h1 className="font-extrabold">{item.purchaseDate}</h1>
+            <h1 className="font-extrabold">
+              {new Date(Order.purchaseDate).toISOString().split("T")[0]}
+            </h1>
             <Link href={`/mypage/purchase-history/1`} className="text-gray-500">
               주문상세{` >`}
             </Link>
           </div>
-          <PurchaseItem />
+          {Order.itemList.map((item) => (
+            <PurchaseItem item={item} />
+          ))}
         </section>
       ))}
     </>
