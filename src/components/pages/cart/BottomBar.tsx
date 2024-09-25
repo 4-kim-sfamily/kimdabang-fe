@@ -3,9 +3,11 @@ import PaymentButtons from "./PaymentButtons";
 export default function BottomBar({
   count,
   totalPrice,
+  id,
 }: {
   count: number;
   totalPrice: number;
+  id?: number;
 }) {
   return (
     <div className="fixed bottom-0 bg-white w-full px-5 py-3 top-shadow">
@@ -18,7 +20,7 @@ export default function BottomBar({
         <p className="text-xl font-extrabold">{totalPrice}원</p>
       </span>
       <div>
-        <PaymentButtons count={count} />
+        <PaymentButtons count={count} id={id} />
       </div>
     </div>
   );
