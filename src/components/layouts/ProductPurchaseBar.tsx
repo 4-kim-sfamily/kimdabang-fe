@@ -1,6 +1,7 @@
 "use client";
 import { putCart } from "@/actions/product/putCart";
 import { optionType } from "@/types/ResponseType";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { DownwardArrow } from "../icons/Index";
 import CartItemAmount from "../pages/cart/CartItemAmount";
@@ -17,6 +18,7 @@ export default function ProductPurchaseBar({
   optionsData,
   productPrice,
 }: ProductPurchaseBarProps) {
+  const router = useRouter();
   const [isOptionVisible, setIsOptionVisible] = useState(false);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null); // 선택한 OptionId 저장
   const [childOptions, setChildOptions] = useState<optionType[]>([]); // 하위 옵션 저장
@@ -35,7 +37,7 @@ export default function ProductPurchaseBar({
   };
 
   // 비동기 함수: 이벤트 핸들러 안에서 사용
-  const handlePurchaseClick2 = async () => {
+  const handleCartClick2 = async () => {
     try {
       const response = await putCart(
         productCode,
@@ -48,6 +50,15 @@ export default function ProductPurchaseBar({
     }
   };
 
+  const handlePurchaseClick = () => {
+    if (selectedOptionId) {
+      router.push(
+        `/checkout?type=buyNow&productCode=${productCode}&optionId=${selectedOptionId}&amount=${amount}`,
+      );
+    } else {
+      alert("옵션을 먼저 선택해주세요."); // 옵션 미선택 시 알림
+    }
+  };
   // 선택한 옵션의 하위 옵션 검색 및 자동으로 첫 번째 자식을 선택
   useEffect(() => {
     if (selectedOptionId) {
@@ -89,16 +100,16 @@ export default function ProductPurchaseBar({
     }
   }, [selectedOptionId, selectedChildOption, initialOption]);
 
-  const handlePurchaseClick = () => {
+  const handleButtonClick = () => {
     setIsOptionVisible(true);
   };
 
   return (
     <nav className="bg-white w-full fixed bottom-0">
       <BottomNavButtonGroup
-        handleGiftClick={() => {}}
-        handlePurchaseClick={handlePurchaseClick}
-        handleCartClick={() => {}}
+        handleGiftClick={handleButtonClick}
+        handlePurchaseClick={handleButtonClick}
+        handleCartClick={handleButtonClick}
       ></BottomNavButtonGroup>
 
       {/* 옵션 선택 창 */}
@@ -181,8 +192,8 @@ export default function ProductPurchaseBar({
         />
         <BottomNavButtonGroup
           handleGiftClick={() => {}}
-          handlePurchaseClick={handlePurchaseClick2}
-          handleCartClick={() => {}}
+          handlePurchaseClick={handlePurchaseClick}
+          handleCartClick={handleCartClick2}
         ></BottomNavButtonGroup>
       </div>
     </nav>

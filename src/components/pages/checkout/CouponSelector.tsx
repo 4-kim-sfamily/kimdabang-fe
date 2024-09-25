@@ -1,7 +1,7 @@
 "use client";
 import CouponImg from "@/components/icons/couponImg";
 import { Button } from "@/components/ui/button";
-import { useCoupon } from "@/context/CouponContext";
+import { useCheckout } from "@/context/CheckoutContext";
 import { CouponType } from "@/types/ResponseType";
 import { useRouter } from "next/navigation";
 
@@ -17,7 +17,7 @@ type theCouponType = {
 };
 
 export default function CouponSelector({ coupons }: CouponSelectorProps) {
-  const { selectedCoupon, setSelectedCoupon } = useCoupon(); // 쿠폰 상태 사용
+  const { selectedCoupon, setSelectedCoupon } = useCheckout(); // 쿠폰 상태 사용
   const router = useRouter();
 
   const handleCouponSelect = () => {

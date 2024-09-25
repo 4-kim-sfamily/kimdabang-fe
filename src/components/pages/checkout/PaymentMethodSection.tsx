@@ -1,12 +1,12 @@
 "use client";
 import KaKaoPayIcon from "@/components/icons/payment/KaKaoPayIcon";
 import TossPayIcon from "@/components/icons/payment/TossPayIcon";
-import { useCoupon } from "@/context/CouponContext";
+import { useCheckout } from "@/context/CheckoutContext";
 import { CreditCard } from "lucide-react";
 import { useState } from "react";
 
 export default function PaymentMethodSection() {
-  const { setSelectedPaymentMethod } = useCoupon();
+  const { setSelectedPaymentMethod } = useCheckout();
   const [selectedMethod, setSelectedMethod] = useState<string>("");
 
   const handlePaymentClick = (e: React.MouseEvent<HTMLButtonElement>) => {

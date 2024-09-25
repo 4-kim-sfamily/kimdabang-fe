@@ -104,6 +104,7 @@ export interface noiticationType {
   expireDate: string;
   mediaUrl: string;
 }
+
 export interface optionType {
   optionsId: number;
   optionValue: string;

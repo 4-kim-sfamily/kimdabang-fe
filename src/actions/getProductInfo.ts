@@ -10,5 +10,6 @@ export const getProductInfo = async (
     "",
     "no-cache",
   );
+  console.log("상품 정보:", data.data);
   return data.data;
 };

@@ -38,3 +38,13 @@ export async function putCartItem({
   );
   return data.data;
 }
+
+export async function getCheckedCartItem() {
+  const data = await fetchData<commonResType<cartList[]>>(
+    `/api/v1/cart/checkedList`,
+    "GET",
+    "",
+    "reload",
+  );
+  return data.data;
+}

@@ -1,13 +1,13 @@
 "use client";
 import CouponImg from "@/components/icons/couponImg";
 import { Button } from "@/components/ui/button";
-import { useCoupon } from "@/context/CouponContext";
+import { useCheckout } from "@/context/CheckoutContext";
 import Link from "next/link";
 
 export default function CouponSection() {
   // 쿠폰 ID와 쿠폰 설정 함수를 받아옴
 
-  const { selectedCoupon } = useCoupon();
+  const { selectedCoupon, setDiscountPrice, totalOrderPrice } = useCheckout();
   console.log("선택한 쿠폰값:", selectedCoupon); // 선택된 쿠폰 ID 로그 출력
 
   return (

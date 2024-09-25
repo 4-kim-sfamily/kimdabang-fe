@@ -22,18 +22,21 @@ export default function ItemHearts({
   }, [authStatus]);
 
   const handleClick = async () => {
-    // Optimistic UI - 서버 요청 전에 상태를 변경
     if (!authStatus) {
       alert("로그인이 필요한 서비스입니다.");
       return;
     }
     try {
-      // 서버에 요청을 보냄
-      console.log("좋아요 요청 시도");
-      putFavorite(productCode);
+      // Optimistic UI 처리
+      setIsLiked(!isLiked);
+      await putFavorite(productCode);
+
+      // 강제로 다시 데이터 가져오기
+      const res = await fetch(`/api/favorite/${productCode}`);
+      const data = await res.json();
+      setIsLiked(data.favorite);
     } catch (error) {
-      // 서버 요청이 실패하면 상태를 복구
-      setIsLiked(isLiked);
+      setIsLiked(isLiked); // 실패하면 상태 복구
       console.error("좋아요 요청 중 오류 발생:", error);
     }
   };
