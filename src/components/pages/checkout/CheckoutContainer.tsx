@@ -1,8 +1,11 @@
 import { getCartItemList } from "@/actions/cart/getCartItemData";
 import { getProductInfo } from "@/actions/getProductInfo";
-import { getShippingAddressDefault } from "@/actions/shipping/shippingActions";
+import {
+  getAddressById,
+  getShippingAddressDefault,
+} from "@/actions/shipping/shippingActions";
 import { cartList } from "@/types/items/Cart";
-import { ProductType } from "@/types/ResponseType";
+import { ProductType, shippingAddressType } from "@/types/ResponseType";
 import { redirect } from "next/navigation";
 import AddressSection from "../cart/AddressSection";
 import CouponSection from "./CouponSection";
@@ -27,6 +30,7 @@ export default async function CheckoutContainer({
   let price: number = 0;
   let productDataList: ProductType[] = [];
   let cartList: cartList[];
+  let addressData: shippingAddressType;
   if (type === "buyNow" && productCode && optionId) {
     productData = await getProductInfo(productCode);
     // 제품 이름 / 가격 / 썸네일 / 옵션
@@ -35,7 +39,6 @@ export default async function CheckoutContainer({
   } else if (type === "cart") {
     // 카트에서 여러 개의 제품 정보를 받아옴
     cartList = await getCartItemList();
-
     // 각 카트 아이템의 productCode로 getProductInfo 호출 후 productDataList에 저장
     const productDataPromises = cartList.map(async (item) => {
       const productData = await getProductInfo(item.productCode);
@@ -52,20 +55,22 @@ export default async function CheckoutContainer({
   } else {
     console.log("잘못 들어옴");
   }
-
+  if (addressId) {
+    console.log("addressId", addressId);
+    addressData = await getAddressById(addressId);
+  }
   const isAddress = await getShippingAddressDefault();
   if (!isAddress) {
     alert("배송지를 먼저 등록해주세요!");
     redirect("/shipping/addShippingAddress");
   } else {
-    console.log(isAddress);
+    addressData = isAddress;
   }
-
   return (
     <div className="mt-20 px-4 flex flex-col gap-4">
       <section>
         <p className="font-bold text-2xl -mb-10">배송지</p>
-        <AddressSection />
+        <AddressSection id={addressId} />
       </section>
       <section>
         <p className="font-bold text-2xl">주문 내역</p>
@@ -88,7 +93,15 @@ export default async function CheckoutContainer({
       <hr />
       <section>
         <p className="font-bold text-2xl"> 주문금액 </p>
-        <OrderPrice price={price} />
+        <OrderPrice
+          price={price}
+          productData={productData}
+          productDataList={productDataList}
+          cartList={cartList}
+          optionId={optionId}
+          amount={amount}
+          addressData={addressData}
+        />
       </section>
     </div>
   );

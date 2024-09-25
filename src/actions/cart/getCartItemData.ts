@@ -10,7 +10,7 @@ export async function getCartItemList(): Promise<cartList[]> {
     `/api/v1/cart/list`,
     "GET",
     "",
-    "force-cache",
+    "no-cache",
     "changeCartState",
   );
   return data.data;

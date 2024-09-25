@@ -13,7 +13,6 @@ export default async function page() {
   const productList: ProductType[] = await Promise.all(
     list.map((item) => getProductInfo(item.productCode)),
   );
-
   const totalEstimatedPrice = productList.reduce(
     (total, product) => total + product.productPrice,
     0,

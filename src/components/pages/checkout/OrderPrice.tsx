@@ -1,9 +1,10 @@
 "use client";
+import { postCheckout } from "@/actions/checkout/checkoutActions";
 import { Button } from "@/components/ui/button";
 import { useCheckout } from "@/context/CheckoutContext";
 import { cartList } from "@/types/items/Cart";
 import { checkoutRequestType } from "@/types/RequestType";
-import { ProductType } from "@/types/ResponseType";
+import { ProductType, shippingAddressType } from "@/types/ResponseType";
 import { useEffect, useState } from "react";
 
 export default function OrderPrice({
@@ -13,6 +14,7 @@ export default function OrderPrice({
   productData,
   optionId,
   amount,
+  addressData,
 }: {
   price: number;
   productDataList?: ProductType[];
@@ -20,6 +22,7 @@ export default function OrderPrice({
   productData?: ProductType;
   optionId?: string;
   amount?: number;
+  addressData: shippingAddressType;
 }) {
   const {
     discountPrice,
@@ -72,7 +75,8 @@ export default function OrderPrice({
   // productDataList와 cartList로 items 배열 생성
   useEffect(() => {
     let newItems;
-    if (productDataList) {
+    if (productDataList && cartList) {
+      console.log("장바구니 구매로 들어옴");
       newItems = productDataList.map((item, index) => ({
         productCode: item.productCode,
         optionsId: cartList[index].productOptionId,
@@ -81,47 +85,40 @@ export default function OrderPrice({
         price: item.productPrice,
       }));
     } else {
-      newItems = {
-        productCode: productData.productCode,
-        optionsId: optionId,
-        options: "", // 옵션 이름을 사용
-        quantity: amount,
-        price: productData?.productPrice,
-      };
+      console.log("단일상품구매로 들어옴");
+      newItems = [
+        {
+          productCode: productData.productCode,
+          optionsId: optionId,
+          options: "", // 옵션 이름을 사용
+          quantity: amount,
+          price: productData?.productPrice,
+        },
+      ]; // 배열로 감싸줌
     }
 
     setItems(newItems); // items 상태 업데이트
   }, [productDataList, cartList]);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     try {
       const data: checkoutRequestType = {
-        address: "서울시 강남구",
-        name: "홍길동",
-        phone: "010-1234-5678",
+        address: addressData.address,
+        name: addressData.addressName,
+        phone: addressData.phone,
         couponId: selectedCoupon ? selectedCoupon.couponInfo.id : 0,
         method: selectedPaymentMethod,
         totalPrice: price,
         discountPrice: discountPrice,
         shippingPrice: shippingPrice,
         amount: paymentAmount,
-        items: items as [
-          {
-            productCode: string;
-            optionsId: number;
-            options: string;
-            quantity: number;
-            price: number;
-          },
-        ], // 생성된 items 배열을 여기 넣음
+        items, // 생성된 items 배열을 여기 넣음
       };
-
-      // 결제 로직 (여기서 실제 결제 API 호출 가능)
-      console.log("결제 데이터: ", data);
+      await postCheckout(data); // 비동기 호출에 await 추가
+      alert("결제가 완료되었습니다!");
     } catch (error) {
       alert("결제에 실패했습니다. 다시 시도해주세요.");
     }
-    alert("결제가 완료되었습니다!");
   };
 
   return (
