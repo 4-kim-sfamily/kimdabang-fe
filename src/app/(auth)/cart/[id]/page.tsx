@@ -33,6 +33,7 @@ export default async function page({ params }: { params: { id: number } }) {
         />
       </div>
       <BottomBar
+        id={params.id}
         count={list.length}
         totalPrice={totalEstimatedPrice + shippingfee}
       />
