@@ -11,14 +11,16 @@ import {
 } from "@/types/ResponseType";
 import Image from "next/image";
 import Link from "next/link";
-import CartItemAmount from "../pages/cart/CartItemAmount";
+import CartItemAmountFetch from "../pages/cart/CartItemAmountFetch";
 import DeleteCartItem from "../pages/cart/DeleteCartItem";
 import { Skeleton } from "../ui/skeleton";
 
 export default async function CartItem({
   productCode,
+  productOptionId,
 }: {
   productCode: string;
+  productOptionId: number;
 }) {
   const [item, img, info, option] = await Promise.all([
     getCartItem({ productCode }) as Promise<cartItem>,
@@ -42,21 +44,23 @@ export default async function CartItem({
       </div>
       <ul className="w-full flex flex-col justify-between">
         <li className="flex w-full justify-between mb-2">
-          <Link href={"/상품상세페이지로"} className="font-extrabold">
+          <Link href={`/product/${productCode}`} className="font-extrabold">
             {info.productName}
           </Link>
           <DeleteCartItem
-            apiUri="productCode 삭제"
-            selectedProductCodes={productCode}
+            productOptionId={productOptionId}
+            productCode={productCode}
           >
             <XCircle />
           </DeleteCartItem>
         </li>
         <li>
-          <CartItemAmount
+          <CartItemAmountFetch
             price={info.productPrice}
             discountedPrice={info.productPrice}
             amount={item.amount}
+            productCode={productCode}
+            productOptionId={productOptionId}
           />
         </li>
       </ul>

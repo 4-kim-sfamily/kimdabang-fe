@@ -11,9 +11,14 @@ export type AddUserEnrollCouponRequestData = {
   expiredDate: string;
 };
 
-export type AddCartItmeRequestData = {
-  optionId: number;
+export interface CheckRequestData {
   amount: number;
+  productOptionId: number;
+}
+export type AddCartItmeRequestData = {
+  productOptionId: number;
+  amount: number;
+  carving?: string;
 };
 
 export interface checkoutRequestType {

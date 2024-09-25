@@ -140,3 +140,6 @@ export interface OptionData {
   state: string;
   variable_price: number;
 }
+export interface CheckBoxType {
+  checkBox: boolean;
+}

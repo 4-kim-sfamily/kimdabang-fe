@@ -1,13 +1,17 @@
+"use server";
 import { cartItem, cartList } from "@/types/items/Cart";
+import { AddCartItmeRequestData } from "@/types/RequestType";
 import { commonResType } from "@/types/ResponseType";
+import { revalidateTag } from "next/cache";
 import { fetchData } from "../common/common";
 
-export async function getCartItemList(): Promise<any> {
-  const data = await fetchData<commonResType<cartList>>(
+export async function getCartItemList(): Promise<cartList[]> {
+  const data = await fetchData<commonResType<cartList[]>>(
     `/api/v1/cart/list`,
     "GET",
     "",
-    "reload",
+    "force-cache",
+    "changeCartState",
   );
   return data.data;
 }
@@ -16,12 +20,13 @@ export async function getCartItem({
   productCode,
 }: {
   productCode: string;
-}): Promise<any> {
+}): Promise<cartItem> {
   const data = await fetchData<commonResType<cartItem>>(
     `/api/v1/cart/${productCode}`,
     "GET",
     "",
-    "reload",
+    "force-cache",
+    "changeCartState",
   );
   console.log(data.data);
   return data.data;
@@ -29,13 +34,17 @@ export async function getCartItem({
 
 export async function putCartItem({
   productCode,
+  request,
 }: {
   productCode: string;
+  request: AddCartItmeRequestData;
 }): Promise<any> {
-  const data = await fetchData<commonResType<cartList>>(
+  const data = await fetchData<commonResType<any>>(
     `/api/v1/cart/${productCode}`,
     "PUT",
+    request,
   );
+  revalidateTag("changeCartState");
   return data.data;
 }
 
