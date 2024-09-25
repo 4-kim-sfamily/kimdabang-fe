@@ -5,13 +5,19 @@ import { useRouter } from "next/navigation";
 
 export default function BackwardButton({
   children,
+  url,
 }: {
   children?: React.ReactNode;
+  url?: string;
 }) {
   const router = useRouter();
 
   const handleBack = () => {
-    router.back();
+    if (url) {
+      router.push(`/${url}`);
+    } else {
+      router.back();
+    }
   };
 
   return (

@@ -11,7 +11,7 @@ export default async function MainGiftProduct({
 }: {
   authStatus: boolean;
 }) {
-  const res = await fetch("http://localhost:4000/BestTumblr", {
+  const res = await fetch(`${process.env.JSONSERVER_URL}/BestTumblr`, {
     cache: "force-cache",
   });
   const BestTumblr: ItemCardType[] = await res.json();

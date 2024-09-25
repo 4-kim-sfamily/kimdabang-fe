@@ -81,13 +81,11 @@ export interface CouponType {
   couponType: string;
   expiredDate: string;
   value: number;
-  validityYear: string;
-  validityMonth: string;
-  validityDay: string;
+  validity: number;
 }
 
 export interface myCouponType {
-  id: number;
+  couponId: number;
   name: string;
   couponType: string;
   isUsed: boolean;
@@ -105,5 +103,24 @@ export interface noiticationType {
 
 export interface optionType {
   optionsId: number;
-  optionValue: number;
+  optionValue: string;
+  depth: number;
+  children: optionType[];
+}
+
+export interface ProductPageType {
+  productCode: string;
+  productName: string;
+  productPrice: number;
+  description: string;
+  productReleaseDate: string;
+  content: string;
+  categoryId: number;
+}
+export interface ProductContent {
+  productCode: string;
+  content: string;
+}
+export interface CheckBoxType {
+  checkBox: boolean;
 }

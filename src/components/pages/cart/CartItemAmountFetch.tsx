@@ -1,32 +1,44 @@
 "use client";
+import { putCartItem } from "@/actions/cart/getCartItemData";
 import { MinusCircle, PlusCircle } from "@/components/icons/Index";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function CartItemAmount({
+export default function CartItemAmountFetch({
   price,
   discountedPrice,
   amount,
-  onAmountChange,
+  productCode,
+  productOptionId,
 }: {
   price: number;
   discountedPrice?: number;
   amount: number;
-  onAmountChange?: (newAmount: number) => void;
+  productCode: string;
+  productOptionId: number;
 }) {
   const [count, setAmount] = useState(amount);
 
   const handlePlusButton = () => {
     const newAmount = count + 1;
     setAmount(newAmount);
-    onAmountChange(newAmount); // 부모에게 새로운 값 전달
   };
 
   const handleMinusButton = () => {
     if (count == 1) return;
     const newAmount = count - 1;
     setAmount(newAmount);
-    onAmountChange(newAmount); // 부모에게 새로운 값 전달
   };
+  useEffect(() => {
+    const request = {
+      productOptionId: productOptionId,
+      amount: count,
+      carving: "",
+    };
+    const fetchData = async () => {
+      const data = await putCartItem({ productCode, request });
+    };
+    fetchData();
+  }, [count]);
 
   return (
     <div className="flex justify-between w-full items-end">

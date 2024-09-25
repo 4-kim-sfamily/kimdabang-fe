@@ -2,12 +2,14 @@ import { ShareIcon } from "@/components/icons/Index";
 import Link from "next/link";
 
 interface ProductInfoProps {
+  categoryId: number;
   largeCategory: string;
   productName: string;
   price: number;
 }
 
 export default function ProductInfo({
+  categoryId,
   largeCategory,
   productName,
   price,
@@ -17,7 +19,7 @@ export default function ProductInfo({
       {/* 상품 카테고리 */}
       <div className="flex justify-between">
         <Link
-          href={`/maincategory/${largeCategory}`}
+          href={`/maincategory/${categoryId}`}
           className="text-base text-gray-600 mx-2"
         >
           {largeCategory}

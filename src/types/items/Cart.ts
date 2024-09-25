@@ -20,7 +20,8 @@ export interface cartItemOption {
 export interface cartList {
   productCode: string;
   amount: number;
-  productOptionId: string;
+  productOptionId: number;
+  carving: string;
 }
 export interface cartItem {
   amount: number;

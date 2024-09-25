@@ -1,21 +1,29 @@
 "use client";
 
+import { putCartItem } from "@/actions/cart/getCartItemData";
+
 export default function DeleteCartItem({
   children,
-  apiUri,
-  selectedProductCodes,
+  productOptionId,
+  productCode,
 }: {
-  apiUri: string;
+  productOptionId: number;
   children: React.ReactNode;
-  selectedProductCodes?: string;
+  productCode: string;
 }) {
-  const handleDeleteButton = () => {
-    console.log(apiUri, "삭제");
+  const handleDeleteButton = async () => {
+    const request = {
+      amount: 0,
+      productOptionId: productOptionId,
+      carving: "",
+    };
+    const data = await putCartItem({ productCode, request });
+    console.log(data);
   };
   return (
     <button
-      onClick={() => handleDeleteButton}
-      className="flex flex-col justify-start"
+      onClick={handleDeleteButton}
+      className="flex flex-col justify-start z-20"
     >
       {children}
     </button>

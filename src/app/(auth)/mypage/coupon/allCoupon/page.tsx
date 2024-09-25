@@ -1,10 +1,10 @@
 import { getAllCoupon } from "@/actions/mypage/coupon/coupon";
 import CouponList from "@/components/pages/mypage/coupon/CouponList";
 import CouponNav from "@/components/pages/mypage/coupon/CouponNav";
+import { Toaster } from "@/components/ui/toaster";
 
 export default async function page() {
   const data = await getAllCoupon();
-  // console.log(data);
   return (
     <main>
       <CouponNav />
@@ -12,6 +12,7 @@ export default async function page() {
         📣 다운받을 수 있는 쿠폰
       </p>
       <CouponList item={data} />
+      <Toaster />
     </main>
   );
 }
