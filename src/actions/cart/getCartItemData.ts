@@ -10,7 +10,7 @@ export async function getCartItemList(): Promise<cartList[]> {
     `/api/v1/cart/list`,
     "GET",
     "",
-    "force-cache",
+    "no-cache",
     "changeCartState",
   );
   return data.data;
@@ -45,5 +45,15 @@ export async function putCartItem({
     request,
   );
   revalidateTag("changeCartState");
+  return data.data;
+}
+
+export async function getCheckedCartItem() {
+  const data = await fetchData<commonResType<cartList[]>>(
+    `/api/v1/cart/checkedList`,
+    "GET",
+    "",
+    "reload",
+  );
   return data.data;
 }

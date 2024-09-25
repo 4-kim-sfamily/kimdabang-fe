@@ -3,6 +3,7 @@ import { AddAddressRequestData } from "@/types/RequestType";
 import { commonResType, shippingAddressType } from "@/types/ResponseType";
 import { revalidateTag } from "next/cache";
 import { fetchData } from "../common/common";
+import { getData } from "../mypage/CommonGet";
 
 export async function getShippingAddressList(): Promise<any> {
   const data = await fetchData<commonResType<shippingAddressType[]>>(
@@ -15,16 +16,19 @@ export async function getShippingAddressList(): Promise<any> {
   return data.data;
 }
 
-export async function getShippingAddressDefault(): Promise<any> {
-  const data = await fetchData<commonResType<shippingAddressType>>(
-    `/api/v1/useraddress/get-useraddressdefault`,
-    "GET",
-    "",
-    "force-cache",
-    "chageDefaultAddress",
-  );
-  return data.data;
-}
+export const getShippingAddressDefault =
+  async (): Promise<shippingAddressType> => {
+    try {
+      const data = await getData<commonResType<shippingAddressType>>(
+        "/api/v1/useraddress/get-useraddressdefault",
+        "",
+      );
+      return data.data;
+    } catch (error) {
+      console.error("Error fetching default shipping address:", error);
+      return null;
+    }
+  };
 
 export async function AddAddress(
   requestData: AddAddressRequestData,
