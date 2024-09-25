@@ -143,3 +143,10 @@ export interface OptionData {
 export interface CheckBoxType {
   checkBox: boolean;
 }
+
+export interface getCategoryDataType {
+  id: number;
+  name: string;
+  depth: number;
+  children: getCategoryDataType[];
+}
