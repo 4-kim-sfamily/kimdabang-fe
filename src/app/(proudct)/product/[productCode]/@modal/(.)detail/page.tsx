@@ -1,4 +1,3 @@
-import { ReviewTypeForJsonServer } from "@/components/pages/product/[productId]/EntireReview";
 import Image from "next/image";
 import ReviewModal from "./modal";
 
@@ -9,17 +8,11 @@ async function page({
   params: { productName: string };
   searchParams: { reviewId: string };
 }) {
-  const res = await fetch(
-    `${process.env.JSONSERVER_URL}/entireReview?id=${searchParams.reviewId}`,
-  );
-  const data: ReviewTypeForJsonServer[] = await res.json();
-  const review = data[0];
-  console.log(data);
-
+  const review = [];
   return (
     <ReviewModal>
       <div className="w-full h-full flex flex-col justify-center items-center">
-        {review.imgUrl && (
+        {review?.imgUrl && (
           <div className="relative w-full max-h-[600px] mt-2  aspect-square mb-4">
             {/* 부모 요소의 크기를 화면에 꽉 차도록 설정 */}
             <Image
