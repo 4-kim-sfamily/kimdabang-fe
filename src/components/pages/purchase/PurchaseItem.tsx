@@ -1,12 +1,5 @@
 import { getProductInfo } from "@/actions/getProductInfo";
-import { getProductMedia } from "@/actions/getProductMedia";
-import { getProductOption } from "@/actions/getProductOption";
-import {
-  optionType,
-  ProductMediaType,
-  ProductType,
-  PurchaseItemType,
-} from "@/types/ResponseType";
+import { ProductType, PurchaseItemType } from "@/types/ResponseType";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,12 +8,7 @@ export default async function PurchaseItem({
 }: {
   item: PurchaseItemType;
 }) {
-  const [img, info, option] = await Promise.all([
-    getProductMedia(item.productCode) as Promise<ProductMediaType>,
-    getProductInfo(item.productCode) as Promise<ProductType>,
-    getProductOption(item.productCode) as Promise<optionType[]>,
-  ]);
-  console.log(item.productCode);
+  const info: ProductType = await getProductInfo(item.productCode);
   return (
     <div className="flex flex-col gap-3 w-full mb-3">
       <span className="flex flex-col gap-3 w-full">
@@ -28,7 +16,7 @@ export default async function PurchaseItem({
           <div className="flex w-full mb-1">
             <div className="w-24 h-24 object-cover overflow-hidden p-2 border-spacing-5 rounded">
               <Image
-                src={img[0].mediaURL}
+                src={info.description}
                 alt="상품이미지"
                 width={300}
                 height={300}
