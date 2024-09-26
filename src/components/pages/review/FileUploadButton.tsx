@@ -1,16 +1,18 @@
 "use client";
 
+import { postReviewMedia } from "@/actions/review/review";
 import { useState } from "react";
 
 export default function FileUploadButton() {
   const [file, setFile] = useState<File | null>(null);
   const [previewURL, setPreviewURL] = useState<string | null>(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
       setFile(selectedFile);
-
+      const data = await postReviewMedia("1000614573665");
+      console.log(data);
       // 이미지나 동영상 미리보기 URL 생성
       const objectUrl = URL.createObjectURL(selectedFile);
       setPreviewURL(objectUrl);
