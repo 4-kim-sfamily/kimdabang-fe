@@ -1,6 +1,7 @@
 "use client";
+import { postReview } from "@/actions/review/review";
 import { ReviewData } from "@/types/RequestType";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "../../components/ui/button";
 import FileUploadButton from "../pages/review/FileUploadButton";
@@ -16,7 +17,7 @@ export default function ReviewForm({ productCode }: { productCode: string }) {
   const [isLoading, setIsLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
+  const router = useRouter();
   const handleRatingChange = (rate: number) => {
     setRating(rate);
   };
@@ -38,30 +39,11 @@ export default function ReviewForm({ productCode }: { productCode: string }) {
     setIsLoading(true);
     setSuccessMessage("");
     setErrorMessage("");
-
-    try {
-      const response = await fetch("/api/reviews", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(reviewData),
-      });
-
-      if (!response.ok) {
-        throw new Error("리뷰 제출에 실패했습니다.");
-      }
-
-      setSuccessMessage("리뷰가 성공적으로 제출되었습니다.");
-      setRating(0);
-      setText("");
-      setMediaType("");
-      setMediaURL("");
-    } catch (error) {
-      setErrorMessage(error.message);
-    } finally {
-      setIsLoading(false);
+    const data = await postReview(reviewData);
+    if (data.status === "OK") {
+      router.back();
     }
+    console.log(data.status === "OK");
   };
 
   return (
@@ -95,7 +77,7 @@ export default function ReviewForm({ productCode }: { productCode: string }) {
           className="m-auto"
           disabled={isLoading}
         >
-          {isLoading ? "제출 중..." : "리뷰 제출"}
+          리뷰 제출
         </Button>
       </div>
       {successMessage && <p className="text-green-500">{successMessage}</p>}
