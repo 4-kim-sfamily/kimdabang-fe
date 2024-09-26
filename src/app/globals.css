@@ -204,3 +204,23 @@ body {
 .custom-product-content button {
   @apply hidden;
 }
+
+.shipping-info {
+  @apply mb-7;
+}
+.shipping-info > h3 {
+  @apply text-lg font-extrabold mb-2;
+}
+.shipping-info > div {
+  @apply gap-14 flex justify-start;
+}
+.shipping-info > div > h5 {
+  @apply min-w-16;
+}
+
+.pay-info > h3 {
+  @apply text-lg font-extrabold mb-2;
+}
+.pay-info > div {
+  @apply flex justify-between;
+}

@@ -144,6 +144,37 @@ export interface CheckBoxType {
   checkBox: boolean;
 }
 
+export interface PurchaseItemType {
+  productCode: string;
+  optionsId: number;
+  options: string;
+  quantity: number;
+  price: number;
+}
+
+export interface Purchase {
+  purchaseCode: number;
+  purchaseDate: string;
+  status: string;
+  itemList: PurchaseItemType[];
+}
+export interface PurchaseDetailType {
+  purchaseCode: number;
+  paymentCode: number;
+  purchaseDate: string;
+  address: string;
+  name: string;
+  phone: string;
+  couponId: number;
+  method: string;
+  totalPrice: number;
+  discountPrice: number;
+  shippingPrice: number;
+  amount: number;
+  status: string;
+  itemList: PurchaseItemType[];
+}
+
 export interface getCategoryDataType {
   id: number;
   name: string;

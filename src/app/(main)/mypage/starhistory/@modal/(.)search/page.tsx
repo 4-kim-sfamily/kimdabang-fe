@@ -13,7 +13,7 @@ export default function Page() {
   const handleSubmit = () => {
     if (startDate && endDate && new Date(startDate) <= new Date(endDate)) {
       // URL에 기간 값을 설정
-      router.push(`/mypage/starhistory?start=${startDate}&end=${endDate}`);
+      router.push(`?start=${startDate}&end=${endDate}`);
       setModalOpen(false); // 조회 후 모달 닫기
     } else {
       alert("시작 날짜가 종료 날짜보다 이후일 수 없습니다.");
