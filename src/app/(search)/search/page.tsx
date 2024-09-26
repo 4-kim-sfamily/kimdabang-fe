@@ -4,7 +4,7 @@ import SearchBar from "@/components/ui/SearchBar";
 export default function page() {
   return (
     <div className="">
-      <SearchBar placeholder="검색어를 입력하세요" />
+      <SearchBar placeholder="원하시는 상품을 검색해보세요." />
       <SearchName />
     </div>
   );

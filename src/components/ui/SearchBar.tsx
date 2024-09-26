@@ -1,7 +1,7 @@
 "use client";
 
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import { X } from "lucide-react";
+import { ChevronLeft, ShoppingCart } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
@@ -23,26 +23,31 @@ export default function SearchBar({ placeholder }: { placeholder: string }) {
     } else {
       params.delete("query");
     }
-    // pathname --> 현재 주소 지금은 /dashboard/invoices
     router.replace(`${pathname}?${params.toString()}`);
   }, 300);
 
   return (
-    <div className="relative flex flex-1 flex-shrink-0  p-4">
-      <label htmlFor="search" className="sr-only">
-        Search
-      </label>
-      <input
-        className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-        placeholder={placeholder}
-        onChange={(e) => {
-          handleSearch(e.target.value);
-        }}
-        defaultValue={searchParams.get("query")?.toString()}
-      />
-      <MagnifyingGlassIcon className="absolute left-5 top-1/2 h-[1.5rem] w-[1.5rem] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
-      <button onClick={handleCloseClick}>
-        <X />
+    <div className="relative flex flex-1 flex-shrink-0 p-4 items-center">
+      <button className="mr-2" onClick={handleCloseClick}>
+        <ChevronLeft />
+      </button>
+
+      {/* input을 감싸는 컨테이너에 relative 적용 */}
+      <div className="relative  flex w-full items-center">
+        {/* 아이콘과 겹치지 않도록 오른쪽에 padding 추가 */}
+        <input
+          className="w-full py-3 pl-3 pr-10  text-sm rounded-xl  bg-gray-100 border-0  rounded-lg outline-none placeholder:text-gray-500"
+          placeholder={placeholder}
+          onChange={(e) => {
+            handleSearch(e.target.value);
+          }}
+          defaultValue={searchParams.get("query")?.toString()}
+        />
+        {/* 아이콘을 input 박스 내부 오른쪽에 배치 */}
+        <MagnifyingGlassIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 h-[1.5rem] w-[1.5rem] text-gray-500" />
+      </div>
+      <button className="pl-2">
+        <ShoppingCart />
       </button>
     </div>
   );
