@@ -25,7 +25,7 @@ export default async function page() {
       <header>
         <h1 className="text-2xl mb-4">내가 좋아요한 상품목록</h1>
       </header>
-      <div className="grid grid-cols-4 gap-4  px-4">
+      <div className="grid grid-cols-2 gap-4  px-4">
         {favoriteList.map((item, index) => (
           <ItemCard key={index} item={item} authStatus={auth} />
         ))}
