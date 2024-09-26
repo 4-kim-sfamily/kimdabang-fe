@@ -46,7 +46,7 @@ export default async function PurchaseItem({
             </ul>
           </div>
           <Link
-            href={`/mypage/review/${item.productCode}`} // 리뷰 작성 링크 수정
+            href={`/mypage/review/${item.productCode}?options=${item.options}`} // 리뷰 작성 링크 수정
             className="text-[0.8em] border-[1px] border-starbucks text-starbucks w-full py-1 text-center rounded font-extrabold"
           >
             리뷰 작성하기
