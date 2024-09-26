@@ -8,7 +8,6 @@ import ProductPurchaseBar from "@/components/layouts/ProductPurchaseBar";
 import dynamic from "next/dynamic";
 import ProductCustomerReview from "./ProductCustomerReview";
 import ProductHeader from "./ProductHeader";
-import SameCategoryProduct from "./SameCategoryProduct";
 
 export default async function ProductContainer({
   productCode,
@@ -38,7 +37,7 @@ export default async function ProductContainer({
       {/* <QnA /> */}
 
       {/* 추가 상품 리스트 필요 */}
-      <SameCategoryProduct authStatus={authStatus} />
+      {/* <SameCategoryProduct authStatus={authStatus} /> */}
 
       <ProductPurchaseBar
         productCode={productCode}
