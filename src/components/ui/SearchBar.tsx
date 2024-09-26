@@ -43,6 +43,10 @@ export default function SearchBar({
       }
     }
   };
+  const handleSearchClick = () => {
+    const term = searchParams.get("query")?.toString();
+    router.push(`/searchresult?query=${encodeURIComponent(term)}`);
+  };
 
   const handleFocus = () => {
     if (!visible) {
@@ -73,7 +77,9 @@ export default function SearchBar({
           defaultValue={searchParams.get("query")?.toString()}
         />
         {/* 아이콘을 input 박스 내부 오른쪽에 배치 */}
-        <MagnifyingGlassIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 h-[1.5rem] w-[1.5rem] text-gray-500" />
+        <button type="button" onClick={handleSearchClick}>
+          <MagnifyingGlassIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 h-[1.5rem] w-[1.5rem] text-gray-500" />
+        </button>
       </div>
       {visible && (
         <button
