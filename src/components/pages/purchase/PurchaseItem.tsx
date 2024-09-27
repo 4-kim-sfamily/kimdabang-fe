@@ -5,8 +5,10 @@ import Link from "next/link";
 
 export default async function PurchaseItem({
   item,
+  purchaseCode,
 }: {
   item: PurchaseItemType;
+  purchaseCode: number;
 }) {
   const info: ProductType = await getProductInfo(item.productCode);
   return (
@@ -34,7 +36,7 @@ export default async function PurchaseItem({
             </ul>
           </div>
           <Link
-            href={`/mypage/review/${item.productCode}?options=${item.options}`} // 리뷰 작성 링크 수정
+            href={`/mypage/review/${item.productCode}?purchaseCode=${purchaseCode}&options=${item.options}`} // 리뷰 작성 링크 수정
             className="text-[0.8em] border-[1px] border-starbucks text-starbucks w-full py-1 text-center rounded font-extrabold"
           >
             리뷰 작성하기

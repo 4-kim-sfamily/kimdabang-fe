@@ -62,7 +62,7 @@ export default async function EntireReview({
         ))}
       </ul>
       <Button variant="inversion" className="mx-auto   border-[0.1rem]">
-        <Link href={`${productCode}/detail`}>전체리뷰 보기</Link>
+        <Link href={`${productCode}/review`}>전체리뷰 보기</Link>
       </Button>
     </section>
   );

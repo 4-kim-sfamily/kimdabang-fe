@@ -1,12 +1,15 @@
-function page({ params }: { params: { reviewId: string } }) {
-  console.log(decodeURIComponent(params.reviewId));
-  // fetch review data
+import ReviewDetail from "@/components/pages/review/ReviewDetail";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Suspense } from "react";
+
+export default function Page() {
   return (
-    <section>
-      <p>review page </p>
-      {decodeURIComponent(params.reviewId)}
-    </section>
+    <main>
+      <Suspense
+        fallback={<Skeleton className="w-full h-[800px] bg-gray-200" />}
+      >
+        <ReviewDetail />
+      </Suspense>
+    </main>
   );
 }
-
-export default page;

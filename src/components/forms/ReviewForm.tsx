@@ -10,6 +10,8 @@ import StarRating from "../pages/review/StarRating";
 export default function ReviewForm({ productCode }: { productCode: string }) {
   const searchParams = useSearchParams();
   const options = searchParams.get("options");
+  const purchaseCodeParam = searchParams.get("purchaseCode");
+  const purchaseCode = parseInt(purchaseCodeParam);
   const [rating, setRating] = useState(0);
   const [text, setText] = useState("");
   const [mediaType, setMediaType] = useState("");
@@ -29,21 +31,24 @@ export default function ReviewForm({ productCode }: { productCode: string }) {
 
     const reviewData: ReviewData = {
       productCode,
+      purchaseCode,
       options,
       rating,
       text,
       mediaType,
       mediaURL,
     };
-
+    console.log(reviewData);
     setIsLoading(true);
     setSuccessMessage("");
     setErrorMessage("");
     const data = await postReview(reviewData);
-    if (data.status === "OK") {
+    if (data === "OK") {
       router.back();
+      console.log(data);
     }
-    console.log(data.status === "OK");
+    console.log(data === "OK");
+    console.log(data);
   };
 
   return (
