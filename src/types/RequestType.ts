@@ -42,6 +42,7 @@ export type checkoutRequestType = {
 
 export interface ReviewData {
   productCode: string;
+  purchaseCode: number;
   options: string;
   rating: number;
   text: string;

@@ -11,6 +11,7 @@ const nextConfig = {
       "simg.ssgcdn.com",
       "sitem.ssgcdn.com",
       "sui.ssgcdn.com",
+      "image.starbuckskorea.kr",
     ],
   },
 };

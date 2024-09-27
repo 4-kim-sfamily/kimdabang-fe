@@ -182,8 +182,19 @@ export interface getCategoryDataType {
   children: getCategoryDataType[];
 }
 
-export interface SearchResultType {
+export interface ReviewResType {
+  data: Review[];
+  nextPage: boolean;
+  nowPage: number;
+  total: number;
+}
+
+export interface Review {
+  reviewCode: number;
   productCode: string;
-  productName: string;
-  categoryId: number;
+  options: string;
+  creationDate: string;
+  rating: number;
+  text: string;
+  nickName: string;
 }
