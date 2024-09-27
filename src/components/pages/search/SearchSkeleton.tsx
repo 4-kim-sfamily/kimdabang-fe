@@ -1,5 +1,9 @@
-import React from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function SearchSkeleton() {
-  return <div>SearchSkeleton</div>;
+  return (
+    <div>
+      <Skeleton></Skeleton>
+    </div>
+  );
 }

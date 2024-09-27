@@ -1,8 +1,9 @@
+import { getItemCardInfo } from "@/actions/getItemCardInfo";
 import { getCategoryList } from "@/actions/main/category";
+import { getSeasonProduct } from "@/actions/product/getSeasonProduct";
 import ItemCard from "@/components/Items/ItemCard";
 import ButtonGroup from "@/components/ui/ButtonGroup";
 import MainTitle from "@/components/ui/mainTitle";
-import { ItemCardType } from "@/types/items/ItemCard";
 import { CategoryType } from "@/types/main/AllCategoryDataType";
 import { OptionContextprovider } from "../../../context/OptionContext";
 export default async function MainBestItem({
@@ -10,10 +11,10 @@ export default async function MainBestItem({
 }: {
   authStatus: boolean;
 }) {
-  const res = await fetch(`${process.env.JSONSERVER_URL}/BestTumblr`, {
-    cache: "force-cache",
-  });
-  const BestTumblr: ItemCardType[] = await res.json();
+  const bestTumblrCode = await getSeasonProduct("2");
+  const resultCardInfoList = await Promise.all(
+    bestTumblrCode.map((item) => getItemCardInfo(item)),
+  );
   const CategoryData: CategoryType[] = await getCategoryList();
 
   return (
@@ -26,7 +27,7 @@ export default async function MainBestItem({
         <ButtonGroup CategoryData={CategoryData} />
       </OptionContextprovider>
       <div className="grid grid-cols-2 gap-4 justify-center w-[100%] py-3 md:grid-cols-4">
-        {BestTumblr.map((item) => (
+        {resultCardInfoList.map((item) => (
           <ItemCard
             key={item.productCode}
             item={item}

@@ -224,3 +224,10 @@ body {
 .pay-info > div {
   @apply flex justify-between;
 }
+
+.headerNavBar {
+  -ms-overflow-style: none;
+}
+.headerNavBar::-webkit-scrollbar {
+  display: none;
+}

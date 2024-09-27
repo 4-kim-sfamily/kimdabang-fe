@@ -1,5 +1,6 @@
 "use client";
 import { putFavorite } from "@/actions/favorite/putFavorite";
+import { useSession } from "@/context/SessionContext";
 import { useEffect, useState } from "react";
 
 export default function ItemHearts({
@@ -10,8 +11,10 @@ export default function ItemHearts({
   authStatus: boolean;
 }) {
   const [isLiked, setIsLiked] = useState(false); // 로컬 상태로 관리
+  // useSession() 불러서 처리
+  const auth = useSession();
   useEffect(() => {
-    if (authStatus) {
+    if (auth) {
       const fetchData = async () => {
         const res = await fetch(`/api/favorite/${productCode}`);
         const data = await res.json();

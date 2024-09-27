@@ -14,6 +14,7 @@ export default async function Header() {
           </li>
           <li>
             <Link href="/">
+              <h1 className="text-[0px]">Starbucks</h1>
               <StarbucksLogo />
             </Link>
           </li>

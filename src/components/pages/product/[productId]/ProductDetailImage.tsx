@@ -4,11 +4,11 @@ export default function ProductDetailImage({
   productContent: string;
 }) {
   return (
-    <div className="flex flex-col">
+    <section className="flex flex-col">
       <div
         className="mx-auto custom-product-content"
         dangerouslySetInnerHTML={{ __html: productContent }}
       />
-    </div>
+    </section>
   );
 }
