@@ -10,6 +10,7 @@ export default function Pagenation({
   currentPage: number;
   setCurrentPage: (page: number) => void;
 }) {
+  console.log(lastPage, currentPage);
   const [pageList, setPageList] = React.useState(1); // 초기값을 1로 설정
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {

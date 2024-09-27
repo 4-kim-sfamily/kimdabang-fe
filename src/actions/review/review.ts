@@ -36,8 +36,10 @@ export const getReviewList = async ({
   size: number;
 }): Promise<ReviewResType> => {
   const response = await fetchData<commonResType<ReviewResType>>(
-    `/api/v1/review/get-reviwelist?productCode=${productCode}&page=${page}&size=5`,
+    `/api/v1/review/get-reviwelist?productCode=${productCode}&page=${page}&size=${size ? size : 5}`,
     "GET",
+    "",
+    "force-cache",
   );
   console.log(response.data);
   return response.data;
@@ -52,8 +54,10 @@ export const getReviewMedia = async (
 ): Promise<reviewMediaType> => {
   try {
     const response = await fetchData<commonResType<reviewMediaType>>(
-      `/api/v1/review/get-reviewmedia?reviewCode=20240927762522624`,
+      `/api/v1/review/get-reviewmedia?reviewCode=${reviewCode}`,
       "GET",
+      "",
+      "force-cache",
     );
     return response.data; // 성공 시 데이터 반환
   } catch (error: any) {

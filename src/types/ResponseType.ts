@@ -186,7 +186,7 @@ export interface ReviewResType {
   data: Review[];
   nextPage: boolean;
   nowPage: number;
-  total: number;
+  totalPage: number;
 }
 
 export interface Review {

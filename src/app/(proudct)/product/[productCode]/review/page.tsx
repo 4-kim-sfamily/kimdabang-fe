@@ -7,7 +7,7 @@ export default async function page({
 }) {
   return (
     <main>
-      {params.productCode && <ReviewSection productCode={params.productCode} />}
+      <ReviewSection productCode={params.productCode} />
     </main>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 import { getReview, getReviewMedia } from "@/actions/review/review";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Review } from "@/types/ResponseType";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -27,7 +26,7 @@ export default function ReviewDetail() {
     fetchMediaData();
   }, []);
   return (
-    <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg border-1px border-gray-200">
+    <main className="w-[100vw] mx-5 p-6 bg-white rounded-lg border-1px border-gray-200">
       {review && (
         <div className="flex flex-col items-start gap-2">
           <ul className="flex items-end gap-3">
@@ -41,7 +40,7 @@ export default function ReviewDetail() {
           <div className="text-sm text-gray-500 ">{review.options}</div>
           <ReviewStarRating rating={review.rating} />
           <div className="w-90% mx-auto">
-            {media ? (
+            {media && (
               <Image
                 src={media}
                 alt={review.productCode}
@@ -49,8 +48,6 @@ export default function ReviewDetail() {
                 height={500}
                 priority
               />
-            ) : (
-              <Skeleton className="w-full h-[200px]" />
             )}
           </div>
           <textarea className="text-lg text-gray-700 my-4 w-full">

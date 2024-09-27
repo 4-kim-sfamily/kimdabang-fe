@@ -1,5 +1,4 @@
 import EntireReview from "./EntireReview";
-import PhotoMediaReview from "./PhotoMediaReview";
 import ProductRate from "./ProductRate";
 
 export default function ProductCustomerReview({
@@ -8,11 +7,11 @@ export default function ProductCustomerReview({
   productCode: string;
 }) {
   return (
-    <section>
+    <section className="px-4">
       <h2 className="font-extrabold text-xl my-5 mx-3"> 고객리뷰</h2>
       <ProductRate productCode={productCode}></ProductRate>
       {/* <RateViewer rateData={2.3}></RateViewer> */}
-      <PhotoMediaReview productCode={productCode} />
+      {/* <PhotoMediaReview productCode={productCode} /> */}
       <EntireReview productCode={productCode} />
     </section>
   );

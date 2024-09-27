@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function ReviewMedia({ reviewCode }: { reviewCode: number }) {
-  const [imgData, setImgData] = useState("");
+  const [img, setImgData] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       const imgData = await getReviewMedia(reviewCode.toString());
@@ -15,10 +15,10 @@ export default function ReviewMedia({ reviewCode }: { reviewCode: number }) {
 
   return (
     <div>
-      {imgData && (
+      {img && (
         <div className="w-20 h-20">
           <Image
-            src={imgData}
+            src={img}
             alt={`${reviewCode}의 이미지`}
             width={500}
             height={500}
