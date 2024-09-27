@@ -9,7 +9,7 @@ export interface SeasonType {
 
 export interface SeasonMediaType {
   id: number;
-  seasonid: string;
+  seasonId: string;
   mediaURL: string;
   imageName: string;
   mediaType: string;

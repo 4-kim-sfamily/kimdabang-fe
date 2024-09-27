@@ -5,6 +5,7 @@ import { SeasonMediaType } from "@/types/main/CarouselDataType";
 import EventModal from "./modal";
 export default async function Page({ params }: { params: { id: string } }) {
   const carouselData: SeasonMediaType[] = await getSeasonMedia();
+  console.log("캐러셀 데이터 뭐찍히나요? ", carouselData);
   return (
     <EventModal>
       <main className="w-full">
