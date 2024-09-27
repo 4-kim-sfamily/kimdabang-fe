@@ -39,3 +39,12 @@ export type checkoutRequestType = {
     price: number;
   }[]; // 튜플에서 일반 배열로 변경
 };
+
+export interface ReviewData {
+  productCode: string;
+  options: string;
+  rating: number;
+  text: string;
+  mediaType: string;
+  mediaURL: string;
+}

@@ -181,3 +181,9 @@ export interface getCategoryDataType {
   depth: number;
   children: getCategoryDataType[];
 }
+
+export interface SearchResultType {
+  productCode: string;
+  productName: string;
+  categoryId: number;
+}

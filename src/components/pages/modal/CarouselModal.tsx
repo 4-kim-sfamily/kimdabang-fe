@@ -1,6 +1,7 @@
 "use client";
 import { SeasonMediaType } from "@/types/main/CarouselDataType";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 export default function CarouselModal({
@@ -11,6 +12,7 @@ export default function CarouselModal({
   id: string;
 }) {
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const router = useRouter();
   useEffect(() => {
     if (carouselData.length > 0 && id) {
       const timer = setTimeout(() => {
@@ -26,12 +28,13 @@ export default function CarouselModal({
       return () => clearTimeout(timer);
     }
   }, [carouselData, id]);
+
   return (
     <section>
       {carouselData?.map((item: SeasonMediaType, index) => (
         <div
           key={item.id}
-          className="relative w-full aspect-[13/10] "
+          className="relative w-full aspect-[13/10]"
           ref={(el) => {
             if (el) {
               imageRefs.current[index - 1] = el;
@@ -39,6 +42,7 @@ export default function CarouselModal({
           }}
         >
           <Image
+            onClick={() => router.push(`/season/${item.seasonId}`)}
             src={item.mediaURL}
             alt="item"
             fill

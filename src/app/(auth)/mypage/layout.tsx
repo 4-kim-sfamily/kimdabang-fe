@@ -11,14 +11,14 @@ function Layout({ children }: { children: React.ReactNode }) {
       return "쿠폰함";
     } else if (pathname.startsWith("/mypage/purchase-history")) {
       return "주문내역 조회";
-    }
-    return "마이페이지"; // 기본 title
+    } else if (pathname.startsWith("/mypage/review")) return "리뷰 작성하기";
+    else return "마이페이지";
   };
 
   return (
     <>
       <MypageHeader title={getTitle()} />
-      <main className="">{children}</main>
+      {children}
     </>
   );
 }
