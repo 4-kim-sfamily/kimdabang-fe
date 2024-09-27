@@ -1,4 +1,3 @@
-import { getItemCardInfo } from "@/actions/getItemCardInfo";
 import { getSeasonMediaById } from "@/actions/main/season";
 import { getSeasonProduct } from "@/actions/product/getSeasonProduct";
 import ItemCard from "@/components/Items/ItemCard";
@@ -10,9 +9,7 @@ export default async function page({
 }) {
   const seasonMedia = await getSeasonMediaById(Number(params.seasonId));
   const seasonProductList = await getSeasonProduct(params.seasonId);
-  const resultCardInfoList = await Promise.all(
-    seasonProductList.map((item) => getItemCardInfo(item)),
-  );
+
   return (
     <>
       <div className="w-full overflow-hidden mb-4">
@@ -25,13 +22,11 @@ export default async function page({
           priority
         ></Image>
       </div>
-      <ul className="grid grid-cols-2 gap-4 px-4">
-        {resultCardInfoList.map((item, index) => (
-          <li>
-            <ItemCard key={index} item={item} authStatus={false} />
-          </li>
+      <div className="grid grid-cols-2 gap-4 px-4">
+        {seasonProductList.map((item, index) => (
+          <ItemCard key={index} productCode={item} authStatus={false} />
         ))}
-      </ul>
+      </div>
     </>
   );
 }

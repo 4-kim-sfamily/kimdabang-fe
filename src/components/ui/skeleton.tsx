@@ -31,7 +31,7 @@ export function ItemCardSkeleton() {
       {/* Category and Icons Skeleton */}
       <div className="flex justify-between pt-1">
         <Skeleton className="h-4 w-24 bg-gray-300" />
-        <div className="flex gap-2">
+        <div className="flex gap-1">
           <Skeleton className="h-6 w-6 rounded-md bg-gray-300" />
           <Skeleton className="h-6 w-6 rounded-md bg-gray-300" />
         </div>
@@ -43,5 +43,19 @@ export function ItemCardSkeleton() {
       {/* Price Skeleton */}
       <Skeleton className="h-5 w-20 bg-gray-300 mt-1" />
     </li>
+  );
+}
+// Skeleton.tsx (스켈레톤 컴포넌트)
+export default function MainSkeleton() {
+  return (
+    <div className="animate-pulse flex flex-col space-y-2 mb-2">
+      {/* 이미지 부분 스켈레톤 */}
+      <div className="bg-gray-300 h-40 w-full rounded-lg" />
+      {/* 텍스트 부분 스켈레톤 */}
+      <div className="space-y-2">
+        <div className="bg-gray-300 h-4 w-3/4 rounded" />
+        <div className="bg-gray-300 h-4 w-1/2 rounded" />
+      </div>
+    </div>
   );
 }

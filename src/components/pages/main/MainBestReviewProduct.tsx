@@ -1,4 +1,6 @@
-import { ItemCardType } from "@/types/items/ItemCard";
+import { getBestProduct } from "@/actions/main/getBestProduct";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Suspense } from "react";
 import ReviewItemCard from "../../Items/ReviewItemCard";
 import MainTitle from "../../ui/mainTitle";
 
@@ -7,10 +9,9 @@ export default async function MainBestReviewProduct({
 }: {
   authStatus: boolean;
 }) {
-  const res = await fetch(`${process.env.JSONSERVER_URL}/ReviewBest`, {
-    cache: "force-cache",
-  });
-  const ReviewBest: ItemCardType[] = await res.json();
+  // 여기도 있다가 바꿔야 될거
+  const reviewBestData = await getBestProduct(0);
+  const reviewBestProductCode = reviewBestData.data;
   return (
     <section>
       <MainTitle
@@ -18,12 +19,14 @@ export default async function MainBestReviewProduct({
         description="베스트 리뷰 상품들을 만나보세요"
       />
       <ul className="flex overflow-x-auto whitespace-nowrap scroll-item gap-4 py-3 mb-8]">
-        {ReviewBest.map((item) => (
-          <ReviewItemCard
-            key={item.productCode}
-            item={item}
-            authStatus={authStatus}
-          />
+        {reviewBestProductCode.map((item, index) => (
+          <Suspense fallback={<Skeleton />}>
+            <ReviewItemCard
+              key={index}
+              authStatus={authStatus}
+              productCode={item.productCode}
+            />
+          </Suspense>
         ))}
       </ul>
     </section>

@@ -6,7 +6,7 @@ export const getCategoryName = async (categoryId: string): Promise<string> => {
     `/api/v1/category/get-category?id=${categoryId}`,
     "GET",
     "",
-    "force-cache",
+    "no-cache",
   );
   return data.data.name;
 };

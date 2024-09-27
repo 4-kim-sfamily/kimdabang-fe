@@ -1,24 +1,26 @@
 import Image from "next/image";
 
-import { ItemCardType } from "@/types/items/ItemCard";
-
 import Cart from "../icons/Cart";
 
+import { getProductInfo } from "@/actions/getProductInfo";
+import { getCategoryName } from "@/actions/product/getCategoryName";
 import ItemHearts from "../icons/ItemHearts";
 import ReviewPreview from "./ReviewPreview";
 
 export default async function ReviewItemCard({
-  item,
+  productCode,
   authStatus,
 }: {
-  item: ItemCardType;
+  productCode: string;
   authStatus: boolean;
 }) {
+  const item = await getProductInfo(productCode);
+  const categoryName = await getCategoryName(item.categoryId.toString());
   return (
     <li className="w-[100%] border-slate-950 flex justify-start">
       <div className="relative w-[112px] aspect-square">
         <Image
-          src={item.productImageUrl}
+          src={item.description}
           alt={item.productName}
           fill
           style={{ objectFit: "cover" }}
@@ -26,7 +28,7 @@ export default async function ReviewItemCard({
       </div>
       <div className="flex flex-col px-4">
         <div className="flex justify-between ">
-          <p className="text-[#777777] text-[12px] pt-1 ">{item.categoryId}</p>
+          <p className="text-[#777777] text-[12px] pt-1 ">{categoryName}</p>
           <div className="flex gap-2">
             <ItemHearts
               productCode={item.productCode}

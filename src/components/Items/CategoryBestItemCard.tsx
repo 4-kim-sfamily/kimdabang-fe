@@ -1,19 +1,51 @@
+"use client";
+
 import { getItemCardInfo } from "@/actions/getItemCardInfo";
 import { getCategoryName } from "@/actions/product/getCategoryName";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import Cart from "../icons/Cart";
 import ItemHearts from "../icons/ItemHearts";
+import MainSkeleton from "../ui/skeleton";
 
-export default async function ItemCard({
+export default function CategoryBestItemCard({
   productCode,
   authStatus,
 }: {
   productCode: string;
   authStatus: boolean;
 }) {
-  const cardItem = await getItemCardInfo(productCode);
-  const categoryName = await getCategoryName(cardItem.categoryId);
+  const [cardItem, setCardItem] = useState<any>(null);
+  const [categoryName, setCategoryName] = useState<string>("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const itemData = await getItemCardInfo(productCode);
+        setCardItem(itemData);
+        const category = await getCategoryName(itemData.categoryId);
+        setCategoryName(category);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching item card data:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [productCode]);
+
+  if (loading) {
+    // 로딩 중일 때 Skeleton을 CategoryBestItemCard 크기만큼 표시
+    return <MainSkeleton />; // 한 개의 스켈레톤만 렌더링
+  }
+
+  if (!cardItem) {
+    return <p>Failed to load item data.</p>; // 에러 처리
+  }
+
   return (
     <section className="w-[100%] border-slate-950 flex flex-col justify-start">
       <Link href={`/product/${productCode}`}>
@@ -40,7 +72,6 @@ export default async function ItemCard({
         {cardItem.productPrice}
         {" 원"}
       </p>
-      {/* <ReviewPreview productCode={item.productCode} visible={false} /> */}
     </section>
   );
 }
