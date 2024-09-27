@@ -12,9 +12,11 @@ export const getSeasonMedia = async (): Promise<SeasonMediaType[]> => {
   return data.data;
 };
 
-export const getSeasonMediaById = async (id: string): Promise<any> => {
-  const data = await fetchData<commonResType<any>>(
-    `/api/v1/season/${id}`,
+export const getSeasonMediaById = async (
+  id: number,
+): Promise<SeasonMediaType> => {
+  const data = await fetchData<commonResType<SeasonMediaType>>(
+    `/api/v1/season-media-list/${id + 22}`,
     "GET",
     "",
     "force-cache",
