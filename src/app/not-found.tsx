@@ -23,7 +23,7 @@ export default function notFound() {
         <strong>다시 한번 확인해보시기 바랍니다.</strong>
       </p>
       <Link href="/">
-        <Button variant="starbucks" size="free" className="mt-10 py-4">
+        <Button variant="starbucks" size="free" className="mt-10 py">
           메인 페이지로 이동
         </Button>
       </Link>
