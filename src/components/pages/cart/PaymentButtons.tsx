@@ -13,7 +13,11 @@ export default function PaymentButtons({
   const isDisabled = count === 0 ? true : false;
   const router = useRouter();
   const handlePurchaseButton = () => {
-    router.push(`/checkout?type=cart&addressId=${id}`);
+    if (id) {
+      router.push(`/checkout?type=cart&addressId=${id}`);
+    } else {
+      router.push(`/checkout?type=cart`);
+    }
   };
   return (
     <div className="flex justify-between">
