@@ -4,6 +4,7 @@ import Cart from "../icons/Cart";
 
 import { getProductInfo } from "@/actions/getProductInfo";
 import { getCategoryName } from "@/actions/product/getCategoryName";
+import Link from "next/link";
 import ItemHearts from "../icons/ItemHearts";
 import ReviewPreview from "./ReviewPreview";
 
@@ -19,12 +20,14 @@ export default async function ReviewItemCard({
   return (
     <li className="w-[100%] border-slate-950 flex justify-start">
       <div className="relative w-[112px] aspect-square">
-        <Image
-          src={item.description}
-          alt={item.productName}
-          fill
-          style={{ objectFit: "cover" }}
-        />
+        <Link href={`/product/${productCode}`}>
+          <Image
+            src={item.description}
+            alt={item.productName}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </Link>
       </div>
       <div className="flex flex-col px-4">
         <div className="flex justify-between ">

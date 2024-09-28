@@ -8,6 +8,7 @@ import {
 import { SeasonMediaType } from "@/types/main/CarouselDataType";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { PlayCarousel } from "../icons/Index";
@@ -62,7 +63,7 @@ export default function MainCarousel({
               className="relative w-[100vw] aspect-[13/10]"
               key={item.id}
             >
-              <div onClick={() => router.push(`/season/${item.seasonId}`)}>
+              <Link href={`season/${item.seasonId}`}>
                 <Image
                   src={item.mediaURL}
                   alt={item.imageName}
@@ -70,7 +71,7 @@ export default function MainCarousel({
                   style={{ objectFit: "cover" }}
                   className="p-0 w-full"
                 />
-              </div>
+              </Link>
             </CarouselItem>
           ))}
         </CarouselContent>
