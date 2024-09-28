@@ -24,8 +24,8 @@ export default async function ReviewItemCard({
           <Image
             src={item.description}
             alt={item.productName}
-            fill
-            style={{ objectFit: "cover" }}
+            width={500}
+            height={500}
           />
         </Link>
       </div>

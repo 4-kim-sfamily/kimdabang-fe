@@ -23,8 +23,9 @@ export default async function GiftItemCard({
           <Image
             src={item.description}
             alt={item.productName}
-            fill
-            style={{ objectFit: "cover" }}
+            width={500}
+            height={500}
+            priority
           />
         </Link>
       </div>

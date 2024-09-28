@@ -7,7 +7,8 @@ export default function SeasonCard({ item }: { item: SeasonMediaType }) {
         <Image
           src={item.mediaURL}
           alt={item.imageName}
-          fill
+          width={500}
+          height={500}
           style={{ objectFit: "cover" }}
         />
       </div>
