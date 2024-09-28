@@ -35,6 +35,5 @@ export const getCategoryBestProduct = async (
     "",
     "no-store",
   );
-  console.log(data.data);
   return data.data;
 };

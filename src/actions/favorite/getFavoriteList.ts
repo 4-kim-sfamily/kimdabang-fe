@@ -1,8 +1,12 @@
-import { commonResType, FavoriteType } from "@/types/ResponseType";
+import { commonResType } from "@/types/ResponseType";
 import { fetchData } from "../common/common";
 
-export const getFavoriteList = async (): Promise<FavoriteType[]> => {
-  const data = await fetchData<commonResType<FavoriteType[]>>(
+interface favoriteType {
+  productCode: string;
+}
+
+export const getFavoriteList = async (): Promise<favoriteType[]> => {
+  const data = await fetchData<commonResType<favoriteType[]>>(
     "/api/v1/favorite/list",
     "GET",
     "",

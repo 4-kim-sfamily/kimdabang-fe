@@ -7,11 +7,9 @@ export default async function page({
 }: {
   params: { purchaseCode: number };
 }) {
-  console.log(params.purchaseCode);
   const data: PurchaseDetailType = await getMyPurchase({
     purchaseCode: params.purchaseCode,
   });
-  console.log(data);
   return (
     <main>
       <div className="border-b-8 border-[#b9b9b957] p-4">
@@ -24,7 +22,11 @@ export default async function page({
 
       <div className="border-b-8 border-[#b9b9b957] p-4">
         {data.itemList.map((item) => (
-          <PurchaseItem item={item} key={item.productCode} />
+          <PurchaseItem
+            item={item}
+            key={item.productCode}
+            purchaseCode={data.purchaseCode}
+          />
         ))}
       </div>
       <section className="px-4 py-3">

@@ -53,12 +53,7 @@ export interface StarHistoryType {
   description: string;
 }
 
-export interface FavoriteType {
-  productCode: string;
-}
-
 export interface ProductType {
-  id: number;
   productCode: string;
   productName: string;
   description: string;

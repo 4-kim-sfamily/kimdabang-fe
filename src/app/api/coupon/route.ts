@@ -7,6 +7,5 @@ export async function GET(
   { params }: { params: { productCode: string } },
 ) {
   const data = await getMyCoupon();
-  console.log(data);
   return NextResponse.json({ data: data });
 }

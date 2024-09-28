@@ -32,7 +32,7 @@
 
 @layer components {
   .bottom-nav {
-    @apply flex border-t border-slate-200 bg-white pt-1 px-2 fixed -bottom-0.5 left-0 w-full;
+    @apply flex border-t border-slate-200 bg-white py-3 px-2 fixed -bottom-0.5 left-0 w-full;
   }
 
   .bottom-nav-list {
