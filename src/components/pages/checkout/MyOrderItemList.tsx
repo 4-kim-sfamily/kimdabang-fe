@@ -1,3 +1,4 @@
+import { getProductCodeInfo } from "@/actions/productOption/getProductOption";
 import { cartList } from "@/types/items/Cart";
 import { ProductType } from "@/types/ResponseType";
 import Image from "next/image"; // or 'react-bootstrap/Image'
@@ -22,6 +23,27 @@ export default async function MyOrderItemList({
   } else {
     console.log("둘다 없음");
   }
+  let optionData = "";
+  if (optionId && optionId != "0") {
+    optionData = await getProductCodeInfo(productData.productCode, optionId);
+  }
+
+  let optionDataList = [];
+  if (cartlist) {
+    optionDataList = await Promise.all(
+      cartlist.map(async (item) => {
+        let optionData = "";
+        if (item.productOptionId != 0) {
+          optionData = await getProductCodeInfo(
+            item.productCode,
+            item.productOptionId.toString(),
+          );
+        }
+        return optionData;
+      }),
+    );
+  }
+
   return (
     <div className="mt-2">
       {productData && optionId ? (
@@ -38,7 +60,7 @@ export default async function MyOrderItemList({
             <div className="flex flex-col">
               <p>{`${productData.productName}`}</p>
               <p>
-                {`${optionId}`} {`${amount}개`}
+                {`${optionData}`} {`${amount}개`}
               </p>
             </div>
           </div>
@@ -64,7 +86,7 @@ export default async function MyOrderItemList({
                 />
                 <div className="flex flex-col">
                   <p>{`${item.productName}`}</p>
-                  <p>{`${cartlist[index].productOptionId} ${cartlist[index].amount}개`}</p>
+                  <p>{`${optionDataList[index]} ${cartlist[index].amount}개`}</p>
                 </div>
               </div>
               <p>가격 : {`${item.productPrice}`}원</p>
