@@ -27,7 +27,7 @@ export default function PurchaseList({
             </Link>
           </div>
           {Order.itemList.map((item) => (
-            <PurchaseItem item={item} />
+            <PurchaseItem item={item} purchaseCode={Order.purchaseCode} />
           ))}
         </section>
       ))}
