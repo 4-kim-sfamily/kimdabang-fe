@@ -57,13 +57,12 @@ export default async function MyOrderItemList({
               height={90}
               className="rounded-xl"
             />
-            <ul>
-              <li className="w-full">{`${productData.productName}`}</li>
-              <li className="flex justify-between">
-                <p>{`${optionId} ${amount}개`}</p>
-                <p>{`${productData.productPrice.toLocaleString("ko-KR")}`}원</p>
-              </li>
-            </ul>
+            <div className="flex flex-col">
+              <p>{`${productData.productName}`}</p>
+              <p>
+                {`${optionId}`} {`${amount}개`}
+              </p>
+            </div>
           </div>
         </div>
       ) : productDataList ? (
@@ -82,15 +81,10 @@ export default async function MyOrderItemList({
                   height={90}
                   className="rounded-xl"
                 />
-                <ul>
-                  <li className="w-full font-extrabold">{`${item.productName}`}</li>
-                  <li className="flex justify-between">
-                    <p>{`${cartlist[index].productOptionId} ${cartlist[index].amount}개`}</p>
-                    <p className="font-extrabold">
-                      {`${item.productPrice.toLocaleString("ko-KR")}`}원
-                    </p>
-                  </li>
-                </ul>
+                <div className="flex flex-col">
+                  <p>{`${item.productName}`}</p>
+                  <p>{`${cartlist[index].productOptionId} ${cartlist[index].amount}개`}</p>
+                </div>
               </div>
             </div>
           ))}
