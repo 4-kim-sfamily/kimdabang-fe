@@ -1,9 +1,9 @@
 import { options } from "@/app/api/auth/[...nextauth]/options";
-import { Gift, Menu, User } from "lucide-react";
+import { Gift, House, Menu, User } from "lucide-react";
 import { getServerSession } from "next-auth/next";
 import Image from "next/image";
 import Link from "next/link";
-import { Home, MyPage, RecentGood } from "../icons/Index";
+import { RecentGood } from "../icons/Index";
 
 export default async function BottomNavBar() {
   let recentImage = null;
@@ -50,7 +50,7 @@ export default async function BottomNavBar() {
         <li className="bottom-nav-item">
           <Link href="/">
             <button className="bottom-nav-button">
-              <Home />
+              <House />
               <span className="bottom-nav-span">홈</span>
             </button>
           </Link>
@@ -59,7 +59,7 @@ export default async function BottomNavBar() {
           {islogin ? (
             <Link href="/mypage">
               <button className="bottom-nav-button">
-                <MyPage />
+                <User />
                 <span className="bottom-nav-span">MY</span>
               </button>
             </Link>

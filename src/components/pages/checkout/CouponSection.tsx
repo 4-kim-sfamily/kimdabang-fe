@@ -17,29 +17,34 @@ export default function CouponSection() {
       </p>
       <section className="flex flex-col">
         {selectedCoupon ? (
-          <section
+          <span
             key={selectedCoupon.couponId}
-            className="flex justify-between items-center gap-5 p-3"
+            className="flex justify-between items-center p-3"
           >
-            <CouponImg />
-            <div className="flex flex-col">
-              <p className="text-[12px]">
-                {selectedCoupon.couponInfo.couponType}
-              </p>
-              <p className="font-extrabold">{selectedCoupon.couponInfo.name}</p>
-              <p className="text-[11px]">
-                {new Date(
-                  selectedCoupon.couponInfo.expiredDate,
-                ).toLocaleDateString()}{" "}
-                까지
-              </p>
+            <div className="flex gap-3 items-center">
+              <CouponImg />
+              <div className="flex flex-col">
+                <p className="text-[12px]">
+                  {selectedCoupon.couponInfo.couponType}
+                </p>
+                <p className="font-extrabold">
+                  {selectedCoupon.couponInfo.name}
+                </p>
+                <p className="text-[11px]">
+                  {new Date(
+                    selectedCoupon.couponInfo.expiredDate,
+                  ).toLocaleDateString()}
+                  까지
+                </p>
+              </div>
             </div>
-            <Link href="checkout/coupon">
-              <Button variant="starbucks" size="free" className="mx-auto">
-                쿠폰변경하기
-              </Button>
+            <Link
+              href="checkout/coupon"
+              className="border-[1px] border-starbucks p-1 text-starbucks text-sm min-w-[85px]"
+            >
+              쿠폰 변경하기
             </Link>
-          </section>
+          </span>
         ) : (
           <>
             <Link href="checkout/coupon">

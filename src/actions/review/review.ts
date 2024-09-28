@@ -1,6 +1,7 @@
 "use server";
 import { ReviewData } from "@/types/RequestType";
 import { commonResType, Review, ReviewResType } from "@/types/ResponseType";
+import { revalidateTag } from "next/cache";
 import { fetchData } from "../common/common";
 
 interface MediaResponse {
@@ -13,7 +14,9 @@ export const postReviewMedia = async (
     "/api/v1/review/uplode",
     "POST",
     file,
+    "default",
   );
+  revalidateTag("review");
   return response;
 };
 
@@ -72,4 +75,17 @@ export const getReview = async (reviewCode: number): Promise<Review> => {
     "GET",
   );
   return response.data;
+};
+
+export const getReviewAvailable = async (
+  productCode: string,
+): Promise<boolean> => {
+  const data = await fetchData<commonResType<boolean>>(
+    `/api/v1/review/check-reviewavailable?productCode=${productCode}`,
+    "GET",
+    "",
+    "no-cache",
+    "review",
+  );
+  return data.data;
 };

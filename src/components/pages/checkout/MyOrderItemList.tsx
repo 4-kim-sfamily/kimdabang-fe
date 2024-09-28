@@ -1,7 +1,7 @@
 import { getProductCodeInfo } from "@/actions/productOption/getProductOption";
 import { cartList } from "@/types/items/Cart";
 import { ProductType } from "@/types/ResponseType";
-import Image from "next/image"; // or 'react-bootstrap/Image'
+import Image from "next/image";
 
 export default async function MyOrderItemList({
   productData,
@@ -57,12 +57,13 @@ export default async function MyOrderItemList({
               height={90}
               className="rounded-xl"
             />
-            <div className="flex flex-col">
-              <p>{`${productData.productName}`}</p>
-              <p>
-                {`${optionData}`} {`${amount}개`}
-              </p>
-            </div>
+            <ul>
+              <li className="w-full">{`${productData.productName}`}</li>
+              <li className="flex justify-between">
+                <p>{`${optionData} ${amount}개`}</p>
+                <p>{`${productData.productPrice.toLocaleString("ko-KR")}`}원</p>
+              </li>
+            </ul>
           </div>
         </div>
       ) : productDataList ? (
@@ -81,10 +82,15 @@ export default async function MyOrderItemList({
                   height={90}
                   className="rounded-xl"
                 />
-                <div className="flex flex-col">
-                  <p>{`${item.productName}`}</p>
-                  <p>{`${optionDataList[index]} ${cartlist[index].amount}개`}</p>
-                </div>
+                <ul>
+                  <li className="w-full font-extrabold">{`${item.productName}`}</li>
+                  <li className="flex justify-between">
+                    <p>{`${optionDataList[index]} ${cartlist[index].amount}개`}</p>
+                    <p className="font-extrabold">
+                      {`${item.productPrice.toLocaleString("ko-KR")}`}원
+                    </p>
+                  </li>
+                </ul>
               </div>
             </div>
           ))}
