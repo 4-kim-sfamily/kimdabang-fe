@@ -54,6 +54,7 @@ export async function getCheckedCartItem() {
     "GET",
     "",
     "reload",
+    "changeCartState",
   );
   return data.data;
 }

@@ -15,10 +15,6 @@ export default async function MyOrderItemList({
   cartlist?: cartList[];
   amount?: number;
 }) {
-  if (productData) {
-  } else if (productDataList) {
-  } else {
-  }
   return (
     <div className="mt-2">
       {productData && optionId ? (
@@ -28,20 +24,18 @@ export default async function MyOrderItemList({
             <Image
               src={`${productData.description}`}
               alt={`${productData.productName}`}
-              width={50}
-              height={50}
+              width={90}
+              height={90}
               className="rounded-xl"
             />
-            <div className="flex flex-col">
-              <p>{`${productData.productName}`}</p>
-              <p>
-                {`${optionId}`} {`${amount}개`}
-              </p>
-            </div>
+            <ul>
+              <li className="w-full">{`${productData.productName}`}</li>
+              <li className="flex justify-between">
+                <p>{`${optionId} ${amount}개`}</p>
+                <p>{`${productData.productPrice.toLocaleString("ko-KR")}`}원</p>
+              </li>
+            </ul>
           </div>
-          <p className="whitespace-nowrap">
-            가격 : {`${productData.productPrice.toLocaleString("ko-KR")}`}원
-          </p>
         </div>
       ) : productDataList ? (
         // 리스트로 여러 제품 데이터가 있을 경우
@@ -55,16 +49,20 @@ export default async function MyOrderItemList({
                 <Image
                   src={`${item.description}`}
                   alt={`${item.productName}`}
-                  width={50}
-                  height={50}
+                  width={90}
+                  height={90}
                   className="rounded-xl"
                 />
-                <div className="flex flex-col">
-                  <p>{`${item.productName}`}</p>
-                  <p>{`${cartlist[index].productOptionId} ${cartlist[index].amount}개`}</p>
-                </div>
+                <ul>
+                  <li className="w-full font-extrabold">{`${item.productName}`}</li>
+                  <li className="flex justify-between">
+                    <p>{`${cartlist[index].productOptionId} ${cartlist[index].amount}개`}</p>
+                    <p className="font-extrabold">
+                      {`${item.productPrice.toLocaleString("ko-KR")}`}원
+                    </p>
+                  </li>
+                </ul>
               </div>
-              <p>가격 : {`${item.productPrice.toLocaleString("ko-KR")}`}원</p>
             </div>
           ))}
         </div>
