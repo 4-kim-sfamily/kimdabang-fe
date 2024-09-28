@@ -4,6 +4,14 @@ import { myCouponType } from "@/types/ResponseType";
 
 export default async function CouponList({ item }: { item: myCouponType }) {
   const couponInfo = await getCouponById(item.couponId);
+  const today = new Date();
+  const couponStatus =
+    new Date(item.expiredDate) < today
+      ? "기한만료"
+      : item.isUsed
+        ? "사용완료"
+        : "사용가능";
+
   return (
     <>
       <section
@@ -19,9 +27,9 @@ export default async function CouponList({ item }: { item: myCouponType }) {
           </h5>
         </span>
         <div
-          className={`absolute right-9 top-[50%] translate-y-[-50%] ${!item.isUsed ? "text-black" : "text-gray-400"}`}
+          className={`absolute right-9 top-[50%] translate-y-[-50%]  ${couponStatus == "사용가능" ? "text-starbucks" : "text-gray-400"}`}
         >
-          {item.isUsed ? "사용완료" : "사용가능"}
+          {couponStatus}
         </div>
       </section>
     </>

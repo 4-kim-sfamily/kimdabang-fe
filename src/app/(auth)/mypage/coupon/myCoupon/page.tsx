@@ -9,7 +9,7 @@ export default async function page() {
     <main>
       <CouponNav />
       <p className="text-xl font-extrabold pt-4 pl-4 mb-4">💸 내 쿠폰</p>
-      {data.map((item) => (
+      {data.reverse().map((item) => (
         <MyCouponList key={item.couponId} item={item} />
       ))}
     </main>
