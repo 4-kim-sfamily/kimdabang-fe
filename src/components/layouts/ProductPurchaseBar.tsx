@@ -41,9 +41,11 @@ export default function ProductPurchaseBar({
     try {
       const response = await putCart(
         productCode,
-        selectedChildOptionId,
+        selectedChildOptionId ? selectedChildOptionId : 0,
         amount,
       );
+
+      alert("장바구니에 추가되었습니다.");
     } catch (error) {
       console.error("장바구니 추가 중 오류 발생:", error);
     }
@@ -55,7 +57,9 @@ export default function ProductPurchaseBar({
         `/checkout?type=buyNow&productCode=${productCode}&optionId=${selectedOptionId}&amount=${amount}`,
       );
     } else {
-      alert("옵션을 먼저 선택해주세요."); // 옵션 미선택 시 알림
+      router.push(
+        `/checkout?type=buyNow&productCode=${productCode}&optionId=0&amount=${amount}`,
+      );
     }
   };
   // 선택한 옵션의 하위 옵션 검색 및 자동으로 첫 번째 자식을 선택

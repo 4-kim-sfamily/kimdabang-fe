@@ -1,3 +1,5 @@
+import { commonResType } from "@/types/ResponseType";
+import { fetchData } from "../common/common";
 import { getProductInfo } from "../getProductInfo";
 import { getProductMedia } from "../getProductMedia";
 import { getOptionDetail } from "./getOptionDetail";
@@ -35,4 +37,17 @@ export const getProductOptionInfo = async (
     productMedia: productMedia[0].mediaURL,
   };
   return productOptionInfo;
+};
+
+export const getProductCodeInfo = async (
+  productCode: string,
+  optionId: string,
+): Promise<string> => {
+  const data = await fetchData<commonResType<string>>(
+    `/api/v1/options/${productCode}/family?optionId=${optionId}`,
+    "GET",
+    "",
+    "no-cache",
+  );
+  return data.data;
 };
