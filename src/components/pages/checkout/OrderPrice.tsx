@@ -54,14 +54,11 @@ export default function OrderPrice({
     // 쿠폰 적용 로직
     if (selectedCoupon) {
       if (selectedCoupon.couponInfo.couponType === "할인률 쿠폰") {
-        console.log("할인률 쿠폰임");
         setDiscountPrice(price * (selectedCoupon.couponInfo.value / 100));
       } else {
-        console.log("할인 금액 쿠폰임");
         setDiscountPrice(selectedCoupon.couponInfo.value);
       }
     } else {
-      console.log("쿠폰 없음");
       setDiscountPrice(0); // 쿠폰이 없을 경우 할인 금액을 0으로 설정
     }
   }, [price, selectedCoupon, setDiscountPrice, setShippingPrice]);
@@ -76,7 +73,6 @@ export default function OrderPrice({
   useEffect(() => {
     let newItems;
     if (productDataList && cartList) {
-      console.log("장바구니 구매로 들어옴");
       newItems = productDataList.map((item, index) => ({
         productCode: item.productCode,
         optionsId: cartList[index].productOptionId,
@@ -85,7 +81,6 @@ export default function OrderPrice({
         price: item.productPrice,
       }));
     } else {
-      console.log("단일상품구매로 들어옴");
       newItems = [
         {
           productCode: productData.productCode,
@@ -125,19 +120,21 @@ export default function OrderPrice({
     <>
       <div className="flex justify-between px-4 mt-2">
         <p>상품 금액 : </p>
-        <p>{price}원</p>
+        <p>{price.toLocaleString("ko-KR")}원</p>
       </div>
       <div className="flex justify-between px-4 mt-2">
         <p>배송비 : </p>
-        <p>{shippingPrice}원</p>
+        <p>{shippingPrice.toLocaleString("ko-KR")}원</p>
       </div>
       <div className="flex justify-between px-4 mt-2">
         <p>할인 금액 : </p>
-        <p>{discountPrice}원</p>
+        <p>{discountPrice.toLocaleString("ko-KR")}원</p>
       </div>
       <div className="flex justify-between px-4 mt-2">
         <p>총 금액 : </p>
-        <p className="font-bold text-2xl">{paymentAmount}원</p>
+        <p className="font-bold text-2xl">
+          {paymentAmount.toLocaleString("ko-KR")}원
+        </p>
       </div>
 
       <hr />
@@ -146,7 +143,7 @@ export default function OrderPrice({
         variant="starbucks"
         className="mx-auto mt-4"
       >
-        {`${paymentAmount}`}원 결제하기
+        {`${paymentAmount.toLocaleString("ko-KR")}`}원 결제하기
       </Button>
     </>
   );

@@ -23,7 +23,7 @@ export default async function ProductContainer({
   const ProductDetailImage = dynamic(() => import("./ProductDetailImage"), {
     ssr: false,
   });
-  console.log(ProductOptionData);
+
   return (
     <>
       <ProductHeader

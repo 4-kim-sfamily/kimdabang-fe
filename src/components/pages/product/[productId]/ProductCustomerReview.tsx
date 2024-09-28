@@ -8,7 +8,7 @@ export default function ProductCustomerReview({
 }) {
   return (
     <section className="px-4">
-      <h2 className="font-extrabold text-xl my-5 mx-3"> 고객리뷰</h2>
+      <h2 className="text-lg font-extrabold p-3"> 고객리뷰</h2>
       <ProductRate productCode={productCode}></ProductRate>
       {/* <RateViewer rateData={2.3}></RateViewer> */}
       {/* <PhotoMediaReview productCode={productCode} /> */}

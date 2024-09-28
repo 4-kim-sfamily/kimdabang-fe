@@ -38,7 +38,9 @@ export default async function PhotoMediaReview({
             <Image
               src={img.imgUrl}
               alt={`Review for ${productCode}`}
-              fill
+              width={1000}
+              height={1000}
+              priority
               className="object-cover rounded-lg"
             />
           </li>

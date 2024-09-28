@@ -24,8 +24,8 @@ export default async function ReviewItemCard({
           <Image
             src={item.description}
             alt={item.productName}
-            fill
-            style={{ objectFit: "cover" }}
+            width={500}
+            height={500}
           />
         </Link>
       </div>
@@ -41,7 +41,9 @@ export default async function ReviewItemCard({
           </div>
         </div>
         <p className="text-[13px] ">{item.productName}</p>
-        <p className="font-semibold ">{item.productPrice}</p>
+        <p className="font-semibold ">
+          {item.productPrice.toLocaleString("ko-KR")}원
+        </p>
 
         <ReviewPreview productCode={item.productCode} visible={true} />
       </div>

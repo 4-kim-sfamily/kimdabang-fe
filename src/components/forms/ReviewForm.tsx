@@ -23,9 +23,7 @@ export default function ReviewForm({ productCode }: { productCode: string }) {
   const handleRatingChange = (rate: number) => {
     setRating(rate);
   };
-  useEffect(() => {
-    console.log(mediaType, mediaURL);
-  }, [mediaType, mediaURL]);
+  useEffect(() => {}, [mediaType, mediaURL]);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -38,17 +36,14 @@ export default function ReviewForm({ productCode }: { productCode: string }) {
       mediaType,
       mediaURL,
     };
-    console.log(reviewData);
+
     setIsLoading(true);
     setSuccessMessage("");
     setErrorMessage("");
     const data = await postReview(reviewData);
     if (data === "OK") {
       router.back();
-      console.log(data);
     }
-    console.log(data === "OK");
-    console.log(data);
   };
 
   return (

@@ -13,10 +13,15 @@ export default async function page() {
   const productList: ProductType[] = await Promise.all(
     list.map((item) => getProductInfo(item.productCode)),
   );
-  const totalEstimatedPrice = productList.reduce(
-    (total, product) => total + product.productPrice,
-    0,
-  );
+
+  const cartMap = new Map(list.map((item) => [item.productCode, item.amount]));
+
+  const totalEstimatedPrice = productList.reduce((total, product) => {
+    const amount = cartMap.get(product.productCode) || 1;
+    return total + product.productPrice * amount;
+  }, 0);
+  console.log(totalEstimatedPrice);
+
   const shippingfee =
     totalEstimatedPrice >= 30000 ? 0 : totalEstimatedPrice === 0 ? 0 : 3000;
 

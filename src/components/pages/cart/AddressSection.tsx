@@ -9,7 +9,6 @@ export default async function AddressSection({ id }: { id?: number }) {
     ? await getAddressById(id)
     : await getShippingAddressDefault();
 
-  console.log(data);
   return (
     <section className="mt-[56px] w-full p-3 text-sm bg-[#eeeeebcc] py-5">
       <ul className="flex justify-between mb-1">

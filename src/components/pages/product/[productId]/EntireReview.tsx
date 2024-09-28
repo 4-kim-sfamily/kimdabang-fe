@@ -26,7 +26,7 @@ export default async function EntireReview({
   const EntireReviewList: ReviewTypeForJsonServer[] = await response.json();
 
   return (
-    <section className="px-2 py-6">
+    <section className="px-2 pb-6">
       <ReviewSection productCode={productCode} size={5} />
       <Button variant="inversion" className="mx-auto   border-[0.1rem]">
         <Link href={`${productCode}/review`}>전체리뷰 보기</Link>

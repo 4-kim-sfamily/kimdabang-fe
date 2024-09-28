@@ -53,8 +53,8 @@ export default async function MyOrderItemList({
             <Image
               src={`${productData.description}`}
               alt={`${productData.productName}`}
-              width={50}
-              height={50}
+              width={90}
+              height={90}
               className="rounded-xl"
             />
             <div className="flex flex-col">
@@ -64,9 +64,6 @@ export default async function MyOrderItemList({
               </p>
             </div>
           </div>
-          <p className="whitespace-nowrap">
-            가격 : {`${productData.productPrice}`}원
-          </p>
         </div>
       ) : productDataList ? (
         // 리스트로 여러 제품 데이터가 있을 경우
@@ -80,8 +77,8 @@ export default async function MyOrderItemList({
                 <Image
                   src={`${item.description}`}
                   alt={`${item.productName}`}
-                  width={50}
-                  height={50}
+                  width={90}
+                  height={90}
                   className="rounded-xl"
                 />
                 <div className="flex flex-col">
@@ -89,7 +86,6 @@ export default async function MyOrderItemList({
                   <p>{`${optionDataList[index]} ${cartlist[index].amount}개`}</p>
                 </div>
               </div>
-              <p>가격 : {`${item.productPrice}`}원</p>
             </div>
           ))}
         </div>

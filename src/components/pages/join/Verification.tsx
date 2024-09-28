@@ -15,7 +15,7 @@ export default function Verification({ onNext }) {
       const res = await fetch("https://cert.toss.im"); // 실제 인증 요청
       if (res.ok) {
         const data = await res.json();
-        console.log("인증 성공:", data); // 성공 시 처리
+        // 성공 시 처리
         // 인증 성공 후 처리 로직 추가
       } else {
         console.error("인증 실패:", res.statusText);

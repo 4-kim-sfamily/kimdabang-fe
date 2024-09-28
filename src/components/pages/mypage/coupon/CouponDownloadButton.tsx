@@ -22,7 +22,6 @@ export default function CouponDownloadButton({ id, validity }: CouponType) {
           title: "이미 다운로드된 쿠폰입니다",
         });
       } else {
-        console.log(`${data.message}`);
         toast({
           title: "연결이 불안정합니다. 잠시후 다시 시도해주세요",
         });

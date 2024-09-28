@@ -50,7 +50,6 @@ export default function ProductPurchaseBar({
       console.error("장바구니 추가 중 오류 발생:", error);
     }
   };
-
   const handlePurchaseClick = () => {
     if (selectedOptionId) {
       router.push(
@@ -87,7 +86,7 @@ export default function ProductPurchaseBar({
     if (selectedOption) {
       setSelectedChildOption(selectedOption.optionValue); // 하위 옵션 선택 값 저장)
       setSelectedChildOptionId(selectedOption.optionsId);
-      console.log("선택된 OptionId: ", selectedOption.optionsId); // 선택된 optionId 확인
+      // 선택된 optionId 확인
       // 추가로 선택된 optionId를 저장하려면 여기에 상태 업데이트 로직을 넣을 수 있습니다.
     }
   };
