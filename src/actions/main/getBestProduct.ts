@@ -29,6 +29,7 @@ export const getCategoryBestProduct = async (
   categoryId: string,
   nowPage: number,
 ): Promise<responseGetBestType> => {
+  console.log("선택된 categoryId", categoryId);
   const data = await fetchData<commonResType<responseGetBestType>>(
     `/api/v1/score/get-categorybest?categoryId=${categoryId}&page=${nowPage}`,
     "GET",
