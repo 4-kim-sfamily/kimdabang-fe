@@ -125,19 +125,21 @@ export default function OrderPrice({
     <>
       <div className="flex justify-between px-4 mt-2">
         <p>상품 금액 : </p>
-        <p>{price}원</p>
+        <p>{price.toLocaleString("ko-KR")}원</p>
       </div>
       <div className="flex justify-between px-4 mt-2">
         <p>배송비 : </p>
-        <p>{shippingPrice}원</p>
+        <p>{shippingPrice.toLocaleString("ko-KR")}원</p>
       </div>
       <div className="flex justify-between px-4 mt-2">
         <p>할인 금액 : </p>
-        <p>{discountPrice}원</p>
+        <p>{discountPrice.toLocaleString("ko-KR")}원</p>
       </div>
       <div className="flex justify-between px-4 mt-2">
         <p>총 금액 : </p>
-        <p className="font-bold text-2xl">{paymentAmount}원</p>
+        <p className="font-bold text-2xl">
+          {paymentAmount.toLocaleString("ko-KR")}원
+        </p>
       </div>
 
       <hr />
@@ -146,7 +148,7 @@ export default function OrderPrice({
         variant="starbucks"
         className="mx-auto mt-4"
       >
-        {`${paymentAmount}`}원 결제하기
+        {`${paymentAmount.toLocaleString("ko-KR")}`}원 결제하기
       </Button>
     </>
   );

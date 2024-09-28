@@ -27,12 +27,13 @@ export default async function PayInfo({
       {totalEstimatedPrice > 0 && (
         <div className="flex flex-col items-center">
           <h5 className="text-sm">
-            상품 {count}건 {totalEstimatedPrice}원 + 배송비 {shippingfee}원 = 총{" "}
-            {totalEstimatedPrice + shippingfee}원
+            상품 {count}건 {totalEstimatedPrice.toLocaleString("ko-KR")}원 +
+            배송비 {shippingfee}원 = 총{" "}
+            {(totalEstimatedPrice + shippingfee).toLocaleString("ko-KR")}원
           </h5>
           <h5 className="text-sm font-extrabold">
             {!isFreeShipping
-              ? `${remainingForFreeShipping}원 더 담으면 무료배송`
+              ? `${remainingForFreeShipping.toLocaleString("ko-KR")}원 더 담으면 무료배송`
               : "무료배송"}
           </h5>
           <Link href={"/"} className="text-[#a88855]">
@@ -43,7 +44,9 @@ export default async function PayInfo({
       <div>
         <div className="payInfo">
           <h4>상품금액</h4>
-          <h4 className="font-extrabold">{totalEstimatedPrice}</h4>
+          <h4 className="font-extrabold">
+            {totalEstimatedPrice.toLocaleString("ko-KR")}
+          </h4>
         </div>
         <div className="payInfo">
           <h4>할인금액</h4>
@@ -51,11 +54,15 @@ export default async function PayInfo({
         </div>
         <div className="payInfo">
           <h4>배송비</h4>
-          <h4 className="font-extrabold">{shippingfee}</h4>
+          <h4 className="font-extrabold">
+            {shippingfee.toLocaleString("ko-KR")}
+          </h4>
         </div>
         <div className="payInfo">
           <h2 className="text-lg">총 결제예정금액</h2>
-          <h2 className="text-xl font-extrabold">{totalEstimatedPrice}</h2>
+          <h2 className="text-xl font-extrabold">
+            {totalEstimatedPrice.toLocaleString("ko-KR")}원
+          </h2>
         </div>
       </div>
       <div className="my-4 bg-[#eeeeebcc] p-2 text-sm text-[#5C5C5C]">

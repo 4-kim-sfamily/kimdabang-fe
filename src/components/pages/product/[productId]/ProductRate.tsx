@@ -23,7 +23,7 @@ export default async function ProductRate({
 
   return (
     <section>
-      <div className="flex text-4xl items-baseline my-4 mx-2">
+      <div className="flex text-2xl items-baseline mb-4 mx-2">
         {Array(5)
           .fill(0)
           .map((_, index) => (

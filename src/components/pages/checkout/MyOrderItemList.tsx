@@ -43,7 +43,7 @@ export default async function MyOrderItemList({
             </div>
           </div>
           <p className="whitespace-nowrap">
-            가격 : {`${productData.productPrice}`}원
+            가격 : {`${productData.productPrice.toLocaleString("ko-KR")}`}원
           </p>
         </div>
       ) : productDataList ? (
@@ -67,7 +67,7 @@ export default async function MyOrderItemList({
                   <p>{`${cartlist[index].productOptionId} ${cartlist[index].amount}개`}</p>
                 </div>
               </div>
-              <p>가격 : {`${item.productPrice}`}원</p>
+              <p>가격 : {`${item.productPrice.toLocaleString("ko-KR")}`}원</p>
             </div>
           ))}
         </div>

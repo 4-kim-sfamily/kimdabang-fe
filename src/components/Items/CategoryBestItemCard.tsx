@@ -69,8 +69,8 @@ export default function CategoryBestItemCard({
       </div>
       <p className="text-[13px] ">{cardItem.productName}</p>
       <p className="font-semibold ">
-        {cardItem.productPrice}
-        {" 원"}
+        {cardItem.productPrice.toLocaleString("ko-KR")}
+        {"원"}
       </p>
     </section>
   );

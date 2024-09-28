@@ -41,7 +41,9 @@ export default async function ReviewItemCard({
           </div>
         </div>
         <p className="text-[13px] ">{item.productName}</p>
-        <p className="font-semibold ">{item.productPrice}</p>
+        <p className="font-semibold ">
+          {item.productPrice.toLocaleString("ko-KR")}원
+        </p>
 
         <ReviewPreview productCode={item.productCode} visible={true} />
       </div>

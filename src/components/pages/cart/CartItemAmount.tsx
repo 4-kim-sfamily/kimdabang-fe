@@ -42,12 +42,16 @@ export default function CartItemAmount({
       {discountedPrice ? (
         <div>
           <p className="text-[12px] line-through text-[#787d79] text-end">
-            {count * price}원
+            {(count * price).toLocaleString("ko-KR")}원
           </p>
-          <p className="font-extrabold">{count * discountedPrice}원</p>
+          <p className="font-extrabold">
+            {(count * discountedPrice).toLocaleString("ko-KR")}원
+          </p>
         </div>
       ) : (
-        <p className="font-extrabold">{count * price}원</p>
+        <p className="font-extrabold">
+          {(count * price).toLocaleString("ko-KR")}원
+        </p>
       )}
     </div>
   );
