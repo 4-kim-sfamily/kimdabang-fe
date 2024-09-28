@@ -1,4 +1,4 @@
-import { getCartItemList } from "@/actions/cart/getCartItemData";
+import { getCheckedCartItem } from "@/actions/cart/getCartItemData";
 import { getProductInfo } from "@/actions/getProductInfo";
 import {
   getAddressById,
@@ -38,7 +38,7 @@ export default async function CheckoutContainer({
     productDataList.push(productData); // buyNow의 경우에는 단일 제품이므로 리스트에 추가
   } else if (type === "cart") {
     // 카트에서 여러 개의 제품 정보를 받아옴
-    cartList = await getCartItemList();
+    cartList = await getCheckedCartItem();
     // 각 카트 아이템의 productCode로 getProductInfo 호출 후 productDataList에 저장
     const productDataPromises = cartList.map(async (item) => {
       const productData = await getProductInfo(item.productCode);
