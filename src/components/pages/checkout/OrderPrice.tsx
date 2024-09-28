@@ -54,14 +54,11 @@ export default function OrderPrice({
     // 쿠폰 적용 로직
     if (selectedCoupon) {
       if (selectedCoupon.couponInfo.couponType === "할인률 쿠폰") {
-        console.log("할인률 쿠폰임");
         setDiscountPrice(price * (selectedCoupon.couponInfo.value / 100));
       } else {
-        console.log("할인 금액 쿠폰임");
         setDiscountPrice(selectedCoupon.couponInfo.value);
       }
     } else {
-      console.log("쿠폰 없음");
       setDiscountPrice(0); // 쿠폰이 없을 경우 할인 금액을 0으로 설정
     }
   }, [price, selectedCoupon, setDiscountPrice, setShippingPrice]);
@@ -76,7 +73,6 @@ export default function OrderPrice({
   useEffect(() => {
     let newItems;
     if (productDataList && cartList) {
-      console.log("장바구니 구매로 들어옴");
       newItems = productDataList.map((item, index) => ({
         productCode: item.productCode,
         optionsId: cartList[index].productOptionId,
@@ -85,7 +81,6 @@ export default function OrderPrice({
         price: item.productPrice,
       }));
     } else {
-      console.log("단일상품구매로 들어옴");
       newItems = [
         {
           productCode: productData.productCode,

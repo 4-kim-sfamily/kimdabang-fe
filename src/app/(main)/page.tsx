@@ -11,7 +11,7 @@ import { getServerSession } from "next-auth/next";
 export default async function Home() {
   const data: SeasonMediaType[] = await getSeasonMedia();
   const session = await getServerSession();
-  console.log(session);
+
   const authStatus = session?.user ? true : false;
   return (
     <main className="w-[100%]">

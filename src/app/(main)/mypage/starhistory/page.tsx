@@ -6,7 +6,6 @@ type SearchParams = {
 };
 
 export default function Page({ searchParams }: { searchParams: SearchParams }) {
-  console.log(searchParams);
   return (
     <div>
       <StarHistoryContainer

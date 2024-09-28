@@ -8,7 +8,7 @@ export default function CouponSection() {
   // 쿠폰 ID와 쿠폰 설정 함수를 받아옴
 
   const { selectedCoupon, setDiscountPrice, totalOrderPrice } = useCheckout();
-  console.log("선택한 쿠폰값:", selectedCoupon); // 선택된 쿠폰 ID 로그 출력
+  // 선택된 쿠폰 ID 로그 출력
 
   return (
     <>

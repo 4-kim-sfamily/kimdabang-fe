@@ -40,7 +40,6 @@ export const options: NextAuthOptions = {
     async signIn({ profile, user, account }) {
       // Kakao 로그인 처리
       if (account?.provider === "kakao") {
-        console.log("kakao에서 로그인 시도");
         const result = await fetch(
           `${process.env.BACKEND_URL}/api/v1/auth/sociallogin`,
           {
@@ -58,7 +57,6 @@ export const options: NextAuthOptions = {
           user.name = data.data.name;
           return true;
         } else if (result.status === 400) {
-          console.log("400에러 발생, 존재하지 않는 회원입니다.");
           // 여기서 Kakao 정보를 `user`에 추가하여 `jwt`에서 처리할 수 있도록 넘김
           const provider = account.provider;
           const providerAccountId = account.providerAccountId;

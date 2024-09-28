@@ -29,7 +29,6 @@ export default function Page() {
     const providerAccountId = searchParams.get("providerAccountId");
 
     if (provider && providerAccountId) {
-      console.log("provider들어왔음", provider);
       setProviderInfo({ provider, providerAccountId });
     }
 

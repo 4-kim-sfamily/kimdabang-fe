@@ -11,8 +11,5 @@ export async function postCheckout(
       requestData,
       "default",
     );
-    console.log("결제완료", data);
-  } catch (error) {
-    console.log("error", error);
-  }
+  } catch (error) {}
 }

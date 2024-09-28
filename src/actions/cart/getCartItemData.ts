@@ -28,7 +28,7 @@ export async function getCartItem({
     "force-cache",
     "changeCartState",
   );
-  console.log(data.data);
+
   return data.data;
 }
 

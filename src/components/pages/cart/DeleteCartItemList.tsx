@@ -23,7 +23,6 @@ export default function DeleteCartItemList({
         return putCartItem({ productCode: item.productCode, request });
       });
       const results = await Promise.all(deleteRequests);
-      console.log(results);
     }
   };
 

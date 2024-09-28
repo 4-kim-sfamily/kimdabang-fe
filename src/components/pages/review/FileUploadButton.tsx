@@ -48,7 +48,6 @@ const FileUploadButton = ({
           const imageUrl = responseData.data;
           setMediaURL(imageUrl);
           setMediaType(fileExtension); // Set the file extension
-          console.log(fileExtension, imageUrl);
         } else {
         }
       } catch (error) {

@@ -26,11 +26,10 @@ export const join = async (
     birth: userData.birth, // 생년월일
     nickname: userData.nickname, // 닉네임
   };
-  console.log("회원가입", requestBody);
+
   const data = await fetchData<commonResType<null>>(
     `/api/v1/auth/join`,
     "POST",
     requestBody,
   );
-  console.log("마지막 회원가입", data);
 };

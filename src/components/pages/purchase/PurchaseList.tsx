@@ -7,7 +7,6 @@ export default function PurchaseList({
 }: {
   purchaseList: Purchase[];
 }) {
-  console.log(purchaseList);
   return (
     <>
       {purchaseList?.map((Order, index) => (

@@ -16,11 +16,8 @@ export default async function MyOrderItemList({
   amount?: number;
 }) {
   if (productData) {
-    console.log("단일로 들어옴", productData);
   } else if (productDataList) {
-    console.log("리스트로 들어옴", productDataList);
   } else {
-    console.log("둘다 없음");
   }
   return (
     <div className="mt-2">

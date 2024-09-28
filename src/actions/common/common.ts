@@ -32,7 +32,7 @@ export const fetchData = async <T>(
   const res = await fetch(`${process.env.BACKEND_URL}${apiUrl}`, fetchOptions);
   if (!res.ok) {
     const errorData = await res.json();
-    console.log("에러데이터", errorData);
+
     throw new Error(`${res.status}`);
   }
   const data = (await res.json()) as T;
