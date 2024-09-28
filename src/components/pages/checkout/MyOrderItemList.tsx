@@ -60,7 +60,7 @@ export default async function MyOrderItemList({
             <div className="flex flex-col">
               <p>{`${productData.productName}`}</p>
               <p>
-                {`${optionId}`} {`${amount}개`}
+                {`${optionData}`} {`${amount}개`}
               </p>
             </div>
           </div>
@@ -83,7 +83,7 @@ export default async function MyOrderItemList({
                 />
                 <div className="flex flex-col">
                   <p>{`${item.productName}`}</p>
-                  <p>{`${cartlist[index].productOptionId} ${cartlist[index].amount}개`}</p>
+                  <p>{`${optionDataList[index]} ${cartlist[index].amount}개`}</p>
                 </div>
               </div>
             </div>

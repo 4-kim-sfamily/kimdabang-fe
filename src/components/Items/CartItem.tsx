@@ -1,9 +1,9 @@
 import { getCartItem } from "@/actions/cart/getCartItemData";
 import { getProductInfo } from "@/actions/getProductInfo";
-import { getProductOption } from "@/actions/getProductOption";
+import { getProductCodeInfo } from "@/actions/productOption/getProductOption";
 import { XCircle } from "@/components/icons/Index";
 import { cartItem } from "@/types/items/Cart";
-import { optionType, ProductType } from "@/types/ResponseType";
+import { ProductType } from "@/types/ResponseType";
 import Image from "next/image";
 import Link from "next/link";
 import CartItemAmountFetch from "../pages/cart/CartItemAmountFetch";
@@ -17,11 +17,16 @@ export default async function CartItem({
   productCode: string;
   productOptionId: number;
 }) {
-  const [item, info, option] = await Promise.all([
+  const [item, info] = await Promise.all([
     getCartItem({ productCode }) as Promise<cartItem>,
     getProductInfo(productCode) as Promise<ProductType>,
-    getProductOption(productCode) as Promise<optionType[]>,
   ]);
+
+  let option = "";
+  if (productOptionId !== 0) {
+    option = await getProductCodeInfo(productCode, productOptionId.toString());
+  }
+
   return (
     <figure className="flex w-full gap-2">
       <div className="relative w-full max-w-24 aspect-square">
@@ -53,6 +58,7 @@ export default async function CartItem({
           </DeleteCartItem>
         </li>
         <li>
+          <p>{option}</p>
           <CartItemAmountFetch
             price={info.productPrice}
             amount={item.amount}
