@@ -29,11 +29,11 @@ export default function CouponSelector({ coupons }: CouponSelectorProps) {
   };
 
   return (
-    <div className="w-full px-4">
+    <div className="w-full px-4 py-6 flex flex-col ">
       {/* 쿠폰 리스트 출력 */}
       {coupons.length > 0 ? (
         coupons.map((coupon) => (
-          <div key={coupon.couponId} className="flex items-center">
+          <div key={coupon.couponId} className="flex items-center ">
             <input
               type="radio"
               name="coupon"
@@ -49,17 +49,21 @@ export default function CouponSelector({ coupons }: CouponSelectorProps) {
             />
             <section
               key={coupon.couponId}
-              className="flex justify-between items-center gap-5 p-3"
+              className="flex items-center gap-5 p-3 w-full justify-between"
             >
-              <CouponImg />
-              <div className="flex flex-col">
-                <p className="text-[12px]">{coupon.couponInfo.couponType}</p>
-                <p className="font-extrabold">{coupon.couponInfo.name}</p>
-                <p className="text-[11px]">
-                  {new Date(coupon.couponInfo.expiredDate).toLocaleDateString()}{" "}
-                  까지
-                </p>
-              </div>
+              <span className="flex gap-3">
+                <CouponImg />
+                <div className="flex flex-col">
+                  <p className="text-[12px]">{coupon.couponInfo.couponType}</p>
+                  <p className="font-extrabold">{coupon.couponInfo.name}</p>
+                  <p className="text-[11px]">
+                    {new Date(
+                      coupon.couponInfo.expiredDate,
+                    ).toLocaleDateString()}{" "}
+                    까지
+                  </p>
+                </div>
+              </span>
               <div
                 className={`${!coupon.isUsed ? "text-black" : "text-gray-400"}`}
               >
@@ -73,13 +77,15 @@ export default function CouponSelector({ coupons }: CouponSelectorProps) {
       )}
 
       {/* 선택된 쿠폰 정보로 동작하는 버튼 */}
-      <Button
-        variant="starbucks"
-        className="mx-auto mt-4"
-        onClick={handleCouponSelect}
-      >
-        쿠폰 사용하기
-      </Button>
+      <div className="w-full fixed left-0 bottom-5 px-6">
+        <Button
+          variant="starbucks"
+          className=" mt-4 w-full box-border"
+          onClick={handleCouponSelect}
+        >
+          쿠폰 사용하기
+        </Button>
+      </div>
     </div>
   );
 }

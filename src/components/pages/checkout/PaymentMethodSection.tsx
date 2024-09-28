@@ -24,7 +24,7 @@ export default function PaymentMethodSection() {
           selectedMethod === "TossPay"
             ? "border-blue-500 bg-blue-100"
             : "border-gray-400"
-        } flex flex-col gap-2 items-center border-zinc-300 border-[2px] rounded-xl pt-2`}
+        } flex flex-col gap-2 items-center border-zinc-300 border-[2px] rounded-xl py-2`}
       >
         <TossPayIcon />
         <p className="whitespace-nowrap">토스페이</p>
@@ -37,7 +37,7 @@ export default function PaymentMethodSection() {
           selectedMethod === "KaKaoPay"
             ? "border-blue-500 bg-blue-100"
             : "border-gray-400"
-        } flex flex-col gap-2 items-center border-zinc-300 border-[2px] rounded-xl pt-2`}
+        } flex flex-col gap-2 items-center border-zinc-300 border-[2px] rounded-xl py-2`}
       >
         <KaKaoPayIcon />
         <p className="whitespace-nowrap">카카오페이</p>
@@ -50,7 +50,7 @@ export default function PaymentMethodSection() {
           selectedMethod === "Billing"
             ? "border-blue-500 bg-blue-100"
             : "border-gray-400"
-        } flex flex-col gap-2 items-center border-zinc-300 border-[2px] rounded-xl pt-2`}
+        } flex flex-col gap-2 items-center border-zinc-300 border-[2px] rounded-xl py-2`}
       >
         <CreditCard size={50} color="black" strokeWidth={1} />
         <p className="whitespace-nowrap">계좌이체</p>
