@@ -1,30 +1,35 @@
-import { ItemCardType } from "@/types/items/ItemCard";
+import { getProductInfo } from "@/actions/getProductInfo";
+import { getCategoryName } from "@/actions/product/getCategoryName";
 import Image from "next/image";
+import Link from "next/link";
 import Cart from "../icons/Cart";
 import ItemHearts from "../icons/ItemHearts";
 import ReviewPreview from "./ReviewPreview";
 
 export default async function GiftItemCard({
-  item,
+  productCode,
   authStatus,
 }: {
-  item: ItemCardType;
+  productCode: string;
   authStatus: boolean;
 }) {
-  // 서버에서 미리 좋아요 여부를 가져옴
+  const item = await getProductInfo(productCode);
+  const categoryName = await getCategoryName(item.categoryId.toString());
 
   return (
     <div className=" border-slate-950 flex flex-col justify-start w-[224px]">
       <div className="relative w-[100%] aspect-square h-[224px]">
-        <Image
-          src={item.productImageUrl}
-          alt={item.productName}
-          fill
-          style={{ objectFit: "cover" }}
-        />
+        <Link href={`/product/${productCode}`}>
+          <Image
+            src={item.description}
+            alt={item.productName}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </Link>
       </div>
       <div className="flex justify-between pt-1">
-        <p className="text-[#777777] text-[12px] pt-1 ">{item.categoryId}</p>
+        <p className="text-[#777777] text-[12px] pt-1 ">{categoryName}</p>
         <div className="flex gap-2">
           <ItemHearts productCode={item.productCode} authStatus={authStatus} />
           <Cart color="black" />

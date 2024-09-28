@@ -17,7 +17,17 @@ export const getSubCategory = async (id: number): Promise<CategoryType> => {
     `/api/v1/category/get-category?id=${id}`,
     "GET",
     "",
-    "no-cache",
+    "force-cache",
+  );
+  return data.data;
+};
+
+export const getChildCategory = async (): Promise<CategoryType[]> => {
+  const data = await fetchData<commonResType<CategoryType[]>>(
+    `/api/v1/category/get-leafcategorylist`,
+    "GET",
+    "",
+    "force-cache",
   );
   return data.data;
 };

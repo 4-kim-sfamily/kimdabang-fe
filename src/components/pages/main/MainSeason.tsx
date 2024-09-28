@@ -1,5 +1,6 @@
 import SeasonCard from "@/components/main/SeasonCard";
 import { SeasonMediaType } from "@/types/main/CarouselDataType";
+import Link from "next/link";
 
 export default async function MainSeason({
   SeasonData,
@@ -11,7 +12,9 @@ export default async function MainSeason({
       {SeasonData.filter(
         (item) => item.mediaType === "running-season-thumbsImg",
       ).map((item) => (
-        <SeasonCard key={item.id} item={item} />
+        <Link href={`/season/${item.seasonId}`}>
+          <SeasonCard key={item.seasonId} item={item} />
+        </Link>
       ))}
     </ul>
   );

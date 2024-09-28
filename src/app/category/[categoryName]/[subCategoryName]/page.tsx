@@ -20,7 +20,11 @@ export default async function page({
         categoryId={params.categoryName}
         subCategory={data.name}
       />
-      <CategorySection authStatus={authStatus} />
+      <CategorySection
+        authStatus={authStatus}
+        largeCategoryId={params.categoryName}
+        subCategory={params.subCategoryName}
+      />
     </>
   );
 }

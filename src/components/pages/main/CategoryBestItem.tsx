@@ -6,17 +6,15 @@ import {
 } from "@/actions/main/getBestProduct";
 import CategoryBestItemCard from "@/components/Items/CategoryBestItemCard";
 import MainSkeleton from "@/components/ui/skeleton";
+import { useButtonGroup } from "@/context/OptionContext";
 import { useEffect, useRef, useState } from "react";
 
-export default function CategorySection({
-  largeCategoryId,
+export default function CategoryBestItem({
   authStatus,
-  subCategory,
 }: {
-  largeCategoryId: number;
   authStatus: boolean;
-  subCategory?: number;
 }) {
+  const { selectedButton } = useButtonGroup();
   const [items, setItems] = useState<responseGetBestType["data"]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -25,15 +23,14 @@ export default function CategorySection({
   const observerRef = useRef<HTMLDivElement | null>(null);
 
   const loadMoreItems = async () => {
-    if (!hasMore) return;
+    if (!selectedButton || !hasMore) return;
 
     setLoading(true);
     setError(null);
 
     try {
-      const selectedId = subCategory ? subCategory : largeCategoryId++;
       const productData = await getCategoryBestProduct(
-        selectedId.toString(),
+        selectedButton.toString(),
         nowPage,
       );
 
@@ -46,10 +43,14 @@ export default function CategorySection({
       setLoading(false);
     }
   };
+
   useEffect(() => {
-    // 컴포넌트가 처음 렌더링될 때 데이터를 불러옴
+    // 새로운 카테고리가 선택될 때 데이터를 초기화하고 첫 페이지부터 로드
+    setItems([]);
+    setNowPage(0);
+    setHasMore(true);
     loadMoreItems();
-  }, []); // 빈 배열을 의존성으로 두면 첫 렌더링 시에 한 번만 실행됨
+  }, [selectedButton]);
 
   useEffect(() => {
     if (loading || !observerRef.current) return;
@@ -71,16 +72,17 @@ export default function CategorySection({
       }
     };
   }, [loading, hasMore]);
+
   if (error) {
     return <p>{error}</p>;
   }
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-4 justify-center w-[100%] px-4 py-3 md:grid-cols-4">
-        {items.map((item, index) => (
+      <div className="grid grid-cols-2 gap-4 justify-center w-[100%] py-3 md:grid-cols-4">
+        {items.map((item) => (
           <CategoryBestItemCard
-            key={index}
+            key={item.productCode}
             productCode={item.productCode}
             authStatus={authStatus}
           />

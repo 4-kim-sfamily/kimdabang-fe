@@ -15,7 +15,10 @@ export default async function page({
       <div className="h-14 w-full/>" />
       <CategoryAccordion categoryId={params.categoryName} />
       <SubCategorySelector largeCategoryId={params.categoryName} />
-      <CategorySection authStatus={authStatus} />
+      <CategorySection
+        largeCategoryId={params.categoryName}
+        authStatus={authStatus}
+      />
     </>
   );
 }

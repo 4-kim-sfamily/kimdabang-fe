@@ -45,7 +45,7 @@ export default function HeaderHamburger({ data }: { data: CategoryType[] }) {
               {data.map((item) => (
                 <li key={item.id} className={`h-10 py-2 text-[14px]`}>
                   <Link
-                    href={`/category/${encodeURIComponent(item.name)}`}
+                    href={`/category/${item.id}`}
                     className="text-black px-0 text-base"
                   >
                     {item.name}

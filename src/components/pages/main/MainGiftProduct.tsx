@@ -1,34 +1,31 @@
 import { getCategoryList } from "@/actions/main/category";
+import { getSeasonProduct } from "@/actions/product/getSeasonProduct";
 import GiftItemCard from "@/components/Items/GiftItemCard";
-import ButtonGroup from "@/components/ui/ButtonGroup";
 import MainTitle from "@/components/ui/mainTitle";
-import { ItemCardType } from "@/types/items/ItemCard";
+import { Skeleton } from "@/components/ui/skeleton";
 import { CategoryType } from "@/types/main/AllCategoryDataType";
-import { OptionContextprovider } from "../../../context/OptionContext";
+import { Suspense } from "react";
 
 export default async function MainGiftProduct({
   authStatus,
 }: {
   authStatus: boolean;
 }) {
-  const res = await fetch(`${process.env.JSONSERVER_URL}/BestTumblr`, {
-    cache: "force-cache",
-  });
-  const BestTumblr: ItemCardType[] = await res.json();
+  // 여기 조금있다가 Starbucks Gift Product로 변경 필요.
+  const data = await getSeasonProduct("2");
   const CategoryData: CategoryType[] = await getCategoryList();
   return (
     <section>
-      <MainTitle title="스타벅스 기프트" />
-      <OptionContextprovider>
-        <ButtonGroup CategoryData={CategoryData} />
-      </OptionContextprovider>
+      <MainTitle title="당신의 마음을 사로잡을 스타벅스의 추천" />
       <div className="flex overflow-x-auto h-[333.5px] whitespace-nowrap scroll-item gap-4 py-3 mb-8]">
-        {BestTumblr.map((item: ItemCardType) => (
-          <GiftItemCard
-            key={item.productCode}
-            item={item}
-            authStatus={authStatus}
-          />
+        {data.map((productCode, index) => (
+          <Suspense fallback={<Skeleton />}>
+            <GiftItemCard
+              key={index}
+              productCode={productCode}
+              authStatus={authStatus}
+            />
+          </Suspense>
         ))}
       </div>
     </section>

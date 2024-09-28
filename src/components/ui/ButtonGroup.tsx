@@ -14,6 +14,9 @@ export default function ButtonGroup({
   const [isInitialRender, setIsInitialRender] = useState(true);
 
   useEffect(() => {
+    handleClick(2);
+  }, []);
+  useEffect(() => {
     if (!isInitialRender && selectedButtonRef.current) {
       selectedButtonRef.current.scrollIntoView({
         behavior: "smooth",
