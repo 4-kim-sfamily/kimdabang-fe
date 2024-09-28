@@ -9,17 +9,6 @@ export default async function PayInfo({
   shippingfee: number;
   count: number;
 }) {
-  // const list = await getCheckBoxList();
-  // const productList: ProductType[] = await Promise.all(
-  //   list.map((item) => getProductInfo(item.productCode))
-  // );
-
-  // const totalEstimatedPrice = productList.reduce(
-  //   (total, product) => total + product.productPrice,
-  //   0
-  // );
-  // const shippingfee =
-  //   totalEstimatedPrice >= 30000 ? 0 : totalEstimatedPrice === 0 ? 0 : 3000;
   const remainingForFreeShipping = 30000 - totalEstimatedPrice;
   const isFreeShipping = totalEstimatedPrice >= 30000;
   return (
@@ -28,7 +17,7 @@ export default async function PayInfo({
         <div className="flex flex-col items-center">
           <h5 className="text-sm">
             상품 {count}건 {totalEstimatedPrice.toLocaleString("ko-KR")}원 +
-            배송비 {shippingfee}원 = 총{" "}
+            배송비 {shippingfee}원 = 총
             {(totalEstimatedPrice + shippingfee).toLocaleString("ko-KR")}원
           </h5>
           <h5 className="text-sm font-extrabold">
@@ -45,13 +34,13 @@ export default async function PayInfo({
         <div className="payInfo">
           <h4>상품금액</h4>
           <h4 className="font-extrabold">
-            {totalEstimatedPrice.toLocaleString("ko-KR")}
+            {totalEstimatedPrice.toLocaleString("ko-KR")}원
           </h4>
         </div>
-        <div className="payInfo">
+        {/* <div className="payInfo">
           <h4>할인금액</h4>
-          <h4 className="font-extrabold">0</h4>
-        </div>
+          <h4 className="font-extrabold">0원</h4>
+        </div> */}
         <div className="payInfo">
           <h4>배송비</h4>
           <h4 className="font-extrabold">
