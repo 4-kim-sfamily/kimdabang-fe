@@ -18,7 +18,6 @@ export default function DeleteCartItem({
       carving: "",
     };
     const data = await putCartItem({ productCode, request });
-    console.log(data);
   };
   return (
     <button

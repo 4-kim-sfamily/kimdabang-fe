@@ -58,7 +58,7 @@ export default function MainCarousel({
         className="w-[100vw] p-0 relative"
       >
         <CarouselContent className="w-full">
-          {carouselData.map((item: SeasonMediaType) => (
+          {carouselData.slice(0, 6).map((item: SeasonMediaType) => (
             <CarouselItem
               className="relative w-[100vw] aspect-[13/10]"
               key={item.id}
@@ -67,9 +67,10 @@ export default function MainCarousel({
                 <Image
                   src={item.mediaURL}
                   alt={item.imageName}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  className="p-0 w-full"
+                  width={2000}
+                  height={2000}
+                  priority
+                  className="p-0 w-full object-cover"
                 />
               </Link>
             </CarouselItem>

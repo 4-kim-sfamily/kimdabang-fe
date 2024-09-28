@@ -31,7 +31,7 @@ export default function CarouselModal({
 
   return (
     <section>
-      {carouselData?.map((item: SeasonMediaType, index) => (
+      {carouselData?.slice(0, 6).map((item: SeasonMediaType, index) => (
         <div
           key={item.id}
           className="relative w-full aspect-[13/10]"
@@ -45,8 +45,8 @@ export default function CarouselModal({
             onClick={() => router.push(`/season/${item.seasonId}`)}
             src={item.mediaURL}
             alt="item"
-            fill
-            style={{ objectFit: "cover" }}
+            width={1000}
+            height={1000}
           />
         </div>
       ))}

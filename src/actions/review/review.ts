@@ -41,7 +41,7 @@ export const getReviewList = async ({
     "",
     "force-cache",
   );
-  console.log(response.data);
+
   return response.data;
 };
 
@@ -62,7 +62,7 @@ export const getReviewMedia = async (
     return response.data; // 성공 시 데이터 반환
   } catch (error: any) {
     const status = error?.status || 500;
-    console.log(status);
+
     return status;
   }
 };

@@ -3,7 +3,6 @@ import { ProductPageType } from "@/types/ResponseType";
 import ProductAds from "../ProductAds";
 import ProductImage from "./ProductImage";
 import ProductInfo from "./ProductInfo";
-// 헤더 실제 API로 변경 완료
 export default function ProductHeader({
   product,
   productCategoryInfo,

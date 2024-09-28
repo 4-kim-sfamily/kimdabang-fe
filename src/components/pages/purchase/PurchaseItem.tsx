@@ -31,8 +31,8 @@ export default async function PurchaseItem({
                   href={`/product/${item.productCode}`}
                 >{` ${info.productName}`}</Link>
               </li>
-              <li className="text-[0.7em]">{`${item.quantity}개`}</li>
-              <li className="font-extrabold">{`${item.price}원`}</li>
+              <li className="text-[0.7em]">{`${item.quantity.toLocaleString("ko-KR")}개`}</li>
+              <li className="font-extrabold">{`${item.price.toLocaleString("ko-KR")}원`}</li>
             </ul>
           </div>
           <Link

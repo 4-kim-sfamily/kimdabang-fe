@@ -25,7 +25,7 @@ export default function BottomNavButtonGroup({
           <Button
             variant="inversion"
             size="custom"
-            className="py-3 font-bold w-full"
+            className="py-[0.63em] font-bold w-full"
             onClick={handleGiftClick} // 선물하기 버튼의 onClick 이벤트를 props로 받음
           >
             선물하기

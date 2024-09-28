@@ -16,7 +16,7 @@ export async function putCheckBox({
     `/api/v1/cart/checkBox/${productCode}?productOptionId=${productOptionId ? productOptionId : 0}`,
     "PUT",
   );
-  revalidateTag("checkBoxChange");
+  revalidateTag("changeCartState");
   return data.data;
 }
 
@@ -32,7 +32,7 @@ export async function getCheckBox({
     "GET",
     "",
     "no-store",
-    "checkBoxChange",
+    "changeCartState",
   );
   return data.data.checkBox;
 }
@@ -42,7 +42,7 @@ export async function getCheckBoxList(): Promise<cartList[]> {
     "GET",
     "",
     "no-store",
-    "checkBoxChange",
+    "changeCartState",
   );
   return data.data;
 }

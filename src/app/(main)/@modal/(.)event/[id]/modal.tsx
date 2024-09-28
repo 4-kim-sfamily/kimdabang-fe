@@ -13,7 +13,7 @@ function modal({ children }: { children: React.ReactNode }) {
   return (
     <dialog
       open
-      className="fixed top-0 left-0 w-full h-full flex flex-col items-center overflow-auto z-10"
+      className="top-0 left-0 w-full h-full flex flex-col items-center overflow-auto z-10"
     >
       {children}
     </dialog>

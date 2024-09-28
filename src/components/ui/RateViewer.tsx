@@ -16,8 +16,6 @@ export default function RateViewer({
 }) {
   const [ratingPercentage, setRatingPercentage] = useState(0);
 
-  console.log("rateData", rateData);
-
   useEffect(() => {
     if (isVisible) {
       const targetPercentage = Math.min(Math.max(rateData, 0), 5) * 20;

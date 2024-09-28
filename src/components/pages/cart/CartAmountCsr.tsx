@@ -32,9 +32,13 @@ export default function CartItemAmountCsr({
         </button>
       </div>
       {discountedPrice ? (
-        <p className="font-extrabold">{count * discountedPrice}원</p>
+        <p className="font-extrabold">
+          {(count * discountedPrice).toLocaleString("ko-KR")}원
+        </p>
       ) : (
-        <p className="font-extrabold">{count * price}원</p>
+        <p className="font-extrabold">
+          {(count * price).toLocaleString("ko-KR")}원
+        </p>
       )}
     </div>
   );

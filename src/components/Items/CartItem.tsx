@@ -23,22 +23,26 @@ export default async function CartItem({
     getProductOption(productCode) as Promise<optionType[]>,
   ]);
   return (
-    <figure className="flex w-full gap-4">
-      <div className="relative w-[32%] max-w-24 aspect-square">
+    <figure className="flex w-full gap-2">
+      <div className="relative w-full max-w-24 aspect-square">
         {info.description ? (
           <Image
             src={info.description}
             alt="digh"
-            fill
-            style={{ objectFit: "cover" }}
+            width={300}
+            height={300}
+            priority
           />
         ) : (
           <Skeleton className="w-full h-full bg-[#e5e7eb]" />
         )}
       </div>
       <ul className="w-full flex flex-col justify-between">
-        <li className="flex w-full justify-between mb-2">
-          <Link href={`/product/${productCode}`} className="font-extrabold">
+        <li className="flex w-full justify-between">
+          <Link
+            href={`/product/${productCode}`}
+            className="font-extrabold max-w-44"
+          >
             {info.productName}
           </Link>
           <DeleteCartItem
@@ -51,7 +55,6 @@ export default async function CartItem({
         <li>
           <CartItemAmountFetch
             price={info.productPrice}
-            discountedPrice={info.productPrice}
             amount={item.amount}
             productCode={productCode}
             productOptionId={productOptionId}

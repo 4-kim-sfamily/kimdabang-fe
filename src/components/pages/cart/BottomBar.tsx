@@ -17,7 +17,9 @@ export default function BottomBar({
           <p className="text-starbucks">{count}</p>
           <p>건</p>
         </div>
-        <p className="text-xl font-extrabold">{totalPrice}원</p>
+        <p className="text-xl font-extrabold">
+          {totalPrice.toLocaleString("ko-KR")}원
+        </p>
       </span>
       <div>
         <PaymentButtons count={count} id={id} />

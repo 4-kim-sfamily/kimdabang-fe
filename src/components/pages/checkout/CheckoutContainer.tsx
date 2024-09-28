@@ -53,10 +53,8 @@ export default async function CheckoutContainer({
       price += product.productPrice * cartList[index].amount;
     });
   } else {
-    console.log("잘못 들어옴");
   }
   if (addressId) {
-    console.log("addressId", addressId);
     addressData = await getAddressById(addressId);
   }
   const isAddress = await getShippingAddressDefault();

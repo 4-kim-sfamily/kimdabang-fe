@@ -37,7 +37,7 @@ export default async function ItemCard({
       </div>
       <p className="text-[13px] ">{cardItem.productName}</p>
       <p className="font-semibold ">
-        {cardItem.productPrice}
+        {cardItem.productPrice.toLocaleString("ko-KR")}
         {" 원"}
       </p>
       {/* <ReviewPreview productCode={item.productCode} visible={false} /> */}

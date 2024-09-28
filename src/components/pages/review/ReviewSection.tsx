@@ -25,8 +25,6 @@ export default function ReviewSection({
       });
       setReviewList(data.data);
       setLlastPage(data.totalPage);
-      console.log(lastPage);
-      console.log(data);
     };
     fetchData();
   }, [productCode, currentPage]);
