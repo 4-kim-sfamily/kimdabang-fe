@@ -20,7 +20,6 @@ export default async function page() {
     const amount = cartMap.get(product.productCode) || 1;
     return total + product.productPrice * amount;
   }, 0);
-  console.log(totalEstimatedPrice);
 
   const shippingfee =
     totalEstimatedPrice >= 30000 ? 0 : totalEstimatedPrice === 0 ? 0 : 3000;
