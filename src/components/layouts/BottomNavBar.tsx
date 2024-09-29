@@ -66,7 +66,7 @@ export default async function BottomNavBar() {
           ) : (
             <Link href="/member/login">
               <button className="bottom-nav-button">
-                <User size={32} />
+                <User />
                 <span className="bottom-nav-span">로그인</span>
               </button>
             </Link>
