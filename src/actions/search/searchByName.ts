@@ -5,7 +5,7 @@ export const searchByName = async (
   query: string,
 ): Promise<SearchResultType[]> => {
   const data = await fetchData<commonResType<SearchResultType[]>>(
-    `/api/v1/product/search?keyword=${query}`,
+    `/api/v1/product/search?keyword=${query}&size=20`,
     "GET",
     "",
     "no-cache",

@@ -20,7 +20,7 @@ export const getBestProduct = async (
     `/api/v1/score/get-best?page=${nowPage}`,
     "GET",
     "",
-    "default",
+    "force-cache",
   );
   return data.data;
 };
@@ -33,7 +33,7 @@ export const getCategoryBestProduct = async (
     `/api/v1/score/get-categorybest?categoryId=${categoryId}&page=${nowPage}`,
     "GET",
     "",
-    "no-store",
+    "force-cache",
   );
   return data.data;
 };
