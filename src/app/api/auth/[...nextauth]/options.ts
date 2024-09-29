@@ -56,7 +56,7 @@ export const options: NextAuthOptions = {
           user.accessToken = data.data.accessToken;
           user.name = data.data.name;
           return true;
-        } else if (result.status === 400) {
+        } else if (result.status === 401) {
           // 여기서 Kakao 정보를 `user`에 추가하여 `jwt`에서 처리할 수 있도록 넘김
           const provider = account.provider;
           const providerAccountId = account.providerAccountId;
