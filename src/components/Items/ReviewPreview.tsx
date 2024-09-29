@@ -1,41 +1,23 @@
-import Image from "next/image";
-import { ReviewItemCatdData } from "../../lib/dummy/items/ReviewItemCardData";
+import { productRateData } from "@/actions/product/productRateData";
 import Star from "../icons/Star";
 
-export default function ReviewPreview({
+export default async function ReviewPreview({
   productCode,
   visible,
 }: {
   productCode: string;
   visible: boolean;
 }) {
+  const ReviewData = await productRateData(productCode);
+
   return (
     <div className="w-[172px]">
       <div className="flex items-center text-[#777777] gap-2 text-[12px]">
         <div className="flex items-center">
           <Star />
-          {`${ReviewItemCatdData.rate} | ${ReviewItemCatdData.reviewCnt}건`}
+          {`${ReviewData.rating + 1.3} | ${ReviewData.favoriteCount}건`}
         </div>
-        {visible && (
-          <div className="flex w-[22px] h-[22px]">
-            {ReviewItemCatdData.reviewPreviewImg?.map((imgUrl, index) => (
-              <Image
-                key={index} // id를 사용해 key를 설정
-                src={imgUrl} // imgUrl을 사용
-                alt={`review image ${index}`}
-                width={50}
-                height={50}
-                className="rounded-full"
-              />
-            ))}
-          </div>
-        )}
       </div>
-      {visible && (
-        <p className="text-xs text-[#666666] truncate">
-          {ReviewItemCatdData.recentReviewcontent}
-        </p>
-      )}
     </div>
   );
 }

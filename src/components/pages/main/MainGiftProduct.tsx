@@ -9,7 +9,6 @@ export default async function MainGiftProduct({
 }) {
   // 여기 조금있다가 Starbucks Gift Product로 변경 필요.
   const giftData = await getProductRec();
-  console.log("giftData", giftData);
   return (
     <section>
       <MainTitle title="당신의 마음을 사로잡을 스타벅스의 추천" />
