@@ -193,3 +193,9 @@ export interface Review {
   text: string;
   nickName: string;
 }
+
+export interface SearchResultType {
+  productCode: string;
+  productName: string;
+  categoryId: number;
+}

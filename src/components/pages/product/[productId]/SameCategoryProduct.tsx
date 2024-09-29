@@ -16,10 +16,10 @@ export default async function SameCategoryProduct(authStatus: {
         description="이 상품과 함께 많이 본 상품"
       />
       <div className="grid grid-cols-2 gap-4 justify-center w-[100%] py-3 md:grid-cols-4">
-        {BestTumblr.map((item) => (
+        {BestTumblr.map((item, index) => (
           <ItemCard
-            key={item.productCode}
-            item={item}
+            key={index}
+            productCode={item.productCode}
             authStatus={authStatus.authStatus}
           />
         ))}
