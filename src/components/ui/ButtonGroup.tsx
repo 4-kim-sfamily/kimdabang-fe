@@ -16,17 +16,6 @@ export default function ButtonGroup({
   useEffect(() => {
     handleClick(2);
   }, []);
-  useEffect(() => {
-    if (!isInitialRender && selectedButtonRef.current) {
-      selectedButtonRef.current.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
-    } else {
-      setIsInitialRender(false);
-    }
-  }, [selectedButton]);
 
   return (
     <section className="w-full flex flex-row items-center gap-1 pt-3 p-0">
