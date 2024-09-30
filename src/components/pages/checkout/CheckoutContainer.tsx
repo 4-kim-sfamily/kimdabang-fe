@@ -4,9 +4,10 @@ import {
   getAddressById,
   getShippingAddressDefault,
 } from "@/actions/shipping/shippingActions";
+import { Button } from "@/components/ui/button";
 import { cartList } from "@/types/items/Cart";
 import { ProductType, shippingAddressType } from "@/types/ResponseType";
-import { redirect } from "next/navigation";
+import Link from "next/link";
 import AddressSection from "../cart/AddressSection";
 import CouponSection from "./CouponSection";
 import MyOrderItemList from "./MyOrderItemList";
@@ -58,18 +59,26 @@ export default async function CheckoutContainer({
     addressData = await getAddressById(addressId);
   }
   const isAddress = await getShippingAddressDefault();
+  let isAvailable = true;
   if (!isAddress) {
-    alert("배송지를 먼저 등록해주세요!");
-    redirect("/shipping/addShippingAddress");
+    isAvailable = false;
   } else {
     addressData = isAddress;
   }
   return (
     <div className="mt-20 px-4 flex flex-col gap-4">
-      <section>
-        <p className="font-bold text-2xl -mb-10">배송지</p>
-        <AddressSection id={addressId} />
-      </section>
+      {isAddress ? (
+        <section>
+          <p className="font-bold text-2xl -mb-10">배송지</p>
+          <AddressSection id={addressId} />
+        </section>
+      ) : (
+        <Link href={"/shipping/addShippingAddress"}>
+          <Button className="py-4 mx-auto text-red-600">
+            배송지를 등록해주세요
+          </Button>
+        </Link>
+      )}
       <section>
         <p className="font-bold text-2xl">주문 내역</p>
         <MyOrderItemList
@@ -99,6 +108,7 @@ export default async function CheckoutContainer({
           optionId={optionId}
           amount={amount}
           addressData={addressData}
+          isAvailable={isAvailable}
         />
       </section>
     </div>
