@@ -15,6 +15,7 @@ export default function OrderPrice({
   optionId,
   amount,
   addressData,
+  isAvailable,
 }: {
   price: number;
   productDataList?: ProductType[];
@@ -23,6 +24,7 @@ export default function OrderPrice({
   optionId?: string;
   amount?: number;
   addressData: shippingAddressType;
+  isAvailable: boolean;
 }) {
   const {
     discountPrice,
@@ -140,8 +142,9 @@ export default function OrderPrice({
       <hr />
       <Button
         onClick={handleClick}
-        variant="starbucks"
+        variant={isAvailable ? "starbucks" : "disabled"} // isAvailable에 따라 variant 변경
         className="mx-auto mt-4"
+        disabled={!isAvailable} // 클릭 비활성화 처리
       >
         {`${paymentAmount.toLocaleString("ko-KR")}`}원 결제하기
       </Button>
