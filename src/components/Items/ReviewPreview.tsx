@@ -15,7 +15,7 @@ export default async function ReviewPreview({
       <div className="flex items-center text-[#777777] gap-2 text-[12px]">
         <div className="flex items-center">
           <Star />
-          {`${ReviewData.rating + 1.3} | ${ReviewData.favoriteCount}건`}
+          {`${ReviewData.rating.toPrecision(2)} | ${ReviewData.reviewCount}건`}
         </div>
       </div>
     </div>
