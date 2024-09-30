@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth";
 import { Metadata } from "next/types";
 import { Suspense } from "react";
 
-export async function generateMetaData({
+export async function generateMetadata({
   searchParams,
 }: {
   searchParams: { query: string };
