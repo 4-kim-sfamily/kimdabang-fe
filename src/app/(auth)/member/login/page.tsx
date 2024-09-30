@@ -1,6 +1,7 @@
 import LoginForm from "@/components/forms/LoginForm";
 import LoginOptions from "@/components/pages/login/LoginOptions";
 import SocialLoginButtons from "@/components/pages/login/SocialLoginButtons";
+import TestLogin from "@/components/pages/login/TestLogin";
 import WelcomeMessage from "@/components/pages/login/WelcomeMessage";
 import { Metadata } from "next";
 
@@ -16,12 +17,16 @@ export default function Page({
 }) {
   return (
     <>
-      <div className="font-NanumSquare justify-between px-5">
-        <WelcomeMessage MessageType="login" />
-        <LoginForm autoLogin={searchParams.autoLogin} />
-        <SocialLoginButtons />
-        <LoginOptions />
-      </div>
+      {searchParams.autoLogin ? (
+        <TestLogin />
+      ) : (
+        <div className="font-NanumSquare justify-between px-5">
+          <WelcomeMessage MessageType="login" />
+          <LoginForm autoLogin={searchParams.autoLogin} />
+          <SocialLoginButtons />
+          <LoginOptions />
+        </div>
+      )}
     </>
   );
 }
