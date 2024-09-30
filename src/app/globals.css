@@ -169,18 +169,24 @@ body {
 .progress-bar {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 20px;
+  width: 50vw;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+.progress-bar > div {
+  border-radius: 50%;
 }
 
 .step {
   padding: 8px 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #01a862;
   border-radius: 5px;
 }
 
 .completed {
-  background-color: #01a862; /* 완료된 단계를 녹색으로 표시 */
+  background-color: #01a862;
   color: white;
+  border: none;
 }
 .input-wrapper {
   @apply h-[62px] gap-3 w-full flex border-b-[1px] items-end focus-within:border-[#01a862] focus-within:flex-col focus-within:items-start focus-within:gap-0;

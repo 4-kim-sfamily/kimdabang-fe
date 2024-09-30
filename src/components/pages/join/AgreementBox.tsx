@@ -68,14 +68,16 @@ export default function AgreementBox({ onAgree }) {
       />
 
       {/* 다음 버튼 */}
-      <Button
-        variant={allRequiredChecked ? "starbucks" : "disabled"}
-        disabled={!allRequiredChecked}
-        className="flex mx-auto mt-12"
-        onClick={handleSubmit}
-      >
-        다음
-      </Button>
+      <div className="w-full fixed box-border left-0 bottom-0 py-3 bg-white border-[2px] rounded-t-xl">
+        <Button
+          variant={allRequiredChecked ? "starbucks" : "disabled"}
+          disabled={!allRequiredChecked}
+          className="flex m-auto"
+          onClick={handleSubmit}
+        >
+          다음
+        </Button>
+      </div>
     </div>
   );
 }

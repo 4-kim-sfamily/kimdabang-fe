@@ -108,7 +108,7 @@ export function JoinForm({ onNext }) {
   };
 
   return (
-    <div>
+    <main className="mb-[100px]">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <section className="flex gap-2">
@@ -161,7 +161,7 @@ export function JoinForm({ onNext }) {
             />
           </section>
           <hr />
-          <section className="birth-section flex gap-5">
+          <section className="birth-section flex gap-1 items-center justify-between">
             {/* Date of Birth Field */}
             <FormField
               control={form.control}
@@ -174,7 +174,7 @@ export function JoinForm({ onNext }) {
                       <FormControl>
                         <Button
                           id="dob"
-                          className="w-[240px] pl-3 text-left px-2 font-normal rounded-xl relative z-10 border-[0.1rem] border-gray-300"
+                          className="w-[200px] py-2 text-left px-2 font-normal rounded-xl relative z-10 border-[0.1rem] border-gray-300"
                         >
                           {field.value ? (
                             format(field.value, "PPP")
@@ -185,7 +185,7 @@ export function JoinForm({ onNext }) {
                         </Button>
                       </FormControl>
                     </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0 align-start absolute z-20 bg-white opacity-100 shadow-lg">
+                    <PopoverContent className="w-auto p-0 align-start absolute z-20 bg-white opacity-100 shadow-lg left-[-70px]">
                       <div className="opacity-100 backdrop-blur-sm">
                         <Calendar
                           mode="single"
@@ -211,7 +211,6 @@ export function JoinForm({ onNext }) {
               name="calendarType"
               render={({ field }) => (
                 <FormItem className="flex flex-col mt-4">
-                  <FormLabel htmlFor="calendarType">음력 / 양력</FormLabel>
                   <FormControl>
                     <div className="flex items-center space-x-4">
                       <label className="flex items-center space-x-2">
@@ -330,12 +329,13 @@ export function JoinForm({ onNext }) {
               </FormItem>
             )}
           />
-
-          <Button variant="starbucks" type="submit" className="mx-auto">
-            다음
-          </Button>
+          <div className="w-full fixed box-border left-0 bottom-0 py-3 bg-white border-[2px] rounded-t-xl">
+            <Button variant="starbucks" type="submit" className="m-auto">
+              다음
+            </Button>
+          </div>
         </form>
       </Form>
-    </div>
+    </main>
   );
 }
