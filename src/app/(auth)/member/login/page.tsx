@@ -9,12 +9,16 @@ export const metadata: Metadata = {
   description: "로그인 페이지입니다.",
 };
 
-export default function Page() {
+export default function Page({
+  searchParams,
+}: {
+  searchParams: { autoLogin: boolean };
+}) {
   return (
     <>
       <div className="font-NanumSquare justify-between px-5">
         <WelcomeMessage MessageType="login" />
-        <LoginForm />
+        <LoginForm autoLogin={searchParams.autoLogin} />
         <SocialLoginButtons />
         <LoginOptions />
       </div>
