@@ -1,7 +1,6 @@
 "use client"; // 클라이언트 컴포넌트임을 명시
 
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
 import { useState } from "react";
 import phone from "../../icons/verification/phone.png";
@@ -104,7 +103,7 @@ export default function Verification({ onNext }) {
           />
         </li>
       </ul>
-      <Progress value={33} />
+      {/* <Progress value={33} /> */}
       {/* 인증하기 버튼 */}
       {/* <Button
         variant={isVerifying ? "disabled" : "starbucks"} // 인증 중일 때 버튼 비활성화
