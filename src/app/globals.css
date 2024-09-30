@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "NanumSquare";
+  src: url("../../public/fonts/NanumSquare_acL.ttf") format("truetype");
+  font-weight: 300;
+  font-style: light;
+}
+
+@font-face {
+  font-family: "NanumSquare";
+  src: url("../../public/fonts/NanumSquare_acR.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NanumSquare";
+  src: url("../../public/fonts/NanumSquare_acB.ttf") format("truetype");
+  font-weight: 700;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: "NanumSquare";
+  src: url("../../public/fonts/NanumSquare_acEB.ttf") format("truetype");
+  font-weight: 900;
+  font-style: extrabold;
+}
+
+@layer components {
+  .bottom-nav {
+    @apply flex border-t border-slate-200 bg-white py-3 px-2 fixed -bottom-0.5 left-0 w-full;
+  }
+
+  .bottom-nav-list {
+    @apply flex w-full;
+  }
+
+  .bottom-nav-item {
+    @apply flex-1 justify-around;
+  }
+
+  .bottom-nav-button {
+    @apply flex flex-col items-center justify-center w-full;
+  }
+
+  .bottom-nav-span {
+    @apply text-[0.65rem] text-[#777777] text-center mt-[3px];
+  }
+  .mypage-article {
+    @apply w-[30%] items-center mx-2 flex-col flex text-center border-2 border-slate-200 rounded-xl p-2   mb-2;
+  }
+
+  .nav-link {
+    @apply text-white whitespace-nowrap px-3;
+  }
+}
+
+.embla {
+  max-width: 80%;
+  margin: auto;
+  --slide-height: 14rem;
+  --slide-spacing: 1rem;
+  --slide-size: 100%;
+
+  /* 영역 표시 용도 */
+  margin-bottom: 2rem;
+}
+.embla__viewport {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+  display: flex;
+  justify-content: center;
+}
+.embla__slide__number {
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+  border-radius: 1.8rem;
+  font-size: 4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: var(--slide-height); */
+  user-select: none;
+}
+.title {
+  @apply text-xl text-[#222222] font-extrabold mt-10;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.gradient-background {
+  @apply bg-white;
+  background: linear-gradient(
+    270deg,
+    white 28.09%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.scroll-item::-webkit-scrollbar {
+  -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨김 */
+  scrollbar-width: none;
+  display: none; /* Chrome, Safari, Edge, Opera에서 스크롤바 숨김 */
+}
+
+.description {
+  @apply text-xs text-[#666666] pb-1;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.gradient-background {
+  @apply bg-white;
+  background: linear-gradient(
+    270deg,
+    white 28.09%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.scroll-item::-webkit-scrollbar {
+  -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨김 */
+  scrollbar-width: none;
+  display: none; /* Chrome, Safari, Edge, Opera에서 스크롤바 숨김 */
+}
+
+.nav-link {
+  @apply text-white whitespace-nowrap px-3;
+}
+
+html,
+body {
+  font-family: "NanumSquare", sans-serif;
+}
+.scroll-item::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge, Opera에서 스크롤바 숨김 */
+}
+
+.scroll-item {
+  -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨김 */
+  scrollbar-width: none; /* Firefox에서 스크롤바 숨김 */
+}
+
+.delivery-state {
+  @apply flex-col;
+}
+.delivery-state > p {
+  @apply text-center;
+}
+.payInfo {
+  @apply flex justify-between;
+}
+.top-shadow {
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.step {
+  padding: 8px 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.completed {
+  background-color: #01a862; /* 완료된 단계를 녹색으로 표시 */
+  color: white;
+}
+.input-wrapper {
+  @apply h-[62px] gap-3 w-full flex border-b-[1px] items-end focus-within:border-[#01a862] focus-within:flex-col focus-within:items-start focus-within:gap-0;
+}
+.input-wrapper input {
+  @apply font-extrabold;
+}
+.input-wrapper:focus-within label {
+  @apply text-[13px];
+}
+.input-wrapper:focus-within input {
+  @apply p-2 focus:outline-none w-[80%] font-extrabold;
+}
+.AddressOption {
+  @apply font-extrabold;
+}
+.skeleton {
+  @apply w-full h-full bg-[#e5e7eb];
+}
+
+.custom-product-content button {
+  @apply hidden;
+}
+
+.shipping-info {
+  @apply mb-7;
+}
+.shipping-info > h3 {
+  @apply text-lg font-extrabold mb-2;
+}
+.shipping-info > div {
+  @apply gap-14 flex justify-start;
+}
+.shipping-info > div > h5 {
+  @apply min-w-16;
+}
+
+.pay-info > h3 {
+  @apply text-lg font-extrabold mb-2;
+}
+.pay-info > div {
+  @apply flex justify-between;
+}
+
+.headerNavBar {
+  -ms-overflow-style: none;
+}
+.headerNavBar::-webkit-scrollbar {
+  display: none;
+}

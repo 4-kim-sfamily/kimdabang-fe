@@ -1,0 +1,788 @@
+{
+  "ReviewBest": [
+    {
+      "productCode": "1000555910531",
+      "largeCategory": "e-gift",
+      "productName": "APP전용 e카드 5만원 교환권",
+      "productImageUrl": "https://sitem.ssgcdn.com/38/09/91/item/1000555910938_i1_750.jpg",
+      "productPrice": "50,000원",
+      "rating": "4.9",
+      "reviewCount": "701건"
+    },
+    {
+      "productCode": "1000555891733",
+      "productName": "APP전용 e카드 2만원 교환권",
+      "productImageUrl": "https://sitem.ssgcdn.com/33/17/89/item/1000555891733_i1_290.jpg",
+      "productPrice": "20,000원",
+      "rating": "4.9",
+      "reviewCount": "843건"
+    },
+    {
+      "productCode": "1000555883607",
+      "productName": "소중한 당신에게(ICE) 아이스 카페 아메리카노 T 2잔 + The 촉촉 초콜릿 생크림 케이크",
+      "productImageUrl": "https://sitem.ssgcdn.com/07/36/88/item/1000555883607_i1_290.jpg",
+      "productPrice": "14,900원",
+      "rating": "5.0",
+      "reviewCount": "4건"
+    },
+    {
+      "productCode": "1000555879468",
+      "productName": "축하합니다(ICE)",
+      "productImageUrl": "https://sitem.ssgcdn.com/68/94/87/item/1000555879468_i1_290.jpg",
+      "productPrice": "20,200원",
+      "rating": "5.0",
+      "reviewCount": "5건"
+    }
+  ],
+  "SeasonProduct": [
+    {
+      "productCode": "1000600960633",
+      "productName": "[스타벅스] 코지 디너 세트",
+      "productImageUrl": "https://sitem.ssgcdn.com/33/06/96/item/1000600960633_i1_290.jpg",
+      "productPrice": "264,000원",
+      "rating": "4.7",
+      "reviewCount": "18건"
+    },
+    {
+      "productCode": "1000600960431",
+      "productName": "[스타벅스] 코지 브런치 세트",
+      "productImageUrl": "https://sitem.ssgcdn.com/31/04/96/item/1000600960431_i1_290.jpg",
+      "productPrice": "113,000원",
+      "rating": "5.0",
+      "reviewCount": "2건"
+    }
+  ],
+  "BestTumblr": [
+    {
+      "productCode": "1000555910531",
+      "largeCategory": "e-gift",
+      "productName": "APP전용 e카드 5만원 교환권",
+      "productImageUrl": "https://sitem.ssgcdn.com/38/09/91/item/1000555910938_i1_750.jpg",
+      "productPrice": "50,000원",
+      "rating": "4.9",
+      "reviewCount": "701건"
+    },
+    {
+      "productCode": "1000614587903",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 펭귄북스 토비 텀블러 473ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/03/79/58/item/1000614587903_i1_290.jpg",
+      "productPrice": "42,000원",
+      "rating": "4.6",
+      "reviewCount": "3건"
+    },
+    {
+      "productCode": "1000355713010",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 스탠리 크림 켄처 텀블러 591ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/10/30/71/item/1000355713010_i1_290.jpg",
+      "productPrice": "39,000원",
+      "rating": "4.8",
+      "reviewCount": "488건"
+    },
+    {
+      "productCode": "1000614588163",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 북클럽 미르 와이드 보틀 텀블러 591ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/63/81/58/item/1000614588163_i1_290.jpg",
+      "productPrice": "49,000원",
+      "rating": "5.0",
+      "reviewCount": "1건"
+    },
+    {
+      "productCode": "1000541560361",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 블랙 탱크 텀블러 503ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/61/03/56/item/1000541560361_i1_290.jpg",
+      "productPrice": "35,000원",
+      "rating": "4.8",
+      "reviewCount": "175건"
+    },
+    {
+      "productCode": "1000560320568",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] 스탠리 하우스 보온병 500ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/68/05/32/item/1000560320568_i1_290.jpg",
+      "productPrice": "41,000원",
+      "rating": "4.7",
+      "reviewCount": "118건"
+    },
+    {
+      "productCode": "1000612851264",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] [세트 10% 할인] JNL 사이렌 화이트 보온병 + 보틀백 SET (스카이블루&그린)",
+      "productImageUrl": "https://sitem.ssgcdn.com/64/12/85/item/1000612851264_i1_290.jpg",
+      "productPrice": "48,600원",
+      "rating": "5.0",
+      "reviewCount": "4건"
+    },
+    {
+      "productCode": "1000614574997",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] 애니버서리 켄처 텀블러 414ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/97/49/57/item/1000614574997_i1_290.jpg",
+      "productPrice": "41,000원",
+      "rating": "",
+      "reviewCount": ""
+    },
+    {
+      "productCode": "1000561178811",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 우디 하우스 텀블러 591ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/11/88/17/item/1000561178811_i1_290.jpg",
+      "productPrice": "37,000원",
+      "rating": "4.8",
+      "reviewCount": "152건"
+    },
+    {
+      "productCode": "1000614587371",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 펭귄북스 틸튼 텀블러 355ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/71/73/58/item/1000614587371_i1_290.jpg",
+      "productPrice": "40,000원",
+      "rating": "",
+      "reviewCount": ""
+    },
+    {
+      "productCode": "1000561178272",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 나수 하우스 텀블러 355ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/72/82/17/item/1000561178272_i1_290.jpg",
+      "productPrice": "32,000원",
+      "rating": "4.9",
+      "reviewCount": "67건"
+    },
+    {
+      "productCode": "1000614586948",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 펭귄북스 JDN 텀블러 355ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/48/69/58/item/1000614586948_i1_290.jpg",
+      "productPrice": "38,000원",
+      "rating": "5.0",
+      "reviewCount": "2건"
+    },
+    {
+      "productCode": "1000614588591",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 북클럽 조이 콜드컵 710ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/91/85/58/item/1000614588591_i1_290.jpg",
+      "productPrice": "42,000원",
+      "rating": "5.0",
+      "reviewCount": "2건"
+    },
+    {
+      "productCode": "1000614586165",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] 펭귄북스 FEJ 보온병 500ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/65/61/58/item/1000614586165_i1_290.jpg",
+      "productPrice": "52,000원",
+      "rating": "5.0",
+      "reviewCount": "1건"
+    },
+    {
+      "productCode": "1000570092195",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스]  SS 크리스마스 클래식 켄처 텀블러 591ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/95/21/09/item/1000570092195_i1_290.jpg",
+      "productPrice": "41,000원",
+      "rating": "4.6",
+      "reviewCount": "11건"
+    },
+    {
+      "productCode": "1000055833700",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스]SS 콩코드 사이렌 화이트 텀블러 591ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/00/37/83/item/1000055833700_i1_290.jpg",
+      "productPrice": "35,000원",
+      "rating": "4.8",
+      "reviewCount": "159건"
+    },
+    {
+      "productCode": "1000561178190",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 팬시 하우스 텀블러 355ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/90/81/17/item/1000561178190_i1_290.jpg",
+      "productPrice": "32,000원",
+      "rating": "4.8",
+      "reviewCount": "64건"
+    },
+    {
+      "productCode": "1000355800083",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 스탠리 그린 켄처 텀블러 591ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/83/00/80/item/1000355800083_i1_290.jpg",
+      "productPrice": "39,000원",
+      "rating": "4.8",
+      "reviewCount": "232건"
+    },
+    {
+      "productCode": "1000604197088",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 25주년 기념 킨토 데이오프 텀블러 500ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/88/70/19/item/1000604197088_i1_290.jpg",
+      "productPrice": "60,000원",
+      "rating": "4.8",
+      "reviewCount": "5건"
+    },
+    {
+      "productCode": "1000614588905",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 펭귄북스 코나 텀블러 237ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/05/89/58/item/1000614588905_i1_290.jpg",
+      "productPrice": "38,000원",
+      "rating": "4.0",
+      "reviewCount": "1건"
+    },
+    {
+      "productCode": "1000614573665",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] 애니버서리 가디언 글라스 콜드컵 355ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/65/36/57/item/1000614573665_i1_290.jpg",
+      "productPrice": "28,000원",
+      "rating": "",
+      "reviewCount": ""
+    },
+    {
+      "productCode": "1000608823093",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 블랙 매트 데비 텀블러 473ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/93/30/82/item/1000608823093_i1_290.jpg",
+      "productPrice": "34,000원",
+      "rating": "5.0",
+      "reviewCount": "2건"
+    },
+    {
+      "productCode": "1000609263098",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 쿨 써머 워커 텀블러 680ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/98/30/26/item/1000609263098_i1_290.jpg",
+      "productPrice": "44,000원",
+      "rating": "4.6",
+      "reviewCount": "3건"
+    },
+    {
+      "productCode": "1000560315428",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 콩코드 하우스 텀블러 591ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/28/54/31/item/1000560315428_i1_290.jpg",
+      "productPrice": "36,000원",
+      "rating": "4.8",
+      "reviewCount": "75건"
+    },
+    {
+      "productCode": "1000614574132",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] 애니버서리 가디언 글라스 콜드컵 473ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/32/41/57/item/1000614574132_i1_290.jpg",
+      "productPrice": "32,000원",
+      "rating": "",
+      "reviewCount": ""
+    },
+    {
+      "productCode": "1000608823663",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] 그러데이션 스탠리 보온병 500ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/63/36/82/item/1000608823663_i1_290.jpg",
+      "productPrice": "46,000원",
+      "rating": "",
+      "reviewCount": ""
+    },
+    {
+      "productCode": "1000355726103",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 뉴트럴 밸류 텀블러 473ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/03/61/72/item/1000355726103_i1_290.jpg",
+      "productPrice": "33,000원",
+      "rating": "4.8",
+      "reviewCount": "164건"
+    },
+    {
+      "productCode": "1000614574545",
+      "productName": "[스타벅스] 애니버서리 가디언 미르 텀블러 473ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/45/45/57/item/1000614574545_i1_290.jpg",
+      "productPrice": "45,000원",
+      "rating": "",
+      "reviewCount": ""
+    },
+    {
+      "productCode": "1000614590381",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 사이렌 워커 텀블러 473ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/81/03/59/item/1000614590381_i1_290.jpg",
+      "productPrice": "37,000원",
+      "rating": "5.0",
+      "reviewCount": "1건"
+    },
+    {
+      "productCode": "1000612851832",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] [세트 10% 할인] JNL 사이렌 화이트 보온병 + 보틀백 SET (핑크&민트)",
+      "productImageUrl": "https://sitem.ssgcdn.com/32/18/85/item/1000612851832_i1_290.jpg",
+      "productPrice": "48,600원",
+      "rating": "5.0",
+      "reviewCount": "1건"
+    },
+    {
+      "productCode": "1000541561376",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 화이트 아이리스 텀블러 473ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/76/13/56/item/1000541561376_i1_290.jpg",
+      "productPrice": "35,000원",
+      "rating": "4.7",
+      "reviewCount": "45건"
+    },
+    {
+      "productCode": "1000614575450",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] 애니버서리 엘마 텀블러 473ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/50/54/57/item/1000614575450_i1_290.jpg",
+      "productPrice": "42,000원",
+      "rating": "",
+      "reviewCount": ""
+    },
+    {
+      "productCode": "1000598477278",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] 레이니 데일리 워터보틀 1000ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/78/72/47/item/1000598477278_i1_290.jpg",
+      "productPrice": "34,000원",
+      "rating": "5.0",
+      "reviewCount": "5건"
+    },
+    {
+      "productCode": "1000314395313",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 그린 스탠리 아이슬란드 텀블러 473ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/13/53/39/item/1000314395313_i1_290.jpg",
+      "productPrice": "37,000원",
+      "rating": "4.5",
+      "reviewCount": "70건"
+    },
+    {
+      "productCode": "1000355758450",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] JNX 그린 워드마크 보온병 500ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/50/84/75/item/1000355758450_i1_290.jpg",
+      "productPrice": "48,000원",
+      "rating": "4.8",
+      "reviewCount": "110건"
+    },
+    {
+      "productCode": "1000612850158",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] JNL 사이렌 화이트 보온병 350ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/58/01/85/item/1000612850158_i1_290.jpg",
+      "productPrice": "39,000원",
+      "rating": "5.0",
+      "reviewCount": "2건"
+    },
+    {
+      "productCode": "1000608808358",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] SS 블랙 매트 엘마 텀블러 473ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/58/83/80/item/1000608808358_i1_290.jpg",
+      "productPrice": "38,000원",
+      "rating": "",
+      "reviewCount": ""
+    },
+    {
+      "productCode": "1000055835450",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스]SS 그린 처비 핸들 텀블러 473ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/50/54/83/item/1000055835450_i1_290.jpg",
+      "productPrice": "36,000원",
+      "rating": "4.9",
+      "reviewCount": "355건"
+    },
+    {
+      "productCode": "1000055845823",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스]SS 엘마 블랙 텀블러 473ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/23/58/84/item/1000055845823_i1_290.jpg",
+      "productPrice": "33,000원",
+      "rating": "4.8",
+      "reviewCount": "561건"
+    },
+    {
+      "productCode": "1000560318863",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] 크레이브 하우스 워터보틀 500ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/63/88/31/item/1000560318863_i1_290.jpg",
+      "productPrice": "20,000원",
+      "rating": "4.8",
+      "reviewCount": "18건"
+    },
+    {
+      "productCode": "1000561179013",
+      "largeCategory": "텀블러",
+      "productName": "[스타벅스] JNM 하우스 보온병 480ml",
+      "productImageUrl": "https://sitem.ssgcdn.com/13/90/17/item/1000561179013_i1_290.jpg",
+      "productPrice": "46,000원",
+      "rating": "4.9",
+      "reviewCount": "17건"
+    }
+  ],
+  "couponAmount": {
+    "couponAmount": 5
+  },
+  "starAmount": {
+    "starAmount": 5,
+    "greenStarAmount": 7
+  },
+  "productstatelist": [
+    {
+      "state": "취소",
+      "amount": 3
+    },
+    {
+      "state": "교환",
+      "amount": 5
+    },
+    {
+      "state": "반품",
+      "amount": 2
+    },
+    {
+      "state": "구매확정",
+      "amount": 10
+    }
+  ],
+  "deliveryStates": [
+    {
+      "id": 1,
+      "state": "주문 접수",
+      "count": 3
+    },
+    {
+      "id": 2,
+      "state": "결제 완료",
+      "count": 5
+    },
+    {
+      "id": 3,
+      "state": "상품 준비중",
+      "count": 2
+    },
+    {
+      "id": 4,
+      "state": "배송중",
+      "count": 1
+    },
+    {
+      "id": 5,
+      "state": "배송 완료",
+      "count": 4
+    }
+  ],
+  "favoriteMenus": [
+    {
+      "id": 1,
+      "iconName": "좋아요",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_like@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 2,
+      "iconName": "자주구매",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_freq@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 3,
+      "iconName": "이벤트현황",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_event@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 4,
+      "iconName": "상품 Q&A",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_qna@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 5,
+      "iconName": "입고알림",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_alert@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    },
+    {
+      "id": 6,
+      "iconName": "선물함",
+      "imageUrl": "https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_gift@3x.png?q=ae3bb648778634873359ce408f6a8d1016bb8979"
+    }
+  ],
+  "carouselData": [
+    {
+      "id": 0,
+      "description": "오텀 펭귄 북스",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202408/2024082716492709780525320152_955.jpg&w=750&h=0"
+    },
+    {
+      "id": 1,
+      "description": "BUDDY BLACK GOLF CLUB",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202408/2024083014175053184567290556_417.jpg&w=750&h=0"
+    },
+    {
+      "id": 2,
+      "description": "24주년",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202408/2024082716450008893493951449_912.jpg&w=750&h=0"
+    },
+    {
+      "id": 3,
+      "description": "뉴에라",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202408/2024082210304903261305969130_246.jpg&w=750&h=0"
+    },
+    {
+      "id": 4,
+      "description": "설레는 시작의 순간, BACK TO SCHOOL",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202408/2024081314575234095027480602_360.jpg&w=750&h=0"
+    },
+    {
+      "id": 5,
+      "description": "MEET THE STARBUCKS MOMENT",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202407/2024072613135181368572876957_610.jpg&w=750&h=0"
+    }
+  ],
+  "largeCategories": [
+    {
+      "id": 1,
+      "name": "텀블러/보온병",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202211/2022110318295153435661206566_757.jpg&w=182&h=0"
+    },
+    {
+      "id": 2,
+      "name": "컵/머그",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202211/2022110318301879707787942778_933.jpg&w=182&h=0"
+    },
+    {
+      "id": 3,
+      "name": "커피/티용품",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202211/2022110318303114102143113214_833.jpg&w=182&h=0"
+    },
+    {
+      "id": 4,
+      "name": "라이프스타일",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202211/2022110318304521702972323297_875.jpg&w=182&h=0"
+    },
+    {
+      "id": 5,
+      "name": "e-gift",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202211/2022110318310061765697618569_474.jpg&w=182&h=0"
+    },
+    {
+      "id": 6,
+      "name": "디저트",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202402/2024021315330567605073503507_739.png&w=182&h=0"
+    },
+    {
+      "id": 7,
+      "name": "베이커리",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202211/2022110318312434168660228866_404.jpg&w=182&h=0"
+    },
+    {
+      "id": 8,
+      "name": "음료/요거트",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202211/2022110318320301762623758262_485.png&w=182&h=0"
+    }
+  ],
+  "subCategories": [
+    {
+      "id": 1,
+      "name": "패브릭"
+    },
+    {
+      "id": 2,
+      "name": "홈데코"
+    },
+    {
+      "id": 3,
+      "name": "문구/팬시"
+    }
+  ],
+  "SeasonData": [
+    {
+      "id": 1,
+      "name": "MEET THE STARBUCKS MOMENT",
+      "description": "2024 쿨 써머 MD",
+      "thumbsImgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202407/2024072411062989898754191975_90.jpg&w=750&h=412&edit=c&t=b62c4f1d3d22d18e5c0ae6da53b235cc8af2768d"
+    },
+    {
+      "id": 2,
+      "name": "COZY TABLE WARE",
+      "thumbsImgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202406/2024062113075914579574693167_311.jpg&w=750&h=0"
+    }
+  ],
+  "ReviewimgUrl": [
+    {
+      "productCode": "1000600959112",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202409/20240904222714_1225130150_0_1.jpg&w=500&h=500&autoOrient=true&t=c288b8113cff0806e91fe2b0872129ace5eef965"
+    },
+    {
+      "productCode": "1000600959112",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202409/20240904222714_1225130150_0_1.jpg&w=500&h=500&autoOrient=true&t=c288b8113cff0806e91fe2b0872129ace5eef965"
+    },
+    {
+      "productCode": "1000600959112",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202409/20240904222714_1225130150_0_1.jpg&w=500&h=500&autoOrient=true&t=c288b8113cff0806e91fe2b0872129ace5eef965"
+    },
+    {
+      "productCode": "1000600959112",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202409/20240904222714_1225130150_0_1.jpg&w=500&h=500&autoOrient=true&t=c288b8113cff0806e91fe2b0872129ace5eef965"
+    },
+    {
+      "productCode": "1000614587903",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202409/20240904222714_1225130150_0_1.jpg&w=500&h=500&autoOrient=true&t=c288b8113cff0806e91fe2b0872129ace5eef965"
+    },
+    {
+      "productCode": "1000614587903",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202409/20240904222714_1225130150_0_1.jpg&w=500&h=500&autoOrient=true&t=c288b8113cff0806e91fe2b0872129ace5eef965"
+    },
+    {
+      "productCode": "1000614587903",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202409/20240904074603_1225083837_0_1.jpg&w=500&h=500&autoOrient=true&t=8636e54759addeb7747b3e0c8dcdea3d9c8d09a5"
+    },
+    {
+      "productCode": "1000555910531",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202408/20240820163208_1224331288_0_1.jpg&w=500&h=500&autoOrient=true&t=682fa6c873463841cbdb5767b3f1ddad2a62d8c3"
+    },
+    {
+      "productCode": "1000555910531",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202408/20240808161641_1223780509_0_1.jpg&w=500&h=500&autoOrient=true&t=3ae54032b8b1d78a3e70ad183077dd2a0f5b40cc"
+    },
+    {
+      "productCode": "1000555910531",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202407/20240719164011_1222811877_0_1.jpg&w=500&h=500&autoOrient=true&t=041e8b39b71c415b92ab8adfce134dd5b3fef8fc"
+    },
+    {
+      "productCode": "1000555910531",
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202407/20240706201714_1222219147_0_1.jpg&w=500&h=500&autoOrient=true&t=c21f0a04758b0aaf044c9a1f6b33cd0bb328bb32"
+    }
+  ],
+  "entireReview": [
+    {
+      "id": 1,
+      "productCode": "1000555910531",
+      "userId": "ros*******",
+      "comment": "자주 구매합니다~ 좋아요!",
+      "createdAt": "2024.08.20",
+      "rating": 5,
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202408/20240820163208_1224331288_0_1.jpg&w=500&h=500&autoOrient=true&t=682fa6c873463841cbdb5767b3f1ddad2a62d8c3"
+    },
+    {
+      "id": 2,
+      "productCode": "1000555910531",
+      "userId": "ros*******",
+      "comment": "자주 구매합니다~ 좋아요!",
+      "createdAt": "2024.08.08",
+      "rating": 5,
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202408/20240808161641_1223780509_0_1.jpg&w=500&h=500&autoOrient=true&t=3ae54032b8b1d78a3e70ad183077dd2a0f5b40cc"
+    },
+    {
+      "id": 3,
+      "productCode": "1000555910531",
+      "userId": "ros*******",
+      "comment": "자주 구매합니다~ 좋아요!",
+      "createdAt": "2024.07.19",
+      "rating": 5,
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202407/20240719164011_1222811877_0_1.jpg&w=500&h=500&autoOrient=true&t=041e8b39b71c415b92ab8adfce134dd5b3fef8fc"
+    },
+    {
+      "id": 4,
+      "productCode": "1000555910531",
+      "userId": "ros*******",
+      "comment": "자주 구매합니다~ 금방 다 써바리는 함정",
+      "createdAt": "2024.07.06",
+      "rating": 5,
+      "imgUrl": "https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202407/20240706201714_1222219147_0_1.jpg&w=500&h=500&autoOrient=true&t=c21f0a04758b0aaf044c9a1f6b33cd0bb328bb32"
+    },
+    {
+      "id": 5,
+      "productCode": "1000555910531",
+      "userId": "cbb*******",
+      "comment": "정말 잘 쓰고 있었는데 이번이 마지막이라니\n이제 2% 적립 이벤트가 없어진다니 \n아쉽다\n아쉽다\n아쉽다\n진짜 ㅋ 안녕",
+      "createdAt": "2024.08.31",
+      "rating": 5,
+      "imgUrl": null
+    }
+  ],
+  "reviewStatics": {
+    "productCode": "1000555910531",
+    "rating": "4.9",
+    "reviewCount": "701건"
+  },
+  "cartItemList": [
+    {
+      "id": 1,
+      "productCode": "1000561178811",
+      "productName": "SS 우디 하우스 텀블러 591ml",
+      "imgUrl": "https://sitem.ssgcdn.com/11/88/17/item/1000561178811_i1_290.jpg",
+      "price": 40000,
+      "amount": 1,
+      "isChecked": true
+    },
+    {
+      "id": 2,
+      "productCode": "1000614587371",
+      "productName": "[스타벅스] SS 펭귄북스 틸튼 텀블러 355ml",
+      "imgUrl": "https://sitem.ssgcdn.com/71/73/58/item/1000614587371_i1_290.jpg",
+      "price": 38000,
+      "amount": 1,
+      "isChecked": false
+    },
+    {
+      "id": 3,
+      "productCode": "1000555910531",
+      "productName": "APP전용 e카드 교환권",
+      "imgUrl": "https://sitem.ssgcdn.com/38/09/91/item/1000555910938_i1_750.jpg",
+      "price": 30000,
+      "amount": 1,
+      "isChecked": true,
+      "option": "3만원",
+      "isOptionRequired": true
+    },
+    {
+      "id": 4,
+      "productCode": "1000555910531",
+      "productName": "APP전용 e카드 교환권",
+      "imgUrl": "https://sitem.ssgcdn.com/38/09/91/item/1000555910938_i1_750.jpg",
+      "price": 50000,
+      "amount": 1,
+      "isChecked": true,
+      "isOptionRequired": true
+    },
+    {
+      "id": 5,
+      "productCode": "1000600960431",
+      "productName": "코지 브런치 세트",
+      "imgUrl": "https://sitem.ssgcdn.com/31/04/96/item/1000600960431_i1_290.jpg",
+      "price": 80000,
+      "amount": 1,
+      "discountedPrice": 73000,
+      "isChecked": true
+    }
+  ],
+  "productOptionList": [
+    {
+      "productCode": "1000555910531",
+      "optionId": ["1", "2"]
+    }
+  ],
+  "option": [
+    {
+      "optionId": "1",
+      "optionDetail": "색상",
+      "optionValue": ["빨간색", "파란색", "하얀색"]
+    },
+    {
+      "optionId": "2",
+      "optionDetail": "사이즈",
+      "optionValue": ["XS", "S", "M", "L"]
+    }
+  ],
+  "cartItemOption": [
+    {
+      "id": 3,
+      "optionValue": "3만원",
+      "restock": 5
+    },
+    {
+      "id": 4,
+      "optionValue": "5만원"
+    }
+  ]
+}
