@@ -46,14 +46,14 @@ export default function Page() {
   };
 
   return (
-    <div>
-      <div className="progress-bar text-xs whitespace-nowrap">
+    <div className="px-5">
+      <div className="progress-bar text-xs whitespace-nowrap mb-9">
         {steps.map((step, index) => (
           <div
             key={step}
-            className={`step ${stepLevel >= index ? "completed" : ""}`}
+            className={`step ${stepLevel >= index ? "completed" : ""} w-[30px] h-[30px] text-center  font-extrabold`}
           >
-            {step}
+            {index + 1}
           </div>
         ))}
       </div>
