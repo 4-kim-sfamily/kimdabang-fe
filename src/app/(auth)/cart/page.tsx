@@ -6,6 +6,7 @@ import CartItemSection from "@/components/pages/cart/CartItemSection";
 import PayInfo from "@/components/pages/cart/PayInfo";
 import { cartList } from "@/types/items/Cart";
 import { ProductType } from "@/types/ResponseType";
+import { Metadata } from "next/types";
 
 export default async function page() {
   //체크된 아이템 리스트

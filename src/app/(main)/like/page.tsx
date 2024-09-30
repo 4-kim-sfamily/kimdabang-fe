@@ -2,7 +2,13 @@ import { getFavoriteList } from "@/actions/favorite/getFavoriteList";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import ItemCard from "@/components/Items/ItemCard";
 import { getServerSession } from "next-auth";
+import { Metadata } from "next/types";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "좋아요",
+  description: "좋아요한 상품목록을 확인할 수 있습니다.",
+};
 
 export default async function page() {
   // 1. 좋아요 리스트를 가져옴

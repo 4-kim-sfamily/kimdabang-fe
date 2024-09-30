@@ -6,7 +6,13 @@ import MainGiftProduct from "@/components/pages/main/MainGiftProduct";
 import MainSeason from "@/components/pages/main/MainSeason";
 import MainCarousel from "@/components/ui/MainCarousel";
 import { SeasonMediaType } from "@/types/main/CarouselDataType";
+import type { Metadata } from "next";
 import { getServerSession } from "next-auth/next";
+
+export const metadata: Metadata = {
+  title: "Starbucks",
+  description: "메인 페이지입니다.",
+};
 
 export default async function Home() {
   const data: SeasonMediaType[] = await getSeasonMedia();
