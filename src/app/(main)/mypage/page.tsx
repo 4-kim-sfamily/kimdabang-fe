@@ -11,7 +11,11 @@ import {
   ProductStateList,
 } from "@/components/pages/mypage";
 import EmblaCarousel from "@/components/ui/EmblaCarousel";
-
+import { Metadata } from "next/types";
+export const metadata: Metadata = {
+  title: "마이페이지",
+  description: "마이페이지입니다.",
+};
 export default async function page() {
   const noti = await getNotification();
 

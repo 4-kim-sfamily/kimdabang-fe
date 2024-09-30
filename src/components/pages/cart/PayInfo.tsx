@@ -50,7 +50,7 @@ export default async function PayInfo({
         <div className="payInfo">
           <h2 className="text-lg">총 결제예정금액</h2>
           <h2 className="text-xl font-extrabold">
-            {totalEstimatedPrice.toLocaleString("ko-KR")}원
+            {(totalEstimatedPrice + shippingfee).toLocaleString("ko-KR")}원
           </h2>
         </div>
       </div>
